@@ -1,0 +1,677 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		737BD2040ADF0C45A6E387AA /* libPods-nayashoppy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6336B5E970C4DC0C494B36A /* libPods-nayashoppy.a */; };
+		CF257D661DAF6B3200EC6789 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF257D651DAF6B3200EC6789 /* SWRevealViewController.m */; };
+		CF551BE81DB4E58B00858AB9 /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF551BE71DB4E58B00858AB9 /* CategoriesViewController.m */; };
+		CF5C74F61DB60E0F008475D1 /* CategoriesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5C74F41DB60E0F008475D1 /* CategoriesCell.m */; };
+		CF5C74F71DB60E0F008475D1 /* CategoriesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF5C74F51DB60E0F008475D1 /* CategoriesCell.xib */; };
+		CF5C74FA1DB6124C008475D1 /* MenuData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5C74F91DB6124C008475D1 /* MenuData.m */; };
+		CF5C74FE1DB627EB008475D1 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5C74FD1DB627EB008475D1 /* SideMenuViewController.m */; };
+		CF5C75021DB62A84008475D1 /* SideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5C75001DB62A84008475D1 /* SideMenu.m */; };
+		CF5C75031DB62A84008475D1 /* SideMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF5C75011DB62A84008475D1 /* SideMenu.xib */; };
+		CF607C5A1DB09E28004296F1 /* ApiParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = CF607C591DB09E28004296F1 /* ApiParsing.m */; };
+		CF607C5E1DB0B6F5004296F1 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF607C5D1DB0B6F5004296F1 /* HomeStoryboard.storyboard */; };
+		CF607C601DB0D049004296F1 /* DealsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF607C5F1DB0D049004296F1 /* DealsStoryboard.storyboard */; };
+		CF607C631DB0D09D004296F1 /* DealsOfTheDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF607C621DB0D09D004296F1 /* DealsOfTheDayViewController.m */; };
+		CF772FC61DB7631C008C13F8 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = CF772FC51DB7631C008C13F8 /* splash.png */; };
+		CF7A2E321DB88C1C000249F8 /* CouponsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7A2E301DB88C1C000249F8 /* CouponsCollectionViewCell.m */; };
+		CF7A2E331DB88C1C000249F8 /* CouponsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF7A2E311DB88C1C000249F8 /* CouponsCollectionViewCell.xib */; };
+		CF7A2E351DB89898000249F8 /* image_place_holder.png in Resources */ = {isa = PBXBuildFile; fileRef = CF7A2E341DB89898000249F8 /* image_place_holder.png */; };
+		CF7A2E3B1DB899E2000249F8 /* about.png in Resources */ = {isa = PBXBuildFile; fileRef = CF7A2E3A1DB899E2000249F8 /* about.png */; };
+		CF7A2E3D1DB89A97000249F8 /* slide_img1.png in Resources */ = {isa = PBXBuildFile; fileRef = CF7A2E3C1DB89A97000249F8 /* slide_img1.png */; };
+		CF7A2E441DB8B3D5000249F8 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = CF7A2E431DB8B3D5000249F8 /* share.png */; };
+		CF7A2E461DB8B3E7000249F8 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CF7A2E451DB8B3E7000249F8 /* logo.png */; };
+		CF7A2E481DB8C3BD000249F8 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = CF7A2E471DB8C3BD000249F8 /* user.png */; };
+		CF7A2E4A1DB8DB05000249F8 /* coupon.png in Resources */ = {isa = PBXBuildFile; fileRef = CF7A2E491DB8DB05000249F8 /* coupon.png */; };
+		CF7ACB601DA4ED5F00DF3BD7 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7ACB5F1DA4ED5F00DF3BD7 /* Categories.m */; };
+		CF7CEA481DA7AA6100F4E31E /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7CEA471DA7AA6100F4E31E /* GlobalVariables.m */; };
+		CF81BA791DB9F93C00ADE575 /* Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = CF81BA751DB9F93C00ADE575 /* Mapping.m */; };
+		CF81BA7A1DB9F93C00ADE575 /* SubCategories1.m in Sources */ = {isa = PBXBuildFile; fileRef = CF81BA761DB9F93C00ADE575 /* SubCategories1.m */; };
+		CF81BA7B1DB9F93C00ADE575 /* SubCategories2.m in Sources */ = {isa = PBXBuildFile; fileRef = CF81BA771DB9F93C00ADE575 /* SubCategories2.m */; };
+		CF81BA811DB9FB6600ADE575 /* MainCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = CF81BA801DB9FB6600ADE575 /* MainCategories.m */; };
+		CF81BA841DBA074A00ADE575 /* NewArrivals.m in Sources */ = {isa = PBXBuildFile; fileRef = CF81BA831DBA074A00ADE575 /* NewArrivals.m */; };
+		CF81BA891DBA07F800ADE575 /* Products.m in Sources */ = {isa = PBXBuildFile; fileRef = CF81BA881DBA07F800ADE575 /* Products.m */; };
+		CF81BA8E1DBA0F7300ADE575 /* NewArrivalViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF81BA8C1DBA0F7300ADE575 /* NewArrivalViewCell.m */; };
+		CF81BA8F1DBA0F7300ADE575 /* NewArrivalViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF81BA8D1DBA0F7300ADE575 /* NewArrivalViewCell.xib */; };
+		CFDDAF7B1DA24AB900AFBF34 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDDAF7A1DA24AB900AFBF34 /* main.m */; };
+		CFDDAF7E1DA24AB900AFBF34 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDDAF7D1DA24AB900AFBF34 /* AppDelegate.m */; };
+		CFDDAF811DA24AB900AFBF34 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDDAF801DA24AB900AFBF34 /* ViewController.m */; };
+		CFDDAF841DA24AB900AFBF34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFDDAF821DA24AB900AFBF34 /* Main.storyboard */; };
+		CFDDAF861DA24AB900AFBF34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFDDAF851DA24AB900AFBF34 /* Assets.xcassets */; };
+		CFDDAF891DA24AB900AFBF34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFDDAF871DA24AB900AFBF34 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1B401358B27273FCA5E1C110 /* Pods-nayashoppy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nayashoppy.release.xcconfig"; path = "Pods/Target Support Files/Pods-nayashoppy/Pods-nayashoppy.release.xcconfig"; sourceTree = "<group>"; };
+		1D18F8C52544AF8BC0D74C5B /* Pods-nayashoppy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nayashoppy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nayashoppy/Pods-nayashoppy.debug.xcconfig"; sourceTree = "<group>"; };
+		A6336B5E970C4DC0C494B36A /* libPods-nayashoppy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nayashoppy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF257D641DAF6B3200EC6789 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		CF257D651DAF6B3200EC6789 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		CF551BE61DB4E58B00858AB9 /* CategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
+		CF551BE71DB4E58B00858AB9 /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
+		CF5C74F31DB60E0F008475D1 /* CategoriesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesCell.h; sourceTree = "<group>"; };
+		CF5C74F41DB60E0F008475D1 /* CategoriesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesCell.m; sourceTree = "<group>"; };
+		CF5C74F51DB60E0F008475D1 /* CategoriesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoriesCell.xib; sourceTree = "<group>"; };
+		CF5C74F81DB6124C008475D1 /* MenuData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuData.h; sourceTree = "<group>"; };
+		CF5C74F91DB6124C008475D1 /* MenuData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuData.m; sourceTree = "<group>"; };
+		CF5C74FC1DB627EB008475D1 /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
+		CF5C74FD1DB627EB008475D1 /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
+		CF5C74FF1DB62A84008475D1 /* SideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenu.h; sourceTree = "<group>"; };
+		CF5C75001DB62A84008475D1 /* SideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenu.m; sourceTree = "<group>"; };
+		CF5C75011DB62A84008475D1 /* SideMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenu.xib; sourceTree = "<group>"; };
+		CF607C581DB09E28004296F1 /* ApiParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiParsing.h; sourceTree = "<group>"; };
+		CF607C591DB09E28004296F1 /* ApiParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiParsing.m; sourceTree = "<group>"; };
+		CF607C5D1DB0B6F5004296F1 /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
+		CF607C5F1DB0D049004296F1 /* DealsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DealsStoryboard.storyboard; sourceTree = "<group>"; };
+		CF607C611DB0D09D004296F1 /* DealsOfTheDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealsOfTheDayViewController.h; sourceTree = "<group>"; };
+		CF607C621DB0D09D004296F1 /* DealsOfTheDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealsOfTheDayViewController.m; sourceTree = "<group>"; };
+		CF772FC51DB7631C008C13F8 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
+		CF7A2E2F1DB88C1C000249F8 /* CouponsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponsCollectionViewCell.h; sourceTree = "<group>"; };
+		CF7A2E301DB88C1C000249F8 /* CouponsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponsCollectionViewCell.m; sourceTree = "<group>"; };
+		CF7A2E311DB88C1C000249F8 /* CouponsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponsCollectionViewCell.xib; sourceTree = "<group>"; };
+		CF7A2E341DB89898000249F8 /* image_place_holder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_place_holder.png; sourceTree = "<group>"; };
+		CF7A2E3A1DB899E2000249F8 /* about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about.png; sourceTree = "<group>"; };
+		CF7A2E3C1DB89A97000249F8 /* slide_img1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slide_img1.png; sourceTree = "<group>"; };
+		CF7A2E431DB8B3D5000249F8 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
+		CF7A2E451DB8B3E7000249F8 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		CF7A2E471DB8C3BD000249F8 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		CF7A2E491DB8DB05000249F8 /* coupon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coupon.png; sourceTree = "<group>"; };
+		CF7ACB5E1DA4ED5F00DF3BD7 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
+		CF7ACB5F1DA4ED5F00DF3BD7 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
+		CF7CEA461DA7AA6100F4E31E /* GlobalVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalVariables.h; sourceTree = "<group>"; };
+		CF7CEA471DA7AA6100F4E31E /* GlobalVariables.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalVariables.m; sourceTree = "<group>"; };
+		CF81BA6F1DB9F90200ADE575 /* Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mapping.h; sourceTree = "<group>"; };
+		CF81BA721DB9F93C00ADE575 /* SubCategories1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCategories1.h; sourceTree = "<group>"; };
+		CF81BA731DB9F93C00ADE575 /* SubCategories2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCategories2.h; sourceTree = "<group>"; };
+		CF81BA751DB9F93C00ADE575 /* Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mapping.m; sourceTree = "<group>"; };
+		CF81BA761DB9F93C00ADE575 /* SubCategories1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubCategories1.m; sourceTree = "<group>"; };
+		CF81BA771DB9F93C00ADE575 /* SubCategories2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubCategories2.m; sourceTree = "<group>"; };
+		CF81BA7F1DB9FB6600ADE575 /* MainCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCategories.h; sourceTree = "<group>"; };
+		CF81BA801DB9FB6600ADE575 /* MainCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCategories.m; sourceTree = "<group>"; };
+		CF81BA821DBA074A00ADE575 /* NewArrivals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewArrivals.h; sourceTree = "<group>"; };
+		CF81BA831DBA074A00ADE575 /* NewArrivals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewArrivals.m; sourceTree = "<group>"; };
+		CF81BA871DBA07F800ADE575 /* Products.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Products.h; sourceTree = "<group>"; };
+		CF81BA881DBA07F800ADE575 /* Products.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Products.m; sourceTree = "<group>"; };
+		CF81BA8B1DBA0F7300ADE575 /* NewArrivalViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewArrivalViewCell.h; sourceTree = "<group>"; };
+		CF81BA8C1DBA0F7300ADE575 /* NewArrivalViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewArrivalViewCell.m; sourceTree = "<group>"; };
+		CF81BA8D1DBA0F7300ADE575 /* NewArrivalViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewArrivalViewCell.xib; sourceTree = "<group>"; };
+		CFDDAF761DA24AB900AFBF34 /* nayashoppy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nayashoppy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFDDAF7A1DA24AB900AFBF34 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CFDDAF7C1DA24AB900AFBF34 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CFDDAF7D1DA24AB900AFBF34 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CFDDAF7F1DA24AB900AFBF34 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CFDDAF801DA24AB900AFBF34 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CFDDAF831DA24AB900AFBF34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CFDDAF851DA24AB900AFBF34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CFDDAF881DA24AB900AFBF34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CFDDAF8A1DA24AB900AFBF34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CFDDAF731DA24AB900AFBF34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				737BD2040ADF0C45A6E387AA /* libPods-nayashoppy.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AFDC9A79B5A197D2396DBF86 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6336B5E970C4DC0C494B36A /* libPods-nayashoppy.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF5C74FB1DB625B7008475D1 /* ApiData */ = {
+			isa = PBXGroup;
+			children = (
+				CF5C74F81DB6124C008475D1 /* MenuData.h */,
+				CF5C74F91DB6124C008475D1 /* MenuData.m */,
+			);
+			name = ApiData;
+			sourceTree = "<group>";
+		};
+		CF5C75041DB62CA5008475D1 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				CF5C74FC1DB627EB008475D1 /* SideMenuViewController.h */,
+				CF5C74FD1DB627EB008475D1 /* SideMenuViewController.m */,
+				CF5C74FF1DB62A84008475D1 /* SideMenu.h */,
+				CF5C75001DB62A84008475D1 /* SideMenu.m */,
+				CF5C75011DB62A84008475D1 /* SideMenu.xib */,
+			);
+			name = SideMenu;
+			sourceTree = "<group>";
+		};
+		CF607C5B1DB0B649004296F1 /* ApiParsing */ = {
+			isa = PBXGroup;
+			children = (
+				CF607C581DB09E28004296F1 /* ApiParsing.h */,
+				CF607C591DB09E28004296F1 /* ApiParsing.m */,
+			);
+			name = ApiParsing;
+			sourceTree = "<group>";
+		};
+		CF607C5C1DB0B689004296F1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CF5C75041DB62CA5008475D1 /* SideMenu */,
+				CF607C641DB0D0A5004296F1 /* DealsOfTheDay */,
+				CF7ACB611DA4EE1400DF3BD7 /* MainView */,
+				CFA7F8E61DA3890E00883955 /* HomeVc */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CF607C641DB0D0A5004296F1 /* DealsOfTheDay */ = {
+			isa = PBXGroup;
+			children = (
+				CF607C5F1DB0D049004296F1 /* DealsStoryboard.storyboard */,
+				CF607C611DB0D09D004296F1 /* DealsOfTheDayViewController.h */,
+				CF607C621DB0D09D004296F1 /* DealsOfTheDayViewController.m */,
+			);
+			name = DealsOfTheDay;
+			sourceTree = "<group>";
+		};
+		CF67A7261DAF7143002967C7 /* SWReavealView */ = {
+			isa = PBXGroup;
+			children = (
+				CF257D641DAF6B3200EC6789 /* SWRevealViewController.h */,
+				CF257D651DAF6B3200EC6789 /* SWRevealViewController.m */,
+			);
+			name = SWReavealView;
+			sourceTree = "<group>";
+		};
+		CF7A2E401DB8A5C5000249F8 /* CategoriesVc */ = {
+			isa = PBXGroup;
+			children = (
+				CF551BE61DB4E58B00858AB9 /* CategoriesViewController.h */,
+				CF551BE71DB4E58B00858AB9 /* CategoriesViewController.m */,
+				CF81BA8A1DBA0F3000ADE575 /* NewArrivalCell */,
+				CF7A2E421DB8A613000249F8 /* topmenuCell */,
+				CF7A2E411DB8A5DE000249F8 /* CouponsCell */,
+			);
+			name = CategoriesVc;
+			sourceTree = "<group>";
+		};
+		CF7A2E411DB8A5DE000249F8 /* CouponsCell */ = {
+			isa = PBXGroup;
+			children = (
+				CF7A2E301DB88C1C000249F8 /* CouponsCollectionViewCell.m */,
+				CF7A2E2F1DB88C1C000249F8 /* CouponsCollectionViewCell.h */,
+				CF7A2E311DB88C1C000249F8 /* CouponsCollectionViewCell.xib */,
+			);
+			name = CouponsCell;
+			sourceTree = "<group>";
+		};
+		CF7A2E421DB8A613000249F8 /* topmenuCell */ = {
+			isa = PBXGroup;
+			children = (
+				CF7ACB5E1DA4ED5F00DF3BD7 /* Categories.h */,
+				CF7ACB5F1DA4ED5F00DF3BD7 /* Categories.m */,
+				CF5C74F31DB60E0F008475D1 /* CategoriesCell.h */,
+				CF5C74F41DB60E0F008475D1 /* CategoriesCell.m */,
+				CF5C74F51DB60E0F008475D1 /* CategoriesCell.xib */,
+			);
+			name = topmenuCell;
+			sourceTree = "<group>";
+		};
+		CF7ACB611DA4EE1400DF3BD7 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				CFDDAF7F1DA24AB900AFBF34 /* ViewController.h */,
+				CFDDAF801DA24AB900AFBF34 /* ViewController.m */,
+			);
+			name = MainView;
+			sourceTree = "<group>";
+		};
+		CF7CEA451DA7AA3400F4E31E /* Global Variables */ = {
+			isa = PBXGroup;
+			children = (
+				CF7CEA461DA7AA6100F4E31E /* GlobalVariables.h */,
+				CF7CEA471DA7AA6100F4E31E /* GlobalVariables.m */,
+			);
+			name = "Global Variables";
+			sourceTree = "<group>";
+		};
+		CF81BA701DB9F91700ADE575 /* TopMenuMapping */ = {
+			isa = PBXGroup;
+			children = (
+				CF81BA6F1DB9F90200ADE575 /* Mapping.h */,
+				CF81BA751DB9F93C00ADE575 /* Mapping.m */,
+				CF81BA721DB9F93C00ADE575 /* SubCategories1.h */,
+				CF81BA761DB9F93C00ADE575 /* SubCategories1.m */,
+				CF81BA731DB9F93C00ADE575 /* SubCategories2.h */,
+				CF81BA771DB9F93C00ADE575 /* SubCategories2.m */,
+				CF81BA7F1DB9FB6600ADE575 /* MainCategories.h */,
+				CF81BA801DB9FB6600ADE575 /* MainCategories.m */,
+			);
+			name = TopMenuMapping;
+			sourceTree = "<group>";
+		};
+		CF81BA851DBA075700ADE575 /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				CF81BA861DBA076300ADE575 /* NewArrivalsMapping */,
+				CF81BA701DB9F91700ADE575 /* TopMenuMapping */,
+			);
+			name = Mapping;
+			sourceTree = "<group>";
+		};
+		CF81BA861DBA076300ADE575 /* NewArrivalsMapping */ = {
+			isa = PBXGroup;
+			children = (
+				CF81BA821DBA074A00ADE575 /* NewArrivals.h */,
+				CF81BA831DBA074A00ADE575 /* NewArrivals.m */,
+				CF81BA871DBA07F800ADE575 /* Products.h */,
+				CF81BA881DBA07F800ADE575 /* Products.m */,
+			);
+			name = NewArrivalsMapping;
+			sourceTree = "<group>";
+		};
+		CF81BA8A1DBA0F3000ADE575 /* NewArrivalCell */ = {
+			isa = PBXGroup;
+			children = (
+				CF81BA8B1DBA0F7300ADE575 /* NewArrivalViewCell.h */,
+				CF81BA8C1DBA0F7300ADE575 /* NewArrivalViewCell.m */,
+				CF81BA8D1DBA0F7300ADE575 /* NewArrivalViewCell.xib */,
+			);
+			name = NewArrivalCell;
+			sourceTree = "<group>";
+		};
+		CFA7F8E61DA3890E00883955 /* HomeVc */ = {
+			isa = PBXGroup;
+			children = (
+				CF607C5D1DB0B6F5004296F1 /* HomeStoryboard.storyboard */,
+				CF7A2E401DB8A5C5000249F8 /* CategoriesVc */,
+			);
+			name = HomeVc;
+			sourceTree = "<group>";
+		};
+		CFDDAF6D1DA24AB900AFBF34 = {
+			isa = PBXGroup;
+			children = (
+				CFDDAF781DA24AB900AFBF34 /* nayashoppy */,
+				CFDDAF771DA24AB900AFBF34 /* Products */,
+				E002653FFD67DC4CA1F5B70D /* Pods */,
+				AFDC9A79B5A197D2396DBF86 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CFDDAF771DA24AB900AFBF34 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CFDDAF761DA24AB900AFBF34 /* nayashoppy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFDDAF781DA24AB900AFBF34 /* nayashoppy */ = {
+			isa = PBXGroup;
+			children = (
+				CF7A2E3A1DB899E2000249F8 /* about.png */,
+				CF7A2E341DB89898000249F8 /* image_place_holder.png */,
+				CF7A2E491DB8DB05000249F8 /* coupon.png */,
+				CF7A2E471DB8C3BD000249F8 /* user.png */,
+				CF7A2E431DB8B3D5000249F8 /* share.png */,
+				CF7A2E451DB8B3E7000249F8 /* logo.png */,
+				CF7A2E3C1DB89A97000249F8 /* slide_img1.png */,
+				CFDDAF7C1DA24AB900AFBF34 /* AppDelegate.h */,
+				CFDDAF7D1DA24AB900AFBF34 /* AppDelegate.m */,
+				CF772FC51DB7631C008C13F8 /* splash.png */,
+				CFDDAF821DA24AB900AFBF34 /* Main.storyboard */,
+				CFDDAF851DA24AB900AFBF34 /* Assets.xcassets */,
+				CFDDAF871DA24AB900AFBF34 /* LaunchScreen.storyboard */,
+				CFDDAF8A1DA24AB900AFBF34 /* Info.plist */,
+				CF607C5C1DB0B689004296F1 /* ViewControllers */,
+				CFDDAF791DA24AB900AFBF34 /* Supporting Files */,
+			);
+			path = nayashoppy;
+			sourceTree = "<group>";
+		};
+		CFDDAF791DA24AB900AFBF34 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF81BA851DBA075700ADE575 /* Mapping */,
+				CF607C5B1DB0B649004296F1 /* ApiParsing */,
+				CF5C74FB1DB625B7008475D1 /* ApiData */,
+				CF67A7261DAF7143002967C7 /* SWReavealView */,
+				CF7CEA451DA7AA3400F4E31E /* Global Variables */,
+				CFDDAF7A1DA24AB900AFBF34 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E002653FFD67DC4CA1F5B70D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D18F8C52544AF8BC0D74C5B /* Pods-nayashoppy.debug.xcconfig */,
+				1B401358B27273FCA5E1C110 /* Pods-nayashoppy.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CFDDAF751DA24AB900AFBF34 /* nayashoppy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFDDAF8D1DA24AB900AFBF34 /* Build configuration list for PBXNativeTarget "nayashoppy" */;
+			buildPhases = (
+				559A33773402B85E62DF04C4 /* [CP] Check Pods Manifest.lock */,
+				CFDDAF721DA24AB900AFBF34 /* Sources */,
+				CFDDAF731DA24AB900AFBF34 /* Frameworks */,
+				CFDDAF741DA24AB900AFBF34 /* Resources */,
+				18A086B60C94AAD9FB72FFEC /* [CP] Embed Pods Frameworks */,
+				D088F1FE3EB798B6E79D5001 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = nayashoppy;
+			productName = nayashoppy;
+			productReference = CFDDAF761DA24AB900AFBF34 /* nayashoppy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CFDDAF6E1DA24AB900AFBF34 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = attribe;
+				TargetAttributes = {
+					CFDDAF751DA24AB900AFBF34 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = CFDDAF711DA24AB900AFBF34 /* Build configuration list for PBXProject "nayashoppy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CFDDAF6D1DA24AB900AFBF34;
+			productRefGroup = CFDDAF771DA24AB900AFBF34 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CFDDAF751DA24AB900AFBF34 /* nayashoppy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CFDDAF741DA24AB900AFBF34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF5C74F71DB60E0F008475D1 /* CategoriesCell.xib in Resources */,
+				CF7A2E481DB8C3BD000249F8 /* user.png in Resources */,
+				CFDDAF891DA24AB900AFBF34 /* LaunchScreen.storyboard in Resources */,
+				CFDDAF861DA24AB900AFBF34 /* Assets.xcassets in Resources */,
+				CF7A2E331DB88C1C000249F8 /* CouponsCollectionViewCell.xib in Resources */,
+				CF7A2E461DB8B3E7000249F8 /* logo.png in Resources */,
+				CFDDAF841DA24AB900AFBF34 /* Main.storyboard in Resources */,
+				CF5C75031DB62A84008475D1 /* SideMenu.xib in Resources */,
+				CF607C601DB0D049004296F1 /* DealsStoryboard.storyboard in Resources */,
+				CF7A2E351DB89898000249F8 /* image_place_holder.png in Resources */,
+				CF7A2E3B1DB899E2000249F8 /* about.png in Resources */,
+				CF772FC61DB7631C008C13F8 /* splash.png in Resources */,
+				CF607C5E1DB0B6F5004296F1 /* HomeStoryboard.storyboard in Resources */,
+				CF7A2E3D1DB89A97000249F8 /* slide_img1.png in Resources */,
+				CF81BA8F1DBA0F7300ADE575 /* NewArrivalViewCell.xib in Resources */,
+				CF7A2E4A1DB8DB05000249F8 /* coupon.png in Resources */,
+				CF7A2E441DB8B3D5000249F8 /* share.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		18A086B60C94AAD9FB72FFEC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nayashoppy/Pods-nayashoppy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		559A33773402B85E62DF04C4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D088F1FE3EB798B6E79D5001 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nayashoppy/Pods-nayashoppy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CFDDAF721DA24AB900AFBF34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF81BA791DB9F93C00ADE575 /* Mapping.m in Sources */,
+				CF81BA7A1DB9F93C00ADE575 /* SubCategories1.m in Sources */,
+				CF7A2E321DB88C1C000249F8 /* CouponsCollectionViewCell.m in Sources */,
+				CF5C74FE1DB627EB008475D1 /* SideMenuViewController.m in Sources */,
+				CF5C75021DB62A84008475D1 /* SideMenu.m in Sources */,
+				CF81BA891DBA07F800ADE575 /* Products.m in Sources */,
+				CF81BA811DB9FB6600ADE575 /* MainCategories.m in Sources */,
+				CFDDAF811DA24AB900AFBF34 /* ViewController.m in Sources */,
+				CF7CEA481DA7AA6100F4E31E /* GlobalVariables.m in Sources */,
+				CF257D661DAF6B3200EC6789 /* SWRevealViewController.m in Sources */,
+				CFDDAF7E1DA24AB900AFBF34 /* AppDelegate.m in Sources */,
+				CF5C74F61DB60E0F008475D1 /* CategoriesCell.m in Sources */,
+				CF5C74FA1DB6124C008475D1 /* MenuData.m in Sources */,
+				CF7ACB601DA4ED5F00DF3BD7 /* Categories.m in Sources */,
+				CF607C631DB0D09D004296F1 /* DealsOfTheDayViewController.m in Sources */,
+				CF607C5A1DB09E28004296F1 /* ApiParsing.m in Sources */,
+				CF81BA7B1DB9F93C00ADE575 /* SubCategories2.m in Sources */,
+				CF551BE81DB4E58B00858AB9 /* CategoriesViewController.m in Sources */,
+				CF81BA841DBA074A00ADE575 /* NewArrivals.m in Sources */,
+				CF81BA8E1DBA0F7300ADE575 /* NewArrivalViewCell.m in Sources */,
+				CFDDAF7B1DA24AB900AFBF34 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CFDDAF821DA24AB900AFBF34 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFDDAF831DA24AB900AFBF34 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CFDDAF871DA24AB900AFBF34 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFDDAF881DA24AB900AFBF34 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CFDDAF8B1DA24AB900AFBF34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CFDDAF8C1DA24AB900AFBF34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CFDDAF8E1DA24AB900AFBF34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D18F8C52544AF8BC0D74C5B /* Pods-nayashoppy.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = nayashoppy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.attribe.nayashoppy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CFDDAF8F1DA24AB900AFBF34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B401358B27273FCA5E1C110 /* Pods-nayashoppy.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = nayashoppy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.attribe.nayashoppy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CFDDAF711DA24AB900AFBF34 /* Build configuration list for PBXProject "nayashoppy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFDDAF8B1DA24AB900AFBF34 /* Debug */,
+				CFDDAF8C1DA24AB900AFBF34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFDDAF8D1DA24AB900AFBF34 /* Build configuration list for PBXNativeTarget "nayashoppy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFDDAF8E1DA24AB900AFBF34 /* Debug */,
+				CFDDAF8F1DA24AB900AFBF34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CFDDAF6E1DA24AB900AFBF34 /* Project object */;
+}

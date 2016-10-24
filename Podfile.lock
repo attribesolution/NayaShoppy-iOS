@@ -1,0 +1,38 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - DejalActivityView (1.2)
+  - ICViewPager (1.5.1)
+  - JSONModel (1.5.1)
+  - LaunchScreenViewController (0.0.5)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.0)
+  - DejalActivityView (= 1.2)
+  - ICViewPager
+  - JSONModel
+  - LaunchScreenViewController
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  DejalActivityView: 94d85757728a02cbb32445fcf6dfba17dc1e7393
+  ICViewPager: 032dc71a50fe898e185fae6112ded4bed0e0523c
+  JSONModel: fd2553dc9e6608a3f35bfc956a14be35395d3852
+  LaunchScreenViewController: 47be6410d1161d63586c9fa539d3901cfd8354a4
+
+PODFILE CHECKSUM: fc80bcec75b7bc869a4734599f2b0da7191a7ac3
+
+COCOAPODS: 1.0.1
