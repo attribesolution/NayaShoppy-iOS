@@ -12,5 +12,6 @@
 @property (strong,nonatomic) NSMutableArray *topmenu;
 @property (strong,nonatomic) NSMutableArray *topmenuImg;
 @property (strong,nonatomic) NSMutableArray *newarrival;
+@property (strong,nonatomic) NSMutableArray *newarrivalImg;
 +(MenuData *) Items;
 @end

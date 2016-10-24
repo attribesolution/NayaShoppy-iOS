@@ -13,7 +13,6 @@
 #import "MenuData.h"
 #import "Mapping.h"
 #import "SubCategories1.h"
-#import "SubCategories2.h"
 #import "NewArrivals.h"
 #import "Products.h"
 

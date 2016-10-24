@@ -11,7 +11,7 @@
 static MenuData *data = nil;
 
 @implementation MenuData
-@synthesize topmenu,topmenuImg,newarrival;
+@synthesize topmenu,topmenuImg,newarrival,newarrivalImg;
 
 +(MenuData *) Items
 {
@@ -37,6 +37,7 @@ static MenuData *data = nil;
         topmenu=[[NSMutableArray alloc]init];
         topmenuImg=[[NSMutableArray alloc]init];
         newarrival=[[NSMutableArray alloc]init];
+        newarrivalImg=[[NSMutableArray alloc]init];
     }
     return self;
 }

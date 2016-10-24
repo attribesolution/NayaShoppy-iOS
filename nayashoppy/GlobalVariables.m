@@ -47,13 +47,28 @@ NSMutableArray *categories=nil;
 {
 
     NSArray *CashCoupons = @[
-                                       @[ @"apple",[UIColor colorWithRed:124/255.0f green:175/255.0f blue:65/255.0f alpha:1.0f]],
-                                       @[ @"cup",[UIColor redColor]],
-                                       @[ @"cake",[UIColor purpleColor]],
-                                       @[ @"tea",[UIColor blueColor]],
-                                       @[ @"tea",[UIColor orangeColor]],
+                                       @[ @"Mobile Recharge",[UIColor colorWithRed:230/255.0f green:141/255.0f blue:  25/255.0f alpha:1.0f]],
+                                       @[ @"Travel",[UIColor colorWithRed:92/255.0f green:181/255.0f blue:  159/255.0f alpha:1.0f]],
+                                       @[ @"Food & Dining",[UIColor colorWithRed:189/255.0f green:102/255.0f blue:  217/255.0f alpha:1.0f]],
+                                       @[ @"Groceries",[UIColor colorWithRed:202/255.0f green:81/255.0f blue:  50/255.0f alpha:1.0f]],
+                                       @[ @"Movie Tickets",[UIColor colorWithRed:133/255.0f green:242/255.0f blue:  131/255.0f alpha:1.0f]],
                                        
                                        ];
     return CashCoupons;
+}
++(NSArray *) UserInfo
+{
+    
+    NSArray *UserInfo = @[
+                             @[ [UIImage imageNamed:@"logo.png"],@"Login/Register"],
+                             @[ [UIImage imageNamed:@"logo.png"],@"My Order"],
+                             @[ [UIImage imageNamed:@"logo.png"],@"My Wallet"],
+                             @[ [UIImage imageNamed:@"logo.png"],@"Whish List"],
+                             @[ [UIImage imageNamed:@"logo.png"],@"Rate the app"],
+                             @[ @"About Us"],
+                                
+                             
+                             ];
+    return UserInfo;
 }
 @end

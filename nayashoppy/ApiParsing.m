@@ -1,4 +1,4 @@
- //
+//
 //  ApiParsing.m
 //  nayashoppy
 //
@@ -78,13 +78,14 @@ static NSString *newArrivals = @"%@/newarrival";
         MenuData *ob=[MenuData Items];
         for(int i=0;i<newproduct.data.count;i++)
         {
-            Products *ic = newproduct.data[i]; 
+            Products *ic = newproduct.data[i];
+            Images *img=ic.images[0];
+            [ob.newarrivalImg addObject:[self image:img.image_path]];
             [ob.newarrival addObject:ic.product_name];
         }
         success(true);
         
-    }
-                                                 failure:^(NSURLSessionDataTask *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *operation, NSError *error) {
                                                      failure(error,nil); }];
     
     return task;
@@ -99,7 +100,6 @@ static NSString *newArrivals = @"%@/newarrival";
     self.sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
     
     [self.sessionManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    self.sessionManager.session.configuration.timeoutIntervalForRequest = 25.0;
     return url;
     
 }

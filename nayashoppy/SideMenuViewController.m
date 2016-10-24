@@ -8,7 +8,7 @@
 //
 
 #import "SideMenuViewController.h"
-
+static NSString *SideMenuCell =@"SideMenu";
 @interface SideMenuViewController ()
 {
     MenuData *obj;
@@ -19,6 +19,7 @@
 @synthesize sidetable;
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
      obj=[MenuData Items];
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
@@ -54,12 +55,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    static NSString *simpleTableIdentifier = @"SideMenu";
-    
-    SideMenu *cell = (SideMenu *)[sidetable dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    SideMenu *cell = (SideMenu *)[sidetable dequeueReusableCellWithIdentifier:SideMenuCell];
     if (cell == nil)
     {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SideMenu" owner:self options:nil];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:SideMenuCell owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
     

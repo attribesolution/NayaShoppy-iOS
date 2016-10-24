@@ -26,7 +26,12 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
 
 @synthesize myCollectionView;
 
-
+-(void) viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    [self.ScrollView layoutIfNeeded];
+    self.ScrollView.contentSize=self.Contentview.bounds.size;
+}
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -96,9 +101,9 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
     if (collectionView.tag==2) {
     NewArrivalViewCell *NAcell=[collectionView dequeueReusableCellWithReuseIdentifier:NewArrivalCell forIndexPath:indexPath];
         
-        NAcell.NAimg.image= [UIImage imageNamed:@"logo.png"];
+        NAcell.NAimg.image= [ob.newarrivalImg objectAtIndex:indexPath.row];
         [NAcell.NAProductName setText:[ob.newarrival objectAtIndex:indexPath.row]];
-        NAcell.backgroundColor=[UIColor blackColor];
+
         return NAcell;
     }
     else
@@ -124,6 +129,8 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     if(collectionView==self.myCollectionView)
     return CGSizeMake(collectionView.frame.size.width/4-1, 90);
+    if(collectionView==self.NewArrivalCv)
+        return CGSizeMake(collectionView.frame.size.width/3-1, 109);
     else
         return CGSizeMake(collectionView.frame.size.width/5-1, 70);
 }
@@ -131,5 +138,19 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
 - (void)didTapAnywhere:(UITapGestureRecognizer *) sender
 {
     [self.view endEditing:YES];
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    self.ScrollView.alwaysBounceVertical = NO;
+    self.myCollectionView.alwaysBounceVertical=NO;
+    self.NewArrivalCv.alwaysBounceHorizontal = NO;
+    
+  
+}
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    
+}
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+  
 }
 @end

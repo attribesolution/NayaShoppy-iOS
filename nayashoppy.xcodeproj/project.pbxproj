@@ -20,6 +20,10 @@
 		CF607C5E1DB0B6F5004296F1 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF607C5D1DB0B6F5004296F1 /* HomeStoryboard.storyboard */; };
 		CF607C601DB0D049004296F1 /* DealsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF607C5F1DB0D049004296F1 /* DealsStoryboard.storyboard */; };
 		CF607C631DB0D09D004296F1 /* DealsOfTheDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF607C621DB0D09D004296F1 /* DealsOfTheDayViewController.m */; };
+		CF6927051DBDFFB500B85F64 /* Images.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6927041DBDFFB500B85F64 /* Images.m */; };
+		CF6927081DBE27E500B85F64 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6927071DBE27E500B85F64 /* UserViewController.m */; };
+		CF6927141DBE303900B85F64 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6927121DBE303900B85F64 /* UserCell.m */; };
+		CF6927151DBE303900B85F64 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF6927131DBE303900B85F64 /* UserCell.xib */; };
 		CF772FC61DB7631C008C13F8 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = CF772FC51DB7631C008C13F8 /* splash.png */; };
 		CF7A2E321DB88C1C000249F8 /* CouponsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7A2E301DB88C1C000249F8 /* CouponsCollectionViewCell.m */; };
 		CF7A2E331DB88C1C000249F8 /* CouponsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF7A2E311DB88C1C000249F8 /* CouponsCollectionViewCell.xib */; };
@@ -72,6 +76,13 @@
 		CF607C5F1DB0D049004296F1 /* DealsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DealsStoryboard.storyboard; sourceTree = "<group>"; };
 		CF607C611DB0D09D004296F1 /* DealsOfTheDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealsOfTheDayViewController.h; sourceTree = "<group>"; };
 		CF607C621DB0D09D004296F1 /* DealsOfTheDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealsOfTheDayViewController.m; sourceTree = "<group>"; };
+		CF6927031DBDFFB500B85F64 /* Images.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Images.h; sourceTree = "<group>"; };
+		CF6927041DBDFFB500B85F64 /* Images.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Images.m; sourceTree = "<group>"; };
+		CF6927061DBE27E500B85F64 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		CF6927071DBE27E500B85F64 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		CF6927111DBE303900B85F64 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
+		CF6927121DBE303900B85F64 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
+		CF6927131DBE303900B85F64 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		CF772FC51DB7631C008C13F8 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		CF7A2E2F1DB88C1C000249F8 /* CouponsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponsCollectionViewCell.h; sourceTree = "<group>"; };
 		CF7A2E301DB88C1C000249F8 /* CouponsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponsCollectionViewCell.m; sourceTree = "<group>"; };
@@ -167,6 +178,7 @@
 		CF607C5C1DB0B689004296F1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CF6927091DBE281800B85F64 /* User */,
 				CF5C75041DB62CA5008475D1 /* SideMenu */,
 				CF607C641DB0D0A5004296F1 /* DealsOfTheDay */,
 				CF7ACB611DA4EE1400DF3BD7 /* MainView */,
@@ -192,6 +204,18 @@
 				CF257D651DAF6B3200EC6789 /* SWRevealViewController.m */,
 			);
 			name = SWReavealView;
+			sourceTree = "<group>";
+		};
+		CF6927091DBE281800B85F64 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				CF6927061DBE27E500B85F64 /* UserViewController.h */,
+				CF6927071DBE27E500B85F64 /* UserViewController.m */,
+				CF6927111DBE303900B85F64 /* UserCell.h */,
+				CF6927121DBE303900B85F64 /* UserCell.m */,
+				CF6927131DBE303900B85F64 /* UserCell.xib */,
+			);
+			name = User;
 			sourceTree = "<group>";
 		};
 		CF7A2E401DB8A5C5000249F8 /* CategoriesVc */ = {
@@ -277,6 +301,8 @@
 				CF81BA831DBA074A00ADE575 /* NewArrivals.m */,
 				CF81BA871DBA07F800ADE575 /* Products.h */,
 				CF81BA881DBA07F800ADE575 /* Products.m */,
+				CF6927031DBDFFB500B85F64 /* Images.h */,
+				CF6927041DBDFFB500B85F64 /* Images.m */,
 			);
 			name = NewArrivalsMapping;
 			sourceTree = "<group>";
@@ -427,6 +453,7 @@
 				CF7A2E481DB8C3BD000249F8 /* user.png in Resources */,
 				CFDDAF891DA24AB900AFBF34 /* LaunchScreen.storyboard in Resources */,
 				CFDDAF861DA24AB900AFBF34 /* Assets.xcassets in Resources */,
+				CF6927151DBE303900B85F64 /* UserCell.xib in Resources */,
 				CF7A2E331DB88C1C000249F8 /* CouponsCollectionViewCell.xib in Resources */,
 				CF7A2E461DB8B3E7000249F8 /* logo.png in Resources */,
 				CFDDAF841DA24AB900AFBF34 /* Main.storyboard in Resources */,
@@ -502,6 +529,7 @@
 				CF81BA7A1DB9F93C00ADE575 /* SubCategories1.m in Sources */,
 				CF7A2E321DB88C1C000249F8 /* CouponsCollectionViewCell.m in Sources */,
 				CF5C74FE1DB627EB008475D1 /* SideMenuViewController.m in Sources */,
+				CF6927141DBE303900B85F64 /* UserCell.m in Sources */,
 				CF5C75021DB62A84008475D1 /* SideMenu.m in Sources */,
 				CF81BA891DBA07F800ADE575 /* Products.m in Sources */,
 				CF81BA811DB9FB6600ADE575 /* MainCategories.m in Sources */,
@@ -509,10 +537,12 @@
 				CF7CEA481DA7AA6100F4E31E /* GlobalVariables.m in Sources */,
 				CF257D661DAF6B3200EC6789 /* SWRevealViewController.m in Sources */,
 				CFDDAF7E1DA24AB900AFBF34 /* AppDelegate.m in Sources */,
+				CF6927051DBDFFB500B85F64 /* Images.m in Sources */,
 				CF5C74F61DB60E0F008475D1 /* CategoriesCell.m in Sources */,
 				CF5C74FA1DB6124C008475D1 /* MenuData.m in Sources */,
 				CF7ACB601DA4ED5F00DF3BD7 /* Categories.m in Sources */,
 				CF607C631DB0D09D004296F1 /* DealsOfTheDayViewController.m in Sources */,
+				CF6927081DBE27E500B85F64 /* UserViewController.m in Sources */,
 				CF607C5A1DB09E28004296F1 /* ApiParsing.m in Sources */,
 				CF81BA7B1DB9F93C00ADE575 /* SubCategories2.m in Sources */,
 				CF551BE81DB4E58B00858AB9 /* CategoriesViewController.m in Sources */,

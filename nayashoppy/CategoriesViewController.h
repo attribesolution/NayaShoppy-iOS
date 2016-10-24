@@ -20,5 +20,6 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *myCollectionView;
 @property (strong, nonatomic) IBOutlet UIScrollView *ScrollView;
 @property (strong, nonatomic) IBOutlet UICollectionView *NewArrivalCv;
+@property (strong, nonatomic) IBOutlet UIView *Contentview;
 
 @end

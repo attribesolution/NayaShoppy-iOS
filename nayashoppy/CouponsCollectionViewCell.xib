@@ -13,24 +13,34 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="86" height="94"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MI-dy-RYh">
-                        <rect key="frame" x="22" y="36" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MI-dy-RYh">
+                        <rect key="frame" x="8" y="40" width="70" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="54" id="uN0-Yk-QqI"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="uN0-Yk-QqI"/>
+                            </mask>
+                        </variation>
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstItem="0MI-dy-RYh" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="IL7-O1-qBQ"/>
-                <constraint firstItem="0MI-dy-RYh" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="S09-2J-eq0"/>
+                <constraint firstItem="0MI-dy-RYh" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Bu9-qb-tjc"/>
+                <constraint firstAttribute="trailing" secondItem="0MI-dy-RYh" secondAttribute="trailing" constant="8" id="JQQ-nZ-LGm"/>
+                <constraint firstItem="0MI-dy-RYh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="cF3-Fx-YJ9"/>
+                <constraint firstItem="0MI-dy-RYh" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="wgl-68-Kc0"/>
             </constraints>
             <size key="customSize" width="86" height="94"/>
             <connections>
                 <outlet property="CouponLabel" destination="0MI-dy-RYh" id="Tj5-Ur-abJ"/>
             </connections>
-            <point key="canvasLocation" x="320" y="276"/>
+            <point key="canvasLocation" x="-126" y="112"/>
         </collectionViewCell>
     </objects>
 </document>

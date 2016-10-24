@@ -7,6 +7,7 @@
 //
 
 #import <JSONModel/JSONModel.h>
+#import "Images.h"
 
 @protocol Products
 @end
@@ -50,6 +51,6 @@
 @property (strong,nonatomic) NSNumber *store_name;
 @property (strong,nonatomic) NSNumber *store_id;
 @property (strong,nonatomic) NSNumber *show_home_page;
-@property (strong,nonatomic) NSArray *images;
+@property (strong,nonatomic) NSArray <Images> *images;
 @property (strong,nonatomic) NSArray *suppliers;
 @end

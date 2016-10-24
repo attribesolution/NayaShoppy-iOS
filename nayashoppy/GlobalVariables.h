@@ -24,4 +24,5 @@ extern NSMutableArray *categories;
 +(UIView *) titleView:(NSString *) title1 andImg:(NSString *) img andy:(CGFloat) y;
 +(UIView *) titleView:(NSString *) title1 andImg:(NSString *) img;
 +(NSArray *) CashCoupons;
++(NSArray *) UserInfo;
 @end

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Reveal View Controller-->
@@ -62,10 +63,10 @@
             </objects>
             <point key="canvasLocation" x="194" y="-284"/>
         </scene>
-        <!--View Controller-->
+        <!--User View Controller-->
         <scene sceneID="KGI-o2-jp7">
             <objects>
-                <viewController id="oWP-f1-5pB" sceneMemberID="viewController">
+                <viewController id="oWP-f1-5pB" customClass="UserViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="thj-4A-SQF"/>
                         <viewControllerLayoutGuide type="bottom" id="GDc-Eo-KgZ"/>
@@ -73,13 +74,40 @@
                     <view key="view" contentMode="scaleToFill" id="s6P-pj-QwZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZHR-rw-YzI">
+                                <rect key="frame" x="92" y="28" width="228" height="452"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="oWP-f1-5pB" id="psC-6z-d7v"/>
+                                    <outlet property="delegate" destination="oWP-f1-5pB" id="zMw-Lo-Hdg"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GDc-Eo-KgZ" firstAttribute="top" secondItem="ZHR-rw-YzI" secondAttribute="bottom" id="I4c-4P-1DY"/>
+                            <constraint firstItem="ZHR-rw-YzI" firstAttribute="top" secondItem="s6P-pj-QwZ" secondAttribute="top" id="d4d-tT-pzS"/>
+                            <constraint firstAttribute="trailing" secondItem="ZHR-rw-YzI" secondAttribute="trailing" id="kem-Q0-iFH"/>
+                            <constraint firstItem="ZHR-rw-YzI" firstAttribute="top" secondItem="thj-4A-SQF" secondAttribute="bottom" constant="8" id="prB-Xc-SLM"/>
+                            <constraint firstItem="ZHR-rw-YzI" firstAttribute="leading" secondItem="s6P-pj-QwZ" secondAttribute="leadingMargin" constant="76" id="rGd-of-beZ"/>
+                            <constraint firstItem="ZHR-rw-YzI" firstAttribute="top" secondItem="thj-4A-SQF" secondAttribute="bottom" constant="8" id="tdl-5J-yzO"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="d4d-tT-pzS"/>
+                                <exclude reference="prB-Xc-SLM"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="UserInfoTable" destination="ZHR-rw-YzI" id="txg-nN-gbZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WX4-oq-RNV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1012" y="-284"/>
+            <point key="canvasLocation" x="566" y="-284"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
