@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ViewPagerController.h"
-#import "CategoriesViewController.h"
 #import "GlobalVariables.h"
 #import "DealsOfTheDayViewController.h"
 #import "SWRevealViewController.h"
+#import "HomeViewController.h"
 
 @interface ViewController : ViewPagerController<ViewPagerDataSource,ViewPagerDelegate,UISearchBarDelegate>
 @property (strong, nonatomic) IBOutlet UISearchBar *searchbar;

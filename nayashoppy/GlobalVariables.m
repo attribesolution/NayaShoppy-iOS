@@ -43,6 +43,7 @@ NSMutableArray *categories=nil;
     titleView.backgroundColor =[UIColor clearColor];
     return titleView;
 }
+
 +(NSArray *) CashCoupons
 {
 
@@ -56,19 +57,21 @@ NSMutableArray *categories=nil;
                                        ];
     return CashCoupons;
 }
+
 +(NSArray *) UserInfo
 {
     
     NSArray *UserInfo = @[
-                             @[ [UIImage imageNamed:@"logo.png"],@"Login/Register"],
-                             @[ [UIImage imageNamed:@"logo.png"],@"My Order"],
-                             @[ [UIImage imageNamed:@"logo.png"],@"My Wallet"],
-                             @[ [UIImage imageNamed:@"logo.png"],@"Whish List"],
-                             @[ [UIImage imageNamed:@"logo.png"],@"Rate the app"],
-                             @[ @"About Us"],
-                                
-                             
+                          
+                          @[ [UIImage imageNamed:@"Login"],@"Login/Register"],
+                          @[ [UIImage imageNamed:@"My Order"],@"My Order"],
+                          @[ [UIImage imageNamed:@"My Wallet"],@"My Wallet"],
+                          @[ [UIImage imageNamed:@"My Wishlist"],@"Whish List"],
+                          @[ [UIImage imageNamed:@"RateApp"],@"Rate the app"],
+                          @[ @"About Us"],
+                          
                              ];
     return UserInfo;
 }
+
 @end

@@ -23,7 +23,7 @@ static NSString *SideMenuCell =@"SideMenu";
     [super viewDidLoad];
      obj=[MenuData Items];
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    self.navigationItem.titleView=[[GlobalVariables class]titleView:@"My User" andImg:@"user.png" andy:logoY+20];
+    self.navigationItem.titleView=[[GlobalVariables class]titleView:@"My User" andImg:@"UserIcon" andy:logoY+20];
     self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
 }
 
@@ -49,7 +49,10 @@ static NSString *SideMenuCell =@"SideMenu";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   // [self performSegueWithIdentifier:@"MSegue" sender:tableView];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"DetailedStoryboard" bundle:nil];
+    DetailedViewController *cvc = [storyboard instantiateViewControllerWithIdentifier:@"Detail"];
+    [self.navigationController pushViewController:cvc animated:YES];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

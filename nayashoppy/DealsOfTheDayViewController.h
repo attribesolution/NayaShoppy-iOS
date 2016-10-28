@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MenuData.h"
+#import "DealsCell.h"
+#import "Categories.h"
+#import "MenuData.h"
 
-@interface DealsOfTheDayViewController : UIViewController
+@interface DealsOfTheDayViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UICollectionView *DealsOfTheDayCV;
 
 @end

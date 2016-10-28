@@ -1,0 +1,17 @@
+
+//
+//  DealsOfDay.m
+//  nayashoppy
+//
+//  Created by Amerald on 26/10/2016.
+//  Copyright © 2016 attribe. All rights reserved.
+//
+
+#import "DealsOfDay.h"
+
+@implementation DealsOfDay
+
+@synthesize id,name,site_url,data_url,image,status,children;
+
+@end
+

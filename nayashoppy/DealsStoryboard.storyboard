@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Deals Of The Day View Controller-->
@@ -16,7 +17,41 @@
                     <view key="view" contentMode="scaleToFill" id="Cmd-LV-62w">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3Dp-zX-zIH">
+                                <rect key="frame" x="0.0" y="50" width="600" height="550"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iAR-ql-XLk">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Us5-b1-IVG">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3Dp-zX-zIH" firstAttribute="top" secondItem="Cmd-LV-62w" secondAttribute="topMargin" constant="50" id="CwR-ZJ-iFd"/>
+                            <constraint firstItem="3Dp-zX-zIH" firstAttribute="leading" secondItem="Cmd-LV-62w" secondAttribute="leading" id="OoK-XP-Mmx"/>
+                            <constraint firstAttribute="trailing" secondItem="3Dp-zX-zIH" secondAttribute="trailing" id="RZl-jB-0ZU"/>
+                            <constraint firstItem="tpu-hD-7St" firstAttribute="top" secondItem="3Dp-zX-zIH" secondAttribute="bottom" id="mj2-dq-kSL"/>
+                            <constraint firstItem="3Dp-zX-zIH" firstAttribute="top" secondItem="Cmd-LV-62w" secondAttribute="top" id="oS4-Wl-RVB"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="oS4-Wl-RVB"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QSE-cb-PEy" userLabel="First Responder" sceneMemberID="firstResponder"/>

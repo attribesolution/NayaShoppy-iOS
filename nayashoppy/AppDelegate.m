@@ -34,10 +34,18 @@
     } failure:^(NSError *error, NSString *message) {
         NSLog(@"%@",error);
     }];
+    
+    [mainVC DealsOfTheDay: ^(BOOL success) {
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshDealsCV" object:nil];
+        
+    } failure:^(NSError *error, NSString *message) {
+        NSLog(@"%@",error);
+    }];
+    
 
-    [NSThread sleepForTimeInterval:2];
-
-        return YES;
+    
+       return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

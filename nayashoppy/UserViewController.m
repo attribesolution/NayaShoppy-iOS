@@ -59,12 +59,14 @@ static NSString *userCell =@"UserCell";
 
 -(void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     [self.UserInfoTable deselectRowAtIndexPath:[self.UserInfoTable indexPathForSelectedRow] animated:NO];
     [self.UserInfoTable setContentOffset:CGPointZero animated:NO];
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     self.UserInfoTable.alwaysBounceVertical = NO;
+
 }
 
 

@@ -12,7 +12,7 @@
 {
     NSMutableArray *tabItem;
     NSString *baseurl;
-   
+    
 }
 @end
 
@@ -40,18 +40,19 @@
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index {
     if(index==0)
     {
-    UIStoryboard *categoriesSB=[UIStoryboard storyboardWithName:@"HomeStoryboard" bundle:nil];
-    CategoriesViewController *cvc = [categoriesSB instantiateViewControllerWithIdentifier:@"Home"];
+        UIStoryboard *categoriesSB=[UIStoryboard storyboardWithName:@"HomeView" bundle:nil];
+        HomeViewController *cvc = [categoriesSB instantiateViewControllerWithIdentifier:@"Home"];
         [self myvc:cvc];
         return cvc;
-    }
-
+      
+            }
+    
     else
     {
         UIStoryboard *deals=[UIStoryboard storyboardWithName:@"DealsStoryboard" bundle:nil];
         DealsOfTheDayViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"deals"];
         [self myvc:dvc];
-         return dvc;
+        return dvc;
     }
 }
 
@@ -104,14 +105,14 @@
                                                               style:UIBarButtonItemStylePlain target:revealController action:@selector(revealToggle:)];
     self.searchbar.delegate=self;
     NSArray *leftButtonItems = @[menu1];
-     
+    
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    self.navigationItem.titleView =[[GlobalVariables class] titleView:@"NAYA SHOPPY" andImg:@"logo.png" andy:logoY] ;
-
-    UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"about.png"]
+    self.navigationItem.titleView =[[GlobalVariables class] titleView:@"NAYA SHOPPY" andImg:@"Logo" andy:logoY] ;
+    
+    UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"User"]
                                                                               style:UIBarButtonItemStylePlain target:revealController action:@selector(rightRevealToggle:)];
     
-    UIBarButtonItem *share = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share.png"]
+    UIBarButtonItem *share = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Share"]
                                                               style:UIBarButtonItemStylePlain  target:self action:nil];
     share.tintColor=[UIColor whiteColor];
     
@@ -130,7 +131,7 @@
 }
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
-       return YES;
+    return YES;
 }
 -(void) myvc:(UIViewController *) vc
 {

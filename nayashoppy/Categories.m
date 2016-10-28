@@ -10,7 +10,7 @@
 
 @implementation Categories
 
-@synthesize TMimg,TMtitle;
+@synthesize TMimg,TMtitle,OfferPrice,ActualPrice;
 
 -(id) initWithTitle:title andImg:img
 {
@@ -21,6 +21,16 @@
     }
     return self;
     
+}
+-(id) initWithTitle:title andPrice1:price1 andPrice2:price2
+{
+    self=[super init];
+    {
+        TMtitle=title;
+        OfferPrice=price1;
+        ActualPrice=price2;
+    }
+    return self;
 }
 
 @end

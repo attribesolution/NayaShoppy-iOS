@@ -10,11 +10,14 @@
 
 @interface Categories : JSONModel
 
-
 @property(nonatomic,strong) NSString * TMtitle;
 @property(nonatomic,strong) NSString * TMimg;
+@property(nonatomic,strong) NSString * OfferPrice;
+@property(nonatomic,strong) NSString * ActualPrice;
 
 -(id) initWithTitle:title andImg:img;
+-(id) initWithTitle:title andPrice1:price1 andPrice2:price2;
+
 
 
 @end
