@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "AppDelegate.h"
 
 @interface ViewController ()
 {
@@ -44,8 +45,7 @@
         HomeViewController *cvc = [categoriesSB instantiateViewControllerWithIdentifier:@"Home"];
         [self myvc:cvc];
         return cvc;
-      
-            }
+    }
     
     else
     {
@@ -123,6 +123,10 @@
     
     self.navigationItem.rightBarButtonItem.tintColor=[UIColor whiteColor];
     self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.navController=self.navigationController;
+    
 }
 
 - (void)didTapAnywhere:(UITapGestureRecognizer *) sender

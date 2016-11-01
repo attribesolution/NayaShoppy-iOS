@@ -21,10 +21,14 @@ static NSString *SideMenuCell =@"SideMenu";
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-     obj=[MenuData Items];
+    obj=[MenuData Items];
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
     self.navigationItem.titleView=[[GlobalVariables class]titleView:@"My User" andImg:@"UserIcon" andy:logoY+20];
     self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.hidesBackButton = YES;
+    self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
+
 }
 
 #pragma mark - UITableDelegate Method
@@ -49,12 +53,15 @@ static NSString *SideMenuCell =@"SideMenu";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"DetailedStoryboard" bundle:nil];
-    DetailedViewController *cvc = [storyboard instantiateViewControllerWithIdentifier:@"Detail"];
-    [self.navigationController pushViewController:cvc animated:YES];
-}
+    UIStoryboard *deals=[UIStoryboard storyboardWithName:@"DetailView" bundle:nil];
+    DetailedViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"Detail"];
+    SWRevealViewController *sv=self.revealViewController;
+    [sv revealToggle:self];
 
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.navController pushViewController:dvc animated:YES];
+    appDelegate.navController.navigationBar.tintColor=[UIColor whiteColor];
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     

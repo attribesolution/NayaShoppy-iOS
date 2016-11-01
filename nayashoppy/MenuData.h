@@ -15,6 +15,7 @@
 @property (strong,nonatomic) NSMutableArray *newarrivalImg;
 @property (strong,nonatomic) NSMutableArray *DealsOfTheDay;
 @property (strong,nonatomic) NSMutableArray *DealsOfTheDayImg;
+@property (strong,nonatomic) NSMutableArray *Child;
 
 +(MenuData *) Items;
 @end

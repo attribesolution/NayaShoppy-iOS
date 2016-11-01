@@ -141,6 +141,9 @@ static NSString *CouponsLabelImg=@"Coupon";
 
         if(indexPath.row==2)
         [cell.Labelview addSubview:[[GlobalVariables class]titleView:CouponsLabelTitle andImg:CouponsLabelImg ]];
+        cell.textLabel.textColor = [UIColor darkGrayColor];
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:15];
+
         if(indexPath.row==4)
         cell.textLabel.text= @"New Arrivals";
         if(indexPath.row==6)

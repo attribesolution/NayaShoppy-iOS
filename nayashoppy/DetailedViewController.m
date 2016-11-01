@@ -11,7 +11,7 @@
 
 @interface DetailedViewController ()
 {
-     NSMutableArray *tabItem;
+     NSMutableArray *tabItem,*categories;
     MenuData *obj;
 }
 @end
@@ -22,32 +22,42 @@
 - (void)viewDidLoad {
     
     obj=[MenuData Items];
-    
-    tabItem=[[NSMutableArray alloc]initWithArray:obj.topmenu];
+    categories=[[NSMutableArray alloc]init];
+    if(obj.topmenu.count!=0)
+    {
+    for (int i=0; i<obj.topmenu.count; i++) {
+         Categories *currentCat=[obj.topmenu objectAtIndex:i];
+        [categories addObject:currentCat.TMtitle];
+    }
+    }
+    tabItem=[[NSMutableArray alloc] initWithArray:categories];
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
     tapRecognizer.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tapRecognizer];
     self.dataSource = self;
     self.delegate = self;
     
-    [self navBar];
+   [self navBar];
 }
 
 #pragma mark - ViewPagerControllerDelegate Methods
 
 - (NSUInteger)numberOfTabsForViewPager:(ViewPagerController *)viewPager {
-    return obj.topmenu.count;
+    return categories.count;
 }
 
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index {
-    
-      UIStoryboard *deals=[UIStoryboard storyboardWithName:@"DealsStoryboard" bundle:nil];
-        DealsOfTheDayViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"deals"];
-      dvc.view.backgroundColor=[UIColor grayColor];
-        return dvc;
    
+    UIStoryboard *deals=[UIStoryboard storyboardWithName:@"Categories" bundle:nil];
+      DealsOfTheDayViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"Categories"];
+      dvc.view.backgroundColor=[UIColor whiteColor];
+      [[NSNotificationCenter defaultCenter] postNotificationName:@"CategorieAtIndex" object:categories[index]];
+       return dvc;
 }
+- (void)viewPager:(ViewPagerController *)viewPager didChangeTabToIndex:(NSUInteger)index {
 
+    
+}
 - (UIView *)viewPager:(ViewPagerController *)viewPager viewForTabAtIndex:(NSUInteger)index {
     
     UILabel *label = [UILabel new];
@@ -91,7 +101,8 @@
 -(void) navBar
 {
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    self.navigationItem.titleView =[[GlobalVariables class] titleView:@"NAYA SHOPPY" andImg:@"Logo" andy:logoY] ;
+    self.navigationItem.titleView =[[GlobalVariables class] titleView:@"Shop By Categories            " andImg:@"Logo" andy:logoY] ;
+    
     
 }
 

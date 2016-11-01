@@ -10,14 +10,14 @@
 
 @implementation Categories
 
-@synthesize TMimg,TMtitle,OfferPrice,ActualPrice;
+@synthesize TMCat,TMtitle,OfferPrice,ActualPrice;
 
--(id) initWithTitle:title andImg:img
+-(id) initWithTitle:title andCat:categories
 {
     self=[super init];
     {
         TMtitle=title;
-        TMimg=img;
+        TMCat=categories;
     }
     return self;
     

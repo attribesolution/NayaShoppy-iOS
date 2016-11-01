@@ -21,11 +21,11 @@
 @property (strong,nonatomic) NSNumber *categories_category_id;
 @property (strong,nonatomic) NSNumber *brands_brand_id;
 @property (strong,nonatomic) NSString *model_number;
-@property (strong,nonatomic) NSString *image;
+@property (strong,nonatomic) NSString < Optional > *image;
 @property (strong,nonatomic) NSString *cod;
 @property (strong,nonatomic) NSString *emi;
 @property (strong,nonatomic) NSString *return_policy;
-@property (strong,nonatomic) NSString *delivery;
+@property (strong,nonatomic) NSString < Optional > *delivery;
 @property (strong,nonatomic) NSString *shipping;
 @property (strong,nonatomic) NSString *price;
 @property (strong,nonatomic) NSString < Optional > *unique_id;
@@ -46,11 +46,11 @@
 @property (strong,nonatomic) NSString *meta_keyword;
 @property (strong,nonatomic) NSString *meta_desc;
 @property (strong,nonatomic) NSString *active;
-@property (strong,nonatomic) NSString *created;
+@property (strong,nonatomic) NSString < Optional > *created;
 @property (strong,nonatomic) NSNumber *supplier_count;
 @property (strong,nonatomic) NSNumber *store_name;
 @property (strong,nonatomic) NSNumber *store_id;
 @property (strong,nonatomic) NSNumber *show_home_page;
-@property (strong,nonatomic) NSArray <Images> *images;
+@property (strong,nonatomic) NSArray <Images,Optional> *images;
 @property (strong,nonatomic) NSArray *suppliers;
 @end

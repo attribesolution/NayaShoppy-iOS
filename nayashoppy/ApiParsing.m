@@ -35,7 +35,7 @@ static NSString *slider = @"http://nsapi.nayashoppy.com/";
         NSData * jsonData = [NSJSONSerialization  dataWithJSONObject:dictionary options:0 error:&error];
         NSString * myString =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         Mapping *country = [[Mapping alloc] initWithString:myString  error:&error];
-        
+       
         NSString *img;
         MenuData *ob=[MenuData Items];
         for(int i=0;i<country.data.count;i++)
@@ -43,12 +43,24 @@ static NSString *slider = @"http://nsapi.nayashoppy.com/";
         MainCategories *ic = country.data[i];
         if([UIScreen mainScreen].scale==2.0)
         {   img=[[ic.api_icon valueForKey:@"ios"]valueForKey:@"2x"];}
-        else
+        else  
         {
             img=[[ic.api_icon valueForKey:@"ios"]valueForKey:@"3x"];
         }
-
-         Categories *Cobj=[[Categories alloc] initWithTitle:ic.title andImg:img];
+           NSMutableArray *subsubcat=[[NSMutableArray alloc]init];
+            for(int k=0;k<ic.children.count;k++)
+            {
+            SubCategories1 *child=ic.children[k];
+            NSMutableArray *subCat=[[NSMutableArray alloc]init];
+            [subCat addObject:child.title];
+            for (int j=0; j<child.children.count; j++) {
+                SubCategories2 *subchild =child.children[j];
+                [subCat addObject:subchild.title];
+            }
+                [subsubcat addObject:subCat];
+            }
+         //[ob.Child addObject:subCat];
+         Categories *Cobj=[[Categories alloc] initWithTitle:ic.title andCat:subsubcat];
             
          [ob.topmenuImg addObject:[self image:img]];
          [ob.topmenu addObject:Cobj];
@@ -76,13 +88,16 @@ static NSString *slider = @"http://nsapi.nayashoppy.com/";
         NSData * jsonData = [NSJSONSerialization  dataWithJSONObject:dictionary options:0 error:&error];
         NSString * myString =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         NewArrivals *newproduct = [[NewArrivals alloc] initWithString:myString  error:&error];
-  
+
         MenuData *ob=[MenuData Items];
         for(int i=0;i<newproduct.data.count;i++)
         {
             Products *ic = newproduct.data[i];
+            if(ic.images.count==0)
+              [ob.newarrivalImg addObject:[self image:nil]];
+            else{
             Images *img=ic.images[0];
-            [ob.newarrivalImg addObject:[self image:img.image_path]];
+                [ob.newarrivalImg addObject:[self image:img.image_path]];}
             [ob.newarrival addObject:ic.product_name];
         }
         success(true);

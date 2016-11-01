@@ -19,7 +19,10 @@ static NSString *dealsCell = @"DealsCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     ob=[MenuData Items];
-   // if(ob.DealsOfTheDay.count==0)
+   if(ob.DealsOfTheDay.count==0)
+       self.myView.hidden=NO;
+   else
+       self.myView.hidden=YES;
       }
 -(void)refreshDealsCV:(NSNotification *) notification{
     
@@ -47,7 +50,7 @@ static NSString *dealsCell = @"DealsCell";
         Categories *obj=[ob.DealsOfTheDay objectAtIndex:indexPath.row];
         cell.ImageView.image=[ob.DealsOfTheDayImg objectAtIndex:indexPath.row];
         cell.TitleLabel.text=obj.TMtitle;
-        cell.PriceLabel.text=[[obj.OfferPrice stringByAppendingString:@"  " ]stringByAppendingString:obj.ActualPrice];
+        cell.PriceLabel.text=[[obj.OfferPrice stringByAppendingString:@"  "]stringByAppendingString:obj.ActualPrice];
         return cell;   
 }
 
@@ -73,8 +76,5 @@ static NSString *dealsCell = @"DealsCell";
 {
     self.DealsOfTheDayCV.alwaysBounceVertical = NO;
 }
-
-    
-
 
 @end

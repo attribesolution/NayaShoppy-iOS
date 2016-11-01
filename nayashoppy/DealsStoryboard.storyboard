@@ -38,12 +38,32 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5N-q1-hdI">
+                                <rect key="frame" x="0.0" y="50" width="600" height="550"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorry! No deals available at the moment." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dz2-gg-Py6">
+                                        <rect key="frame" x="146" y="265" width="309" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="dz2-gg-Py6" firstAttribute="centerY" secondItem="c5N-q1-hdI" secondAttribute="centerY" id="Os2-4t-gd4"/>
+                                    <constraint firstItem="dz2-gg-Py6" firstAttribute="centerX" secondItem="c5N-q1-hdI" secondAttribute="centerX" id="pdz-uI-6Qj"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3Dp-zX-zIH" firstAttribute="top" secondItem="Cmd-LV-62w" secondAttribute="topMargin" constant="50" id="CwR-ZJ-iFd"/>
                             <constraint firstItem="3Dp-zX-zIH" firstAttribute="leading" secondItem="Cmd-LV-62w" secondAttribute="leading" id="OoK-XP-Mmx"/>
                             <constraint firstAttribute="trailing" secondItem="3Dp-zX-zIH" secondAttribute="trailing" id="RZl-jB-0ZU"/>
+                            <constraint firstItem="tpu-hD-7St" firstAttribute="top" secondItem="c5N-q1-hdI" secondAttribute="bottom" id="T9v-TW-A5Y"/>
+                            <constraint firstAttribute="trailing" secondItem="c5N-q1-hdI" secondAttribute="trailing" id="WWr-OR-kXn"/>
+                            <constraint firstItem="c5N-q1-hdI" firstAttribute="top" secondItem="ShX-PF-dZt" secondAttribute="bottom" constant="30" id="WXm-B4-QIY"/>
+                            <constraint firstItem="c5N-q1-hdI" firstAttribute="leading" secondItem="Cmd-LV-62w" secondAttribute="leading" id="dvO-6h-s0v"/>
                             <constraint firstItem="tpu-hD-7St" firstAttribute="top" secondItem="3Dp-zX-zIH" secondAttribute="bottom" id="mj2-dq-kSL"/>
                             <constraint firstItem="3Dp-zX-zIH" firstAttribute="top" secondItem="Cmd-LV-62w" secondAttribute="top" id="oS4-Wl-RVB"/>
                         </constraints>
@@ -53,6 +73,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="DealsOfTheDayCV" destination="3Dp-zX-zIH" id="duX-vi-O5h"/>
+                        <outlet property="myView" destination="c5N-q1-hdI" id="puM-nV-TKc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QSE-cb-PEy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

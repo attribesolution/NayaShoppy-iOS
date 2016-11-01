@@ -26,6 +26,14 @@
 		CF6927081DBE27E500B85F64 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6927071DBE27E500B85F64 /* UserViewController.m */; };
 		CF6927141DBE303900B85F64 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6927121DBE303900B85F64 /* UserCell.m */; };
 		CF6927151DBE303900B85F64 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF6927131DBE303900B85F64 /* UserCell.xib */; };
+		CF6B397E1DC89313003BDB4E /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF6B397D1DC89313003BDB4E /* DetailView.storyboard */; };
+		CF6F2E1D1DC7543E0027FAD8 /* expandableImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CF6F2E141DC7543E0027FAD8 /* expandableImage.png */; };
+		CF6F2E1E1DC7543E0027FAD8 /* expandableImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF6F2E151DC7543E0027FAD8 /* expandableImage@2x.png */; };
+		CF6F2E1F1DC7543E0027FAD8 /* SKSTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6F2E171DC7543E0027FAD8 /* SKSTableView.m */; };
+		CF6F2E201DC7543E0027FAD8 /* SKSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6F2E191DC7543E0027FAD8 /* SKSTableViewCell.m */; };
+		CF6F2E211DC7543E0027FAD8 /* SKSTableViewCellIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6F2E1B1DC7543E0027FAD8 /* SKSTableViewCellIndicator.m */; };
+		CF6F2E241DC7681D0027FAD8 /* Categories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF6F2E231DC7681D0027FAD8 /* Categories.storyboard */; };
+		CF6F2E271DC7686E0027FAD8 /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6F2E261DC7686E0027FAD8 /* CategoriesViewController.m */; };
 		CF71F9AF1DC0D721004DDB9A /* DealsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF71F9AE1DC0D721004DDB9A /* DealsStoryboard.storyboard */; };
 		CF71F9C21DC0DB50004DDB9A /* NewArrivalViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF71F9B61DC0DB50004DDB9A /* NewArrivalViewCell.m */; };
 		CF71F9C31DC0DB50004DDB9A /* NewArrivalViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF71F9B71DC0DB50004DDB9A /* NewArrivalViewCell.xib */; };
@@ -58,7 +66,6 @@
 		CFDDAF891DA24AB900AFBF34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFDDAF871DA24AB900AFBF34 /* LaunchScreen.storyboard */; };
 		CFF8A76A1DC1C9FA00FB633B /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFF8A7691DC1C9FA00FB633B /* HomeView.storyboard */; };
 		CFF8A7701DC1E47B00FB633B /* SlidingImages.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF8A76F1DC1E47B00FB633B /* SlidingImages.m */; };
-		CFF8A77F1DC2094E00FB633B /* DetailedStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFF8A77E1DC2094E00FB633B /* DetailedStoryboard.storyboard */; };
 		CFF8A7821DC20A1E00FB633B /* DetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF8A7811DC20A1E00FB633B /* DetailedViewController.m */; };
 		CFF8A79F1DC21FE400FB633B /* Coupons.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFF8A79E1DC21FE400FB633B /* Coupons.storyboard */; };
 		CFFB08551DC36ECB00140574 /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFB08541DC36ECB00140574 /* TableCell.m */; };
@@ -103,6 +110,18 @@
 		CF6927111DBE303900B85F64 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
 		CF6927121DBE303900B85F64 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
 		CF6927131DBE303900B85F64 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		CF6B397D1DC89313003BDB4E /* DetailView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
+		CF6F2E141DC7543E0027FAD8 /* expandableImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = expandableImage.png; sourceTree = "<group>"; };
+		CF6F2E151DC7543E0027FAD8 /* expandableImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expandableImage@2x.png"; sourceTree = "<group>"; };
+		CF6F2E161DC7543E0027FAD8 /* SKSTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSTableView.h; sourceTree = "<group>"; };
+		CF6F2E171DC7543E0027FAD8 /* SKSTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSTableView.m; sourceTree = "<group>"; };
+		CF6F2E181DC7543E0027FAD8 /* SKSTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSTableViewCell.h; sourceTree = "<group>"; };
+		CF6F2E191DC7543E0027FAD8 /* SKSTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSTableViewCell.m; sourceTree = "<group>"; };
+		CF6F2E1A1DC7543E0027FAD8 /* SKSTableViewCellIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSTableViewCellIndicator.h; sourceTree = "<group>"; };
+		CF6F2E1B1DC7543E0027FAD8 /* SKSTableViewCellIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSTableViewCellIndicator.m; sourceTree = "<group>"; };
+		CF6F2E231DC7681D0027FAD8 /* Categories.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Categories.storyboard; sourceTree = "<group>"; };
+		CF6F2E251DC7686E0027FAD8 /* CategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
+		CF6F2E261DC7686E0027FAD8 /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
 		CF71F9AE1DC0D721004DDB9A /* DealsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DealsStoryboard.storyboard; sourceTree = "<group>"; };
 		CF71F9B51DC0DB50004DDB9A /* NewArrivalViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewArrivalViewCell.h; sourceTree = "<group>"; };
 		CF71F9B61DC0DB50004DDB9A /* NewArrivalViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewArrivalViewCell.m; sourceTree = "<group>"; };
@@ -161,7 +180,6 @@
 		CFF8A76C1DC1CA5500FB633B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		CFF8A76E1DC1E47B00FB633B /* SlidingImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingImages.h; sourceTree = "<group>"; };
 		CFF8A76F1DC1E47B00FB633B /* SlidingImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlidingImages.m; sourceTree = "<group>"; };
-		CFF8A77E1DC2094E00FB633B /* DetailedStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DetailedStoryboard.storyboard; sourceTree = "<group>"; };
 		CFF8A7801DC20A1E00FB633B /* DetailedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedViewController.h; sourceTree = "<group>"; };
 		CFF8A7811DC20A1E00FB633B /* DetailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedViewController.m; sourceTree = "<group>"; };
 		CFF8A79E1DC21FE400FB633B /* Coupons.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Coupons.storyboard; sourceTree = "<group>"; };
@@ -240,6 +258,7 @@
 		CF607C5C1DB0B689004296F1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CF6F2E221DC767DA0027FAD8 /* CategoriesView */,
 				CF7ACB611DA4EE1400DF3BD7 /* MainView */,
 				CFF8A7731DC1F6CD00FB633B /* HomeViewController */,
 				CF607C641DB0D0A5004296F1 /* DealsOfTheDay */,
@@ -282,6 +301,32 @@
 				CF6927131DBE303900B85F64 /* UserCell.xib */,
 			);
 			name = User;
+			sourceTree = "<group>";
+		};
+		CF6F2E131DC7543E0027FAD8 /* SKSTableView */ = {
+			isa = PBXGroup;
+			children = (
+				CF6F2E141DC7543E0027FAD8 /* expandableImage.png */,
+				CF6F2E151DC7543E0027FAD8 /* expandableImage@2x.png */,
+				CF6F2E161DC7543E0027FAD8 /* SKSTableView.h */,
+				CF6F2E171DC7543E0027FAD8 /* SKSTableView.m */,
+				CF6F2E181DC7543E0027FAD8 /* SKSTableViewCell.h */,
+				CF6F2E191DC7543E0027FAD8 /* SKSTableViewCell.m */,
+				CF6F2E1A1DC7543E0027FAD8 /* SKSTableViewCellIndicator.h */,
+				CF6F2E1B1DC7543E0027FAD8 /* SKSTableViewCellIndicator.m */,
+			);
+			name = SKSTableView;
+			path = "SKSTableView-master/SKSTableView";
+			sourceTree = "<group>";
+		};
+		CF6F2E221DC767DA0027FAD8 /* CategoriesView */ = {
+			isa = PBXGroup;
+			children = (
+				CF6F2E231DC7681D0027FAD8 /* Categories.storyboard */,
+				CF6F2E251DC7686E0027FAD8 /* CategoriesViewController.h */,
+				CF6F2E261DC7686E0027FAD8 /* CategoriesViewController.m */,
+			);
+			name = CategoriesView;
 			sourceTree = "<group>";
 		};
 		CF7ACB611DA4EE1400DF3BD7 /* MainView */ = {
@@ -445,6 +490,7 @@
 				CFDDAF851DA24AB900AFBF34 /* Assets.xcassets */,
 				CFDDAF871DA24AB900AFBF34 /* LaunchScreen.storyboard */,
 				CFDDAF8A1DA24AB900AFBF34 /* Info.plist */,
+				CFF8A7681DC1C8E900FB633B /* CategorieClass */,
 				CF607C5C1DB0B689004296F1 /* ViewControllers */,
 				CFDDAF791DA24AB900AFBF34 /* Supporting Files */,
 			);
@@ -454,6 +500,7 @@
 		CFDDAF791DA24AB900AFBF34 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CF6F2E131DC7543E0027FAD8 /* SKSTableView */,
 				CF81BA851DBA075700ADE575 /* Mapping */,
 				CF607C5B1DB0B649004296F1 /* ApiParsing */,
 				CF5C74FB1DB625B7008475D1 /* ApiData */,
@@ -512,7 +559,6 @@
 				CFF8A76C1DC1CA5500FB633B /* HomeViewController.m */,
 				CFF8A7691DC1C9FA00FB633B /* HomeView.storyboard */,
 				CFF8A7741DC1F6E700FB633B /* collectionview */,
-				CFF8A7681DC1C8E900FB633B /* CategorieClass */,
 			);
 			name = HomeViewController;
 			sourceTree = "<group>";
@@ -531,9 +577,9 @@
 		CFF8A77D1DC2092D00FB633B /* Detailed View  */ = {
 			isa = PBXGroup;
 			children = (
-				CFF8A77E1DC2094E00FB633B /* DetailedStoryboard.storyboard */,
 				CFF8A7801DC20A1E00FB633B /* DetailedViewController.h */,
 				CFF8A7811DC20A1E00FB633B /* DetailedViewController.m */,
+				CF6B397D1DC89313003BDB4E /* DetailView.storyboard */,
 			);
 			name = "Detailed View ";
 			sourceTree = "<group>";
@@ -630,19 +676,22 @@
 				CF71F9C81DC0DB50004DDB9A /* CouponsCollectionViewCell.xib in Resources */,
 				CF018C261DC0BC9D0024CD37 /* Main.storyboard in Resources */,
 				CF71F9C61DC0DB50004DDB9A /* CategoriesCell.xib in Resources */,
+				CF6F2E241DC7681D0027FAD8 /* Categories.storyboard in Resources */,
+				CF6F2E1D1DC7543E0027FAD8 /* expandableImage.png in Resources */,
 				CFDDAF891DA24AB900AFBF34 /* LaunchScreen.storyboard in Resources */,
 				CF90F71C1DC321B800C8AB2B /* TopMenuStoryboard.storyboard in Resources */,
 				CF90F72A1DC348E400C8AB2B /* NewArrivalsStoryboard.storyboard in Resources */,
 				CFF8A76A1DC1C9FA00FB633B /* HomeView.storyboard in Resources */,
+				CF6F2E1E1DC7543E0027FAD8 /* expandableImage@2x.png in Resources */,
 				CFF8A79F1DC21FE400FB633B /* Coupons.storyboard in Resources */,
 				CFFB08581DC372EE00140574 /* RecentStoryboard.storyboard in Resources */,
 				CF71F9AF1DC0D721004DDB9A /* DealsStoryboard.storyboard in Resources */,
 				CFDDAF861DA24AB900AFBF34 /* Assets.xcassets in Resources */,
 				CF71F9C31DC0DB50004DDB9A /* NewArrivalViewCell.xib in Resources */,
 				CF6927151DBE303900B85F64 /* UserCell.xib in Resources */,
-				CFF8A77F1DC2094E00FB633B /* DetailedStoryboard.storyboard in Resources */,
 				CF5C75031DB62A84008475D1 /* SideMenu.xib in Resources */,
 				CF018C251DC0AA5F0024CD37 /* DealsCell.xib in Resources */,
+				CF6B397E1DC89313003BDB4E /* DetailView.storyboard in Resources */,
 				CF772FC61DB7631C008C13F8 /* splash.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -720,11 +769,13 @@
 				CF90F7281DC32DF000C8AB2B /* TopmenuCell.m in Sources */,
 				CF81BA811DB9FB6600ADE575 /* MainCategories.m in Sources */,
 				CFDDAF811DA24AB900AFBF34 /* ViewController.m in Sources */,
+				CF6F2E1F1DC7543E0027FAD8 /* SKSTableView.m in Sources */,
 				CF7CEA481DA7AA6100F4E31E /* GlobalVariables.m in Sources */,
 				CF018C241DC0AA5F0024CD37 /* DealsCell.m in Sources */,
 				CF257D661DAF6B3200EC6789 /* SWRevealViewController.m in Sources */,
 				CFDDAF7E1DA24AB900AFBF34 /* AppDelegate.m in Sources */,
 				CF90F7181DC31F6000C8AB2B /* CouponsVC.m in Sources */,
+				CF6F2E201DC7543E0027FAD8 /* SKSTableViewCell.m in Sources */,
 				CF6927051DBDFFB500B85F64 /* Images.m in Sources */,
 				CF018C1D1DC0A3630024CD37 /* Deals.m in Sources */,
 				CFFB085F1DC373F100140574 /* RecentCell.m in Sources */,
@@ -741,7 +792,9 @@
 				CF81BA7B1DB9F93C00ADE575 /* SubCategories2.m in Sources */,
 				CF90F7311DC349DE00C8AB2B /* NewArrivalVC.m in Sources */,
 				CF81BA841DBA074A00ADE575 /* NewArrivals.m in Sources */,
+				CF6F2E211DC7543E0027FAD8 /* SKSTableViewCellIndicator.m in Sources */,
 				CFDDAF7B1DA24AB900AFBF34 /* main.m in Sources */,
+				CF6F2E271DC7686E0027FAD8 /* CategoriesViewController.m in Sources */,
 				CF90F7251DC3225300C8AB2B /* TopMenuVc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

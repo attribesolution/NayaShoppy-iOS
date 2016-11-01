@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1912" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Categories View Controller-->
+        <scene sceneID="eQh-IN-Kko">
+            <objects>
+                <viewController storyboardIdentifier="Categories" id="wTn-IL-cgP" customClass="CategoriesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Dw-QU-SJ4"/>
+                        <viewControllerLayoutGuide type="bottom" id="dIo-8f-Xes"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5u2-We-PWG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q88-Dx-EpL" customClass="SKSTableView">
+                                <rect key="frame" x="0.0" y="50" width="324" height="430"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="wTn-IL-cgP" id="X0s-oK-oik"/>
+                                    <outlet property="delegate" destination="wTn-IL-cgP" id="2io-YZ-lBA"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q88-Dx-EpL" secondAttribute="trailing" constant="38" id="78g-ei-9n4"/>
+                            <constraint firstItem="dIo-8f-Xes" firstAttribute="top" secondItem="Q88-Dx-EpL" secondAttribute="bottom" id="9vM-iG-7am"/>
+                            <constraint firstItem="Q88-Dx-EpL" firstAttribute="leading" secondItem="5u2-We-PWG" secondAttribute="leading" id="Acy-g9-GaF"/>
+                            <constraint firstAttribute="trailing" secondItem="Q88-Dx-EpL" secondAttribute="trailing" id="Rsy-Tw-fyy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q88-Dx-EpL" secondAttribute="trailing" constant="42" id="TC2-3l-14O"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q88-Dx-EpL" secondAttribute="trailing" constant="-20" id="U80-QJ-hse"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q88-Dx-EpL" secondAttribute="trailing" constant="49" id="VHx-nt-usg"/>
+                            <constraint firstItem="Q88-Dx-EpL" firstAttribute="top" secondItem="5u2-We-PWG" secondAttribute="top" constant="50" id="Wit-Pa-lLy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q88-Dx-EpL" secondAttribute="trailing" constant="49" id="eFQ-Tw-thl"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="78g-ei-9n4"/>
+                                <exclude reference="Rsy-Tw-fyy"/>
+                                <exclude reference="TC2-3l-14O"/>
+                                <exclude reference="VHx-nt-usg"/>
+                                <exclude reference="eFQ-Tw-thl"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="myTable" destination="Q88-Dx-EpL" id="Tcz-h2-PuD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q51-CO-DH5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="249" y="271"/>
+        </scene>
+    </scenes>
+</document>

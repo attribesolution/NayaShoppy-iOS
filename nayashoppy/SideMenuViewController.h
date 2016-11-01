@@ -13,6 +13,7 @@
 #import "GlobalVariables.h"
 #import "DealsOfTheDayViewController.h"
 #import "DetailedViewController.h"
+#import "AppDelegate.h"
 
 @interface SideMenuViewController : UIViewController<UITableViewDataSource,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *sidetable;
