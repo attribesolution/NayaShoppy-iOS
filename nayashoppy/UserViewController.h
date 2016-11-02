@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "UserCell.h"
 #import "GlobalVariables.h"
+#import "SignInVC.h"
+#import "AppDelegate.h"
 
 @interface UserViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *UserInfoTable;

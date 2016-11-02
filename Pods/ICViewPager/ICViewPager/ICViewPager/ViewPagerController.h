@@ -28,6 +28,7 @@ typedef NS_ENUM(NSUInteger, ViewPagerOption) {
     ViewPagerOptionStartFromSecondTab,
     ViewPagerOptionCenterCurrentTab,
     ViewPagerOptionFixFormerTabsPositions,
+    ViewPagerOptionTabY,
     ViewPagerOptionFixLatterTabsPositions
 };
 
@@ -198,5 +199,5 @@ typedef NS_ENUM(NSUInteger, ViewPagerComponent) {
  * @return A UIColor for the given component
  */
 - (UIColor *)viewPager:(ViewPagerController *)viewPager colorForComponent:(ViewPagerComponent)component withDefault:(UIColor *)color;
-
+-(BOOL) setY :(BOOL)y;
 @end

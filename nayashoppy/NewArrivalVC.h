@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "NewArrivalViewCell.h"
 #import "MenuData.h"
+#import "NewArrivalsViewController.h"
+#import "AppDelegate.h"
 
 @interface NewArrivalVC : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *NewarrivalCv;

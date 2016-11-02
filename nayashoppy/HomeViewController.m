@@ -71,7 +71,7 @@ static NSString *CouponsLabelImg=@"Coupon";
     if(indexPath.row==7)
         return  109;
     else
-      return 30;
+      return 40;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -86,6 +86,7 @@ static NSString *CouponsLabelImg=@"Coupon";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
 
 }
 

@@ -34,9 +34,17 @@ static NSString *userCell =@"UserCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // [self performSegueWithIdentifier:@"MSegue" sender:tableView];
+    if(indexPath.row==0)
+    {
+        UIStoryboard *deals=[UIStoryboard storyboardWithName:@"SignIn" bundle:nil];
+        SignInVC *dvc = [deals instantiateViewControllerWithIdentifier:@"SignIn"];
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [appDelegate.navController pushViewController:dvc animated:YES];
+        SWRevealViewController *sv=self.revealViewController;
+        [sv revealToggle:self];
+        [sv revealToggle:self];
+     }
 }
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 

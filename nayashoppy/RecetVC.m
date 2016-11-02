@@ -36,7 +36,7 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
     
     NewArrivalViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:NewArrivalCell forIndexPath:indexPath];
     
-    cell.backgroundColor=[UIColor redColor];
+    cell.backgroundColor=[UIColor groupTableViewBackgroundColor];
 //    cell.NAimg.image= [obj.newarrivalImg objectAtIndex:indexPath.row];
 //    [cell.NAProductName setText:[obj.newarrival objectAtIndex:indexPath.row]];
     

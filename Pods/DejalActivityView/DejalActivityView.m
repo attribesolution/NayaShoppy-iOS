@@ -277,7 +277,7 @@ static DejalActivityView *dejalActivityView = nil;
     
     label.font = [UIFont systemFontOfSize:17];
     label.textAlignment = NSTextAlignmentLeft;
-    label.textColor = [UIColor darkGrayColor];
+    label.textColor = [UIColor blackColor];
     label.backgroundColor = [UIColor clearColor];
     label.shadowColor = [UIColor whiteColor];
     label.shadowOffset = CGSizeMake(0.0, 1.0);

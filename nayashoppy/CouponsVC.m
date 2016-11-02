@@ -24,6 +24,7 @@ static NSString *CouponsCell = @"CouponsCollectionViewCell";
     
     [super viewWillAppear:animated];
     [self.cashCV registerNib:[UINib nibWithNibName:CouponsCell bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:CouponsCell];
+    self.cashCV.backgroundColor=[UIColor groupTableViewBackgroundColor];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{

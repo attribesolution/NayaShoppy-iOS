@@ -29,6 +29,7 @@ static NSString *CategoriesVCell = @"CategoriesCell";
     [self.TopmenuVC registerNib:[UINib nibWithNibName:CategoriesVCell bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:CategoriesVCell];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
                                                  name:@"refreshView" object:nil];
+    self.TopmenuVC.backgroundColor=[UIColor groupTableViewBackgroundColor];
 }
 -(void)refreshView:(NSNotification *) notification {
     
@@ -40,7 +41,15 @@ static NSString *CategoriesVCell = @"CategoriesCell";
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+
+    UIStoryboard *deals=[UIStoryboard storyboardWithName:@"DetailView" bundle:nil];
+    DetailedViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"Detail"];
+    SWRevealViewController *sv=self.revealViewController;
+     [sv revealToggle:self];
     
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.navController pushViewController:dvc animated:YES];
+    appDelegate.navController.navigationBar.tintColor=[UIColor whiteColor];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -53,8 +62,6 @@ static NSString *CategoriesVCell = @"CategoriesCell";
     cell.thumbnailImageView.image=[obj.topmenuImg objectAtIndex:indexPath.row];
     [cell.customLabel setText:ob.TMtitle];
            return cell;
-    
-    
 }
 
 

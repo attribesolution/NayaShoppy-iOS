@@ -115,7 +115,9 @@
 
 #pragma mark - ViewPagerController
 @interface ViewPagerController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate>
-
+{
+    BOOL mytabposition;
+}
 // Tab and content stuff
 @property UIScrollView *tabsView;
 @property UIView *contentView;
@@ -136,7 +138,7 @@
 @property (nonatomic) NSNumber *centerCurrentTab;
 @property (nonatomic) NSNumber *fixFormerTabsPositions;
 @property (nonatomic) NSNumber *fixLatterTabsPositions;
-
+@property (nonatomic) NSNumber *setY;
 @property (nonatomic) NSUInteger tabCount;
 @property (nonatomic) NSUInteger activeTabIndex;
 @property (nonatomic) NSUInteger activeContentIndex;
@@ -152,7 +154,7 @@
 @end
 
 @implementation ViewPagerController
-
+@synthesize setY = _setY;
 @synthesize tabHeight = _tabHeight;
 @synthesize tabOffset = _tabOffset;
 @synthesize tabWidth = _tabWidth;
@@ -181,6 +183,7 @@
 #pragma mark - View life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    mytabposition=NO;
 }
 - (void)viewWillAppear:(BOOL)animated {
     
@@ -200,7 +203,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
+-(BOOL) setY :(BOOL)y
+{
+    mytabposition=y;
+    return mytabposition;
+}
 - (void)layoutSubviews {
     
     CGFloat topLayoutGuide = 0.0;
@@ -214,8 +221,11 @@
     CGRect frame = self.tabsView.frame;
     frame.origin.x = 0.0;
     frame.origin.y =[self.tabLocation boolValue] ? topLayoutGuide : CGRectGetHeight(self.view.frame) - [self.tabHeight floatValue];
-    frame.origin.y +=45 ;
-
+    
+    if(mytabposition==YES)
+       frame.origin.y += 0.0;
+    else
+       frame.origin.y += 44.0;
     frame.size.width = CGRectGetWidth(self.view.frame);
     frame.size.height = [self.tabHeight floatValue];
     self.tabsView.frame = frame;
@@ -491,15 +501,16 @@
     }
     return _tabHeight;
 }
-- (NSNumber *)tabOffset {
+
+- (NSNumber *)setY {
     
-    if (!_tabOffset) {
-        CGFloat value = kTabOffset;
+    if (!_setY) {
+        CGFloat value = 0.0;
         if ([self.delegate respondsToSelector:@selector(viewPager:valueForOption:withDefault:)])
             value = [self.delegate viewPager:self valueForOption:ViewPagerOptionTabOffset withDefault:value];
-        self.tabOffset = [NSNumber numberWithFloat:value];
+        self.setY = [NSNumber numberWithFloat:value];
     }
-    return _tabOffset;
+    return _setY;
 }
 - (NSNumber *)tabWidth {
     

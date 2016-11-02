@@ -28,7 +28,7 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
     [self.NewarrivalCv registerNib:[UINib nibWithNibName:NewArrivalCell bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NewArrivalCell];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshNewArriavlCV:)
                                                  name:@"refreshNewArriavlCV" object:nil];
-
+    self.NewarrivalCv.backgroundColor=[UIColor groupTableViewBackgroundColor];
 }
 -(void)refreshNewArriavlCV:(NSNotification *) notification{
     
@@ -41,8 +41,15 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    UIStoryboard *deals=[UIStoryboard storyboardWithName:@"NewArrival" bundle:nil];
+    NewArrivalsViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"NewArrival"];
+    SWRevealViewController *sv=self.revealViewController;
+    [sv revealToggle:self];
     
-    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.navController pushViewController:dvc animated:YES];
+    appDelegate.navController.navigationBar.tintColor=[UIColor whiteColor];
+ 
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{

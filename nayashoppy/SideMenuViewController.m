@@ -25,9 +25,7 @@ static NSString *SideMenuCell =@"SideMenu";
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
     self.navigationItem.titleView=[[GlobalVariables class]titleView:@"My User" andImg:@"UserIcon" andy:logoY+20];
     self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
-    self.navigationItem.hidesBackButton = YES;
-    self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
+    
 
 }
 
@@ -61,6 +59,7 @@ static NSString *SideMenuCell =@"SideMenu";
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.navController pushViewController:dvc animated:YES];
     appDelegate.navController.navigationBar.tintColor=[UIColor whiteColor];
+     [[NSNotificationCenter defaultCenter] postNotificationName:@"TabPosition" object:nil];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -83,6 +82,10 @@ static NSString *SideMenuCell =@"SideMenu";
 {
     [self.sidetable deselectRowAtIndexPath:[self.sidetable indexPathForSelectedRow] animated:NO];
     [self.sidetable setContentOffset:CGPointZero animated:NO];
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    self.sidetable.alwaysBounceVertical=NO;
 }
 
 @end

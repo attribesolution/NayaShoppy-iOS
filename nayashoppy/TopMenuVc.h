@@ -10,6 +10,8 @@
 #import "CategoriesCell.h"
 #import "Categories.h"
 #import "MenuData.h"
+#import "AppDelegate.h"
+#import "DetailedViewController.h"
 
 @interface TopMenuVc : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *TopmenuVC;

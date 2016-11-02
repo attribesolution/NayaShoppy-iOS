@@ -79,6 +79,8 @@
             return 0.0;
         case ViewPagerOptionTabLocation:
             return 1.0;
+        case ViewPagerOptionTabY:
+            return 44.0;
         default:
             return value;
     }
@@ -123,6 +125,9 @@
     
     self.navigationItem.rightBarButtonItem.tintColor=[UIColor whiteColor];
     self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.hidesBackButton = YES;
+    self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.navController=self.navigationController;

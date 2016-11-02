@@ -12,7 +12,7 @@
 @interface DetailedViewController ()
 {
      NSMutableArray *tabItem,*categories;
-    MenuData *obj;
+     MenuData *obj;
 }
 @end
 
@@ -31,13 +31,10 @@
     }
     }
     tabItem=[[NSMutableArray alloc] initWithArray:categories];
-    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
-    tapRecognizer.cancelsTouchesInView = NO;
-    [self.view addGestureRecognizer:tapRecognizer];
-    self.dataSource = self;
-    self.delegate = self;
     
-   [self navBar];
+    [self setdeleget];
+    [self addgesture];
+    [self navBar];
 }
 
 #pragma mark - ViewPagerControllerDelegate Methods
@@ -54,6 +51,7 @@
       [[NSNotificationCenter defaultCenter] postNotificationName:@"CategorieAtIndex" object:categories[index]];
        return dvc;
 }
+
 - (void)viewPager:(ViewPagerController *)viewPager didChangeTabToIndex:(NSUInteger)index {
 
     
@@ -69,7 +67,10 @@
     label.textAlignment=NSTextAlignmentCenter;
     return label;
 }
-
+-(BOOL) setY:(BOOL)y
+{
+    return YES;
+}
 - (CGFloat)viewPager:(ViewPagerController *)viewPager valueForOption:(ViewPagerOption)option withDefault:(CGFloat)value {
     
     switch (option) {
@@ -81,6 +82,8 @@
             return 0.0;
         case ViewPagerOptionTabLocation:
             return 1.0;
+        case ViewPagerOptionTabY:
+            return 0.0;
         default:
             return value;
     }
@@ -95,15 +98,14 @@
             return color;
     }
 }
-#pragma mark - self.view Methods
 
+#pragma mark - self.view Methods
 
 -(void) navBar
 {
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
     self.navigationItem.titleView =[[GlobalVariables class] titleView:@"Shop By Categories            " andImg:@"Logo" andy:logoY] ;
-    
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TabPosition" object:nil];
 }
 
 - (void)didTapAnywhere:(UITapGestureRecognizer *) sender
@@ -111,5 +113,16 @@
     [self.view endEditing:YES];
 }
 
-
+-(void)addgesture
+{
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
+    tapRecognizer.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapRecognizer];
+    
+}
+-(void) setdeleget
+{
+    self.dataSource = self;
+    self.delegate = self;
+}
 @end
