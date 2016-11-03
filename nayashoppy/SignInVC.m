@@ -7,33 +7,52 @@
 //
 
 #import "SignInVC.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+
 
 @interface SignInVC ()
-
+@property (weak, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
 @end
 
 @implementation SignInVC
-@synthesize SignInButton;
+@synthesize SignIn;
 - (void)viewDidLoad {
     [super viewDidLoad];
-   SignInButton.layer.cornerRadius = 15;
-   SignInButton.clipsToBounds = YES;
-    // Do any additional setup after loading the view.
+    
+   SignIn.layer.cornerRadius = 15;
+   SignIn.clipsToBounds = YES;
+  
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)SignInButton:(id)sender {
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)Hint:(id)sender {
 }
-*/
 
+- (IBAction)GoogleSignIn:(id)sender {
+    
+}
+
+- (IBAction)FacebookSignIn:(id)sender {
+    
+   FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login logInWithReadPermissions:@[@"public_profile"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+        
+        if (error) {
+            NSLog(@"Process error");
+        } else if (result.isCancelled) {
+            NSLog(@"Cancelled");
+        } else {
+            NSLog(@"Logged in");
+        }
+        
+        
+    }];
+    
+}
+
+- (IBAction)SignUp:(id)sender {
+}
 @end

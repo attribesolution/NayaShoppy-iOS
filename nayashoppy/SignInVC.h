@@ -9,10 +9,17 @@
 #import <UIKit/UIKit.h>
 
 @interface SignInVC : UIViewController
-@property (strong, nonatomic) IBOutlet UIButton *SignInButton;
+@property (strong, nonatomic) IBOutlet UIButton *SignIn;
+
 @property (strong, nonatomic) IBOutlet UITextField *EmailField;
 @property (strong, nonatomic) IBOutlet UITextField *PasswordField;
-@property (strong, nonatomic) IBOutlet UIButton *SignUpButton;
-@property (strong, nonatomic) IBOutlet UIButton *HintButton;
+- (IBAction)SignInButton:(id)sender;
+- (IBAction)Hint:(id)sender;
+- (IBAction)GoogleSignIn:(id)sender;
+
+- (IBAction)FacebookSignIn:(id)sender;
+- (IBAction)SignUp:(id)sender;
+
+
 
 @end

@@ -20,7 +20,7 @@
 
 
 - (void)viewDidLoad {
-    
+    [super viewDidLoad];
     obj=[MenuData Items];
     categories=[[NSMutableArray alloc]init];
     if(obj.topmenu.count!=0)
@@ -30,12 +30,19 @@
         [categories addObject:currentCat.TMtitle];
     }
     }
-    tabItem=[[NSMutableArray alloc] initWithArray:categories];
     
+    tabItem=[[NSMutableArray alloc] initWithArray:categories];
     [self setdeleget];
     [self addgesture];
     [self navBar];
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+     [self selectTabAtIndex:[appDelegate.rowindex integerValue]];
+}
+
 
 #pragma mark - ViewPagerControllerDelegate Methods
 
@@ -105,7 +112,6 @@
 {
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
     self.navigationItem.titleView =[[GlobalVariables class] titleView:@"Shop By Categories            " andImg:@"Logo" andy:logoY] ;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"TabPosition" object:nil];
 }
 
 - (void)didTapAnywhere:(UITapGestureRecognizer *) sender

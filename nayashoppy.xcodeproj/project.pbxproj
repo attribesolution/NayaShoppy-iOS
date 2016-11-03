@@ -15,16 +15,8 @@
 		CF018C261DC0BC9D0024CD37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFDDAF821DA24AB900AFBF34 /* Main.storyboard */; };
 		CF1E46821DC9D761001B9D62 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF1E46811DC9D761001B9D62 /* SignIn.storyboard */; };
 		CF1E46861DC9D7A0001B9D62 /* SignInVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1E46851DC9D7A0001B9D62 /* SignInVC.m */; };
-		CF1E46881DC9ED42001B9D62 /* f_shine.png in Resources */ = {isa = PBXBuildFile; fileRef = CF1E46871DC9ED42001B9D62 /* f_shine.png */; };
-		CF1E468A1DC9ED4E001B9D62 /* g_shine.png in Resources */ = {isa = PBXBuildFile; fileRef = CF1E46891DC9ED4E001B9D62 /* g_shine.png */; };
 		CF1E46911DC9F9BC001B9D62 /* NewArrivalsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1E46901DC9F9BC001B9D62 /* NewArrivalsViewController.m */; };
 		CF1E46931DC9F9F3001B9D62 /* NewArrival.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF1E46921DC9F9F3001B9D62 /* NewArrival.storyboard */; };
-		CF1E46951DCA0311001B9D62 /* btn_or.png in Resources */ = {isa = PBXBuildFile; fileRef = CF1E46941DCA0311001B9D62 /* btn_or.png */; };
-		CF1E46971DCA033D001B9D62 /* icon_help.png in Resources */ = {isa = PBXBuildFile; fileRef = CF1E46961DCA033D001B9D62 /* icon_help.png */; };
-		CF1E46991DCA035E001B9D62 /* icon_password.png in Resources */ = {isa = PBXBuildFile; fileRef = CF1E46981DCA035E001B9D62 /* icon_password.png */; };
-		CF1E469B1DCA0378001B9D62 /* icon_user.png in Resources */ = {isa = PBXBuildFile; fileRef = CF1E469A1DCA0378001B9D62 /* icon_user.png */; };
-		CF1E469D1DCA038A001B9D62 /* login_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CF1E469C1DCA038A001B9D62 /* login_logo.png */; };
-		CF1E469F1DCA0393001B9D62 /* loginbg.png in Resources */ = {isa = PBXBuildFile; fileRef = CF1E469E1DCA0393001B9D62 /* loginbg.png */; };
 		CF257D661DAF6B3200EC6789 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF257D651DAF6B3200EC6789 /* SWRevealViewController.m */; };
 		CF5BC8DE1DBF7B1E00A9EC41 /* Slider.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5BC8DD1DBF7B1E00A9EC41 /* Slider.m */; };
 		CF5BC8E21DBF7D2B00A9EC41 /* SlideImg.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5BC8E11DBF7D2B00A9EC41 /* SlideImg.m */; };
@@ -54,7 +46,6 @@
 		CF71F9C61DC0DB50004DDB9A /* CategoriesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF71F9BC1DC0DB50004DDB9A /* CategoriesCell.xib */; };
 		CF71F9C71DC0DB50004DDB9A /* CouponsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF71F9BD1DC0DB50004DDB9A /* CouponsCollectionViewCell.m */; };
 		CF71F9C81DC0DB50004DDB9A /* CouponsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF71F9BF1DC0DB50004DDB9A /* CouponsCollectionViewCell.xib */; };
-		CF772FC61DB7631C008C13F8 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = CF772FC51DB7631C008C13F8 /* splash.png */; };
 		CF7CEA481DA7AA6100F4E31E /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7CEA471DA7AA6100F4E31E /* GlobalVariables.m */; };
 		CF81BA791DB9F93C00ADE575 /* Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = CF81BA751DB9F93C00ADE575 /* Mapping.m */; };
 		CF81BA7A1DB9F93C00ADE575 /* SubCategories1.m in Sources */ = {isa = PBXBuildFile; fileRef = CF81BA761DB9F93C00ADE575 /* SubCategories1.m */; };
@@ -71,6 +62,10 @@
 		CF90F72A1DC348E400C8AB2B /* NewArrivalsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF90F7291DC348E400C8AB2B /* NewArrivalsStoryboard.storyboard */; };
 		CF90F72E1DC3498200C8AB2B /* NewArrivalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF90F72D1DC3498200C8AB2B /* NewArrivalCell.m */; };
 		CF90F7311DC349DE00C8AB2B /* NewArrivalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CF90F7301DC349DE00C8AB2B /* NewArrivalVC.m */; };
+		CF96903F1DCB219A007583F6 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF96903B1DCB219A007583F6 /* Bolts.framework */; };
+		CF9690401DCB219A007583F6 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF96903C1DCB219A007583F6 /* FBSDKCoreKit.framework */; };
+		CF9690411DCB219A007583F6 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF96903D1DCB219A007583F6 /* FBSDKLoginKit.framework */; };
+		CF9690421DCB219A007583F6 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF96903E1DCB219A007583F6 /* FBSDKShareKit.framework */; };
 		CFDDAF7B1DA24AB900AFBF34 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDDAF7A1DA24AB900AFBF34 /* main.m */; };
 		CFDDAF7E1DA24AB900AFBF34 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDDAF7D1DA24AB900AFBF34 /* AppDelegate.m */; };
 		CFDDAF811DA24AB900AFBF34 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDDAF801DA24AB900AFBF34 /* ViewController.m */; };
@@ -101,17 +96,9 @@
 		CF1E46811DC9D761001B9D62 /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		CF1E46841DC9D7A0001B9D62 /* SignInVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInVC.h; sourceTree = "<group>"; };
 		CF1E46851DC9D7A0001B9D62 /* SignInVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInVC.m; sourceTree = "<group>"; };
-		CF1E46871DC9ED42001B9D62 /* f_shine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = f_shine.png; sourceTree = "<group>"; };
-		CF1E46891DC9ED4E001B9D62 /* g_shine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = g_shine.png; sourceTree = "<group>"; };
 		CF1E468F1DC9F9BC001B9D62 /* NewArrivalsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewArrivalsViewController.h; sourceTree = "<group>"; };
 		CF1E46901DC9F9BC001B9D62 /* NewArrivalsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewArrivalsViewController.m; sourceTree = "<group>"; };
 		CF1E46921DC9F9F3001B9D62 /* NewArrival.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewArrival.storyboard; sourceTree = "<group>"; };
-		CF1E46941DCA0311001B9D62 /* btn_or.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_or.png; sourceTree = "<group>"; };
-		CF1E46961DCA033D001B9D62 /* icon_help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_help.png; sourceTree = "<group>"; };
-		CF1E46981DCA035E001B9D62 /* icon_password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_password.png; sourceTree = "<group>"; };
-		CF1E469A1DCA0378001B9D62 /* icon_user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_user.png; sourceTree = "<group>"; };
-		CF1E469C1DCA038A001B9D62 /* login_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_logo.png; sourceTree = "<group>"; };
-		CF1E469E1DCA0393001B9D62 /* loginbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginbg.png; sourceTree = "<group>"; };
 		CF257D641DAF6B3200EC6789 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		CF257D651DAF6B3200EC6789 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		CF5BC8DC1DBF7B1E00A9EC41 /* Slider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slider.h; sourceTree = "<group>"; };
@@ -160,7 +147,6 @@
 		CF71F9BD1DC0DB50004DDB9A /* CouponsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponsCollectionViewCell.m; sourceTree = "<group>"; };
 		CF71F9BE1DC0DB50004DDB9A /* CouponsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponsCollectionViewCell.h; sourceTree = "<group>"; };
 		CF71F9BF1DC0DB50004DDB9A /* CouponsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponsCollectionViewCell.xib; sourceTree = "<group>"; };
-		CF772FC51DB7631C008C13F8 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		CF7CEA461DA7AA6100F4E31E /* GlobalVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalVariables.h; sourceTree = "<group>"; };
 		CF7CEA471DA7AA6100F4E31E /* GlobalVariables.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalVariables.m; sourceTree = "<group>"; };
 		CF81BA6F1DB9F90200ADE575 /* Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mapping.h; sourceTree = "<group>"; };
@@ -191,6 +177,10 @@
 		CF90F72D1DC3498200C8AB2B /* NewArrivalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewArrivalCell.m; sourceTree = "<group>"; };
 		CF90F72F1DC349DE00C8AB2B /* NewArrivalVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewArrivalVC.h; sourceTree = "<group>"; };
 		CF90F7301DC349DE00C8AB2B /* NewArrivalVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewArrivalVC.m; sourceTree = "<group>"; };
+		CF96903B1DCB219A007583F6 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
+		CF96903C1DCB219A007583F6 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		CF96903D1DCB219A007583F6 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		CF96903E1DCB219A007583F6 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		CFDDAF761DA24AB900AFBF34 /* nayashoppy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nayashoppy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFDDAF7A1DA24AB900AFBF34 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CFDDAF7C1DA24AB900AFBF34 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -224,6 +214,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				737BD2040ADF0C45A6E387AA /* libPods-nayashoppy.a in Frameworks */,
+				CF9690401DCB219A007583F6 /* FBSDKCoreKit.framework in Frameworks */,
+				CF9690421DCB219A007583F6 /* FBSDKShareKit.framework in Frameworks */,
+				CF9690411DCB219A007583F6 /* FBSDKLoginKit.framework in Frameworks */,
+				CF96903F1DCB219A007583F6 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +227,10 @@
 		AFDC9A79B5A197D2396DBF86 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF96903B1DCB219A007583F6 /* Bolts.framework */,
+				CF96903C1DCB219A007583F6 /* FBSDKCoreKit.framework */,
+				CF96903D1DCB219A007583F6 /* FBSDKLoginKit.framework */,
+				CF96903E1DCB219A007583F6 /* FBSDKShareKit.framework */,
 				A6336B5E970C4DC0C494B36A /* libPods-nayashoppy.a */,
 			);
 			name = Frameworks;
@@ -314,13 +312,13 @@
 			children = (
 				CF1E468E1DC9F99F001B9D62 /* NewArrivalsViewController */,
 				CF1E46831DC9D76D001B9D62 /* SignInViewController */,
-				CF6F2E221DC767DA0027FAD8 /* CategoriesView */,
 				CF7ACB611DA4EE1400DF3BD7 /* MainView */,
 				CFF8A7731DC1F6CD00FB633B /* HomeViewController */,
 				CF607C641DB0D0A5004296F1 /* DealsOfTheDay */,
 				CF5C75041DB62CA5008475D1 /* SideMenu */,
 				CF6927091DBE281800B85F64 /* User */,
 				CFF8A77D1DC2092D00FB633B /* Detailed View  */,
+				CF6F2E221DC767DA0027FAD8 /* CategoriesView */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -540,20 +538,11 @@
 			isa = PBXGroup;
 			children = (
 				CFDDAF7C1DA24AB900AFBF34 /* AppDelegate.h */,
-				CF1E46871DC9ED42001B9D62 /* f_shine.png */,
-				CF1E46891DC9ED4E001B9D62 /* g_shine.png */,
 				CFDDAF7D1DA24AB900AFBF34 /* AppDelegate.m */,
-				CF772FC51DB7631C008C13F8 /* splash.png */,
 				CFDDAF821DA24AB900AFBF34 /* Main.storyboard */,
 				CFDDAF851DA24AB900AFBF34 /* Assets.xcassets */,
 				CFDDAF871DA24AB900AFBF34 /* LaunchScreen.storyboard */,
 				CFDDAF8A1DA24AB900AFBF34 /* Info.plist */,
-				CF1E46961DCA033D001B9D62 /* icon_help.png */,
-				CF1E46981DCA035E001B9D62 /* icon_password.png */,
-				CF1E46941DCA0311001B9D62 /* btn_or.png */,
-				CF1E469C1DCA038A001B9D62 /* login_logo.png */,
-				CF1E469A1DCA0378001B9D62 /* icon_user.png */,
-				CF1E469E1DCA0393001B9D62 /* loginbg.png */,
 				CF1E46801DC9D73B001B9D62 /* Model Class */,
 				CF607C5C1DB0B689004296F1 /* ViewControllers */,
 				CFDDAF791DA24AB900AFBF34 /* Supporting Files */,
@@ -739,34 +728,25 @@
 			files = (
 				CF71F9C81DC0DB50004DDB9A /* CouponsCollectionViewCell.xib in Resources */,
 				CF018C261DC0BC9D0024CD37 /* Main.storyboard in Resources */,
-				CF1E46881DC9ED42001B9D62 /* f_shine.png in Resources */,
 				CF71F9C61DC0DB50004DDB9A /* CategoriesCell.xib in Resources */,
-				CF1E468A1DC9ED4E001B9D62 /* g_shine.png in Resources */,
 				CF6F2E241DC7681D0027FAD8 /* Categories.storyboard in Resources */,
 				CF6F2E1D1DC7543E0027FAD8 /* expandableImage.png in Resources */,
 				CFDDAF891DA24AB900AFBF34 /* LaunchScreen.storyboard in Resources */,
 				CF90F71C1DC321B800C8AB2B /* TopMenuStoryboard.storyboard in Resources */,
 				CF90F72A1DC348E400C8AB2B /* NewArrivalsStoryboard.storyboard in Resources */,
-				CF1E469D1DCA038A001B9D62 /* login_logo.png in Resources */,
 				CFF8A76A1DC1C9FA00FB633B /* HomeView.storyboard in Resources */,
 				CF6F2E1E1DC7543E0027FAD8 /* expandableImage@2x.png in Resources */,
 				CFF8A79F1DC21FE400FB633B /* Coupons.storyboard in Resources */,
 				CFFB08581DC372EE00140574 /* RecentStoryboard.storyboard in Resources */,
 				CF71F9AF1DC0D721004DDB9A /* DealsStoryboard.storyboard in Resources */,
-				CF1E469B1DCA0378001B9D62 /* icon_user.png in Resources */,
 				CF1E46931DC9F9F3001B9D62 /* NewArrival.storyboard in Resources */,
 				CFDDAF861DA24AB900AFBF34 /* Assets.xcassets in Resources */,
 				CF71F9C31DC0DB50004DDB9A /* NewArrivalViewCell.xib in Resources */,
-				CF1E46951DCA0311001B9D62 /* btn_or.png in Resources */,
 				CF6927151DBE303900B85F64 /* UserCell.xib in Resources */,
-				CF1E469F1DCA0393001B9D62 /* loginbg.png in Resources */,
 				CF5C75031DB62A84008475D1 /* SideMenu.xib in Resources */,
-				CF1E46991DCA035E001B9D62 /* icon_password.png in Resources */,
 				CF018C251DC0AA5F0024CD37 /* DealsCell.xib in Resources */,
 				CF6B397E1DC89313003BDB4E /* DetailView.storyboard in Resources */,
 				CF1E46821DC9D761001B9D62 /* SignIn.storyboard in Resources */,
-				CF772FC61DB7631C008C13F8 /* splash.png in Resources */,
-				CF1E46971DCA033D001B9D62 /* icon_help.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -982,6 +962,7 @@
 			baseConfigurationReference = 1D18F8C52544AF8BC0D74C5B /* Pods-nayashoppy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "~/Documents/FacebookSDK";
 				INFOPLIST_FILE = nayashoppy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -995,6 +976,7 @@
 			baseConfigurationReference = 1B401358B27273FCA5E1C110 /* Pods-nayashoppy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "~/Documents/FacebookSDK";
 				INFOPLIST_FILE = nayashoppy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

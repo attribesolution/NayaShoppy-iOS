@@ -21,14 +21,14 @@
 @synthesize Lmenu,Rmenu;
 
 - (void)viewDidLoad {
-    
+    [super viewDidLoad];
     tabItem=[[NSMutableArray alloc]initWithObjects:@"HOME",@"DEALS OF THE DAY", nil];
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
     tapRecognizer.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tapRecognizer];
     self.dataSource = self;
     self.delegate = self;
-    
+   
     [self navBar];
 }
 
@@ -128,7 +128,6 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.hidesBackButton = YES;
     self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
-    
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.navController=self.navigationController;
     

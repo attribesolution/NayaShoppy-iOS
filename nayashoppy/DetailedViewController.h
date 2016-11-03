@@ -11,9 +11,10 @@
 #import "MenuData.h"
 #import "DealsOfTheDayViewController.h"
 #import "GlobalVariables.h"
+#import "AppDelegate.h"
 
 @interface DetailedViewController : ViewPagerController <ViewPagerDataSource,ViewPagerDelegate>
 
 @property(strong,nonatomic) ViewPagerController *vp;
-
+//@property(weak,nonatomic) NSInteger myrow;
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+
 static NSString *CouponsCell = @"CouponsCollectionViewCell";
 static NSString *CouponsLabelTitle=@"Coupons & Cashback";
 static NSString *CouponsLabelImg=@"Coupon";
@@ -15,6 +16,7 @@ static NSString *CouponsLabelImg=@"Coupon";
 {
     UIImageView *slider;
 }
+
 @end
 
 @implementation HomeViewController
@@ -33,8 +35,8 @@ static NSString *CouponsLabelImg=@"Coupon";
     UIStoryboard *recently=[UIStoryboard storyboardWithName:@"RecentStoryboard" bundle:nil];
     self.recent = [recently instantiateViewControllerWithIdentifier:@"Recent"];
     [DejalActivityView activityViewForView:self.LoadingView withLabel:@"Loading Data..." width:self.view.frame.size.width-self.view.frame.size.width/2];
-    
-     /*  ApiParsing * mainVC = [[ApiParsing alloc] init];
+   
+    /*  ApiParsing * mainVC = [[ApiParsing alloc] init];
     
     [mainVC Slider:^(UIImage *img) {
         

@@ -55,12 +55,14 @@ static NSString *SideMenuCell =@"SideMenu";
     DetailedViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"Detail"];
     SWRevealViewController *sv=self.revealViewController;
     [sv revealToggle:self];
-
+     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.navController pushViewController:dvc animated:YES];
     appDelegate.navController.navigationBar.tintColor=[UIColor whiteColor];
-     [[NSNotificationCenter defaultCenter] postNotificationName:@"TabPosition" object:nil];
+    appDelegate.rowindex=[NSNumber numberWithInteger:indexPath.row];
+
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     

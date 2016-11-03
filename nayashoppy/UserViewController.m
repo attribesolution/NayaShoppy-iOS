@@ -34,7 +34,7 @@ static NSString *userCell =@"UserCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row==0)
+    /*if(indexPath.row==0)
     {
         UIStoryboard *deals=[UIStoryboard storyboardWithName:@"SignIn" bundle:nil];
         SignInVC *dvc = [deals instantiateViewControllerWithIdentifier:@"SignIn"];
@@ -43,7 +43,7 @@ static NSString *userCell =@"UserCell";
         SWRevealViewController *sv=self.revealViewController;
         [sv revealToggle:self];
         [sv revealToggle:self];
-     }
+     }*/
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

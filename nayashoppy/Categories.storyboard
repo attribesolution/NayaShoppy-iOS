@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q88-Dx-EpL" customClass="SKSTableView">
-                                <rect key="frame" x="0.0" y="50" width="324" height="430"/>
+                                <rect key="frame" x="0.0" y="28" width="324" height="452"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="wTn-IL-cgP" id="X0s-oK-oik"/>
@@ -37,6 +37,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Q88-Dx-EpL" secondAttribute="trailing" constant="-20" id="U80-QJ-hse"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Q88-Dx-EpL" secondAttribute="trailing" constant="49" id="VHx-nt-usg"/>
                             <constraint firstItem="Q88-Dx-EpL" firstAttribute="top" secondItem="5u2-We-PWG" secondAttribute="top" constant="50" id="Wit-Pa-lLy"/>
+                            <constraint firstItem="Q88-Dx-EpL" firstAttribute="top" secondItem="8Dw-QU-SJ4" secondAttribute="bottom" constant="8" id="dg0-yr-uLp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Q88-Dx-EpL" secondAttribute="trailing" constant="49" id="eFQ-Tw-thl"/>
                         </constraints>
                         <variation key="default">
@@ -45,6 +46,7 @@
                                 <exclude reference="Rsy-Tw-fyy"/>
                                 <exclude reference="TC2-3l-14O"/>
                                 <exclude reference="VHx-nt-usg"/>
+                                <exclude reference="Wit-Pa-lLy"/>
                                 <exclude reference="eFQ-Tw-thl"/>
                             </mask>
                         </variation>

@@ -49,6 +49,7 @@ static NSString *CategoriesVCell = @"CategoriesCell";
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.navController pushViewController:dvc animated:YES];
+    appDelegate.rowindex=[NSNumber numberWithInteger:indexPath.row];
     appDelegate.navController.navigationBar.tintColor=[UIColor whiteColor];
 }
 

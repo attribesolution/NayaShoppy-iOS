@@ -221,11 +221,10 @@
     CGRect frame = self.tabsView.frame;
     frame.origin.x = 0.0;
     frame.origin.y =[self.tabLocation boolValue] ? topLayoutGuide : CGRectGetHeight(self.view.frame) - [self.tabHeight floatValue];
-    
     if(mytabposition==YES)
-       frame.origin.y += 0.0;
+      frame.origin.y += 0.0;
     else
-       frame.origin.y += 44.0;
+    frame.origin.y += 44.0;
     frame.size.width = CGRectGetWidth(self.view.frame);
     frame.size.height = [self.tabHeight floatValue];
     self.tabsView.frame = frame;
@@ -326,7 +325,7 @@
     
     _fixLatterTabsPositions = fixLatterTabsPositions;
 }
-/*
+
 - (void)setActiveTabIndex:(NSUInteger)activeTabIndex {
     
     TabView *activeTabView;
@@ -367,50 +366,7 @@
     }
     
     [self.tabsView scrollRectToVisible:frame animated:YES];
-}*/
-- (void)setActiveTabIndex:(NSUInteger)activeTabIndex {
-    
-    TabView *activeTabView;
-    
-    // Set to-be-inactive tab unselected
-    activeTabView = [self tabViewAtIndex:self.activeTabIndex];
-    activeTabView.selected = NO;
-    
-    // Set to-be-active tab selected
-    activeTabView = [self tabViewAtIndex:activeTabIndex];
-    activeTabView.selected = YES;
-    
-    // Set current activeTabIndex
-    _activeTabIndex = activeTabIndex;
-    
-    // Bring tab to active position
-    // Position the tab in center if centerCurrentTab option is provided as YES
-    UIView *tabView = [self tabViewAtIndex:2];
-    CGRect frame = tabView.frame;
-    
-    if ([self.centerCurrentTab boolValue]) {
-        
-        frame.origin.x += (CGRectGetWidth(frame) /2);
-        frame.origin.x -= CGRectGetWidth(self.tabsView.frame) /2;
-        frame.size.width = CGRectGetWidth(self.tabsView.frame);
-        
-        if (frame.origin.x < 0) {
-            frame.origin.x = 0;
-        }
-        
-        if ((frame.origin.x + CGRectGetWidth(frame)) > self.tabsView.contentSize.width) {
-            frame.origin.x = (self.tabsView.contentSize.width - CGRectGetWidth(self.tabsView.frame));
-        }
-    } else {
-        
-        frame.origin.x -= [self.tabOffset floatValue];
-        frame.size.width = CGRectGetWidth(self.tabsView.frame);
-    }
-    
-    [self.tabsView scrollRectToVisible:frame animated:YES];
 }
-
-
 - (void)setActiveContentIndex:(NSUInteger)activeContentIndex {
     
     // Get the desired viewController
