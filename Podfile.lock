@@ -14,25 +14,44 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
   - DejalActivityView (1.2)
+  - DGActivityIndicatorView (2.1)
+  - FBSDKCoreKit (4.16.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.16.0):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.16.0):
+    - FBSDKCoreKit
   - ICViewPager (1.5.1)
   - JSONModel (1.5.1)
-  - LaunchScreenViewController (0.0.5)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - DejalActivityView (= 1.2)
+  - DGActivityIndicatorView
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - FBSDKShareKit
   - ICViewPager
   - JSONModel
-  - LaunchScreenViewController
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   DejalActivityView: 94d85757728a02cbb32445fcf6dfba17dc1e7393
+  DGActivityIndicatorView: 1942ae657a8d247c035f229422b2d15a8adbe5b6
+  FBSDKCoreKit: 7a6baaed4a2b2a244ba253346713bdbc74df135b
+  FBSDKLoginKit: 9a514a55a7d05190f64d4ef09502737588b5b561
+  FBSDKShareKit: e81505de17fc0624cbaa87b83cccc9f2a786e6cb
   ICViewPager: 032dc71a50fe898e185fae6112ded4bed0e0523c
   JSONModel: fd2553dc9e6608a3f35bfc956a14be35395d3852
-  LaunchScreenViewController: 47be6410d1161d63586c9fa539d3901cfd8354a4
 
-PODFILE CHECKSUM: fc80bcec75b7bc869a4734599f2b0da7191a7ac3
+PODFILE CHECKSUM: 1154ecb9f949abbc747d356136c082fe97fcd004
 
 COCOAPODS: 1.0.1
