@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-<<<<<<< HEAD
    LastUpgradeVersion = "0730"
-=======
-   LastUpgradeVersion = "0800"
->>>>>>> a0a63b6bdeb7eba3e315b9d3c904975bdc635a50
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -18,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CFDDAF751DA24AB900AFBF34"
-               BuildableName = "nayashoppy.app"
-               BlueprintName = "nayashoppy"
-               ReferencedContainer = "container:nayashoppy.xcodeproj">
+               BlueprintIdentifier = "45BE495C85EAC1CFA55C75EF04EFEE2E"
+               BuildableName = "libDejalActivityView.a"
+               BlueprintName = "DejalActivityView"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,15 +29,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CFDDAF751DA24AB900AFBF34"
-            BuildableName = "nayashoppy.app"
-            BlueprintName = "nayashoppy"
-            ReferencedContainer = "container:nayashoppy.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -55,16 +42,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CFDDAF751DA24AB900AFBF34"
-            BuildableName = "nayashoppy.app"
-            BlueprintName = "nayashoppy"
-            ReferencedContainer = "container:nayashoppy.xcodeproj">
+            BlueprintIdentifier = "45BE495C85EAC1CFA55C75EF04EFEE2E"
+            BuildableName = "libDejalActivityView.a"
+            BlueprintName = "DejalActivityView"
+            ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -74,16 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CFDDAF751DA24AB900AFBF34"
-            BuildableName = "nayashoppy.app"
-            BlueprintName = "nayashoppy"
-            ReferencedContainer = "container:nayashoppy.xcodeproj">
+            BlueprintIdentifier = "45BE495C85EAC1CFA55C75EF04EFEE2E"
+            BuildableName = "libDejalActivityView.a"
+            BlueprintName = "DejalActivityView"
+            ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

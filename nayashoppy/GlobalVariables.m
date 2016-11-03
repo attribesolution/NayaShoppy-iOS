@@ -73,5 +73,9 @@ NSMutableArray *categories=nil;
                              ];
     return UserInfo;
 }
-
++(UIColor*)themeColor{
+    
+    return [UIColor colorWithRed:255.0/255.0 green:0.0/255.0 blue:3.0/255.0 alpha:1.0];
+    
+}
 @end
