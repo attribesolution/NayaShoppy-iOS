@@ -10,6 +10,8 @@ pod 'ICViewPager'
 pod 'AFNetworking', '~> 3.0'
 pod 'DejalActivityView', '1.2'
 pod 'JSONModel'
-
-
+pod 'DGActivityIndicatorView'
+pod 'FBSDKCoreKit'
+pod 'FBSDKLoginKit'
+pod 'FBSDKShareKit'
 end
