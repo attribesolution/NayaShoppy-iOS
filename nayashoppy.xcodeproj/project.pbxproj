@@ -10,6 +10,12 @@
 		472B2DCF1DCB33FA008A15C0 /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 472B2DCE1DCB33FA008A15C0 /* ProductViewController.m */; };
 		472B2DD61DCB3A91008A15C0 /* UINavigationItem+Customize.m in Sources */ = {isa = PBXBuildFile; fileRef = 472B2DD51DCB3A91008A15C0 /* UINavigationItem+Customize.m */; };
 		477BC9131DC9D724008C3207 /* ProductDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 477BC9121DC9D724008C3207 /* ProductDetail.storyboard */; };
+		47C278A71DD07248008057BC /* TabledCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C2789E1DD07248008057BC /* TabledCollectionViewFlowLayout.m */; };
+		47C278A81DD07248008057BC /* CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C278A01DD07248008057BC /* CollectionCell.m */; };
+		47C278A91DD07248008057BC /* TabelledCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C278A21DD07248008057BC /* TabelledCollectionCell.m */; };
+		47C278AA1DD07248008057BC /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47C278A31DD07248008057BC /* CollectionCell.xib */; };
+		47C278AB1DD07248008057BC /* TabelledCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47C278A41DD07248008057BC /* TabelledCollectionCell.xib */; };
+		47C278AC1DD07248008057BC /* GridCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C278A61DD07248008057BC /* GridCollectionViewFlowLayout.m */; };
 		737BD2040ADF0C45A6E387AA /* libPods-nayashoppy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6336B5E970C4DC0C494B36A /* libPods-nayashoppy.a */; };
 		CF018C1A1DC09C2A0024CD37 /* DealsChild.m in Sources */ = {isa = PBXBuildFile; fileRef = CF018C191DC09C2A0024CD37 /* DealsChild.m */; };
 		CF018C1D1DC0A3630024CD37 /* Deals.m in Sources */ = {isa = PBXBuildFile; fileRef = CF018C1C1DC0A3630024CD37 /* Deals.m */; };
@@ -91,6 +97,16 @@
 		472B2DD51DCB3A91008A15C0 /* UINavigationItem+Customize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Customize.m"; sourceTree = "<group>"; };
 		477BC9101DC9D374008C3207 /* fontello.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fontello.ttf; sourceTree = "<group>"; };
 		477BC9121DC9D724008C3207 /* ProductDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductDetail.storyboard; sourceTree = "<group>"; };
+		47C2789D1DD07248008057BC /* TabledCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabledCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		47C2789E1DD07248008057BC /* TabledCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabledCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		47C2789F1DD07248008057BC /* CollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCell.h; sourceTree = "<group>"; };
+		47C278A01DD07248008057BC /* CollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCell.m; sourceTree = "<group>"; };
+		47C278A11DD07248008057BC /* TabelledCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabelledCollectionCell.h; sourceTree = "<group>"; };
+		47C278A21DD07248008057BC /* TabelledCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabelledCollectionCell.m; sourceTree = "<group>"; };
+		47C278A31DD07248008057BC /* CollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
+		47C278A41DD07248008057BC /* TabelledCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabelledCollectionCell.xib; sourceTree = "<group>"; };
+		47C278A51DD07248008057BC /* GridCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		47C278A61DD07248008057BC /* GridCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A6336B5E970C4DC0C494B36A /* libPods-nayashoppy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nayashoppy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF018C181DC09C2A0024CD37 /* DealsChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealsChild.h; sourceTree = "<group>"; };
 		CF018C191DC09C2A0024CD37 /* DealsChild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealsChild.m; sourceTree = "<group>"; };
@@ -248,6 +264,23 @@
 				472B2DCE1DCB33FA008A15C0 /* ProductViewController.m */,
 			);
 			name = AllProduct;
+			sourceTree = "<group>";
+		};
+		47C2789C1DD0722A008057BC /* AKCollectionController */ = {
+			isa = PBXGroup;
+			children = (
+				47C2789D1DD07248008057BC /* TabledCollectionViewFlowLayout.h */,
+				47C2789E1DD07248008057BC /* TabledCollectionViewFlowLayout.m */,
+				47C2789F1DD07248008057BC /* CollectionCell.h */,
+				47C278A01DD07248008057BC /* CollectionCell.m */,
+				47C278A11DD07248008057BC /* TabelledCollectionCell.h */,
+				47C278A21DD07248008057BC /* TabelledCollectionCell.m */,
+				47C278A31DD07248008057BC /* CollectionCell.xib */,
+				47C278A41DD07248008057BC /* TabelledCollectionCell.xib */,
+				47C278A51DD07248008057BC /* GridCollectionViewFlowLayout.h */,
+				47C278A61DD07248008057BC /* GridCollectionViewFlowLayout.m */,
+			);
+			path = AKCollectionController;
 			sourceTree = "<group>";
 		};
 		AFDC9A79B5A197D2396DBF86 /* Frameworks */ = {
@@ -578,6 +611,7 @@
 		CFDDAF791DA24AB900AFBF34 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				47C2789C1DD0722A008057BC /* AKCollectionController */,
 				CF6F2E131DC7543E0027FAD8 /* SKSTableView */,
 				477BC90F1DC9D360008C3207 /* Fonts */,
 				CF81BA851DBA075700ADE575 /* Mapping */,
@@ -634,9 +668,9 @@
 			children = (
 				CFFB08531DC36ECB00140574 /* TableCell.h */,
 				CFFB08541DC36ECB00140574 /* TableCell.m */,
+				CFF8A7691DC1C9FA00FB633B /* HomeView.storyboard */,
 				CFF8A76B1DC1CA5500FB633B /* HomeViewController.h */,
 				CFF8A76C1DC1CA5500FB633B /* HomeViewController.m */,
-				CFF8A7691DC1C9FA00FB633B /* HomeView.storyboard */,
 				CFF8A7741DC1F6E700FB633B /* collectionview */,
 			);
 			name = HomeViewController;
@@ -757,6 +791,7 @@
 				CF71F9C61DC0DB50004DDB9A /* CategoriesCell.xib in Resources */,
 				CF6F2E241DC7681D0027FAD8 /* Categories.storyboard in Resources */,
 				CF6F2E1D1DC7543E0027FAD8 /* expandableImage.png in Resources */,
+				47C278AB1DD07248008057BC /* TabelledCollectionCell.xib in Resources */,
 				CFDDAF891DA24AB900AFBF34 /* LaunchScreen.storyboard in Resources */,
 				CF90F71C1DC321B800C8AB2B /* TopMenuStoryboard.storyboard in Resources */,
 				CF90F72A1DC348E400C8AB2B /* NewArrivalsStoryboard.storyboard in Resources */,
@@ -767,6 +802,7 @@
 				CF71F9AF1DC0D721004DDB9A /* DealsStoryboard.storyboard in Resources */,
 				CF51CA921DCB693200D4C28B /* whisList.storyboard in Resources */,
 				CF1E46931DC9F9F3001B9D62 /* NewArrival.storyboard in Resources */,
+				47C278AA1DD07248008057BC /* CollectionCell.xib in Resources */,
 				CFDDAF861DA24AB900AFBF34 /* Assets.xcassets in Resources */,
 				477BC9131DC9D724008C3207 /* ProductDetail.storyboard in Resources */,
 				CF71F9C31DC0DB50004DDB9A /* NewArrivalViewCell.xib in Resources */,
@@ -833,6 +869,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47C278A91DD07248008057BC /* TabelledCollectionCell.m in Sources */,
 				CFFB08551DC36ECB00140574 /* TableCell.m in Sources */,
 				CF71F9C71DC0DB50004DDB9A /* CouponsCollectionViewCell.m in Sources */,
 				CF018C1A1DC09C2A0024CD37 /* DealsChild.m in Sources */,
@@ -849,8 +886,10 @@
 				CF81BA891DBA07F800ADE575 /* Products.m in Sources */,
 				CF90F7151DC3176D00C8AB2B /* TableViewCell.m in Sources */,
 				CF71F9C41DC0DB50004DDB9A /* Categories.m in Sources */,
+				47C278AC1DD07248008057BC /* GridCollectionViewFlowLayout.m in Sources */,
 				CF5BC8E21DBF7D2B00A9EC41 /* SlideImg.m in Sources */,
 				CF90F7281DC32DF000C8AB2B /* TopmenuCell.m in Sources */,
+				47C278A71DD07248008057BC /* TabledCollectionViewFlowLayout.m in Sources */,
 				CF81BA811DB9FB6600ADE575 /* MainCategories.m in Sources */,
 				CFDDAF811DA24AB900AFBF34 /* ViewController.m in Sources */,
 				CF6F2E1F1DC7543E0027FAD8 /* SKSTableView.m in Sources */,
@@ -859,6 +898,7 @@
 				CF257D661DAF6B3200EC6789 /* SWRevealViewController.m in Sources */,
 				CFDDAF7E1DA24AB900AFBF34 /* AppDelegate.m in Sources */,
 				CF90F7181DC31F6000C8AB2B /* CouponsVC.m in Sources */,
+				47C278A81DD07248008057BC /* CollectionCell.m in Sources */,
 				CF6F2E201DC7543E0027FAD8 /* SKSTableViewCell.m in Sources */,
 				CF6927051DBDFFB500B85F64 /* Images.m in Sources */,
 				CF018C1D1DC0A3630024CD37 /* Deals.m in Sources */,

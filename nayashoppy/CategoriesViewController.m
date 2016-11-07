@@ -9,6 +9,7 @@
 #import "CategoriesViewController.h"
 #import "MenuData.h"
 #import "Categories.h"
+#import "ProductViewController.h"
 
 @interface CategoriesViewController ()
 {
@@ -134,27 +135,16 @@
     return 50.0f;
 }
 
-/*
+
 - (void)tableView:(SKSTableView *)tableView didSelectSubRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section==0 && indexPath.row==2)
-    {
-        Categories *c1= [CategoriesArray objectAtIndex:indexPath.subRow-1];
-        CID=c1.CId;
-        CTitle=c1.CName;
-        [self performSegueWithIdentifier:@"Menu" sender:self];
-        
-    }
-    if(indexPath.section==0 && indexPath.row==1)
-        [self performSelector:@selector(goToNextView) withObject:nil ];
     
-    if(indexPath.section==0 && indexPath.row==0 && indexPath.subRow==1)
-        [self performSegueWithIdentifier:@"MYOrder" sender:self];
-    if(indexPath.section==0 && indexPath.row==0 && indexPath.subRow==2)
-        [self performSegueWithIdentifier:@"MyReservation" sender:self];
-    
+    UIStoryboard * pStoryboard = [UIStoryboard storyboardWithName:@"ProductDetail" bundle:[NSBundle mainBundle]];
+    ProductViewController *pVC =[pStoryboard instantiateViewControllerWithIdentifier:@"ProductVC"];
+    [self.navigationController pushViewController:pVC animated:YES];
+    self.navigationController.navigationItem.backBarButtonItem.title = @"";
 }
-*/
+
 #pragma mark - Actions
 
 - (void)collapseSubrows

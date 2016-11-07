@@ -14,7 +14,10 @@
 
 @interface ProductViewController (){
  NSMutableArray *tabItem;
+ NSInteger numberOfTabs ;
 }
+
+@property (nonatomic,assign)NSInteger lastSelectedTab;
 @end
 
 @implementation ProductViewController
@@ -22,17 +25,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    tabItem=[[NSMutableArray alloc]initWithObjects:@"HOME",@"DEALS OF THE DAY", nil];
+    tabItem=[[NSMutableArray alloc]initWithObjects:@"ALL PRODUCTS",@"POPULAR PRODUCTS", nil];
+    numberOfTabs = 2;
+    self.dataSource = self;
+    self.delegate = self;
+    CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
+    
+    self.navigationController.navigationBar.topItem.title = @"";  
+    [self selectTabAtIndex:0];
+    self.lastSelectedTab = 0;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+}
 #pragma mark - ViewPagerControllerDelegate Methods
 
 - (NSUInteger)numberOfTabsForViewPager:(ViewPagerController *)viewPager {
-    return 2;
+    return numberOfTabs;
 }
 
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index {
@@ -63,6 +78,7 @@
     label.font=[UIFont systemFontOfSize:15];
     label.textColor=[UIColor blackColor];
     label.textAlignment=NSTextAlignmentCenter;
+    label.tag = 100+index;
     return label;
 }
 
@@ -91,7 +107,19 @@
             return color;
     }
 }
-
+- (void)viewPager:(ViewPagerController *)viewPager didChangeTabToIndex:(NSUInteger)index{
+    
+    //if(self.lastSelectedTab!= nil){
+        UILabel *previouslabel = (UILabel*)[viewPager.view viewWithTag:100+self.lastSelectedTab];
+        previouslabel.textColor = [UIColor blackColor];
+    //}else{
+        
+        UILabel *currentlabel = (UILabel*)[viewPager.view viewWithTag:100+index];
+        currentlabel.textColor = [GlobalVariables themeColor];
+        
+  //  }
+    self.lastSelectedTab = index;
+}
 /*-(void) navBar
 {
  
