@@ -74,10 +74,7 @@
     label.textAlignment=NSTextAlignmentCenter;
     return label;
 }
--(BOOL) setY:(BOOL)y
-{
-    return YES;
-}
+
 - (CGFloat)viewPager:(ViewPagerController *)viewPager valueForOption:(ViewPagerOption)option withDefault:(CGFloat)value {
     
     switch (option) {
@@ -89,8 +86,6 @@
             return 0.0;
         case ViewPagerOptionTabLocation:
             return 1.0;
-        case ViewPagerOptionTabY:
-            return 0.0;
         default:
             return value;
     }
