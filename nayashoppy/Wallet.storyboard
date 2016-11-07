@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1912" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Wallet View Controller-->
+        <scene sceneID="2Ia-yQ-mg5">
+            <objects>
+                <viewController storyboardIdentifier="Wallet" id="7LV-DK-xa8" customClass="WalletViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gyS-9b-Khe"/>
+                        <viewControllerLayoutGuide type="bottom" id="zRM-di-70U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hiI-yN-rYG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L94-8X-1gE">
+                                <rect key="frame" x="97" y="301" width="126" height="36"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.010051519910000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="126" id="HZ9-tx-bRm"/>
+                                    <constraint firstAttribute="height" constant="36" id="LqT-bu-Psm"/>
+                                    <constraint firstAttribute="height" constant="30" id="UM8-NV-2b6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="VIEW DETAILS">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="UM8-NV-2b6"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View transaction details, balance or add money" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnC-7R-ssP">
+                                <rect key="frame" x="16" y="263" width="288" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_wallet_screen.png" translatesAutoresizingMaskIntoConstraints="NO" id="qZG-lf-56p">
+                                <rect key="frame" x="94" y="106" width="133" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="NzR-Hr-MfM"/>
+                                    <constraint firstAttribute="width" constant="133" id="RBI-M4-yxU"/>
+                                    <constraint firstAttribute="height" constant="128" id="yzX-wD-1Xp"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="yzX-wD-1Xp"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qZG-lf-56p" firstAttribute="centerX" secondItem="hiI-yN-rYG" secondAttribute="centerX" id="2W3-MD-7nt"/>
+                            <constraint firstItem="qZG-lf-56p" firstAttribute="leading" secondItem="hiI-yN-rYG" secondAttribute="leading" constant="40" id="8fj-PO-nkQ"/>
+                            <constraint firstAttribute="trailing" secondItem="qZG-lf-56p" secondAttribute="trailing" constant="40" id="Aac-4X-TLt"/>
+                            <constraint firstItem="pnC-7R-ssP" firstAttribute="top" secondItem="qZG-lf-56p" secondAttribute="bottom" constant="29" id="DFT-iP-078"/>
+                            <constraint firstItem="pnC-7R-ssP" firstAttribute="centerX" secondItem="hiI-yN-rYG" secondAttribute="centerX" id="NDZ-ch-c6Z"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="pnC-7R-ssP" secondAttribute="leading" id="Pnt-x4-tB9"/>
+                            <constraint firstItem="L94-8X-1gE" firstAttribute="top" secondItem="pnC-7R-ssP" secondAttribute="bottom" constant="23" id="RY6-TG-5XY"/>
+                            <constraint firstItem="L94-8X-1gE" firstAttribute="centerX" secondItem="hiI-yN-rYG" secondAttribute="centerX" id="WC7-kF-NI0"/>
+                            <constraint firstItem="pnC-7R-ssP" firstAttribute="top" secondItem="qZG-lf-56p" secondAttribute="bottom" constant="29" id="eX7-v7-Y3D"/>
+                            <constraint firstItem="qZG-lf-56p" firstAttribute="top" secondItem="gyS-9b-Khe" secondAttribute="bottom" constant="86" id="fCV-IQ-3Zv"/>
+                            <constraint firstItem="qZG-lf-56p" firstAttribute="top" secondItem="gyS-9b-Khe" secondAttribute="bottom" constant="82" id="uT3-ob-VVf"/>
+                            <constraint firstItem="qZG-lf-56p" firstAttribute="centerY" secondItem="hiI-yN-rYG" secondAttribute="centerY" id="xbl-Xn-EtB"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8fj-PO-nkQ"/>
+                                <exclude reference="Aac-4X-TLt"/>
+                                <exclude reference="uT3-ob-VVf"/>
+                                <exclude reference="xbl-Xn-EtB"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QVA-qi-efi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="311" y="175"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon_wallet_screen.png" width="414" height="413"/>
+    </resources>
+</document>

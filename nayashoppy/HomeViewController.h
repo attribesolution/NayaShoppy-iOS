@@ -18,7 +18,7 @@
 #import "TableCell.h"
 #import "RecentCell.h"
 #import "RecetVC.h"
-
+#import "DGActivityIndicatorView.h"
 
 @interface HomeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 @property (strong, nonatomic) IBOutlet UIView *LoadingView;

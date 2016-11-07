@@ -17,11 +17,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    [[FBSDKApplicationDelegate sharedInstance] application:application
-                             didFinishLaunchingWithOptions:launchOptions];
-   // [FBSDKLoginButton class];
-    ApiParsing * mainVC = [[ApiParsing alloc] init];
+       ApiParsing * mainVC = [[ApiParsing alloc] init];
    
     [mainVC getTopMenu:^(BOOL success) {
         

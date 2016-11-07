@@ -12,7 +12,7 @@
 #import "Categories.h"
 #import "AFHTTPSessionManager.h"
 #import "ApiParsing.h"
-#import "DejalActivityView.h"
+//#import "DejalActivityView.h"
 #import "SWRevealViewController.h"
 
 

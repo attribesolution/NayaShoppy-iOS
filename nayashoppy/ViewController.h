@@ -7,17 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ViewPagerController.h"
-#import "GlobalVariables.h"
-#import "DealsOfTheDayViewController.h"
-#import "SWRevealViewController.h"
-#import "HomeViewController.h"
+#import "PagerViewController.h"
 
-@interface ViewController : ViewPagerController<ViewPagerDataSource,ViewPagerDelegate,UISearchBarDelegate>
+@interface ViewController : UIViewController<UISearchBarDelegate>
 @property (strong, nonatomic) IBOutlet UISearchBar *searchbar;
-@property(strong,nonatomic) ViewPagerController *vp;
+
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *Lmenu;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *Rmenu;
-
+@property (strong, nonatomic) IBOutlet UIView *PagerView;
+@property (strong, nonatomic) PagerViewController *pager;
+@property (strong, nonatomic)  CouponsVC *collectionCont;
 @end
 

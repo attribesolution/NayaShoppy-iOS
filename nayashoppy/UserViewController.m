@@ -34,16 +34,58 @@ static NSString *userCell =@"UserCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*if(indexPath.row==0)
+    if(indexPath.row==0)
     {
         UIStoryboard *deals=[UIStoryboard storyboardWithName:@"SignIn" bundle:nil];
         SignInVC *dvc = [deals instantiateViewControllerWithIdentifier:@"SignIn"];
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         [appDelegate.navController pushViewController:dvc animated:YES];
-        SWRevealViewController *sv=self.revealViewController;
-        [sv revealToggle:self];
-        [sv revealToggle:self];
-     }*/
+        
+     }
+    if(indexPath.row==2)
+    {
+        UIStoryboard *deals=[UIStoryboard storyboardWithName:@"Wallet" bundle:nil];
+        WalletViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"Wallet"];
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [appDelegate.navController pushViewController:dvc animated:YES];
+        
+    }
+    if(indexPath.row==3)
+    {
+        UIStoryboard *deals=[UIStoryboard storyboardWithName:@"WishList" bundle:nil];
+        WalletViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"WishList"];
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [appDelegate.navController pushViewController:dvc animated:YES];
+        
+    }
+    if(indexPath.row==1)
+    {
+        UIStoryboard *deals=[UIStoryboard storyboardWithName:@"Order" bundle:nil];
+        OrderViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"Order"];
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [appDelegate.navController pushViewController:dvc animated:YES];
+        
+    }
+    if(indexPath.row==5)
+    {
+        UIStoryboard *deals=[UIStoryboard storyboardWithName:@"AboutUs" bundle:nil];
+        AboutUsViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"AboutUs"];
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [appDelegate.navController pushViewController:dvc animated:YES];
+        
+    }
+    if(indexPath.row==4)
+    {
+        UIStoryboard *deals=[UIStoryboard storyboardWithName:@"RateApp" bundle:nil];
+        RateAppViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"RateApp"];
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [appDelegate.navController pushViewController:dvc animated:YES];
+        
+    }
+  
+    SWRevealViewController *sv=self.revealViewController;
+    [sv revealToggle:self];
+    [sv revealToggle:self];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

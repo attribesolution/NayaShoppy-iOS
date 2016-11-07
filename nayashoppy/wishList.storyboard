@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1912" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Wish List View Controller-->
+        <scene sceneID="Npn-Ju-WDj">
+            <objects>
+                <viewController storyboardIdentifier="WishList" id="TwW-7C-f6e" customClass="WishListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dfO-Nh-En9"/>
+                        <viewControllerLayoutGuide type="bottom" id="gaU-kM-TrZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r8R-ap-RLc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5JX-TY-NVJ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="e91-Co-3Ah">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e91-Co-3Ah" id="eeb-25-Ol8">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="TwW-7C-f6e" id="xhV-DD-bWo"/>
+                                    <outlet property="delegate" destination="TwW-7C-f6e" id="xax-cQ-57G"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5JX-TY-NVJ" firstAttribute="top" secondItem="dfO-Nh-En9" secondAttribute="bottom" constant="8" id="07u-5j-hHB"/>
+                            <constraint firstItem="gaU-kM-TrZ" firstAttribute="top" secondItem="5JX-TY-NVJ" secondAttribute="bottom" id="Awy-MK-9pN"/>
+                            <constraint firstItem="5JX-TY-NVJ" firstAttribute="leading" secondItem="r8R-ap-RLc" secondAttribute="leading" id="SXV-fn-lNX"/>
+                            <constraint firstItem="5JX-TY-NVJ" firstAttribute="top" secondItem="r8R-ap-RLc" secondAttribute="topMargin" id="b3W-dg-wnj"/>
+                            <constraint firstAttribute="trailing" secondItem="5JX-TY-NVJ" secondAttribute="trailing" id="qaV-Zo-PNh"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="07u-5j-hHB"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="WishListTable" destination="5JX-TY-NVJ" id="xsG-iB-39A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YN5-IH-CY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="224" y="191"/>
+        </scene>
+    </scenes>
+</document>

@@ -19,11 +19,15 @@ static NSString *dealsCell = @"DealsCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     ob=[MenuData Items];
-   if(ob.DealsOfTheDay.count==0)
+ /*  if(ob.DealsOfTheDay.count==0)
        self.myView.hidden=NO;
-   else
-       self.myView.hidden=YES;
+   else*/
+    self.myView.hidden=YES;
+  //  self.DealsOfTheDayCV.backgroundColor=[UIColor whiteColor];
+   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshDealsCV:)
+                                                 name:@"refreshDealsCV" object:nil];
       }
+
 -(void)refreshDealsCV:(NSNotification *) notification{
     
     [self.DealsOfTheDayCV reloadData];
@@ -36,7 +40,7 @@ static NSString *dealsCell = @"DealsCell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
    
-    return ob.DealsOfTheDay.count;
+    return ob.newarrival.count;// ob.DealsOfTheDay.count;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -47,11 +51,14 @@ static NSString *dealsCell = @"DealsCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
        DealsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:dealsCell forIndexPath:indexPath];
-        Categories *obj=[ob.DealsOfTheDay objectAtIndex:indexPath.row];
+      /*  Categories *obj=[ob.DealsOfTheDay objectAtIndex:indexPath.row];
         cell.ImageView.image=[ob.DealsOfTheDayImg objectAtIndex:indexPath.row];
         cell.TitleLabel.text=obj.TMtitle;
-        cell.PriceLabel.text=[[obj.OfferPrice stringByAppendingString:@"  "]stringByAppendingString:obj.ActualPrice];
-        return cell;   
+        cell.PriceLabel.text=[[obj.OfferPrice stringByAppendingString:@"  "]stringByAppendingString:obj.ActualPrice];*/
+    cell.ImageView.image=[ob.newarrivalImg objectAtIndex:indexPath.row];
+    cell.TitleLabel.text=[ob.newarrival objectAtIndex:indexPath.row];
+    cell.PriceLabel.text=@"3000";
+        return cell;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {

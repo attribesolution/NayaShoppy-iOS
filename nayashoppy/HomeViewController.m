@@ -34,7 +34,11 @@ static NSString *CouponsLabelImg=@"Coupon";
     self.newarrival = [newarrivals instantiateViewControllerWithIdentifier:@"newAv"];
     UIStoryboard *recently=[UIStoryboard storyboardWithName:@"RecentStoryboard" bundle:nil];
     self.recent = [recently instantiateViewControllerWithIdentifier:@"Recent"];
-    [DejalActivityView activityViewForView:self.LoadingView withLabel:@"Loading Data..." width:self.view.frame.size.width-self.view.frame.size.width/2];
+    DGActivityIndicatorView *activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeDoubleBounce tintColor:[UIColor whiteColor] size:20.0f];
+    activityIndicatorView.frame = CGRectMake(0.0f, 300.0f, 50.0f, 50.0f);
+    [self.view addSubview:activityIndicatorView];
+    [activityIndicatorView startAnimating];
+    //[DejalActivityView activityViewForView:self.LoadingView withLabel:@"Loading Data..." width:self.view.frame.size.width-self.view.frame.size.width/2];
    
     /*  ApiParsing * mainVC = [[ApiParsing alloc] init];
     
@@ -54,7 +58,7 @@ static NSString *CouponsLabelImg=@"Coupon";
 -(void)refreshView:(NSNotification *) notification {
     
     [self.myTable reloadData];
-    [DejalActivityView removeView];
+   // [DejalActivityView removeView];
     self.LoadingView.hidden=YES;
 }
 

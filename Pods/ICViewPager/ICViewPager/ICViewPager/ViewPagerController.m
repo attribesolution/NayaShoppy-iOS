@@ -138,7 +138,6 @@
 @property (nonatomic) NSNumber *centerCurrentTab;
 @property (nonatomic) NSNumber *fixFormerTabsPositions;
 @property (nonatomic) NSNumber *fixLatterTabsPositions;
-@property (nonatomic) NSNumber *setY;
 @property (nonatomic) NSUInteger tabCount;
 @property (nonatomic) NSUInteger activeTabIndex;
 @property (nonatomic) NSUInteger activeContentIndex;
@@ -154,7 +153,6 @@
 @end
 
 @implementation ViewPagerController
-@synthesize setY = _setY;
 @synthesize tabHeight = _tabHeight;
 @synthesize tabOffset = _tabOffset;
 @synthesize tabWidth = _tabWidth;
@@ -203,11 +201,7 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
--(BOOL) setY :(BOOL)y
-{
-    mytabposition=y;
-    return mytabposition;
-}
+
 - (void)layoutSubviews {
     
     CGFloat topLayoutGuide = 0.0;
@@ -221,10 +215,7 @@
     CGRect frame = self.tabsView.frame;
     frame.origin.x = 0.0;
     frame.origin.y =[self.tabLocation boolValue] ? topLayoutGuide : CGRectGetHeight(self.view.frame) - [self.tabHeight floatValue];
-    if(mytabposition==YES)
-      frame.origin.y += 0.0;
-    else
-    frame.origin.y += 44.0;
+    frame.origin.y += 0.0;
     frame.size.width = CGRectGetWidth(self.view.frame);
     frame.size.height = [self.tabHeight floatValue];
     self.tabsView.frame = frame;
@@ -458,16 +449,7 @@
     return _tabHeight;
 }
 
-- (NSNumber *)setY {
-    
-    if (!_setY) {
-        CGFloat value = 0.0;
-        if ([self.delegate respondsToSelector:@selector(viewPager:valueForOption:withDefault:)])
-            value = [self.delegate viewPager:self valueForOption:ViewPagerOptionTabOffset withDefault:value];
-        self.setY = [NSNumber numberWithFloat:value];
-    }
-    return _setY;
-}
+
 - (NSNumber *)tabWidth {
     
     if (!_tabWidth) {

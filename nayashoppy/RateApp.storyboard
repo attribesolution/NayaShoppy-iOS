@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1912" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Rate App View Controller-->
+        <scene sceneID="eFJ-Yn-uD7">
+            <objects>
+                <viewController storyboardIdentifier="RateApp" id="2JM-ah-OHL" customClass="RateAppViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6NO-mt-pj5"/>
+                        <viewControllerLayoutGuide type="bottom" id="7wQ-2q-o8J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v3M-9M-AIy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo" translatesAutoresizingMaskIntoConstraints="NO" id="OaK-uU-9gR">
+                                <rect key="frame" x="40" y="28" width="240" height="79"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="79" id="BAO-ZB-T4v"/>
+                                    <constraint firstAttribute="width" constant="240" id="BF4-6R-bjw"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate this" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYh-mH-quo">
+                                <rect key="frame" x="36" y="128" width="67" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Write Review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WpG-Ga-0PN">
+                                <rect key="frame" x="36" y="229" width="100" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iyd-si-8ab">
+                                <rect key="frame" x="32" y="278" width="252" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lf-hL-eK0">
+                                <rect key="frame" x="160" y="338" width="128" height="30"/>
+                                <color key="backgroundColor" red="0.31372550129999999" green="0.96470594409999999" blue="0.058823533359999999" alpha="1" colorSpace="deviceRGB"/>
+                                <state key="normal" title="SUBMIT"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Y2-ry-Ilw">
+                                <rect key="frame" x="32" y="338" width="128" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.010051519910000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="CANCEL">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5Y2-ry-Ilw" firstAttribute="top" secondItem="iyd-si-8ab" secondAttribute="bottom" constant="30" id="3mf-IR-5NM"/>
+                            <constraint firstItem="WpG-Ga-0PN" firstAttribute="top" secondItem="JYh-mH-quo" secondAttribute="bottom" constant="80" id="7pM-4C-JhJ"/>
+                            <constraint firstItem="OaK-uU-9gR" firstAttribute="centerX" secondItem="v3M-9M-AIy" secondAttribute="centerX" id="KU8-9c-5t0"/>
+                            <constraint firstAttribute="trailing" secondItem="iyd-si-8ab" secondAttribute="trailing" constant="36" id="UNY-mc-OR4"/>
+                            <constraint firstItem="OaK-uU-9gR" firstAttribute="top" secondItem="6NO-mt-pj5" secondAttribute="bottom" constant="8" id="Yue-qW-KNX"/>
+                            <constraint firstItem="JYh-mH-quo" firstAttribute="leading" secondItem="v3M-9M-AIy" secondAttribute="leadingMargin" constant="20" id="ZCT-Py-bI3"/>
+                            <constraint firstItem="JYh-mH-quo" firstAttribute="top" secondItem="OaK-uU-9gR" secondAttribute="bottom" constant="21" id="ZM9-mU-mTY"/>
+                            <constraint firstItem="iyd-si-8ab" firstAttribute="leading" secondItem="v3M-9M-AIy" secondAttribute="leadingMargin" constant="16" id="Zne-k4-Fpi"/>
+                            <constraint firstItem="iyd-si-8ab" firstAttribute="top" secondItem="WpG-Ga-0PN" secondAttribute="bottom" constant="28" id="bSX-gL-9ow"/>
+                            <constraint firstItem="3lf-hL-eK0" firstAttribute="width" secondItem="5Y2-ry-Ilw" secondAttribute="width" id="jjB-IW-pTO"/>
+                            <constraint firstItem="WpG-Ga-0PN" firstAttribute="leading" secondItem="v3M-9M-AIy" secondAttribute="leadingMargin" constant="20" id="kZR-cl-TEy"/>
+                            <constraint firstItem="3lf-hL-eK0" firstAttribute="top" secondItem="iyd-si-8ab" secondAttribute="bottom" constant="30" id="uh0-K8-03g"/>
+                            <constraint firstItem="5Y2-ry-Ilw" firstAttribute="leading" secondItem="v3M-9M-AIy" secondAttribute="leadingMargin" constant="16" id="wi3-iN-kms"/>
+                            <constraint firstItem="3lf-hL-eK0" firstAttribute="leading" secondItem="5Y2-ry-Ilw" secondAttribute="trailing" id="yHb-Ti-PKo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3lf-hL-eK0" secondAttribute="trailing" constant="16" id="yL1-f8-YoF"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="CancleButton" destination="5Y2-ry-Ilw" id="Dj3-hi-i0q"/>
+                        <outlet property="SubmitButton" destination="3lf-hL-eK0" id="PYC-KK-vlm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pk9-id-CQF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="366" y="192"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="loginLogo" width="357" height="222"/>
+    </resources>
+</document>

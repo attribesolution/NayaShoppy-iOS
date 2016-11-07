@@ -141,6 +141,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V8a-lI-1Jo">
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <searchBar contentMode="redraw" placeholder="Search your item" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUS-vP-cDO">
                                 <rect key="frame" x="0.0" y="64" width="414" height="44"/>
                                 <constraints>
@@ -153,9 +157,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="V8a-lI-1Jo" secondAttribute="bottom" id="FiG-ib-cr9"/>
                             <constraint firstAttribute="trailing" secondItem="RUS-vP-cDO" secondAttribute="trailing" id="Qj7-5B-cNL"/>
+                            <constraint firstItem="V8a-lI-1Jo" firstAttribute="top" secondItem="RUS-vP-cDO" secondAttribute="bottom" constant="-64" id="TwH-RN-OCs"/>
                             <constraint firstItem="RUS-vP-cDO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fx7-pv-FGs"/>
+                            <constraint firstAttribute="trailing" secondItem="V8a-lI-1Jo" secondAttribute="trailing" id="s88-7e-9Kv"/>
                             <constraint firstItem="RUS-vP-cDO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="yhy-XS-eas"/>
+                            <constraint firstItem="V8a-lI-1Jo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yjJ-HA-aIz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BDr-6J-X2t">
@@ -169,6 +177,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="Lmenu" destination="SL0-Hn-hco" id="GZ6-G8-jRJ"/>
+                        <outlet property="PagerView" destination="V8a-lI-1Jo" id="iJF-UD-F31"/>
                         <outlet property="Rmenu" destination="SL0-Hn-hco" id="QLj-hq-ISk"/>
                         <outlet property="searchDisplayController" destination="Xrd-uO-BeX" id="grW-vo-jZC"/>
                         <outlet property="searchbar" destination="RUS-vP-cDO" id="Egm-o1-vPb"/>
@@ -249,6 +258,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="menu" width="22" height="17"/>
+        <image name="menu" width="27" height="17"/>
     </resources>
 </document>
