@@ -47,7 +47,7 @@
     {
             _contents = @[
                           @[
-                          @[ @"Apple",@"Red"],
+                          @[@"Apple",@"Red"],
                           @[@"banana",@"Yellow"]]
                           ];
         
