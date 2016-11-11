@@ -15,6 +15,8 @@
 {
     MenuData *obj;
     NSString *CatName ;
+    NSMutableArray *catid;
+    Categories *currentCat;
 }
 @property (nonatomic, strong) NSArray *contents;
 @end
@@ -29,6 +31,7 @@
     self.myTable.frame=CGRectMake(0, 50, 0, 0);
     self.myTable.SKSTableViewDelegate = self;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(incomingNotification:) name:@"CategorieAtIndex" object:nil];
+    self.navigationController.navigationItem.backBarButtonItem.title = @" ";
 }
 
 
@@ -55,7 +58,9 @@
     if (!_contents )
     {
        for (int i=0; i<obj.topmenu.count; i++) {
-        Categories *currentCat=[obj.topmenu objectAtIndex:i];
+           
+       currentCat=[obj.topmenu objectAtIndex:i];
+      
         if([CatName isEqualToString:currentCat.TMtitle])
         {
         _contents = @[currentCat.TMCat];
@@ -63,7 +68,7 @@
         }
        }
     }
-    else {
+     else {
         
         
     }
@@ -75,7 +80,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    
     return [self.contents count];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -91,7 +95,7 @@
 
 - (BOOL)tableView:(SKSTableView *)tableView shouldExpandSubRowsOfCellAtIndexPath:(NSIndexPath *)indexPath
 {
-    return YES;
+    return NO;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -102,7 +106,8 @@
     
     if (!cell)
         cell = [[SKSTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    cell.backgroundColor=[UIColor groupTableViewBackgroundColor];
+    cell.backgroundColor=[UIColor whiteColor];
+    cell.textLabel.textColor=[UIColor blackColor];
     cell.textLabel.text = self.contents[indexPath.section][indexPath.row][0];
     cell.expandable = YES;
     return cell;
@@ -117,15 +122,10 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
- /*   if(indexPath.section==0 && indexPath.row==2)
-    {
-        Categories *currentCat=[CategoriesArray objectAtIndex:indexPath.subRow-1];
-        cell.textLabel.text=currentCat.CName ;
-    }
-    
-    else*/
-        cell.textLabel.text = [NSString stringWithFormat:@"%@", self.contents[indexPath.section][indexPath.row][indexPath.subRow]];
+ 
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", self.contents[indexPath.section][indexPath.row][indexPath.subRow]];
     cell.textLabel.font=[UIFont systemFontOfSize:15];
+    cell.textLabel.textColor=[UIColor darkGrayColor];
     cell.backgroundColor=[UIColor whiteColor];
     return cell;
 }
@@ -138,11 +138,17 @@
 
 - (void)tableView:(SKSTableView *)tableView didSelectSubRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [self LoadData];
+    Categories *cobj=[[catid objectAtIndex:indexPath.row] objectAtIndex:indexPath.subRow-1];
+    obj.BranchId=cobj.BranchID;
+    obj.CatId=cobj.CatID;
+   
     UIStoryboard * pStoryboard = [UIStoryboard storyboardWithName:@"ProductDetail" bundle:[NSBundle mainBundle]];
     ProductViewController *pVC =[pStoryboard instantiateViewControllerWithIdentifier:@"ProductVC"];
+    pVC.title=self.contents[indexPath.section][indexPath.row][indexPath.subRow];
     [self.navigationController pushViewController:pVC animated:YES];
-    self.navigationController.navigationItem.backBarButtonItem.title = @"";
+    
+    
 }
 
 #pragma mark - Actions
@@ -151,6 +157,20 @@
 {
     [self.myTable collapseCurrentlyExpandedIndexPaths];
 }
+-(void)LoadData
+{
+        for (int i=0;i<obj.CatBranchIDs.count; i++) {
+            
+            currentCat=[obj.CatBranchIDs objectAtIndex:i];
+            
+            if([CatName isEqualToString:currentCat.TMtitle])
+            {
+                catid=[[NSMutableArray alloc]initWithArray:currentCat.TMCat];
+                break;
+            }
+        }
+}
+
 
 
 @end

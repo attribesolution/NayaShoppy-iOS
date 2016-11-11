@@ -15,6 +15,7 @@ static NSString *CouponsLabelImg=@"Coupon";
 @interface HomeViewController ()
 {
     UIImageView *slider;
+    DGActivityIndicatorView *activityIndicatorView;
 }
 
 @end
@@ -34,12 +35,11 @@ static NSString *CouponsLabelImg=@"Coupon";
     self.newarrival = [newarrivals instantiateViewControllerWithIdentifier:@"newAv"];
     UIStoryboard *recently=[UIStoryboard storyboardWithName:@"RecentStoryboard" bundle:nil];
     self.recent = [recently instantiateViewControllerWithIdentifier:@"Recent"];
-    DGActivityIndicatorView *activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeDoubleBounce tintColor:[UIColor whiteColor] size:20.0f];
-    activityIndicatorView.frame = CGRectMake(0.0f, 300.0f, 50.0f, 50.0f);
-    [self.view addSubview:activityIndicatorView];
+    activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotatePulse tintColor:[UIColor redColor] size:40.0f];
+    activityIndicatorView.frame = self.Loader.bounds;
+    [self.Loader addSubview:activityIndicatorView];
     [activityIndicatorView startAnimating];
-    //[DejalActivityView activityViewForView:self.LoadingView withLabel:@"Loading Data..." width:self.view.frame.size.width-self.view.frame.size.width/2];
-   
+    
     /*  ApiParsing * mainVC = [[ApiParsing alloc] init];
     
     [mainVC Slider:^(UIImage *img) {
@@ -58,8 +58,8 @@ static NSString *CouponsLabelImg=@"Coupon";
 -(void)refreshView:(NSNotification *) notification {
     
     [self.myTable reloadData];
-   // [DejalActivityView removeView];
-    self.LoadingView.hidden=YES;
+    [activityIndicatorView stopAnimating];
+     self.LoadingView.hidden=YES;
 }
 
 #pragma mark - UITableDelegate Method
@@ -87,7 +87,7 @@ static NSString *CouponsLabelImg=@"Coupon";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 8;
+    return 6;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

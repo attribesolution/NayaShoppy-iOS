@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1912" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -144,7 +144,19 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AJZ-iA-xbl">
                                                     <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                                    <subviews>
+                                                        <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XJA-yj-VkW">
+                                                            <rect key="frame" x="-10" y="-227" width="320" height="460"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                    </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="XJA-yj-VkW" firstAttribute="leading" secondItem="AJZ-iA-xbl" secondAttribute="leading" constant="-10" id="6Qy-Mk-Pke"/>
+                                                        <constraint firstItem="XJA-yj-VkW" firstAttribute="top" secondItem="AJZ-iA-xbl" secondAttribute="top" constant="-227" id="8mt-sS-GVe"/>
+                                                        <constraint firstAttribute="bottom" secondItem="XJA-yj-VkW" secondAttribute="bottom" constant="-190" id="UNl-F3-Zxi"/>
+                                                        <constraint firstItem="XJA-yj-VkW" firstAttribute="centerX" secondItem="AJZ-iA-xbl" secondAttribute="centerX" id="fzu-Y2-wCV"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -187,26 +199,42 @@
                                     <outlet property="delegate" destination="lGv-w6-0Lb" id="Xpq-wX-pRz"/>
                                 </connections>
                             </tableView>
-                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XJA-yj-VkW">
-                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ici-Hb-Q8B">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GeM-kT-J7C">
+                                        <rect key="frame" x="129" y="215" width="62" height="51"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="51" id="Vvz-AI-wzU"/>
+                                            <constraint firstAttribute="width" constant="62" id="alY-kv-OEt"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="GeM-kT-J7C" firstAttribute="centerX" secondItem="Ici-Hb-Q8B" secondAttribute="centerX" id="05N-dc-ZzL"/>
+                                    <constraint firstItem="GeM-kT-J7C" firstAttribute="centerY" secondItem="Ici-Hb-Q8B" secondAttribute="centerY" id="PYb-kA-tDM"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="TsJ-wM-cqY" secondAttribute="trailing" id="1td-1g-tFe"/>
-                            <constraint firstItem="XJA-yj-VkW" firstAttribute="leading" secondItem="rMz-7x-PZx" secondAttribute="leading" id="8Ge-dM-6AW"/>
-                            <constraint firstItem="fgq-1d-Fe8" firstAttribute="top" secondItem="XJA-yj-VkW" secondAttribute="bottom" id="Ah9-6x-luc"/>
-                            <constraint firstAttribute="trailing" secondItem="XJA-yj-VkW" secondAttribute="trailing" id="Gma-Gc-hqQ"/>
+                            <constraint firstItem="fgq-1d-Fe8" firstAttribute="top" secondItem="Ici-Hb-Q8B" secondAttribute="bottom" id="9fe-kP-oWS"/>
                             <constraint firstItem="TsJ-wM-cqY" firstAttribute="leading" secondItem="rMz-7x-PZx" secondAttribute="leading" id="Tdg-O6-Mo3"/>
-                            <constraint firstItem="XJA-yj-VkW" firstAttribute="top" secondItem="DGX-Dr-BAr" secondAttribute="bottom" id="YuQ-wR-j79"/>
+                            <constraint firstItem="Ici-Hb-Q8B" firstAttribute="top" secondItem="rMz-7x-PZx" secondAttribute="top" id="X02-r0-0l8"/>
                             <constraint firstItem="fgq-1d-Fe8" firstAttribute="top" secondItem="TsJ-wM-cqY" secondAttribute="bottom" id="eH7-eq-0C3"/>
                             <constraint firstItem="TsJ-wM-cqY" firstAttribute="top" secondItem="DGX-Dr-BAr" secondAttribute="bottom" id="pHG-qR-47X"/>
+                            <constraint firstAttribute="trailing" secondItem="Ici-Hb-Q8B" secondAttribute="trailing" id="u8C-Mb-r30"/>
+                            <constraint firstItem="Ici-Hb-Q8B" firstAttribute="leading" secondItem="rMz-7x-PZx" secondAttribute="leading" id="wKb-ka-YZb"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="LoadingView" destination="XJA-yj-VkW" id="bZF-jO-l4I"/>
+                        <outlet property="Loader" destination="GeM-kT-J7C" id="r1P-Ng-OvA"/>
+                        <outlet property="LoadingView" destination="Ici-Hb-Q8B" id="L55-c8-dg7"/>
                         <outlet property="myTable" destination="TsJ-wM-cqY" id="YPc-rh-gju"/>
                     </connections>
                 </viewController>

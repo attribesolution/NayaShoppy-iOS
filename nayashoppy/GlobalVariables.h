@@ -26,4 +26,5 @@ extern NSMutableArray *categories;
 +(NSArray *) CashCoupons;
 +(NSArray *) UserInfo;
 +(UIColor*)themeColor;
++(UIColor*) greenColor;
 @end

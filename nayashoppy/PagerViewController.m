@@ -14,6 +14,7 @@
     NSString *baseurl;
     
 }
+@property (nonatomic,assign)NSInteger lastSelectedTab;
 @end
 
 @implementation PagerViewController
@@ -27,7 +28,8 @@
   //  self.view.frame=CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height);
     self.dataSource = self;
     self.delegate = self;
-    
+    [self selectTabAtIndex:0];
+    self.lastSelectedTab = 0;
 }
 
 
@@ -64,7 +66,21 @@
     label.font=[UIFont systemFontOfSize:15];
     label.textColor=[UIColor blackColor];
     label.textAlignment=NSTextAlignmentCenter;
+    label.tag=100+index;
     return label;
+}
+- (void)viewPager:(ViewPagerController *)viewPager didChangeTabToIndex:(NSUInteger)index{
+    
+    //if(self.lastSelectedTab!= nil){
+    UILabel *previouslabel = (UILabel*)[viewPager.view viewWithTag:100+self.lastSelectedTab];
+    previouslabel.textColor = [UIColor blackColor];
+    //}else{
+    
+    UILabel *currentlabel = (UILabel*)[viewPager.view viewWithTag:100+index];
+    currentlabel.textColor = [GlobalVariables themeColor];
+    
+    //  }
+    self.lastSelectedTab = index;
 }
 
 - (CGFloat)viewPager:(ViewPagerController *)viewPager valueForOption:(ViewPagerOption)option withDefault:(CGFloat)value {
@@ -85,14 +101,15 @@
 }
 
 - (UIColor *)viewPager:(ViewPagerController *)viewPager colorForComponent:(ViewPagerComponent)component withDefault:(UIColor *)color {
-    
-    switch (component) {
-        case ViewPagerIndicator:
-            return [[UIColor redColor] colorWithAlphaComponent:0.64];
-        default:
-            return color;
-    }
+        
+        switch (component) {
+            case ViewPagerIndicator:
+                return [GlobalVariables themeColor];
+            default:
+                return color;
+        }
 }
+
 -(void) myvc:(UIViewController *) vc
 {
     vc.view.backgroundColor=[UIColor groupTableViewBackgroundColor];

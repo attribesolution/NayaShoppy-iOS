@@ -12,5 +12,6 @@
 @interface RateAppViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIButton *SubmitButton;
 @property (strong, nonatomic) IBOutlet UIButton *CancleButton;
+@property (strong, nonatomic) IBOutlet UILabel *Rating;
 
 @end

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1912" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Price View Controller-->
+        <scene sceneID="gHA-Iw-ThI">
+            <objects>
+                <viewController storyboardIdentifier="Price" id="JYd-no-mWt" customClass="PriceViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="elh-oQ-Ac4"/>
+                        <viewControllerLayoutGuide type="bottom" id="la9-dI-vBL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TE0-H9-KYO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mp3-z5-Odh">
+                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Stores" id="00f-Bj-i2r">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="00f-Bj-i2r" id="7L2-X6-uak">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ONLINE STORES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2q-qv-72V">
+                                                    <rect key="frame" x="25" y="12" width="122" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="I2q-qv-72V" firstAttribute="centerY" secondItem="7L2-X6-uak" secondAttribute="centerY" id="JPL-U5-Qgy"/>
+                                                <constraint firstItem="I2q-qv-72V" firstAttribute="leading" secondItem="7L2-X6-uak" secondAttribute="leadingMargin" constant="17" id="UPZ-Sc-ffG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="JYd-no-mWt" id="5gb-kT-2p3"/>
+                                    <outlet property="delegate" destination="JYd-no-mWt" id="GpZ-VA-QJA"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Mp3-z5-Odh" secondAttribute="trailing" id="NPj-iF-nDM"/>
+                            <constraint firstItem="la9-dI-vBL" firstAttribute="top" secondItem="Mp3-z5-Odh" secondAttribute="bottom" id="U1R-Q4-dFw"/>
+                            <constraint firstItem="Mp3-z5-Odh" firstAttribute="leading" secondItem="TE0-H9-KYO" secondAttribute="leading" id="ZeF-28-5Em"/>
+                            <constraint firstItem="Mp3-z5-Odh" firstAttribute="top" secondItem="elh-oQ-Ac4" secondAttribute="bottom" id="qh4-q0-m0A"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="PriceTable" destination="Mp3-z5-Odh" id="jhn-5A-Kyw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FrU-kc-G8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="272" y="237"/>
+        </scene>
+    </scenes>
+</document>

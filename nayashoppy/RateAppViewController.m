@@ -15,7 +15,7 @@
 @end
 
 @implementation RateAppViewController
-@synthesize CancleButton,SubmitButton;
+@synthesize CancleButton,SubmitButton,Rating;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,6 +29,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
     self.navigationItem.titleView =[[GlobalVariables class] titleView:@"Rate the app" andImg:@"Logo" andy:logoY] ;
+    self.SubmitButton.backgroundColor=[[GlobalVariables class]greenColor];
+    [Rating setFont:[UIFont fontWithName:@"fontello" size:30]];
+    [Rating setText:[NSString stringWithUTF8String:"\ue91b"]];
 }
 
 -(BOOL) textFieldShouldBeginEditing:(UITextField *)textField

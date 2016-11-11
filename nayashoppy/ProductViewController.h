@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ViewPagerController.h"
+#import "GridListViewController.h"
 
 @interface ProductViewController : ViewPagerController<ViewPagerDataSource,ViewPagerDelegate>
-
+@property(strong,nonatomic) GridListViewController *vc;
+@property(copy,nonatomic) NSString *title;
 @end

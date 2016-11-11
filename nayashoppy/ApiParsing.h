@@ -12,11 +12,11 @@
 #import "GlobalVariables.h"
 #import "MenuData.h"
 #import "Mapping.h"
-#import "SubCategories1.h"
 #import "NewArrivals.h"
-#import "Products.h"
 #import "SlidingImages.h"
 #import "Deals.h"
+#import "AllProduct.h"
+#import "ProductImg.h"
 
 @interface ApiParsing : NSObject
 
@@ -25,5 +25,7 @@
 - (UIImage *) image:(NSString *)imgurl;
 - (NSURLSessionDataTask *)Slider:(void (^)(UIImage *))success failure:(void (^)(NSError *error, NSString *message))failure ;
 - (NSURLSessionDataTask *)DealsOfTheDay:(void (^)(BOOL success))success failure:(void (^)(NSError *error, NSString *message))failure ;
+- (NSURLSessionDataTask *)getAllProducts:(void (^)(NSArray *products,NSArray *img))success failure:(void (^)(NSError *error, NSString *message))failure ;
+- (NSURLSessionDataTask *)getPopularProducts:(void (^)(NSArray *products,NSArray *img))success failure:(void (^)(NSError *error, NSString *message))failure ;
 
 @end
