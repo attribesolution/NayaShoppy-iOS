@@ -44,18 +44,25 @@
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index {
     if(index==0)
     {
-        UIStoryboard *categoriesSB=[UIStoryboard storyboardWithName:@"Price" bundle:nil];
-        PriceViewController *cvc = [categoriesSB instantiateViewControllerWithIdentifier:@"Price"];
+        UIStoryboard *price=[UIStoryboard storyboardWithName:@"Price" bundle:nil];
+        PriceViewController *cvc = [price instantiateViewControllerWithIdentifier:@"Price"];
         [self myvc:cvc];
         return cvc;
     }
-    else
+     if(index==1)
     {
-        UIStoryboard *categoriesSB=[UIStoryboard storyboardWithName:@"Price" bundle:nil];
-        PriceViewController *cvc = [categoriesSB instantiateViewControllerWithIdentifier:@"Price"];
+        UIStoryboard *specification=[UIStoryboard storyboardWithName:@"SpecificationList" bundle:nil];
+        SpecificationListViewController *cvc = [specification instantiateViewControllerWithIdentifier:@"SpecificationList"];
         [self myvc:cvc];
         return cvc;
     }
+     else {
+         
+         UIStoryboard *reviews=[UIStoryboard storyboardWithName:@"Review" bundle:nil];
+         SpecificationListViewController *cvc = [reviews instantiateViewControllerWithIdentifier:@"Review"];
+         [self myvc:cvc];
+         return cvc;
+     }
     
 }
 

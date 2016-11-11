@@ -37,7 +37,8 @@ Boolean showInGridView = false;
     [super viewDidLoad];
     
     obj=[MenuData Items];
-   
+    obj.allproductimg=nil;
+    obj.allproducts=nil;
     activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotatePulse tintColor:[UIColor redColor] size:40.0f];
     activityIndicatorView.frame = self.Loader.bounds;
     [self.Loader addSubview:activityIndicatorView];
@@ -144,7 +145,7 @@ Boolean showInGridView = false;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ImageAtIndex" object:[NSNumber numberWithInteger:indexPath.row]];
+   obj.index=[NSNumber numberWithInteger:indexPath.row];
    UIStoryboard *specifications=[UIStoryboard storyboardWithName:@"Specifications" bundle:nil];
    SpecificationsViewController *dvc = [specifications instantiateViewControllerWithIdentifier:@"Specifications"];
     cobj=[obj.allproducts objectAtIndex:indexPath.row];

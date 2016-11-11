@@ -12,9 +12,13 @@
 #import "GlobalVariables.h"
 #import "MenuData.h"
 #import "StoreCell.h"
+#import "ReviewCell.h"
+#import "SimilarProductVC.h"
+#import "SimilarProductsCell.h"
+#import "SpecificationCell.h"
 
 @interface PriceViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *PriceTable;
-
+@property (strong, nonatomic) SimilarProductVC *sproduct;
 
 @end

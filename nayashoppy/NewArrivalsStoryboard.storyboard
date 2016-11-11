@@ -39,7 +39,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="n5g-ca-u20" id="b2T-7d-C6b"/>
+                                    <outlet property="dataSource" destination="n5g-ca-u20" id="a4O-IY-i6V"/>
                                     <outlet property="delegate" destination="n5g-ca-u20" id="7yt-zW-Vlx"/>
                                 </connections>
                             </collectionView>

@@ -44,6 +44,68 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Specification" id="pw2-aq-8XV">
+                                        <rect key="frame" x="0.0" y="72" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pw2-aq-8XV" id="IX3-rb-Vzc">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPECIFICATIONS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4mJ-VZ-Hwf">
+                                                    <rect key="frame" x="25" y="12" width="125" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4mJ-VZ-Hwf" firstAttribute="centerY" secondItem="IX3-rb-Vzc" secondAttribute="centerY" id="vOc-Vg-w16"/>
+                                                <constraint firstItem="4mJ-VZ-Hwf" firstAttribute="leading" secondItem="IX3-rb-Vzc" secondAttribute="leadingMargin" constant="17" id="yxS-Th-eDM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Eff-44-vs3">
+                                        <rect key="frame" x="0.0" y="116" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Eff-44-vs3" id="1ER-rX-SLl">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Similar Products" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hr2-Kd-1LE">
+                                                    <rect key="frame" x="25" y="13" width="112" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hr2-Kd-1LE" firstAttribute="leading" secondItem="1ER-rX-SLl" secondAttribute="leadingMargin" constant="17" id="R7p-iy-RmU"/>
+                                                <constraint firstItem="hr2-Kd-1LE" firstAttribute="centerY" secondItem="1ER-rX-SLl" secondAttribute="centerY" id="rhL-fh-cCP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SimilarProduct" rowHeight="85" id="usX-6x-HA0" customClass="SimilarProductsCell">
+                                        <rect key="frame" x="0.0" y="160" width="320" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="usX-6x-HA0" id="VUi-5S-izA">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXi-KH-jnX">
+                                                    <rect key="frame" x="15" y="8" width="297" height="68"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tXi-KH-jnX" firstAttribute="bottom" secondItem="VUi-5S-izA" secondAttribute="bottomMargin" id="44a-Sp-gXt"/>
+                                                <constraint firstItem="tXi-KH-jnX" firstAttribute="top" secondItem="VUi-5S-izA" secondAttribute="topMargin" id="4lI-GM-GW2"/>
+                                                <constraint firstItem="tXi-KH-jnX" firstAttribute="leading" secondItem="VUi-5S-izA" secondAttribute="leadingMargin" constant="7" id="9Ra-SK-EYj"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="tXi-KH-jnX" secondAttribute="trailing" id="cpS-C5-IsQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="SimilarProductView" destination="tXi-KH-jnX" id="hsy-a8-SMf"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="JYd-no-mWt" id="5gb-kT-2p3"/>

@@ -22,5 +22,6 @@
 @property (strong,nonatomic) NSMutableArray *allproducts;
 @property (strong,nonatomic) NSString *CatId;
 @property (strong,nonatomic) NSString *BranchId;
+@property (strong,nonatomic) NSNumber *index;
 +(MenuData *) Items;
 @end

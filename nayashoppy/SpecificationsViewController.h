@@ -10,6 +10,7 @@
 #import "ViewPagerController.h"
 #import "GlobalVariables.h"
 #import "PriceViewController.h"
+#import "SpecificationListViewController.h"
 
 @interface SpecificationsViewController : ViewPagerController <ViewPagerDataSource,ViewPagerDelegate>
 
