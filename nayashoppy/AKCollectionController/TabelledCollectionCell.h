@@ -10,4 +10,11 @@
 
 @interface TabelledCollectionCell : UICollectionViewCell
 
+@property (strong, nonatomic) IBOutlet UIImageView *GridImage;
+@property (strong, nonatomic) IBOutlet UILabel *GridName;
+@property (strong, nonatomic) IBOutlet UILabel *Price;
+@property (strong, nonatomic) IBOutlet UILabel *Discount;
+@property (strong, nonatomic) IBOutlet UILabel *Company;
+
+
 @end

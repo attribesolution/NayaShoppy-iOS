@@ -15,13 +15,14 @@
 @interface ProductViewController (){
  NSMutableArray *tabItem;
  NSInteger numberOfTabs ;
+    
 }
 
 @property (nonatomic,assign)NSInteger lastSelectedTab;
 @end
 
 @implementation ProductViewController
-
+@synthesize vc,title;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -29,11 +30,9 @@
     numberOfTabs = 2;
     self.dataSource = self;
     self.delegate = self;
-    CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    
-    self.navigationController.navigationBar.topItem.title = @"";  
     [self selectTabAtIndex:0];
     self.lastSelectedTab = 0;
+    [self navBar];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,22 +50,12 @@
 }
 
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index {
-    if(index==0)
-    {
-        UIStoryboard *categoriesSB=[UIStoryboard storyboardWithName:@"HomeView" bundle:nil];
-        HomeViewController *cvc = [categoriesSB instantiateViewControllerWithIdentifier:@"Home"];
-        //[self myvc:cvc];
-        return cvc;
-        
-    }
     
-    else
-    {
-        UIStoryboard *deals=[UIStoryboard storyboardWithName:@"DealsStoryboard" bundle:nil];
-        DealsOfTheDayViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"deals"];
-        //[self myvc:dvc];
-        return dvc;
-    }
+        UIStoryboard *categoriesSB=[UIStoryboard storyboardWithName:@"GridList" bundle:nil];
+        self.vc = [categoriesSB instantiateViewControllerWithIdentifier:@"GridList"];
+        vc.tabindex=[NSNumber numberWithInteger: index];
+        return self.vc;
+        
 }
 
 - (UIView *)viewPager:(ViewPagerController *)viewPager viewForTabAtIndex:(NSUInteger)index {
@@ -120,39 +109,24 @@
   //  }
     self.lastSelectedTab = index;
 }
-/*-(void) navBar
+-(void) navBar
 {
- 
-   
-    self.searchbar.delegate=self;
-    NSArray *leftButtonItems = @[menu1];
+    
     
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    self.navigationItem.titleView =[[GlobalVariables class] titleView:@"NAYA SHOPPY" andImg:@"Logo" andy:logoY] ;
-    
-    UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"User"]
-                                                                              style:UIBarButtonItemStylePlain target:revealController action:@selector(rightRevealToggle:)];
-    
-    UIBarButtonItem *share = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Share"]
-                                                              style:UIBarButtonItemStylePlain  target:self action:nil];
-    share.tintColor=[UIColor whiteColor];
-    
-    NSArray *actionButtonItems = @[rightRevealButtonItem, share];
-    
-    self.navigationItem.rightBarButtonItems = actionButtonItems;
-    self.navigationItem.leftBarButtonItems = leftButtonItems;
+    self.navigationItem.titleView =[[GlobalVariables class] titleView:self.title andImg:@"Logo" andy:logoY] ;
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Grid"]
+                                                                               style:UIBarButtonItemStylePlain target:self action:@selector(Shuffle)];
     
     self.navigationItem.rightBarButtonItem.tintColor=[UIColor whiteColor];
-    self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
-}*/
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
-*/
+-(void) Shuffle
+{
+   
+    [self.vc shuffle];
+    
+}
 
 @end

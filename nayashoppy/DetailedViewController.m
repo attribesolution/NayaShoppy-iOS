@@ -14,6 +14,7 @@
      NSMutableArray *tabItem,*categories;
      MenuData *obj;
 }
+@property (nonatomic,assign)NSInteger lastSelectedTab;
 @end
 
 @implementation DetailedViewController
@@ -23,6 +24,9 @@
     [super viewDidLoad];
     obj=[MenuData Items];
     categories=[[NSMutableArray alloc]init];
+    [self selectTabAtIndex:0];
+    self.lastSelectedTab = 0;
+
     if(obj.topmenu.count!=0)
     {
     for (int i=0; i<obj.topmenu.count; i++) {
@@ -59,10 +63,7 @@
        return dvc;
 }
 
-- (void)viewPager:(ViewPagerController *)viewPager didChangeTabToIndex:(NSUInteger)index {
 
-    
-}
 - (UIView *)viewPager:(ViewPagerController *)viewPager viewForTabAtIndex:(NSUInteger)index {
     
     UILabel *label = [UILabel new];
@@ -72,9 +73,22 @@
     label.font=[UIFont systemFontOfSize:15];
     label.textColor=[UIColor blackColor];
     label.textAlignment=NSTextAlignmentCenter;
+    label.tag=100+index;
     return label;
 }
-
+- (void)viewPager:(ViewPagerController *)viewPager didChangeTabToIndex:(NSUInteger)index{
+    
+    //if(self.lastSelectedTab!= nil){
+    UILabel *previouslabel = (UILabel*)[viewPager.view viewWithTag:100+self.lastSelectedTab];
+    previouslabel.textColor = [UIColor blackColor];
+    //}else{
+    
+    UILabel *currentlabel = (UILabel*)[viewPager.view viewWithTag:100+index];
+    currentlabel.textColor = [GlobalVariables themeColor];
+    
+    //  }
+    self.lastSelectedTab = index;
+}
 - (CGFloat)viewPager:(ViewPagerController *)viewPager valueForOption:(ViewPagerOption)option withDefault:(CGFloat)value {
     
     switch (option) {
@@ -107,6 +121,9 @@
 {
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
     self.navigationItem.titleView =[[GlobalVariables class] titleView:@"Shop By Categories            " andImg:@"Logo" andy:logoY] ;
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
+
 }
 
 - (void)didTapAnywhere:(UITapGestureRecognizer *) sender

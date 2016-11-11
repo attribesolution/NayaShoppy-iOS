@@ -9,5 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface CollectionCell : UICollectionViewCell
+@property (strong, nonatomic) IBOutlet UIImageView *ListImage;
+@property (strong, nonatomic) IBOutlet UILabel *ListItem;
+@property (strong, nonatomic) IBOutlet UILabel *LPrice;
+@property (strong, nonatomic) IBOutlet UILabel *LDiscount;
+@property (strong, nonatomic) IBOutlet UILabel *LRating;
+@property (strong, nonatomic) IBOutlet UILabel *LItemUser;
+@property (strong, nonatomic) IBOutlet UILabel *LItemCapacity;
+@property (strong, nonatomic) IBOutlet UILabel *LItemColor;
+
 
 @end

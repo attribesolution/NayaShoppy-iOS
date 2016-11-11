@@ -10,4 +10,10 @@
 
 @implementation TabelledCollectionCell
 
+@synthesize GridImage=_GridImage;
+@synthesize GridName=_GridName;
+@synthesize Price=_Price;
+@synthesize Discount=_Discount;
+@synthesize Company=_Company;
+
 @end

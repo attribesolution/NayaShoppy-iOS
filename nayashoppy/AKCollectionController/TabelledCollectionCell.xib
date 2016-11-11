@@ -1,34 +1,96 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1912" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TabelledCollectionCell" id="ll6-lw-X48" customClass="TabelledCollectionCell">
-            <rect key="frame" x="0.0" y="0.0" width="207" height="180"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TabelledCollectionCell" id="1gt-V3-RTH" customClass="TabelledCollectionCell">
+            <rect key="frame" x="0.0" y="0.0" width="220" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="207" height="180"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <rect key="frame" x="0.0" y="0.0" width="220" height="200"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TabelledCell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rT5-Kn-6Pw">
-                        <rect key="frame" x="57" y="80" width="94" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WishIcon" translatesAutoresizingMaskIntoConstraints="NO" id="RcF-fo-Eew">
+                        <rect key="frame" x="14" y="15" width="26" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="26" id="CXg-9s-qB1"/>
+                            <constraint firstAttribute="height" constant="26" id="EXP-8T-mZG"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share 17*17.png" translatesAutoresizingMaskIntoConstraints="NO" id="lX9-r0-qtn">
+                        <rect key="frame" x="179" y="14" width="26" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26" id="cff-Dm-Szq"/>
+                            <constraint firstAttribute="width" constant="26" id="elZ-Yx-sRZ"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2L1-cS-dRv">
+                        <rect key="frame" x="23" y="117" width="174" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Je5-7I-WDM">
+                        <rect key="frame" x="24" y="166" width="172" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7PM-P1-mpj">
+                        <rect key="frame" x="54" y="13" width="112" height="90"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="90" id="H2b-2B-liC"/>
+                            <constraint firstAttribute="width" constant="112" id="SMM-Ys-emW"/>
+                            <constraint firstAttribute="height" constant="106" id="kt7-vF-zzw"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="kt7-vF-zzw"/>
+                            </mask>
+                        </variation>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
-            <color key="backgroundColor" red="0.0" green="0.54117647059999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="rT5-Kn-6Pw" firstAttribute="centerX" secondItem="ll6-lw-X48" secondAttribute="centerX" id="nnH-Zx-slf"/>
-                <constraint firstItem="rT5-Kn-6Pw" firstAttribute="centerY" secondItem="ll6-lw-X48" secondAttribute="centerY" id="zPI-7Z-O57"/>
+                <constraint firstItem="Je5-7I-WDM" firstAttribute="leading" secondItem="1gt-V3-RTH" secondAttribute="leading" constant="24" id="56T-cw-wLw"/>
+                <constraint firstItem="lX9-r0-qtn" firstAttribute="top" secondItem="1gt-V3-RTH" secondAttribute="top" constant="14" id="KJA-AM-SmP"/>
+                <constraint firstItem="lX9-r0-qtn" firstAttribute="leading" secondItem="7PM-P1-mpj" secondAttribute="trailing" constant="13" id="Kq4-KL-8Dx"/>
+                <constraint firstItem="7PM-P1-mpj" firstAttribute="centerX" secondItem="1gt-V3-RTH" secondAttribute="centerX" id="NIb-Gb-we1"/>
+                <constraint firstItem="2L1-cS-dRv" firstAttribute="top" secondItem="7PM-P1-mpj" secondAttribute="bottom" constant="8" id="PbC-9I-pnt"/>
+                <constraint firstItem="7PM-P1-mpj" firstAttribute="leading" secondItem="RcF-fo-Eew" secondAttribute="trailing" constant="14" id="WiC-T9-lvG"/>
+                <constraint firstItem="2L1-cS-dRv" firstAttribute="top" secondItem="7PM-P1-mpj" secondAttribute="bottom" constant="14" id="WxE-q8-YDZ"/>
+                <constraint firstItem="2L1-cS-dRv" firstAttribute="top" secondItem="7PM-P1-mpj" secondAttribute="bottom" constant="3" id="YAy-GU-QAP"/>
+                <constraint firstItem="RcF-fo-Eew" firstAttribute="top" secondItem="1gt-V3-RTH" secondAttribute="top" constant="15" id="diU-KA-T3T"/>
+                <constraint firstAttribute="trailing" secondItem="2L1-cS-dRv" secondAttribute="trailing" constant="23" id="eFW-HU-v5A"/>
+                <constraint firstItem="Je5-7I-WDM" firstAttribute="centerX" secondItem="1gt-V3-RTH" secondAttribute="centerX" id="iSU-Em-pcv"/>
+                <constraint firstItem="2L1-cS-dRv" firstAttribute="leading" secondItem="1gt-V3-RTH" secondAttribute="leading" constant="23" id="k53-aP-9tx"/>
+                <constraint firstItem="RcF-fo-Eew" firstAttribute="leading" secondItem="1gt-V3-RTH" secondAttribute="leading" constant="14" id="msy-Vd-U0F"/>
+                <constraint firstItem="2L1-cS-dRv" firstAttribute="centerX" secondItem="1gt-V3-RTH" secondAttribute="centerX" id="pti-hK-hiY"/>
+                <constraint firstAttribute="trailing" secondItem="lX9-r0-qtn" secondAttribute="trailing" constant="15" id="s0r-De-ehe"/>
+                <constraint firstItem="7PM-P1-mpj" firstAttribute="top" secondItem="1gt-V3-RTH" secondAttribute="top" constant="13" id="uPX-pM-XKK"/>
+                <constraint firstItem="Je5-7I-WDM" firstAttribute="top" secondItem="2L1-cS-dRv" secondAttribute="bottom" constant="32" id="wdC-0p-hdZ"/>
             </constraints>
-            <point key="canvasLocation" x="315" y="314"/>
+            <size key="customSize" width="220" height="196"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="PbC-9I-pnt"/>
+                    <exclude reference="YAy-GU-QAP"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="Company" destination="Je5-7I-WDM" id="Xih-T1-Y6R"/>
+                <outlet property="GridImage" destination="7PM-P1-mpj" id="vij-w3-bkA"/>
+                <outlet property="GridName" destination="2L1-cS-dRv" id="j3X-kv-oeW"/>
+            </connections>
+            <point key="canvasLocation" x="294" y="227"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="WishIcon" width="25" height="26"/>
+        <image name="share 17*17.png" width="72" height="72"/>
+    </resources>
 </document>

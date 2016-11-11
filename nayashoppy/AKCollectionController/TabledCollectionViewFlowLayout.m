@@ -112,13 +112,7 @@ static NSString * const BHPhotoAlbumLayoutPhotoCellKind = @"PhotoCell";
 }
 - (CGSize)collectionViewContentSize
 {
-    /*NSInteger rowCount = [self.collectionView numberOfSections] / self.numberOfColumns;
-    // make sure we count another row if one is only partially filled
-    if ([self.collectionView numberOfSections] % self.numberOfColumns) rowCount++;
-    
-    CGFloat height = self.itemInsets.top +
-    rowCount * self.itemSize.height + (rowCount - 1) * self.interItemSpacingY +
-    self.itemInsets.bottom;*/
+   
     
     return CGSizeMake(self.collectionView.bounds.size.width, (self.cummulativeHeightOfCells+self.interItemSpacingY +
                       self.itemInsets.bottom+self.itemInsets.top)/_numberOfColumns);
@@ -128,28 +122,13 @@ static NSString * const BHPhotoAlbumLayoutPhotoCellKind = @"PhotoCell";
 
 - (CGRect)frameForCellAtIndexPath:(NSIndexPath *)indexPath itemNumber:(NSInteger)item
 {
-   /* NSInteger row = indexPath.section / self.numberOfColumns;
-    NSInteger column = indexPath.section % self.numberOfColumns;
-    [self.collectionView numberOfItemsInSection:indexPath.section];
-    CGFloat spacingX = self.collectionView.bounds.size.width -
-    self.itemInsets.left -
-    self.itemInsets.right -
-    (self.numberOfColumns * self.itemSize.width);
-    
-    if (self.numberOfColumns > 1) spacingX = spacingX / (self.numberOfColumns - 1);*/
+
     
     CGFloat width;
     width = floor((self.collectionView.bounds.size.width/self.numberOfColumns)-(self.itemInsets.right + self.itemInsets.left));
-    if(item%2==0){
-        _originX = self.itemInsets.left;
-        //self.originY = self.originY;
-    }
-    else{
-        _originX = width + self.itemInsets.left + self.itemInsets.right;
-       // self.originY = self.cummulativeHeightOfCells;
-    }
-    NSInteger m = item/2;
-    self.originY =  m * (self.itemSize.height+self.itemInsets.top);
+    _originX = self.itemInsets.left;
+  
+    self.originY =  item * (self.itemSize.height+self.itemInsets.top);
     self.cummulativeHeightOfCells = self.cummulativeHeightOfCells+ self.itemSize.height;
     return CGRectMake(_originX, _originY, width, self.itemSize.height);
 }

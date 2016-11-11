@@ -14,4 +14,5 @@
 @property (strong, nonatomic) IBOutlet UIImageView *thumbnailImageView;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *loader;
 
+
 @end

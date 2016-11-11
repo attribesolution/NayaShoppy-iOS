@@ -22,24 +22,17 @@
   
     UIStoryboard *coupons=[UIStoryboard storyboardWithName:@"HomePager" bundle:nil];
     self.pager = [coupons instantiateViewControllerWithIdentifier:@"Pager"];
-    //self.pager.view.backgroundColor=[UIColor redColor];
     [self addChildViewController:self.pager];
     [self.pager didMoveToParentViewController:self];
    
     
     [self.PagerView addSubview:self.pager.view];
-  /*
-    UIStoryboard *coupons=[UIStoryboard storyboardWithName:@"Coupons" bundle:nil];
-    self.collectionCont = [coupons instantiateViewControllerWithIdentifier:@"Cash"];
-    [self addChildViewController:self.collectionCont];
-    [self.PagerView addSubview:self.collectionCont.view]; */
-
+ 
 }
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     self.pager.view.frame=self.PagerView.bounds;
-     //self.pager.view.frame=CGRectMake(0,0, self.PagerView.frame.size.width, self.PagerView.frame.size.height);
 }
 #pragma mark - self.view Methods
 

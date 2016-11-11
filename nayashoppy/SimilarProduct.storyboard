@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1912" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Similar ProductVC-->
+        <scene sceneID="KGS-l0-5Vx">
+            <objects>
+                <viewController storyboardIdentifier="SimilarProduct" id="wUb-5e-0Qa" customClass="SimilarProductVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ERm-cK-WMs"/>
+                        <viewControllerLayoutGuide type="bottom" id="NbR-dg-I8y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Yvi-fU-IHl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cck-uz-epS">
+                                <rect key="frame" x="-4" y="20" width="328" height="460"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="miW-gD-YfK">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="oib-c4-wZq">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="wUb-5e-0Qa" id="KzR-Km-Khs"/>
+                                    <outlet property="delegate" destination="wUb-5e-0Qa" id="RI5-wh-xDS"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cck-uz-epS" firstAttribute="top" secondItem="ERm-cK-WMs" secondAttribute="bottom" id="0WU-UF-0CZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cck-uz-epS" secondAttribute="trailing" constant="-20" id="9QZ-6G-S8r"/>
+                            <constraint firstItem="cck-uz-epS" firstAttribute="leading" secondItem="Yvi-fU-IHl" secondAttribute="leadingMargin" id="Lnf-kE-ubD"/>
+                            <constraint firstItem="NbR-dg-I8y" firstAttribute="top" secondItem="cck-uz-epS" secondAttribute="bottom" id="Mci-T0-X46"/>
+                            <constraint firstItem="cck-uz-epS" firstAttribute="top" secondItem="ERm-cK-WMs" secondAttribute="bottom" id="YD0-yi-iTZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cck-uz-epS" secondAttribute="trailing" id="inU-sJ-F42"/>
+                            <constraint firstItem="cck-uz-epS" firstAttribute="leading" secondItem="Yvi-fU-IHl" secondAttribute="leadingMargin" constant="-20" id="op9-AC-0OE"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Lnf-kE-ubD"/>
+                                <exclude reference="inU-sJ-F42"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="SimilarPcollView" destination="cck-uz-epS" id="hTE-kd-mHU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xze-mT-c8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="47" y="238"/>
+        </scene>
+    </scenes>
+</document>
