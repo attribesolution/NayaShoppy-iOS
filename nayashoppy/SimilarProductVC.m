@@ -9,7 +9,9 @@
 #import "SimilarProductVC.h"
 
 @interface SimilarProductVC ()
-
+{
+    MenuData *obj;
+}
 @end
 
 @implementation SimilarProductVC
@@ -17,19 +19,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
+    obj=[MenuData Items];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
     [self.SimilarPcollView registerNib:[UINib nibWithNibName:@"SimilarPCVCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"SimilarPCVCell"];
-    self.SimilarPcollView.backgroundColor=[UIColor groupTableViewBackgroundColor];
+    self.SimilarPcollView.backgroundColor=[UIColor clearColor];
+    ApiParsing * mainVC = [[ApiParsing alloc] init];
+    
+    [mainVC getSimilarProducts:^(NSArray *respone,NSArray *img) {
+        
+        obj.Similarproductimg=[img copy];
+        obj.Similarproducts=[respone copy];
+        [self.SimilarPcollView reloadData];
+        
+    } failure:^(NSError *error, NSString *message) {
+        NSLog(@"%@",error);
+    }];
+    
+
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    return 4;
+    return obj.Similarproducts.count;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -40,9 +55,11 @@
     
     
     SimilarPCVCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"SimilarPCVCell" forIndexPath:indexPath];
-    
+    Categories *cobj=[obj.Similarproducts objectAtIndex:indexPath.row];
     cell.backgroundColor=[UIColor clearColor];
-    
+    cell.Image.image=[obj.Similarproductimg objectAtIndex:indexPath.row];
+    cell.Title.text=cobj.TMtitle;
+    cell.Company.text=cobj.OfferPrice;
     return cell;
     
 }
@@ -57,7 +74,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(collectionView.frame.size.width/3-1, 109);
+    return CGSizeMake(collectionView.frame.size.width/3-1, 180);
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

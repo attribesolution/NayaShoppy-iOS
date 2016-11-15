@@ -10,7 +10,7 @@
 #import "ImageCell.h"
 
 @implementation ImageCell
-@synthesize ImageView=_ImageView;
+
 @synthesize TitleLabel =_TitleLabel;
 @synthesize ShareIcon =_ShareIcon;
 @synthesize WishICon=_WishICon;

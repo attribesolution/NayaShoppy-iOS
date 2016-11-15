@@ -11,6 +11,8 @@
 @interface PriceViewController ()
 {
     MenuData *obj;
+    Categories *cobj;
+
 }
 @end
 
@@ -21,6 +23,12 @@
     obj=[MenuData Items];
     UIStoryboard *coupons=[UIStoryboard storyboardWithName:@"SimilarProduct" bundle:nil];
     self.sproduct = [coupons instantiateViewControllerWithIdentifier:@"SimilarProduct"];
+   UIStoryboard *img=[UIStoryboard storyboardWithName:@"CollectionImages" bundle:nil];
+    self.imgcv = [img instantiateViewControllerWithIdentifier:@"BannerImagesVC"];
+    [self addChildViewController:self.imgcv];
+    [self.imgcv didMoveToParentViewController:self];
+    cobj=[obj.allproducts objectAtIndex:[obj.index integerValue]];
+
 }
 
 #pragma mark - UITableDelegate Method
@@ -32,7 +40,7 @@
     if(indexPath.section==1)
         return  100;
     if(indexPath.section==3)
-        return 230;
+        return 230*cobj.Supliers.count;
     if(indexPath.section==5)
         return 235;
     if(indexPath.section==8)
@@ -43,7 +51,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 9;
+    return 8 + cobj.Supliers.count;
 }
 -(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -61,22 +69,14 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    Categories *cobj=[obj.allproducts objectAtIndex:indexPath.row];
+{   int k=0;
     if(indexPath.section==0)
     {
-      static NSString *simpleTableIdentifier = @"ImageCell";
-        
-      ImageCell *cell = (ImageCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-      if (cell == nil)
-      {
-          NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ImageCell" owner:self options:  nil];
-          cell = [nib objectAtIndex:0];
-      }
-      cell.ImageView.image=[obj.allproductimg objectAtIndex:[obj.index integerValue]];
-      cell.TitleLabel.text=cobj.TMtitle;
-      return cell;
-        
+    ImageCell *cell = (ImageCell*)[tableView dequeueReusableCellWithIdentifier:@"ImageCell" forIndexPath:indexPath];
+        self.imgcv.view.frame = cell.ImgCollView.bounds;
+        [cell.ImgCollView addSubview:self.imgcv.view];
+        cell.TitleLabel.text=cobj.PName;
+        return cell;
    }
  
     if (indexPath.section==1)
@@ -90,13 +90,14 @@
             cell = [nib objectAtIndex:0];
         }
         cell.priceLabel.textColor=[[GlobalVariables class] themeColor];
-        cell.priceLabel.text=[@"Rs " stringByAppendingString:cobj.OfferPrice];
+        cell.priceLabel.text=[@"Rs " stringByAppendingString:cobj.Pprice];
         cell.DiscountLabel.textColor=[[GlobalVariables class]greenColor];
         return cell;
         
     }
     
-   if (indexPath.section==3) {
+    
+   if (indexPath.section==3+k) {
         
      static NSString *simpleTableIdentifier = @"StoreCell";
    
@@ -106,11 +107,15 @@
          NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"StoreCell" owner:self options:  nil];
          cell = [nib objectAtIndex:0];
        }
-      cell.PRICE.text=cobj.OfferPrice;
+      Categories *sup=[cobj.Supliers objectAtIndex:k];
+      cell.PRICE.text=sup.StorePrice;
+
+      cell.Description.text=sup.StoreDelivery;
       return cell;
    
     }
-    if (indexPath.section==4)
+    
+    if (indexPath.section==k+1)
     {
         static NSString *simpleTableIdentifier = @"Specification";
         
@@ -123,7 +128,7 @@
         return cell;
     }
 
-    if(indexPath.section==5)
+    if(indexPath.section==k+2)
     {
         static NSString *simpleTableIdentifier = @"SpecificationCell";
         
@@ -137,7 +142,7 @@
         
     }
     
-    if (indexPath.section==6) {
+    if (indexPath.section==k+3) {
         
         static NSString *simpleTableIdentifier = @"ReviewCell";
         
@@ -150,7 +155,7 @@
         return cell;
     }
     
-     if (indexPath.section==7) {
+     if (indexPath.section==k+4) {
          static NSString *simpleTableIdentifier = @"Similar Products";
          
          UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -162,7 +167,7 @@
          return cell;
           }
    
-    if (indexPath.section==8)
+    if (indexPath.section==k+5)
    {
         SimilarProductsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SimilarProduct" forIndexPath:indexPath];
         self.sproduct.view.frame = cell.SimilarProductView.bounds;

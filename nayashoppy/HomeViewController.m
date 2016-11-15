@@ -107,7 +107,6 @@ static NSString *CouponsLabelImg=@"Coupon";
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
         }
-        //cell.imageView.image=[UIImage imageNamed:@"UserIcon"];
         
         return cell;
 

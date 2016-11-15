@@ -10,9 +10,8 @@
 
 @interface ImageCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UIImageView *ImageView;
-@property (strong, nonatomic) IBOutlet UIImageView *WishICon;
+@property (strong, nonatomic) IBOutlet UIView *ImgCollView;
 @property (strong, nonatomic) IBOutlet UIImageView *ShareIcon;
 @property (strong, nonatomic) IBOutlet UILabel *TitleLabel;
-
+@property (strong, nonatomic) IBOutlet UIImageView *WishICon;
 @end

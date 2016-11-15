@@ -39,11 +39,13 @@ Boolean showInGridView = false;
     obj=[MenuData Items];
     obj.allproductimg=nil;
     obj.allproducts=nil;
+    
     activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotatePulse tintColor:[UIColor redColor] size:40.0f];
     activityIndicatorView.frame = self.Loader.bounds;
     [self.Loader addSubview:activityIndicatorView];
     [activityIndicatorView startAnimating];
     ApiParsing * mainVC = [[ApiParsing alloc] init];
+    
     if([tabindex integerValue]==0)
     {
     [mainVC getAllProducts:^(NSArray *respone,NSArray *img) {
@@ -83,12 +85,12 @@ Boolean showInGridView = false;
     self.glayout = [[GridCollectionViewFlowLayout alloc] init];
     [self.glayout setItemSize:CGSizeMake(self.collectionView.bounds.size.width, 160)];
    
-    // Do any additional setup after loading the view, typically from a nib.
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+   
 }
 -(void) shuffle
 {
@@ -129,16 +131,16 @@ Boolean showInGridView = false;
     if(showInGridView){
         TabelledCollectionCell *cell =  [collectionView dequeueReusableCellWithReuseIdentifier:AKTabelledCollectionCell forIndexPath:indexPath];
         
-        cell.GridName.text=cobj.TMtitle;
-        cell.Company.text=cobj.OfferPrice;
-        cell.GridImage.image=[obj.allproductimg objectAtIndex:indexPath.row];
+        cell.GridName.text=cobj.PName;
+        cell.Company.text=cobj.POfferPrice;
+        cell.GridImage.image=[[obj.allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
         return cell;
     }
     else{
         CollectionCell *cell =  [collectionView dequeueReusableCellWithReuseIdentifier:AKCollectionCell forIndexPath:indexPath];
-        cell.ListItem.text=cobj.TMtitle;
-        cell.LPrice.text=cobj.OfferPrice;
-        cell.ListImage.image=[obj.allproductimg objectAtIndex:indexPath.row];
+        cell.ListItem.text=cobj.PName;
+        cell.LPrice.text=cobj.POfferPrice;
+        cell.ListImage.image=[[obj.allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
         return cell;
     }
     
@@ -149,7 +151,9 @@ Boolean showInGridView = false;
    UIStoryboard *specifications=[UIStoryboard storyboardWithName:@"Specifications" bundle:nil];
    SpecificationsViewController *dvc = [specifications instantiateViewControllerWithIdentifier:@"Specifications"];
     cobj=[obj.allproducts objectAtIndex:indexPath.row];
-    dvc.title=cobj.TMtitle;
+    dvc.title=cobj.PName;
+    obj.PCatId=cobj.PcatId;
+    obj.PPrice=cobj.Pprice;
     [self.navigationController pushViewController:dvc animated:YES];
    
 }

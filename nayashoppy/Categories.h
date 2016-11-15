@@ -17,16 +17,23 @@
 @property(nonatomic,strong) NSString * BranchID;
 @property(nonatomic,strong) NSString * CatID;
 @property(nonatomic,strong) NSString * Ctitle;
-@property(nonatomic,strong) NSString * Color;
-@property(nonatomic,strong) NSString * Capacity;
-@property(nonatomic,strong) NSString * User;
+@property(nonatomic,strong) NSString * POfferPrice;
+@property(nonatomic,strong) NSString * StoreDelivery;
+@property(nonatomic,strong) NSString * StorePrice;
+@property(nonatomic,strong) NSString * PcatId;
 @property(nonatomic,strong) NSString * PName;
 @property(nonatomic,strong) NSString * Pprice;
+@property(nonatomic,strong) NSString * Pslug;
+@property(nonatomic,strong) NSString * StoreUrl;
+@property(nonatomic,strong) NSString * featurename;
+@property(nonatomic,strong) NSString * featurevalue;
+@property(nonatomic,strong) NSMutableArray * Supliers;
 
 -(id) initWithTitle:title andCat:categories;
+-(id) initWithFeatureName:name andFeatureValue:value;
 -(id) initWithTitle:title andPrice1:price1 andPrice2:price2;
 -(id) initWithTitle:title andinitWithBranchID:Bid andCatID:Cid;
-//-(id) initWithName:title andinitWithprice:price;
--(id) initWithName:title andinitWithprice:price andinitWithuser:user andinitWithcapcity:capacity andinitWithcolor:color;
+-(id) initWithDilevery:delivery andinitWithurl:url andinitWithprice:price;
+-(id) initWithName:title andinitWithprice:price andinitWithofferPrice:oprice andinitWithSupliers:supliers andinitWithcat:catid andinitWithslug:slug;
 
 @end

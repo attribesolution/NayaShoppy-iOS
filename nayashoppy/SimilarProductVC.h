@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "SimilarPCVCell.h"
+#import "ApiParsing.h"
+#import "Categories.h"
 
-@interface SimilarProductVC : UIViewController
+@interface SimilarProductVC : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UICollectionView *SimilarPcollView;
 

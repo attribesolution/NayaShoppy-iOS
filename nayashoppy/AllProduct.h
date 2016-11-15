@@ -12,5 +12,5 @@
 @interface AllProduct : JSONModel
 @property (strong,nonatomic) NSArray <ProductDetails> *data;
 @property (strong,nonatomic) NSDictionary *meta;
-@property (strong,nonatomic) NSDictionary *pagination;
+@property (strong,nonatomic) NSDictionary <Optional> *pagination;
 @end

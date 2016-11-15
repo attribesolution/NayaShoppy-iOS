@@ -1,21 +1,15 @@
 //
-//  ProductDetails.h
+//  SproductDetail.h
 //  nayashoppy
 //
-//  Created by Amerald on 08/11/2016.
+//  Created by Amerald on 14/11/2016.
 //  Copyright © 2016 attribe. All rights reserved.
 //
 
 #import <JSONModel/JSONModel.h>
-#import "Images.h"
-#import "ProductSuppliers.h"
-#import "Features.h"
 
-@protocol ProductDetails
-@end
-
-@interface ProductDetails : JSONModel
-@property (strong,nonatomic) NSNumber *product_id;
+@interface SproductDetail : JSONModel
+/*@property (strong,nonatomic) NSNumber *product_id;
 @property (strong,nonatomic) NSNumber *categories_category_id;
 @property (strong,nonatomic) NSNumber *brands_brand_id;
 @property (strong,nonatomic) NSString *product_name;
@@ -53,6 +47,5 @@
 @property (strong,nonatomic) NSString *active;
 @property (strong,nonatomic) NSString <Optional> *created;
 @property (strong,nonatomic) NSArray <Images,Optional> *images;
-@property (strong,nonatomic) NSArray <ProductSuppliers,Optional> *suppliers;
-@property (strong,nonatomic) NSArray <Optional,Features> *featuresList;
+@property (strong,nonatomic) NSArray <ProductSuppliers> *suppliers;*/
 @end

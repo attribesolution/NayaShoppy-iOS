@@ -16,9 +16,11 @@
 #import "SimilarProductVC.h"
 #import "SimilarProductsCell.h"
 #import "SpecificationCell.h"
+#import "CollectionImages.h"
 
 @interface PriceViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
+
 @property (strong, nonatomic) IBOutlet UITableView *PriceTable;
 @property (strong, nonatomic) SimilarProductVC *sproduct;
-
+@property (strong, nonatomic) CollectionImages *imgcv;
 @end

@@ -11,8 +11,7 @@
 static MenuData *data = nil;
 
 @implementation MenuData
-@synthesize topmenu,topmenuImg,newarrival,newarrivalImg,DealsOfTheDayImg,DealsOfTheDay,Child,CatBranchIDs,CatId,BranchId,allproductimg,allproducts,index;
-
+@synthesize topmenu,topmenuImg,newarrival,newarrivalImg,DealsOfTheDayImg,DealsOfTheDay,Child,CatBranchIDs,CatId,BranchId,allproductimg,allproducts,index,Similarproductimg,PPrice,PCatId,Similarproducts,slug;
 +(MenuData *) Items
 {
     
@@ -37,6 +36,9 @@ static MenuData *data = nil;
     {
         CatId=@" ";
         BranchId=@" ";
+        PPrice=@" ";
+        PCatId=@" ";
+        slug=@" ";
         index=0;
         topmenu=[[NSMutableArray alloc]init];
         topmenuImg=[[NSMutableArray alloc]init];
@@ -48,6 +50,8 @@ static MenuData *data = nil;
         CatBranchIDs=[[NSMutableArray alloc]init];
         allproducts=[[NSMutableArray alloc]init];
         allproductimg=[[NSMutableArray alloc]init];
+        Similarproducts=[[NSMutableArray alloc]init];
+        Similarproductimg=[[NSMutableArray alloc]init];
     }
     return self;
 }
