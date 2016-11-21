@@ -9,8 +9,9 @@
 
 #import "GlobalVariables.h"
 
-NSMutableArray *categories=nil;
-
+UIImage *productImg=nil;
+NSMutableArray *categories=nil,*myProducts=nil,*myProductsImg=nil;
+NSUserDefaults *defaults;
 @implementation GlobalVariables
 
 +(UIView *) titleView:(NSString *) title1 andImg:(NSString *) img andy:(CGFloat) y
@@ -81,5 +82,58 @@ NSMutableArray *categories=nil;
 +(UIColor*) greenColor
 {
     return [UIColor colorWithRed:57.0/255.0 green:177.0/255.0 blue:44.0/255.0 alpha:1.0];
+}
++(void) AddWhishList:(NSString *)name :(NSString *)price :(UIImage *) image
+{
+  
+        defaults = [NSUserDefaults standardUserDefaults];
+        NSMutableArray *ProductsImg,*Products,*ProductDetail;
+        
+        ProductsImg =[[NSMutableArray alloc] init];
+        Products =[[NSMutableArray alloc] init];
+        ProductDetail =[[NSMutableArray alloc] init];
+        
+        [ProductDetail addObject:name];
+        [ProductDetail addObject:price];
+        [Products addObject:ProductDetail];
+        UIImage *contactImage = image;
+        NSData *imageData = UIImageJPEGRepresentation(contactImage, 100);
+        [ProductsImg addObject:imageData];
+        
+        NSObject *myobj=[defaults objectForKey:@"Product"];
+        NSObject *myImgobj=[defaults objectForKey:@"ProductImg"];
+        if(myImgobj == nil){
+            
+            myProductsImg =[[NSMutableArray alloc] init];
+            [myProductsImg  addObject:ProductsImg];
+            [defaults setObject:myProductsImg  forKey:@"ProductImg"];
+        }
+        
+        else
+        {
+            myProductsImg  = [[defaults objectForKey:@"ProductImg"]mutableCopy];
+            [myProductsImg   addObject:ProductsImg];
+            [defaults setObject:myProductsImg forKey:@"ProductImg"];
+        }
+        
+        if(myobj == nil){
+            
+            myProducts =[[NSMutableArray alloc] init];
+            [myProducts addObject:Products];
+            [defaults setObject:myProducts forKey:@"Product"];
+        }
+        
+        else
+        {
+            myProducts = [[defaults objectForKey:@"Product"]mutableCopy];
+            [myProducts  addObject:Products];
+            [defaults setObject:myProducts  forKey:@"Product"];
+        }
+        
+        
+        [defaults synchronize];
+        
+ 
+
 }
 @end

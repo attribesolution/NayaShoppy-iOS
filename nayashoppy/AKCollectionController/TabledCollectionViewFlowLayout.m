@@ -130,7 +130,7 @@ static NSString * const BHPhotoAlbumLayoutPhotoCellKind = @"PhotoCell";
   
     self.originY =  item * (self.itemSize.height+self.itemInsets.top);
     self.cummulativeHeightOfCells = self.cummulativeHeightOfCells+ self.itemSize.height;
-    return CGRectMake(_originX, _originY, width, self.itemSize.height);
+    return CGRectMake(_originX, _originY, width, self.itemSize.height+30);
 }
 
 #pragma mark - Properties

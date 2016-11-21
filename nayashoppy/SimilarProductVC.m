@@ -11,6 +11,7 @@
 @interface SimilarProductVC ()
 {
     MenuData *obj;
+    Categories *cobj;
 }
 @end
 
@@ -24,6 +25,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
+    obj.Similarproductimg=nil;
+    obj.Similarproducts=nil;
     [super viewWillAppear:animated];
     [self.SimilarPcollView registerNib:[UINib nibWithNibName:@"SimilarPCVCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"SimilarPCVCell"];
     self.SimilarPcollView.backgroundColor=[UIColor clearColor];
@@ -38,8 +41,7 @@
     } failure:^(NSError *error, NSString *message) {
         NSLog(@"%@",error);
     }];
-    
-
+   
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -48,18 +50,26 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    obj.index=[NSNumber numberWithInteger:indexPath.row];
+    cobj=[obj.Similarproducts objectAtIndex:indexPath.row];
+    obj.PType=@"SimilarProducts";
+    obj.PCatId=cobj.PcatId;
+    obj.PPrice=cobj.Pprice;
+    obj.slug=cobj.Pslug;
+    if([self.XYZDelegate respondsToSelector:@selector(ReloadView)])
+        [self.XYZDelegate ReloadView];
+    
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     
     SimilarPCVCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"SimilarPCVCell" forIndexPath:indexPath];
-    Categories *cobj=[obj.Similarproducts objectAtIndex:indexPath.row];
+    cobj=[obj.Similarproducts objectAtIndex:indexPath.row];
     cell.backgroundColor=[UIColor clearColor];
-    cell.Image.image=[obj.Similarproductimg objectAtIndex:indexPath.row];
-    cell.Title.text=cobj.TMtitle;
-    cell.Company.text=cobj.OfferPrice;
+    cell.Image.image=[[obj.Similarproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
+    cell.Title.text=cobj.PName;
+    cell.Company.text=cobj.POfferPrice;
     return cell;
     
 }

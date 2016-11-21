@@ -11,6 +11,7 @@
 @interface StoreCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *PRICE;
 @property (strong, nonatomic) IBOutlet UILabel *Description;
+@property (strong, nonatomic) IBOutlet UIButton *StoreButton;
 @property (strong, nonatomic) IBOutlet UILabel *Offer;
 
 @end

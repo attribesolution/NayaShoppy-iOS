@@ -13,8 +13,12 @@
 @interface SpecificationListViewController ()
 {
     NSNumber *index;
+    MenuData *obj;
 }
 @property (nonatomic, strong) NSArray *contents;
+@property(nonatomic,strong) PriceViewController *pvc;
+
+
 @end
 
 @implementation SpecificationListViewController
@@ -23,8 +27,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    obj=[MenuData Items];
     self.myTable.frame=CGRectMake(0, 50, 0, 0);
     self.myTable.SKSTableViewDelegate = self;
+
     self.navigationController.navigationItem.backBarButtonItem.title = @" ";
 }
 
@@ -40,20 +46,13 @@
     return self;
 }
 
+
 - (NSArray *)contents
 {
     
-    if (!_contents )
+    if (!_contents && obj.ProductDetails!=nil)
     {
-            _contents = @[
-                          @[
-                          @[@"Apple",@"Red"],
-                          @[@"banana",@"Yellow"]]
-                          ];
-        
-    }
-    else {
-        
+          _contents = @[obj.ProductDetails];
         
     }
     
@@ -99,18 +98,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForSubRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"CELL";
+     
+    static NSString *simpleTableIdentifier = @"SpecificationCell";
     
-    UITableViewCell *cell = [myTable dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    SpecificationCell *cell = (SpecificationCell *)[myTable dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    if (cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SpecificationCell" owner:self options:  nil];
+        cell = [nib objectAtIndex:0];
     }
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", self.contents[indexPath.section][indexPath.row][indexPath.subRow]];
-    cell.textLabel.font=[UIFont systemFontOfSize:15];
-    cell.textLabel.textColor=[UIColor darkGrayColor];
-    cell.backgroundColor=[UIColor whiteColor];
+    Categories *cobj=[[[_contents objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]objectAtIndex:indexPath.subRow];
+    cell.name.text = cobj.featurename;
+    cell.value.text=cobj.featurevalue;
     return cell;
 }
 
@@ -122,7 +121,6 @@
 
 - (void)tableView:(SKSTableView *)tableView didSelectSubRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     
 }
 

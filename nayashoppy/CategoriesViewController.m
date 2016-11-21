@@ -139,6 +139,10 @@
 - (void)tableView:(SKSTableView *)tableView didSelectSubRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self LoadData];
+    obj.allproductimg=nil;
+    obj.allproducts=nil;
+    obj.popularproducts=nil;
+    obj.popularproductimg=nil;
     Categories *cobj=[[catid objectAtIndex:indexPath.row] objectAtIndex:indexPath.subRow-1];
     obj.BranchId=cobj.BranchID;
     obj.CatId=cobj.CatID;

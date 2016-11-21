@@ -44,20 +44,31 @@ static NSString *dealsCell = @"DealsCell";
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    ob.index=[NSNumber numberWithInteger:indexPath.row];
+    Categories *cobj=[ob.newarrival objectAtIndex:indexPath.row];
+    ob.PType=@"NewArrivals";
+    ob.PCatId=cobj.PcatId;
+    ob.PPrice=cobj.Pprice;
+    ob.slug=cobj.Pslug;
+    UIStoryboard *specifications=[UIStoryboard storyboardWithName:@"Specifications" bundle:nil];
+    SpecificationsViewController *dvc = [specifications instantiateViewControllerWithIdentifier:@"Specifications"];
+    dvc.title=cobj.PName;
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.navController pushViewController:dvc animated:YES];
+    appDelegate.navController.navigationBar.tintColor=[UIColor whiteColor];
     
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+    Categories *cobj=[ob.newarrival objectAtIndex:indexPath.row];
        DealsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:dealsCell forIndexPath:indexPath];
-      /*  Categories *obj=[ob.DealsOfTheDay objectAtIndex:indexPath.row];
+   /*  Categories *obj=[ob.DealsOfTheDay objectAtIndex:indexPath.row];
         cell.ImageView.image=[ob.DealsOfTheDayImg objectAtIndex:indexPath.row];
         cell.TitleLabel.text=obj.TMtitle;
         cell.PriceLabel.text=[[obj.OfferPrice stringByAppendingString:@"  "]stringByAppendingString:obj.ActualPrice];*/
-    cell.ImageView.image=[ob.newarrivalImg objectAtIndex:indexPath.row];
-    cell.TitleLabel.text=[ob.newarrival objectAtIndex:indexPath.row];
-    cell.PriceLabel.text=@"3000";
+    cell.ImageView.image=[[ob.newarrivalImg objectAtIndex:indexPath.row]objectAtIndex:0];
+    cell.TitleLabel.text=cobj.PName;
+    cell.PriceLabel.text=cobj.Pprice;
         return cell;
 }
 

@@ -11,6 +11,8 @@
 #import "DealsCell.h"
 #import "Categories.h"
 #import "MenuData.h"
+#import "SpecificationListViewController.h"
+#import "ReviewViewController.h"
 
 @interface DealsOfTheDayViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
 

@@ -14,6 +14,7 @@ static NSString *newArrivals = @"%@/newarrival";
 static NSString *Dealsofday = @"%@/dealsoftheday";
 static NSString *allProducts = @"http://nsapi.nayashoppy.com/v1/catalog/";
 static NSString *slider = @"http://nsapi.nayashoppy.com/";
+static NSString *details = @"http://nsapi.nayashoppy.com/v1/catalog/detail/";
 
 @interface  ApiParsing()
 
@@ -98,25 +99,111 @@ static NSString *slider = @"http://nsapi.nayashoppy.com/";
         NSError *error;
         NSData * jsonData = [NSJSONSerialization  dataWithJSONObject:dictionary options:0 error:&error];
         NSString * myString =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        NewArrivals *newproduct = [[NewArrivals alloc] initWithString:myString  error:&error];
+        AllProduct *newproduct = [[AllProduct alloc] initWithString:myString  error:&error];
 
         MenuData *ob=[MenuData Items];
+        NSMutableArray *allproduct,*allproductimg,*productimgs,*supliers;
+        allproduct=[[NSMutableArray alloc]init];
+        allproductimg=[[NSMutableArray alloc]init];
+        Categories *cobj;
+        
         for(int i=0;i<newproduct.data.count;i++)
         {
-            Products *ic = newproduct.data[i];
+            supliers=[[NSMutableArray alloc]init];
+            productimgs=[[NSMutableArray alloc]init];
+            ProductDetails *ic = newproduct.data[i];
             if(ic.images.count==0)
-              [ob.newarrivalImg addObject:[self image:nil]];
+                [ob.newarrivalImg addObject:[self image:nil]];
             else{
-            Images *img=ic.images[0];
-                [ob.newarrivalImg addObject:[self image:img.image_path]];}
-            [ob.newarrival addObject:ic.product_name];
+                for(int j=0;j<ic.images.count;j++)
+                {
+                    ProductImg *img=ic.images[j];
+                    [productimgs addObject:[self image:img.image_path]];
+                }
+                [ob.newarrivalImg addObject:productimgs];}
+            for(int k=0;k<ic.suppliers.count;k++)
+            {
+               ProductSuppliers *sup= ic.suppliers[k];
+               cobj=[[Categories alloc]initWithDilevery:sup.delivery andinitWithurl:sup.url andinitWithprice:sup.price];
+               [supliers addObject:cobj];
+            }
+            
+            
+            cobj=[[Categories alloc] initWithName:ic.product_name andinitWithprice:ic.lowest_price andinitWithofferPrice:ic.original_price andinitWithDiscount:ic.discount andinitWithSupliers:supliers andinitWithcat:ic.categories_category_id andinitWithslug:ic.slug ];
+            [ob.newarrival addObject:cobj];
+            
         }
+
         success(true);
         
     } failure:^(NSURLSessionDataTask *operation, NSError *error) {
                                                      failure(error,nil); }];
     
     return task;
+    
+}
+- (NSURLSessionDataTask *)getDetails:(void (^)(NSArray *details))success failure:(void (^)(NSError *error, NSString *message))failure
+{
+    MenuData *ob=[MenuData Items];
+    NSDictionary *keyValue=[[NSDictionary alloc]init];
+    keyValue= @{
+                @"slug":ob.slug,
+                      };
+    NSString *string = details;
+    NSURL *url = [NSURL URLWithString:string];
+    self.sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:string]];
+    self.sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    [self.sessionManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    self.sessionManager.responseSerializer=[AFJSONResponseSerializer serializer];
+    
+    NSURLSessionDataTask *task =[self.sessionManager GET:url.absoluteString parameters:keyValue progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        NSDictionary *dictionary = (NSDictionary *)responseObject;
+        MenuData *obj=[MenuData Items];
+        NSError *error;
+        NSData * jsonData = [NSJSONSerialization  dataWithJSONObject:dictionary options:0 error:&error];
+        NSString * myString =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        AllProduct *newproduct = [[AllProduct alloc] initWithString:myString  error:&error];
+        
+        NSMutableArray *features,*allfeatures;
+       
+        allfeatures=[[NSMutableArray alloc]init];
+        Categories *cobj;
+        
+            ProductDetails *ic = newproduct.data[0];
+        
+            for(int k=0;k<ic.featuresList.count;k++)
+            {
+                features=[[NSMutableArray alloc]init];
+                Features *feature=ic.featuresList[k];
+                [features addObject:feature.featureGroupName];
+                for(int j=0;j<feature.featureValues.count;j++)
+                {
+                    FeaturesDetail *fd=feature.featureValues[j];
+                   
+                    if([fd.featureName isEqualToString:@"Display Size"] ||[fd.featureName isEqualToString:@"Operating System"] ||[fd.featureName isEqualToString:@"Internal Storage"] ||[fd.featureName isEqualToString:@"RAM"] ||[fd.featureName isEqualToString:@"Primary Camera"] ||[fd.featureName isEqualToString:@"Secondary Camera"]
+                       ||[fd.featureName isEqualToString:@"Network Type"])
+                    {
+                    
+                        cobj=[[Categories alloc]initWithFeatureName:fd.featureName andFeatureValue:fd.featureValue];
+                        [obj.GernalFeatures addObject:cobj];
+                    }
+
+                    cobj=[[Categories alloc]initWithFeatureName:fd.featureName andFeatureValue:fd.featureValue];
+                    [features addObject:cobj];
+                }
+                [allfeatures addObject:features];
+            }
+        
+        success(allfeatures);
+        
+    } failure:^(NSURLSessionDataTask *operation, NSError *error) {
+        failure(error,nil); }];
+    
+    return task;
+    
+
     
 }
 - (NSURLSessionDataTask *)getAllProducts:(void (^)(NSArray *products,NSArray *img))success failure:(void (^)(NSError *error, NSString *message))failure {
@@ -147,11 +234,10 @@ static NSString *slider = @"http://nsapi.nayashoppy.com/";
         NSString * myString =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         AllProduct *newproduct = [[AllProduct alloc] initWithString:myString  error:&error];
             
-        NSMutableArray *allproduct,*allproductimg,*productimgs,*supliers,*features,*allfeatures;
+        NSMutableArray *allproduct,*allproductimg,*productimgs,*supliers;
         allproduct=[[NSMutableArray alloc]init];
         allproductimg=[[NSMutableArray alloc]init];
-        allfeatures=[[NSMutableArray alloc]init];
-            Categories *cobj;
+        Categories *cobj;
             
         for(int i=0;i<newproduct.data.count;i++)
         {
@@ -173,21 +259,9 @@ static NSString *slider = @"http://nsapi.nayashoppy.com/";
                 cobj=[[Categories alloc]initWithDilevery:sup.delivery andinitWithurl:sup.url andinitWithprice:sup.price];
                 [supliers addObject:cobj];
             }
-            for(int k=0;k<ic.featuresList.count;k++)
-            {
-                features=[[NSMutableArray alloc]init];
-                Features *feature=ic.featuresList[k];
-                [features addObject:feature.featureGroupName];
-                for(int j=0;j<feature.featureValues.count;j++)
-                {
-                    FeaturesDetail *fd=feature.featureValues[j];
-                    cobj=[[Categories alloc]initWithFeatureName:fd.featureName andFeatureValue:fd.featureValue];
-                    [features addObject:cobj];
-                }
-                [allfeatures addObject:features];
-            }
            
-            cobj=[[Categories alloc] initWithName:ic.product_name andinitWithprice:ic.lowest_price andinitWithofferPrice:ic.original_price andinitWithSupliers:supliers andinitWithcat:ic.categories_category_id andinitWithslug:ic.slug];
+           
+            cobj=[[Categories alloc] initWithName:ic.product_name andinitWithprice:ic.lowest_price andinitWithofferPrice:ic.original_price andinitWithDiscount:ic.discount andinitWithSupliers:supliers andinitWithcat:ic.categories_category_id andinitWithslug:ic.slug ];
             [allproduct addObject:cobj];
 
         }
@@ -229,26 +303,14 @@ static NSString *slider = @"http://nsapi.nayashoppy.com/";
         NSData * jsonData = [NSJSONSerialization  dataWithJSONObject:dictionary options:0 error:&error];
         NSString * myString =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         AllProduct *newproduct = [[AllProduct alloc] initWithString:myString  error:&error];
-       /* NSMutableArray *allproduct=[[NSMutableArray alloc]init];
-        NSMutableArray *allproductimg=[[NSMutableArray alloc]init];
-        for(int i=0;i<newproduct.data.count;i++)
-        {
-            ProductDetails *ic = newproduct.data[i];
-            if(ic.images.count==0)
-                [allproductimg addObject:[self image:nil]];
-            else{
-                ProductImg *img=ic.images[0];
-                [allproductimg addObject:[self image:img.image_path]];}
-            Categories *cobj=[[Categories alloc] initWithTitle:ic.product_name andPrice1:ic.original_price andPrice2:ic.price];
-            [allproduct addObject:cobj];
-        }*/
-        NSMutableArray *allproduct,*allproductimg,*productimgs,*supliers;
+            NSMutableArray *allproduct,*allproductimg,*productimgs,*supliers;
         allproduct=[[NSMutableArray alloc]init];
         allproductimg=[[NSMutableArray alloc]init];
         Categories *cobj;
         
         for(int i=0;i<newproduct.data.count;i++)
         {
+            supliers=[[NSMutableArray alloc]init];
             productimgs=[[NSMutableArray alloc]init];
             ProductDetails *ic = newproduct.data[i];
             if(ic.images.count==0)
@@ -262,20 +324,19 @@ static NSString *slider = @"http://nsapi.nayashoppy.com/";
                 [allproductimg addObject:productimgs];}
             for(int k=0;k<ic.suppliers.count;k++)
             {
-                
-                supliers=[[NSMutableArray alloc]init];
                 ProductSuppliers *sup= ic.suppliers[k];
                 cobj=[[Categories alloc]initWithDilevery:sup.delivery andinitWithurl:sup.url andinitWithprice:sup.price];
                 [supliers addObject:cobj];
             }
             
-            cobj=[[Categories alloc] initWithName:ic.product_name andinitWithprice:ic.lowest_price andinitWithofferPrice:ic.original_price andinitWithSupliers:supliers andinitWithcat:ic.categories_category_id andinitWithslug:ic.slug];
+            
+            cobj=[[Categories alloc] initWithName:ic.product_name andinitWithprice:ic.lowest_price andinitWithofferPrice:ic.original_price andinitWithDiscount:ic.discount andinitWithSupliers:supliers andinitWithcat:ic.categories_category_id andinitWithslug:ic.slug ];
             [allproduct addObject:cobj];
             
         }
-
         
         success(allproduct,allproductimg);
+        
         
     } failure:^(NSURLSessionDataTask *operation, NSError *error) {
         failure(error,nil); }];
@@ -310,23 +371,42 @@ static NSString *slider = @"http://nsapi.nayashoppy.com/";
         NSData * jsonData = [NSJSONSerialization  dataWithJSONObject:dictionary options:0 error:&error];
         NSString * myString =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         AllProduct *newproduct = [[AllProduct alloc] initWithString:myString  error:&error];
-        NSMutableArray *allproduct=[[NSMutableArray alloc]init];
-        NSMutableArray *allproductimg=[[NSMutableArray alloc]init];
+        NSMutableArray *allproduct,*allproductimg,*productimgs,*supliers;
+        allproduct=[[NSMutableArray alloc]init];
+        allproductimg=[[NSMutableArray alloc]init];
+        Categories *cobj;
+        
         for(int i=0;i<newproduct.data.count;i++)
         {
+            supliers=[[NSMutableArray alloc]init];
+            productimgs=[[NSMutableArray alloc]init];
             ProductDetails *ic = newproduct.data[i];
             if(ic.images.count==0)
                 [allproductimg addObject:[self image:nil]];
             else{
-                ProductImg *img=ic.images[0];
-                [allproductimg addObject:[self image:img.image_path]];}
-            Categories *cobj=[[Categories alloc] initWithTitle:ic.product_name andPrice1:ic.original_price andPrice2:ic.price];
+                for(int j=0;j<ic.images.count;j++)
+                {
+                    ProductImg *img=ic.images[j];
+                    [productimgs addObject:[self image:img.image_path]];
+                }
+                [allproductimg addObject:productimgs];}
+            if([ic.supplier_count integerValue]==0)
+            {
+                cobj=[[Categories alloc]initWithDilevery:ic.delivery andinitWithurl:ic.url andinitWithprice:ic.lowest_price];
+                [supliers addObject:cobj];
+            }
+            for(int k=0;k<ic.suppliers.count;k++)
+            {
+                ProductSuppliers *sup= ic.suppliers[k];
+                cobj=[[Categories alloc]initWithDilevery:sup.delivery andinitWithurl:sup.url andinitWithprice:sup.price];
+                [supliers addObject:cobj];
+            }
+            cobj=[[Categories alloc] initWithName:ic.product_name andinitWithprice:ic.lowest_price andinitWithofferPrice:ic.original_price andinitWithDiscount:ic.discount andinitWithSupliers:supliers andinitWithcat:ic.categories_category_id andinitWithslug:ic.slug ];
             [allproduct addObject:cobj];
             
         }
         
         success(allproduct,allproductimg);
-        
     } failure:^(NSURLSessionDataTask *operation, NSError *error) {
         failure(error,nil); }];
     

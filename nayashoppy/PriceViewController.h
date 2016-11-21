@@ -17,10 +17,24 @@
 #import "SimilarProductsCell.h"
 #import "SpecificationCell.h"
 #import "CollectionImages.h"
+#import "SpecificationButtonCell.h"
+
+@protocol GoToSpecificationList <NSObject>
+
+@optional
+-(void)doSomething;
+@required
+-(void)showList;
+@end
+
 
 @interface PriceViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *PriceTable;
-@property (strong, nonatomic) SimilarProductVC *sproduct;
 @property (strong, nonatomic) CollectionImages *imgcv;
+@property (strong, nonatomic)  id <GoToSpecificationList> ShowListDelegate;
+
+-(void) Parsedetails;
+-(void) arrayObject;
+-(void) refreshTableView;
 @end

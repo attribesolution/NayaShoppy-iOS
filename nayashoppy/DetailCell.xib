@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1912" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F2009" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -22,14 +22,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rs " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orc-Vs-XGx">
-                        <rect key="frame" x="25" y="35" width="19" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <rect key="frame" x="25" y="35" width="18" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(80% OFF)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ml-8t-oXI">
-                        <rect key="frame" x="25" y="52" width="69" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="25" y="51" width="60" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -131,15 +131,25 @@
                             <constraint firstAttribute="height" constant="33" id="L7N-cw-XHk"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z1U-0v-uj7">
+                        <rect key="frame" x="51" y="35" width="31" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="mg8-tm-ftF" firstAttribute="leading" secondItem="3t5-qP-et5" secondAttribute="trailing" id="0jq-vb-GNV"/>
+                    <constraint firstItem="Z1U-0v-uj7" firstAttribute="leading" secondItem="Orc-Vs-XGx" secondAttribute="trailing" constant="15" id="FHd-A3-gVK"/>
                     <constraint firstItem="glC-R3-JuN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="G2m-8l-BdG"/>
                     <constraint firstItem="S8P-VX-xIz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="INf-fp-Pez"/>
                     <constraint firstItem="3t5-qP-et5" firstAttribute="leading" secondItem="nAm-3e-VBc" secondAttribute="trailing" id="K6y-nq-BYP"/>
+                    <constraint firstItem="Z1U-0v-uj7" firstAttribute="leading" secondItem="Orc-Vs-XGx" secondAttribute="trailing" constant="8" id="K8c-ol-FCG"/>
                     <constraint firstItem="8Ml-8t-oXI" firstAttribute="top" secondItem="Orc-Vs-XGx" secondAttribute="bottom" constant="1" id="LwD-nu-MtO"/>
                     <constraint firstItem="bRg-bx-nU2" firstAttribute="leading" secondItem="glC-R3-JuN" secondAttribute="trailing" constant="22" id="Ood-KU-IMe"/>
+                    <constraint firstItem="Z1U-0v-uj7" firstAttribute="leading" secondItem="Orc-Vs-XGx" secondAttribute="trailing" constant="8" id="S7G-zz-3Rz"/>
                     <constraint firstItem="nAm-3e-VBc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="26" id="TdE-47-eN4"/>
+                    <constraint firstItem="Z1U-0v-uj7" firstAttribute="top" secondItem="S8P-VX-xIz" secondAttribute="bottom" id="Wci-K6-CCK"/>
                     <constraint firstItem="glC-R3-JuN" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Wkp-zG-PeM"/>
                     <constraint firstItem="bRg-bx-nU2" firstAttribute="top" secondItem="3t5-qP-et5" secondAttribute="bottom" constant="1" id="Y39-Px-2xn"/>
                     <constraint firstItem="mg8-tm-ftF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="26" id="Z9x-Se-ZFR"/>
@@ -159,6 +169,8 @@
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="FHd-A3-gVK"/>
+                        <exclude reference="S7G-zz-3Rz"/>
                         <exclude reference="b3z-Wn-1Bg"/>
                         <exclude reference="lXV-ln-Fey"/>
                     </mask>
@@ -166,6 +178,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="DiscountLabel" destination="8Ml-8t-oXI" id="BHg-8r-x4E"/>
+                <outlet property="OriginalPriceLabel" destination="Z1U-0v-uj7" id="M7U-ag-hxA"/>
                 <outlet property="priceLabel" destination="Orc-Vs-XGx" id="GvK-lv-q1Q"/>
             </connections>
             <point key="canvasLocation" x="269" y="204"/>

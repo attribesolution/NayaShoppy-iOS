@@ -30,11 +30,6 @@ static NSString *CouponsCell = @"CouponsCollectionViewCell";
     
     return 5;
 }
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    
-}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -57,7 +52,7 @@ static NSString *CouponsCell = @"CouponsCollectionViewCell";
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(collectionView.frame.size.width/5, 70);
+    return CGSizeMake(collectionView.frame.size.width/5+1, 70);
 }
 
 

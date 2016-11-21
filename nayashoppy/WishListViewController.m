@@ -19,10 +19,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    ob=[MenuData Items];
+   // ob=[MenuData Items];
     WishListTable.frame=CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
     self.navigationItem.titleView =[[GlobalVariables class] titleView:@"WishList" andImg:@"Logo" andy:logoY] ;
+    [self data];
 }
 
 #pragma mark - UITableDelegate Method
@@ -37,7 +38,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return ob.newarrival.count;
+    return  myProducts.count; //ob.newarrival.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -47,7 +48,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     
-    return 120;
+    return 150;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -68,11 +69,12 @@
         cell = [nib objectAtIndex:0];
     }
    
-    cell.price.text=@"2000";
-    cell.actualPrice.text=@"3000";
-    cell.WishImage.image = [ob.newarrivalImg objectAtIndex:indexPath.section];
-    cell.WishItem.text = [ob.newarrival objectAtIndex:indexPath.section];
-    [cell.DeleteButton addTarget:self action:@selector(OrderRemove:) forControlEvents:UIControlEventTouchUpInside];
+    cell.price.text= [[[myProducts objectAtIndex:indexPath.section]objectAtIndex:0] objectAtIndex:1];
+    
+    NSData *imageData = [[myProductsImg objectAtIndex:indexPath.section]objectAtIndex:0];
+    cell.WishImage.image = [UIImage imageWithData:imageData];
+    cell.WishItem.text = [[[myProducts objectAtIndex:indexPath.section]objectAtIndex:0]objectAtIndex:0];
+   // [cell.DeleteButton addTarget:self action:@selector(OrderRemove:) forControlEvents:UIControlEventTouchUpInside];
 
      return cell;
 }
@@ -94,6 +96,17 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     WishListTable.alwaysBounceVertical = NO;
+}
+
+-(void) data
+{
+    defaults = [NSUserDefaults standardUserDefaults];
+    
+    myProducts = [defaults objectForKey:@"Product"];
+    myProducts=[[[myProducts reverseObjectEnumerator] allObjects] mutableCopy];
+    myProductsImg=[defaults objectForKey:@"ProductImg"];
+    myProductsImg=[[[myProductsImg reverseObjectEnumerator] allObjects] mutableCopy];
+    [self.WishListTable reloadData];
 }
 
 @end

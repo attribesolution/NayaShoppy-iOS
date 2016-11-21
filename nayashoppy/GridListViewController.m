@@ -21,6 +21,7 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
     MenuData *obj;
     DGActivityIndicatorView *activityIndicatorView;
     Categories *cobj;
+    UIImage *wishimg;
 }
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -37,9 +38,7 @@ Boolean showInGridView = false;
     [super viewDidLoad];
     
     obj=[MenuData Items];
-    obj.allproductimg=nil;
-    obj.allproducts=nil;
-    
+  
     activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotatePulse tintColor:[UIColor redColor] size:40.0f];
     activityIndicatorView.frame = self.Loader.bounds;
     [self.Loader addSubview:activityIndicatorView];
@@ -65,8 +64,8 @@ Boolean showInGridView = false;
     {
     [mainVC getPopularProducts:^(NSArray *respone,NSArray *img) {
         
-         obj.allproductimg=[img copy];
-         obj.allproducts=[respone copy];
+         obj.popularproductimg=[img copy];
+         obj.popularproducts=[respone copy];
          self.Loader.hidden=YES;
          [self.collectionView reloadData];
          
@@ -83,7 +82,7 @@ Boolean showInGridView = false;
     [self.collectionView registerNib:[UINib nibWithNibName:AKCollectionCell bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:AKCollectionCell];
      
     self.glayout = [[GridCollectionViewFlowLayout alloc] init];
-    [self.glayout setItemSize:CGSizeMake(self.collectionView.bounds.size.width, 160)];
+    [self.glayout setItemSize:CGSizeMake(self.collectionView.bounds.size.width, 180)];
    
     
 }
@@ -122,38 +121,68 @@ Boolean showInGridView = false;
 
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    
-    return obj.allproducts.count;
+    if([tabindex integerValue]==0)
+        return obj.allproducts.count;
+    else
+        return obj.popularproducts.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    if([tabindex integerValue]==0)
     cobj=[obj.allproducts objectAtIndex:indexPath.row];
+    else
+    cobj=[obj.popularproducts objectAtIndex:indexPath.row];
+    
     if(showInGridView){
         TabelledCollectionCell *cell =  [collectionView dequeueReusableCellWithReuseIdentifier:AKTabelledCollectionCell forIndexPath:indexPath];
         
         cell.GridName.text=cobj.PName;
         cell.Company.text=cobj.POfferPrice;
-        cell.GridImage.image=[[obj.allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
+        if([tabindex integerValue]==0)
+        wishimg=[[obj.allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
+        else
+        wishimg=[[obj.popularproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
+        cell.GridImage.image=wishimg;
+        [cell.WishButton addTarget:self action:@selector(AddToWishList) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
     else{
         CollectionCell *cell =  [collectionView dequeueReusableCellWithReuseIdentifier:AKCollectionCell forIndexPath:indexPath];
         cell.ListItem.text=cobj.PName;
         cell.LPrice.text=cobj.POfferPrice;
-        cell.ListImage.image=[[obj.allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
+        if([tabindex integerValue]==0)
+            wishimg=[[obj.allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
+        else
+            wishimg=[[obj.popularproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
+        cell.ListImage.image=wishimg;
+        [cell.WishButton addTarget:self action:@selector(AddToWishList) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
     
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+   
    obj.index=[NSNumber numberWithInteger:indexPath.row];
+   obj.tabindex=[NSNumber numberWithInteger:0];
+
    UIStoryboard *specifications=[UIStoryboard storyboardWithName:@"Specifications" bundle:nil];
    SpecificationsViewController *dvc = [specifications instantiateViewControllerWithIdentifier:@"Specifications"];
+    if([tabindex integerValue]==0)
+    {
     cobj=[obj.allproducts objectAtIndex:indexPath.row];
+        obj.PType=@"AllProducts";
+    }
+    else
+    {
+    cobj=[obj.popularproducts objectAtIndex:indexPath.row];
+        obj.PType=@"PopularProducts";
+    }
     dvc.title=cobj.PName;
     obj.PCatId=cobj.PcatId;
     obj.PPrice=cobj.Pprice;
+    obj.slug=cobj.Pslug;
+    [self ParseData];
     [self.navigationController pushViewController:dvc animated:YES];
    
 }
@@ -165,7 +194,7 @@ Boolean showInGridView = false;
         cell.backgroundColor = [UIColor whiteColor];
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 0.0;
+    return 1.0;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
@@ -184,4 +213,24 @@ Boolean showInGridView = false;
     self.GLCollectionView.alwaysBounceVertical=NO;
     self.GLCollectionView.alwaysBounceHorizontal=NO;
 }
+-(void) ParseData
+{
+    ApiParsing * mainVC = [[ApiParsing alloc] init];
+    obj.ProductDetails=nil;
+    obj.GernalFeatures=nil;
+    [mainVC getDetails:^(NSArray *respone) {
+        
+        obj.ProductDetails=[respone copy];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+        
+    } failure:^(NSError *error, NSString *message) {
+        NSLog(@"%@",error);
+    }];
+
+}
+-(void)AddToWishList
+{
+   [ [GlobalVariables class]AddWhishList:cobj.PName :cobj.POfferPrice :wishimg];
+}
+
 @end

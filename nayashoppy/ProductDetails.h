@@ -29,7 +29,7 @@
 @property (strong,nonatomic) NSString <Optional> *delivery;
 @property (strong,nonatomic) NSString *shipping;
 @property (strong,nonatomic) NSString *price;
-@property (strong,nonatomic) NSString *unique_id;
+@property (strong,nonatomic) NSString <Optional> *unique_id;
 @property (strong,nonatomic) NSString *discount;
 @property (strong,nonatomic) NSString *rating;
 @property (strong,nonatomic) NSString *rating_user_count;

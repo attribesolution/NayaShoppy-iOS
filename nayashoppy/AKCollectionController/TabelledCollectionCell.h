@@ -16,5 +16,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *Discount;
 @property (strong, nonatomic) IBOutlet UILabel *Company;
 
+@property (strong, nonatomic) IBOutlet UIButton *WishButton;
 
 @end

@@ -17,6 +17,7 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
 
 @implementation NewArrivalVC
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     obj=[MenuData Items];
@@ -41,29 +42,36 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIStoryboard *deals=[UIStoryboard storyboardWithName:@"NewArrival" bundle:nil];
-    NewArrivalsViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"NewArrival"];
+    obj.index=[NSNumber numberWithInteger:indexPath.row];
+    Categories *cobj=[obj.newarrival objectAtIndex:indexPath.row];
+    obj.PType=@"NewArrivals";
+    obj.PCatId=cobj.PcatId;
+    obj.PPrice=cobj.Pprice;
+    obj.slug=cobj.Pslug;
+    UIStoryboard *specifications=[UIStoryboard storyboardWithName:@"Specifications" bundle:nil];
+    SpecificationsViewController *dvc = [specifications instantiateViewControllerWithIdentifier:@"Specifications"];
     SWRevealViewController *sv=self.revealViewController;
     [sv revealToggle:self];
-    
+    dvc.title=cobj.PName;
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate.navController pushViewController:dvc animated:YES];
+   [appDelegate.navController pushViewController:dvc animated:YES];
     appDelegate.navController.navigationBar.tintColor=[UIColor whiteColor];
+     
+    
  
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    
+    Categories *cobj=[obj.newarrival objectAtIndex:indexPath.row];
     NewArrivalViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:NewArrivalCell forIndexPath:indexPath];
     
-    cell.NAimg.image= [obj.newarrivalImg objectAtIndex:indexPath.row];
-    [cell.NAProductName setText:[obj.newarrival objectAtIndex:indexPath.row]];
+    cell.NAimg.image= [[obj.newarrivalImg objectAtIndex:indexPath.row]objectAtIndex:0];
+    [cell.NAProductName setText:cobj.PName];
    
     return cell;
     
 }
-
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 1.0;

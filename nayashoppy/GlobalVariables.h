@@ -12,17 +12,19 @@
 #import "Categories.h"
 #import "AFHTTPSessionManager.h"
 #import "ApiParsing.h"
-//#import "DejalActivityView.h"
 #import "SWRevealViewController.h"
 
 
 static NSString *topmenuNotification = @"refreshView";
 static NSString *LoadingText = @"Loading Data...";
-extern NSMutableArray *categories;
+extern NSMutableArray *categories,*myProducts,*myProductsImg;
+extern  NSUserDefaults *defaults;
+extern UIImage *productImg;
 
 @interface GlobalVariables : NSObject
 +(UIView *) titleView:(NSString *) title1 andImg:(NSString *) img andy:(CGFloat) y;
 +(UIView *) titleView:(NSString *) title1 andImg:(NSString *) img;
++(void) AddWhishList:(NSString *)name :(NSString *)price :(UIImage *) image;
 +(NSArray *) CashCoupons;
 +(NSArray *) UserInfo;
 +(UIColor*)themeColor;

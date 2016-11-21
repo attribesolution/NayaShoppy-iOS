@@ -9,11 +9,16 @@
 
 #import "SpecificationsViewController.h"
 
-@interface SpecificationsViewController ()
+@interface SpecificationsViewController ()<ReloadSpecificationView,GoToSpecificationList>
 {
     NSMutableArray *tabItem;
+    PriceViewController *cvc;
+    SpecificationListViewController *svc;
+    MenuData *obj;
+    
 }
 @property (nonatomic,assign)NSInteger lastSelectedTab;
+
 @end
 
 @implementation SpecificationsViewController
@@ -21,6 +26,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
+    
+    obj=[MenuData Items];
     
     tabItem=[[NSMutableArray alloc]initWithObjects:@"PRICES",@"SPECIFICATIONS", @"REVIEWS",nil];
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
@@ -30,8 +38,11 @@
     self.delegate = self;
     [self selectTabAtIndex:0];
     self.lastSelectedTab = 0;
+    
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
     self.navigationItem.titleView =[[GlobalVariables class] titleView:self.title andImg:@"Logo" andy:logoY] ;
+    
+    
 }
 
 
@@ -45,23 +56,24 @@
     if(index==0)
     {
         UIStoryboard *price=[UIStoryboard storyboardWithName:@"Price" bundle:nil];
-        PriceViewController *cvc = [price instantiateViewControllerWithIdentifier:@"Price"];
+        cvc = [price instantiateViewControllerWithIdentifier:@"Price"];
         [self myvc:cvc];
+        cvc.ShowListDelegate=self;
         return cvc;
     }
      if(index==1)
     {
         UIStoryboard *specification=[UIStoryboard storyboardWithName:@"SpecificationList" bundle:nil];
-        SpecificationListViewController *cvc = [specification instantiateViewControllerWithIdentifier:@"SpecificationList"];
-        [self myvc:cvc];
-        return cvc;
+        svc = [specification instantiateViewControllerWithIdentifier:@"SpecificationList"];
+        [self myvc:svc];
+        return svc;
     }
      else {
          
          UIStoryboard *reviews=[UIStoryboard storyboardWithName:@"Review" bundle:nil];
-         SpecificationListViewController *cvc = [reviews instantiateViewControllerWithIdentifier:@"Review"];
-         [self myvc:cvc];
-         return cvc;
+         ReviewViewController *rvc = [reviews instantiateViewControllerWithIdentifier:@"Review"];
+         [self myvc:rvc];
+         return rvc;
      }
     
 }
@@ -128,5 +140,20 @@
 - (void)didTapAnywhere:(UITapGestureRecognizer *) sender
 {
     [self.view endEditing:YES];
+}
+#pragma mark - ReloadSpecificationView Delegate methods
+
+-(void)ReloadView{
+    
+    [cvc Parsedetails];
+    [cvc arrayObject];
+    [cvc.PriceTable reloadData];
+    [cvc refreshTableView];
+
+}
+-(void)showList
+{
+    [self selectTabAtIndex:[obj.tabindex integerValue]];
+   // [self.vp reloadData];
 }
 @end

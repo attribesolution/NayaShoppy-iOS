@@ -98,15 +98,13 @@
 }
 - (void)viewPager:(ViewPagerController *)viewPager didChangeTabToIndex:(NSUInteger)index{
     
-    //if(self.lastSelectedTab!= nil){
+
         UILabel *previouslabel = (UILabel*)[viewPager.view viewWithTag:100+self.lastSelectedTab];
         previouslabel.textColor = [UIColor blackColor];
-    //}else{
-        
+    
         UILabel *currentlabel = (UILabel*)[viewPager.view viewWithTag:100+index];
         currentlabel.textColor = [GlobalVariables themeColor];
-        
-  //  }
+    
     self.lastSelectedTab = index;
 }
 -(void) navBar

@@ -10,7 +10,7 @@
 
 @implementation Categories
 
-@synthesize TMCat,TMtitle,OfferPrice,ActualPrice,BranchID,CatID,Ctitle,PName,Pprice,POfferPrice,PcatId,Pslug,Supliers,StoreUrl,StoreDelivery,StorePrice,featurename,featurevalue;
+@synthesize TMCat,TMtitle,OfferPrice,ActualPrice,BranchID,CatID,Ctitle,PName,Pprice,POfferPrice,PcatId,Pslug,Supliers,StoreUrl,StoreDelivery,StorePrice,featurename,featurevalue,Discount;
 
 -(id) initWithTitle:title andCat:categories
 {
@@ -44,16 +44,18 @@
     return self;
 }
 
--(id) initWithName:title andinitWithprice:price andinitWithofferPrice:oprice andinitWithSupliers:supliers andinitWithcat:catid andinitWithslug:slug
+-(id) initWithName:title andinitWithprice:price andinitWithofferPrice:oprice andinitWithDiscount:discount andinitWithSupliers:supliers andinitWithcat:catid andinitWithslug:slug
 {
     self=[super init];
     {
         PName=title;
         Pprice=price;
         POfferPrice=oprice;
+        Discount=discount;
         Supliers=supliers;
         PcatId=catid;
         Pslug=slug;
+
     }
     return self;
 
@@ -78,5 +80,13 @@
     return self;
     
 }
-
+-(id) initWithTitle:title andPrice:price
+{
+    self=[super init];
+    {
+        PName=title;
+        Pprice=price;
+    }
+    return self;
+}
 @end

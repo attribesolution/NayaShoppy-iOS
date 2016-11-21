@@ -63,7 +63,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TestCell" id="Eff-44-vs3">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Sproduct" id="Eff-44-vs3">
                                         <rect key="frame" x="0.0" y="116" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Eff-44-vs3" id="1ER-rX-SLl">
@@ -113,20 +113,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="169"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WishIcon" translatesAutoresizingMaskIntoConstraints="NO" id="I93-DA-cZt">
-                                                    <rect key="frame" x="246" y="11" width="32" height="32"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="32" id="JmA-NS-XL9"/>
-                                                        <constraint firstAttribute="width" constant="32" id="mmj-GB-lss"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share 17*17.png" translatesAutoresizingMaskIntoConstraints="NO" id="3hy-Cd-bAA">
-                                                    <rect key="frame" x="246" y="51" width="32" height="32"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="32" id="8Z7-Tc-ldi"/>
-                                                        <constraint firstAttribute="width" constant="32" id="J1X-1A-MKN"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68j-uT-Lok">
                                                     <rect key="frame" x="24" y="115" width="271" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -146,26 +132,42 @@
                                                         </mask>
                                                     </variation>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsT-X2-BT5">
+                                                    <rect key="frame" x="249" y="19" width="32" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="32" id="8Bv-xH-r1o"/>
+                                                        <constraint firstAttribute="height" constant="32" id="RzT-lw-J2j"/>
+                                                    </constraints>
+                                                    <state key="normal" backgroundImage="WishIcon"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAj-76-Dum">
+                                                    <rect key="frame" x="249" y="59" width="32" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="3xX-tJ-gFO"/>
+                                                        <constraint firstAttribute="width" constant="32" id="yHf-as-59C"/>
+                                                    </constraints>
+                                                    <state key="normal" backgroundImage="Share"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="3hy-Cd-bAA" firstAttribute="top" secondItem="I93-DA-cZt" secondAttribute="bottom" constant="8" id="2H6-z4-Eje"/>
-                                                <constraint firstItem="I93-DA-cZt" firstAttribute="top" secondItem="Uxy-Iq-X7Q" secondAttribute="topMargin" constant="3" id="5T2-wo-fAX"/>
-                                                <constraint firstItem="3hy-Cd-bAA" firstAttribute="leading" secondItem="6U4-eA-U3N" secondAttribute="trailing" constant="22" id="CuR-t8-quo"/>
+                                                <constraint firstItem="iAj-76-Dum" firstAttribute="leading" secondItem="6U4-eA-U3N" secondAttribute="trailing" constant="25" id="Bsf-pY-lpL"/>
+                                                <constraint firstItem="jsT-X2-BT5" firstAttribute="top" secondItem="Uxy-Iq-X7Q" secondAttribute="topMargin" constant="11" id="CJl-aG-lvA"/>
                                                 <constraint firstItem="68j-uT-Lok" firstAttribute="leading" secondItem="Uxy-Iq-X7Q" secondAttribute="leadingMargin" constant="16" id="EvT-lZ-g53"/>
+                                                <constraint firstItem="iAj-76-Dum" firstAttribute="top" secondItem="jsT-X2-BT5" secondAttribute="bottom" constant="8" id="WCb-Ds-XLs"/>
+                                                <constraint firstItem="jsT-X2-BT5" firstAttribute="leading" secondItem="6U4-eA-U3N" secondAttribute="trailing" constant="25" id="Z3I-sW-hOZ"/>
                                                 <constraint firstItem="6U4-eA-U3N" firstAttribute="top" secondItem="Uxy-Iq-X7Q" secondAttribute="topMargin" constant="-3" id="e8y-as-Z04"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="68j-uT-Lok" secondAttribute="trailing" constant="17" id="fTg-sO-mcV"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="6U4-eA-U3N" secondAttribute="trailing" constant="88" id="n6Z-J5-MFP"/>
                                                 <constraint firstItem="68j-uT-Lok" firstAttribute="top" secondItem="6U4-eA-U3N" secondAttribute="bottom" constant="8" id="pZM-jt-sc8"/>
                                                 <constraint firstItem="6U4-eA-U3N" firstAttribute="leading" secondItem="Uxy-Iq-X7Q" secondAttribute="leadingMargin" constant="16" id="ttc-hr-X5Y"/>
-                                                <constraint firstItem="I93-DA-cZt" firstAttribute="leading" secondItem="6U4-eA-U3N" secondAttribute="trailing" constant="22" id="wAS-4I-daN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="ImgCollView" destination="6U4-eA-U3N" id="Zvb-yb-reS"/>
-                                            <outlet property="ShareIcon" destination="3hy-Cd-bAA" id="bfW-pX-vHA"/>
+                                            <outlet property="ShareIcon" destination="iAj-76-Dum" id="l2x-R4-fzS"/>
                                             <outlet property="TitleLabel" destination="68j-uT-Lok" id="5y2-EQ-nnS"/>
-                                            <outlet property="WishICon" destination="I93-DA-cZt" id="IcF-90-Bme"/>
+                                            <outlet property="WishIcon" destination="jsT-X2-BT5" id="ow7-Jy-Yzb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -194,7 +196,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Share" width="24" height="17"/>
         <image name="WishIcon" width="18" height="20"/>
-        <image name="share 17*17.png" width="72" height="72"/>
     </resources>
 </document>

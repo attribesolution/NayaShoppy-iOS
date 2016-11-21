@@ -30,8 +30,16 @@
     
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    
+   if([obj.PType isEqualToString:@"AllProducts"])
     return [[obj.allproductimg objectAtIndex:[obj.index integerValue]]count];
+    
+   else if([obj.PType isEqualToString:@"SimilarProducts"])
+        return [[obj.Similarproductimg objectAtIndex:[obj.index integerValue]]count];
+    
+   else if([obj.PType isEqualToString:@"NewArrivals"])
+       return [[obj.newarrivalImg objectAtIndex:[obj.index integerValue]]count];
+   else
+        return [[obj.popularproductimg objectAtIndex:[obj.index integerValue]]count];
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -42,7 +50,14 @@
 
     ImageCVcell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
     cell.backgroundColor=[UIColor clearColor];
+    if([obj.PType isEqualToString:@"AllProducts"])
     cell.image.image=[[obj.allproductimg objectAtIndex:[obj.index integerValue]]objectAtIndex:indexPath.row];
+    else if([obj.PType isEqualToString:@"SimilarProducts"])
+    cell.image.image=[[obj.Similarproductimg objectAtIndex:[obj.index integerValue]]objectAtIndex:indexPath.row];
+    else if([obj.PType isEqualToString:@"NewArrivals"])
+        cell.image.image=[[obj.newarrivalImg objectAtIndex:[obj.index integerValue]]objectAtIndex:indexPath.row];
+    else
+    cell.image.image=[[obj.popularproductimg  objectAtIndex:[obj.index integerValue]]objectAtIndex:indexPath.row];
     return cell;
     
 }

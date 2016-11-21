@@ -1,16 +1,17 @@
+
+
 //
-//  SpecificationCell.m
+//  SpecificationButtonCell.m
 //  nayashoppy
 //
-//  Created by Amerald on 11/11/2016.
+//  Created by Amerald on 18/11/2016.
 //  Copyright © 2016 attribe. All rights reserved.
 //
 
-#import "SpecificationCell.h"
+#import "SpecificationButtonCell.h"
 
-@implementation SpecificationCell
-@synthesize name=_name;
-@synthesize value=_value;
+@implementation SpecificationButtonCell
+
 - (void)awakeFromNib {
     // Initialization code
 }

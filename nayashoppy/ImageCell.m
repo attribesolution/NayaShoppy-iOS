@@ -13,7 +13,7 @@
 
 @synthesize TitleLabel =_TitleLabel;
 @synthesize ShareIcon =_ShareIcon;
-@synthesize WishICon=_WishICon;
+
 
 - (void)awakeFromNib {
     // Initialization code

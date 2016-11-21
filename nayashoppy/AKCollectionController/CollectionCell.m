@@ -18,6 +18,5 @@
 @synthesize LRating=_LRating;
 @synthesize LItemUser=_LItemUser;
 
-- (IBAction)MoreButton:(id)sender {
-}
+
 @end

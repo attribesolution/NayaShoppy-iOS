@@ -25,6 +25,8 @@
 @property(nonatomic,strong) NSString * Pprice;
 @property(nonatomic,strong) NSString * Pslug;
 @property(nonatomic,strong) NSString * StoreUrl;
+@property(nonatomic,strong) NSString * StoreName;
+@property(nonatomic,strong) NSString * Discount;
 @property(nonatomic,strong) NSString * featurename;
 @property(nonatomic,strong) NSString * featurevalue;
 @property(nonatomic,strong) NSMutableArray * Supliers;
@@ -34,6 +36,6 @@
 -(id) initWithTitle:title andPrice1:price1 andPrice2:price2;
 -(id) initWithTitle:title andinitWithBranchID:Bid andCatID:Cid;
 -(id) initWithDilevery:delivery andinitWithurl:url andinitWithprice:price;
--(id) initWithName:title andinitWithprice:price andinitWithofferPrice:oprice andinitWithSupliers:supliers andinitWithcat:catid andinitWithslug:slug;
-
+-(id) initWithName:title andinitWithprice:price andinitWithofferPrice:oprice andinitWithDiscount:discount andinitWithSupliers:supliers andinitWithcat:catid andinitWithslug:slug ;
+-(id) initWithTitle:title andPrice:price;
 @end

@@ -31,7 +31,7 @@
     self.navigationItem.titleView =[[GlobalVariables class] titleView:@"Rate the app" andImg:@"Logo" andy:logoY] ;
     self.SubmitButton.backgroundColor=[[GlobalVariables class]greenColor];
     [Rating setFont:[UIFont fontWithName:@"fontello" size:30]];
-    [Rating setText:[NSString stringWithUTF8String:"\ue91b"]];
+    [Rating setText:[NSString stringWithUTF8String:"0xe801"]];
 }
 
 -(BOOL) textFieldShouldBeginEditing:(UITextField *)textField

@@ -12,4 +12,5 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *priceLabel;
 @property (strong, nonatomic) IBOutlet UILabel *DiscountLabel;
+@property (strong, nonatomic) IBOutlet UILabel *OriginalPriceLabel;
 @end

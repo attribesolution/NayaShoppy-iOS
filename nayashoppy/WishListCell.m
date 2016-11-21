@@ -14,7 +14,7 @@
 @synthesize WishImage = _WishImage;
 @synthesize WishItem = _WishItem;
 @synthesize price = _price;
-@synthesize actualPrice = _actualPrice;
+//@synthesize actualPrice = _actualPrice;
 
 - (void)awakeFromNib {
     

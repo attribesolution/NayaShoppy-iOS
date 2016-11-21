@@ -18,5 +18,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *LItemCapacity;
 @property (strong, nonatomic) IBOutlet UILabel *LItemColor;
 
+@property (strong, nonatomic) IBOutlet UIButton *WishButton;
 
 @end
