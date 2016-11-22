@@ -77,12 +77,12 @@ Boolean showInGridView = false;
     }
 
     self.tLayout = [[TabledCollectionViewFlowLayout alloc] init];
-    [self.tLayout setItemSize:CGSizeMake(self.collectionView.bounds.size.width, 200)];
+    [self.tLayout setItemSize:CGSizeMake(self.collectionView.bounds.size.width, 220)];
     [self.collectionView setScrollsToTop:YES];
     [self.collectionView registerNib:[UINib nibWithNibName:AKCollectionCell bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:AKCollectionCell];
      
     self.glayout = [[GridCollectionViewFlowLayout alloc] init];
-    [self.glayout setItemSize:CGSizeMake(self.collectionView.bounds.size.width, 180)];
+    [self.glayout setItemSize:CGSizeMake(self.collectionView.bounds.size.width, 160)];
    
     
 }
@@ -137,7 +137,7 @@ Boolean showInGridView = false;
         TabelledCollectionCell *cell =  [collectionView dequeueReusableCellWithReuseIdentifier:AKTabelledCollectionCell forIndexPath:indexPath];
         
         cell.GridName.text=cobj.PName;
-        cell.Company.text=cobj.POfferPrice;
+        cell.Company.text=cobj.Pprice;
         if([tabindex integerValue]==0)
         wishimg=[[obj.allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
         else
@@ -149,7 +149,7 @@ Boolean showInGridView = false;
     else{
         CollectionCell *cell =  [collectionView dequeueReusableCellWithReuseIdentifier:AKCollectionCell forIndexPath:indexPath];
         cell.ListItem.text=cobj.PName;
-        cell.LPrice.text=cobj.POfferPrice;
+        cell.LPrice.text=cobj.Pprice;
         if([tabindex integerValue]==0)
             wishimg=[[obj.allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
         else
@@ -201,10 +201,10 @@ Boolean showInGridView = false;
     return 1.5;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+/*- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    return CGSizeMake(collectionView.frame.size.width,180);
-}
+    return CGSizeMake(collectionView.frame.size.width,215);
+}*/
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     return UIEdgeInsetsMake(1, 0, 1, 0);
 }
@@ -230,7 +230,7 @@ Boolean showInGridView = false;
 }
 -(void)AddToWishList
 {
-   [ [GlobalVariables class]AddWhishList:cobj.PName :cobj.POfferPrice :wishimg];
+    [[GlobalVariables class]AddWhishList:cobj.PName :cobj.POfferPrice :wishimg: self.view];
 }
 
 @end

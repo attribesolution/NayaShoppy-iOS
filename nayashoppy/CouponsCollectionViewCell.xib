@@ -14,8 +14,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="86" height="70"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MI-dy-RYh">
-                        <rect key="frame" x="8" y="28" width="70" height="14"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <rect key="frame" x="5" y="29" width="76" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -24,16 +24,16 @@
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="0MI-dy-RYh" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="5Ze-4f-BYy"/>
-                <constraint firstItem="0MI-dy-RYh" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="U90-Qo-DzP"/>
-                <constraint firstItem="0MI-dy-RYh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="tES-ND-cGo"/>
-                <constraint firstAttribute="trailing" secondItem="0MI-dy-RYh" secondAttribute="trailing" constant="8" id="x1A-bU-kXf"/>
+                <constraint firstItem="0MI-dy-RYh" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="5m9-LD-hSl"/>
+                <constraint firstAttribute="trailing" secondItem="0MI-dy-RYh" secondAttribute="trailing" constant="5" id="Cau-vY-dXk"/>
+                <constraint firstItem="0MI-dy-RYh" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="KlE-U2-QnT"/>
+                <constraint firstItem="0MI-dy-RYh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="yZc-yc-cuO"/>
             </constraints>
             <size key="customSize" width="86" height="94"/>
             <connections>
                 <outlet property="CouponLabel" destination="0MI-dy-RYh" id="Tj5-Ur-abJ"/>
             </connections>
-            <point key="canvasLocation" x="-126" y="112"/>
+            <point key="canvasLocation" x="26" y="103"/>
         </collectionViewCell>
     </objects>
 </document>

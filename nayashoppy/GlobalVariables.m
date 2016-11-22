@@ -74,18 +74,35 @@ NSUserDefaults *defaults;
                              ];
     return UserInfo;
 }
+
 +(UIColor*)themeColor{
     
     return [UIColor colorWithRed:255.0/255.0 green:0.0/255.0 blue:3.0/255.0 alpha:1.0];
-    
 }
+
 +(UIColor*) greenColor
 {
     return [UIColor colorWithRed:57.0/255.0 green:177.0/255.0 blue:44.0/255.0 alpha:1.0];
 }
-+(void) AddWhishList:(NSString *)name :(NSString *)price :(UIImage *) image
+
++(void) AddWhishList:(NSString *)name :(NSString *)price :(UIImage *) image :(UIView *) view
 {
-  
+    BOOL find;
+    find=NO;
+    
+    for (int d=0; d<myProducts.count; d++) {
+        
+        NSString * Name=[[[myProducts objectAtIndex:d]objectAtIndex:0]objectAtIndex:0];
+        if ([name isEqualToString:Name]) {
+            
+            find=YES;
+            break;
+        }
+      }
+    
+       if(!find)
+       {
+           
         defaults = [NSUserDefaults standardUserDefaults];
         NSMutableArray *ProductsImg,*Products,*ProductDetail;
         
@@ -99,8 +116,8 @@ NSUserDefaults *defaults;
         UIImage *contactImage = image;
         NSData *imageData = UIImageJPEGRepresentation(contactImage, 100);
         [ProductsImg addObject:imageData];
-        
-        NSObject *myobj=[defaults objectForKey:@"Product"];
+    
+           NSObject *myobj=[defaults objectForKey:@"Product"];
         NSObject *myImgobj=[defaults objectForKey:@"ProductImg"];
         if(myImgobj == nil){
             
@@ -130,10 +147,13 @@ NSUserDefaults *defaults;
             [defaults setObject:myProducts  forKey:@"Product"];
         }
         
-        
+        [view makeToast:@"Item Added."];
         [defaults synchronize];
-        
- 
+       }
+    else
+     {
+         [view makeToast:@"Item Already Exist."];
 
+     }
 }
 @end

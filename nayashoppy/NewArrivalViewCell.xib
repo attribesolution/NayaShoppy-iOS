@@ -8,10 +8,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NewArrivalViewCell" id="gTV-IL-0wX" customClass="NewArrivalViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="84" height="84"/>
+            <rect key="frame" x="0.0" y="0.0" width="84" height="117"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="84" height="84"/>
+                <rect key="frame" x="0.0" y="0.0" width="84" height="117"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FmQ-ns-VKO">
                         <rect key="frame" x="23" y="8" width="38" height="37"/>
@@ -27,7 +27,7 @@
                             </mask>
                         </variation>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdr-bY-sDm">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdr-bY-sDm">
                         <rect key="frame" x="8" y="56" width="68" height="14"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -48,7 +48,7 @@
                 <constraint firstItem="FmQ-ns-VKO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="14" id="lzw-RL-mIV"/>
                 <constraint firstItem="FmQ-ns-VKO" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="tlw-RD-rnY"/>
             </constraints>
-            <size key="customSize" width="84" height="84"/>
+            <size key="customSize" width="84" height="117"/>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="Y5F-WP-sKa"/>
@@ -61,7 +61,7 @@
                 <outlet property="NAProductName" destination="bdr-bY-sDm" id="JzU-QF-qtq"/>
                 <outlet property="NAimg" destination="FmQ-ns-VKO" id="OSx-QZ-brk"/>
             </connections>
-            <point key="canvasLocation" x="521" y="171"/>
+            <point key="canvasLocation" x="324" y="165.5"/>
         </collectionViewCell>
     </objects>
 </document>

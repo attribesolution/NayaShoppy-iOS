@@ -176,18 +176,29 @@
                                     <outlet property="delegate" destination="JYd-no-mWt" id="GpZ-VA-QJA"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOO-KQ-A9e">
+                                <rect key="frame" x="70" y="350" width="180" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="CTo-xy-get"/>
+                                    <constraint firstAttribute="height" constant="50" id="IuI-0x-atk"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Mp3-z5-Odh" secondAttribute="trailing" id="NPj-iF-nDM"/>
                             <constraint firstItem="la9-dI-vBL" firstAttribute="top" secondItem="Mp3-z5-Odh" secondAttribute="bottom" id="U1R-Q4-dFw"/>
                             <constraint firstItem="Mp3-z5-Odh" firstAttribute="leading" secondItem="TE0-H9-KYO" secondAttribute="leading" id="ZeF-28-5Em"/>
+                            <constraint firstItem="wOO-KQ-A9e" firstAttribute="centerX" secondItem="TE0-H9-KYO" secondAttribute="centerX" id="oyB-Yv-1TK"/>
+                            <constraint firstItem="la9-dI-vBL" firstAttribute="top" secondItem="wOO-KQ-A9e" secondAttribute="bottom" constant="80" id="qH4-nw-LUQ"/>
                             <constraint firstItem="Mp3-z5-Odh" firstAttribute="top" secondItem="elh-oQ-Ac4" secondAttribute="bottom" id="qh4-q0-m0A"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="PriceTable" destination="Mp3-z5-Odh" id="jhn-5A-Kyw"/>
+                        <outlet property="ToastView" destination="wOO-KQ-A9e" id="0Wm-p2-5mR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FrU-kc-G8r" userLabel="First Responder" sceneMemberID="firstResponder"/>

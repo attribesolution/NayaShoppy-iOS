@@ -11,6 +11,7 @@
 #import "GridListViewController.h"
 
 @interface ProductViewController : ViewPagerController<ViewPagerDataSource,ViewPagerDelegate>
+@property (strong, nonatomic) IBOutlet UIView *TaostView;
 @property(strong,nonatomic) GridListViewController *vc;
 @property(copy,nonatomic) NSString *title;
 @end

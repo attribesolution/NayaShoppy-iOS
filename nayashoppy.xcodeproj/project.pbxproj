@@ -81,6 +81,7 @@
 		CF71F9C71DC0DB50004DDB9A /* CouponsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF71F9BD1DC0DB50004DDB9A /* CouponsCollectionViewCell.m */; };
 		CF71F9C81DC0DB50004DDB9A /* CouponsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF71F9BF1DC0DB50004DDB9A /* CouponsCollectionViewCell.xib */; };
 		CF7CEA481DA7AA6100F4E31E /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7CEA471DA7AA6100F4E31E /* GlobalVariables.m */; };
+		CF815EFE1DE433250065C642 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = CF815EFD1DE433250065C642 /* UIView+Toast.m */; };
 		CF81BA791DB9F93C00ADE575 /* Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = CF81BA751DB9F93C00ADE575 /* Mapping.m */; };
 		CF81BA7A1DB9F93C00ADE575 /* SubCategories1.m in Sources */ = {isa = PBXBuildFile; fileRef = CF81BA761DB9F93C00ADE575 /* SubCategories1.m */; };
 		CF81BA7B1DB9F93C00ADE575 /* SubCategories2.m in Sources */ = {isa = PBXBuildFile; fileRef = CF81BA771DB9F93C00ADE575 /* SubCategories2.m */; };
@@ -273,6 +274,8 @@
 		CF71F9BF1DC0DB50004DDB9A /* CouponsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponsCollectionViewCell.xib; sourceTree = "<group>"; };
 		CF7CEA461DA7AA6100F4E31E /* GlobalVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalVariables.h; sourceTree = "<group>"; };
 		CF7CEA471DA7AA6100F4E31E /* GlobalVariables.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalVariables.m; sourceTree = "<group>"; };
+		CF815EFC1DE433250065C642 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		CF815EFD1DE433250065C642 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		CF81BA6F1DB9F90200ADE575 /* Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mapping.h; sourceTree = "<group>"; };
 		CF81BA721DB9F93C00ADE575 /* SubCategories1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCategories1.h; sourceTree = "<group>"; };
 		CF81BA731DB9F93C00ADE575 /* SubCategories2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCategories2.h; sourceTree = "<group>"; };
@@ -727,6 +730,15 @@
 			name = "Global Variables";
 			sourceTree = "<group>";
 		};
+		CF815EFF1DE4332B0065C642 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				CF815EFC1DE433250065C642 /* UIView+Toast.h */,
+				CF815EFD1DE433250065C642 /* UIView+Toast.m */,
+			);
+			name = Toast;
+			sourceTree = "<group>";
+		};
 		CF81BA701DB9F91700ADE575 /* TopMenuMapping */ = {
 			isa = PBXGroup;
 			children = (
@@ -1078,6 +1090,7 @@
 		CFDDAF791DA24AB900AFBF34 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CF815EFF1DE4332B0065C642 /* Toast */,
 				CF60D27A1DD4516E00D6EFBE /* SKSTableView */,
 				47C2789C1DD0722A008057BC /* AKCollectionController */,
 				477BC90F1DC9D360008C3207 /* Fonts */,
@@ -1383,6 +1396,7 @@
 				CF6927141DBE303900B85F64 /* UserCell.m in Sources */,
 				CF71F9C51DC0DB50004DDB9A /* CategoriesCell.m in Sources */,
 				CF13D0D81DD1B8EE00956076 /* ProductImg.m in Sources */,
+				CF815EFE1DE433250065C642 /* UIView+Toast.m in Sources */,
 				CF8B2C5B1DCC51AF0028DD6D /* WalletViewController.m in Sources */,
 				CF5C75021DB62A84008475D1 /* SideMenu.m in Sources */,
 				CFC20F0B1DD9BD630050E5B0 /* SproductDetail.m in Sources */,

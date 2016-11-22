@@ -22,7 +22,7 @@
 @end
 
 @implementation ProductViewController
-@synthesize vc,title;
+@synthesize vc,title,TaostView;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
