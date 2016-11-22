@@ -22,6 +22,7 @@
 @end
 
 @implementation PriceViewController
+@synthesize ToastView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -293,53 +294,7 @@
 }
 -(void)AddToWishList
 {
-    [[GlobalVariables class]AddWhishList:cobj.PName :cobj.Pprice :Pimg];
-   /* defaults = [NSUserDefaults standardUserDefaults];
-    NSMutableArray *ProductsImg,*Products,*ProductDetail;
-    
-    ProductsImg =[[NSMutableArray alloc] init];
-    Products =[[NSMutableArray alloc] init];
-    ProductDetail =[[NSMutableArray alloc] init];
-    
-    [ProductDetail addObject:cobj.PName];
-    [ProductDetail addObject:cobj.Pprice];
-    [Products addObject:ProductDetail];
-    UIImage *contactImage = Pimg;
-    NSData *imageData = UIImageJPEGRepresentation(contactImage, 100);
-    [ProductsImg addObject:imageData];
-    
-    NSObject *myobj=[defaults objectForKey:@"Product"];
-    NSObject *myImgobj=[defaults objectForKey:@"ProductImg"];
-    if(myImgobj == nil){
-        
-        myProductsImg =[[NSMutableArray alloc] init];
-        [myProductsImg  addObject:ProductsImg];
-        [defaults setObject:myProductsImg  forKey:@"ProductImg"];
-    }
-    
-   else
-    {
-        myProductsImg  = [[defaults objectForKey:@"ProductImg"]mutableCopy];
-        [myProductsImg   addObject:Products];
-        [defaults setObject:myProductsImg   forKey:@"ProductImg"];
-    }
-    
-    if(myobj == nil){
-        
-        myProducts =[[NSMutableArray alloc] init];
-        [myProducts addObject:Products];
-        [defaults setObject:myProducts forKey:@"Product"];
-    }
-    
-    else
-    {
-        myProducts = [[defaults objectForKey:@"Product"]mutableCopy];
-        [myProducts  addObject:Products];
-        [defaults setObject:myProducts  forKey:@"Product"];
-    }
-
-    
-    [defaults synchronize];*/
+    [[GlobalVariables class]AddWhishList:cobj.PName :cobj.Pprice :Pimg: self.ToastView];
 
 }
 

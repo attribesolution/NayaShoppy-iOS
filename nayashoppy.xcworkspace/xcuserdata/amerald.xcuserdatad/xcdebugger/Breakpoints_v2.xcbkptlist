@@ -107,6 +107,7 @@
             continueAfterRunningActions = "No"
             filePath = "nayashoppy/AKCollectionController/TabledCollectionViewFlowLayout.m"
             timestampString = "501502159.486607"
+
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "150"
@@ -128,7 +129,42 @@
             startingLineNumber = "124"
             endingLineNumber = "124"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
+
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "-setItemSize:"
+
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+
+
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "nayashoppy/HomeViewController.m"
+            timestampString = "501504191.840805"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+
+
+            landmarkName = "-collectionView:layout:sizeForItemAtIndexPath:"
+
+            landmarkName = "-collectionView:layout:minimumInteritemSpacingForSectionAtIndex:"
+
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -143,24 +179,11 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
             endingLineNumber = "54"
+
             landmarkName = "-collectionView:layout:sizeForItemAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "nayashoppy/CouponsVC.m"
-            timestampString = "501504779.448239"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "-collectionView:layout:sizeForItemAtIndexPath:"
-            landmarkType = "5">
+
+            landmarkName = "-collectionView:layout:minimumInteritemSpacingForSectionAtIndex:"
+
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -175,8 +198,11 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
             endingLineNumber = "59"
+
             landmarkName = "@implementation CouponsVC"
             landmarkType = "3">
+
+
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -190,7 +216,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
+
             endingLineNumber = "63">
+
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

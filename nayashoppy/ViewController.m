@@ -17,24 +17,22 @@
 @synthesize Lmenu,Rmenu,PagerView;
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     [self navBar];
-  
     UIStoryboard *coupons=[UIStoryboard storyboardWithName:@"HomePager" bundle:nil];
     self.pager = [coupons instantiateViewControllerWithIdentifier:@"Pager"];
     [self addChildViewController:self.pager];
     [self.pager didMoveToParentViewController:self];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Product"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"ProductImg"];
-
-    
+//    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Product"];
+//    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"ProductImg"];
     [self.PagerView addSubview:self.pager.view];
  
 }
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    self.pager.view.frame=self.PagerView.bounds;
+     self.pager.view.frame=self.PagerView.bounds;
 }
 #pragma mark - self.view Methods
 

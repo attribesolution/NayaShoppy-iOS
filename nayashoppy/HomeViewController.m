@@ -73,7 +73,7 @@ static NSString *CouponsLabelImg=@"Coupon";
     if(indexPath.row==3)
        return 90;
     if(indexPath.row==5)
-        return 109;
+        return 120;
     if(indexPath.row==7)
         return  109;
     else

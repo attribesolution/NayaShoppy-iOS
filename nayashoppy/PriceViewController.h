@@ -32,6 +32,7 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *PriceTable;
 @property (strong, nonatomic) CollectionImages *imgcv;
+@property (strong, nonatomic) IBOutlet UIView *ToastView;
 @property (strong, nonatomic)  id <GoToSpecificationList> ShowListDelegate;
 
 -(void) Parsedetails;

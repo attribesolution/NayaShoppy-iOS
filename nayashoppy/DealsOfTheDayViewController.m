@@ -19,11 +19,11 @@ static NSString *dealsCell = @"DealsCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     ob=[MenuData Items];
- /*  if(ob.DealsOfTheDay.count==0)
+    /* if(ob.DealsOfTheDay.count==0)
        self.myView.hidden=NO;
-   else*/
+     else*/
     self.myView.hidden=YES;
-  //  self.DealsOfTheDayCV.backgroundColor=[UIColor whiteColor];
+    //  self.DealsOfTheDayCV.backgroundColor=[UIColor whiteColor];
    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshDealsCV:)
                                                  name:@"refreshDealsCV" object:nil];
       }

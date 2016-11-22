@@ -21,15 +21,14 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     obj=[MenuData Items];
-    // Do any additional setup after loading the view.
+    
 }
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
     [self.NewarrivalCv registerNib:[UINib nibWithNibName:NewArrivalCell bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NewArrivalCell];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshNewArriavlCV:)
-                                                 name:@"refreshNewArriavlCV" object:nil];
-    self.NewarrivalCv.backgroundColor=[UIColor groupTableViewBackgroundColor];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshNewArriavlCV:) name:@"refreshNewArriavlCV" object:nil];
+    self.NewarrivalCv.backgroundColor=[UIColor whiteColor];
 }
 -(void)refreshNewArriavlCV:(NSNotification *) notification{
     
@@ -56,9 +55,7 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
    [appDelegate.navController pushViewController:dvc animated:YES];
     appDelegate.navController.navigationBar.tintColor=[UIColor whiteColor];
-     
-    
- 
+  
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -74,11 +71,11 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 1.0;
+    return 0.0;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 1.0;
+    return 0.0;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
