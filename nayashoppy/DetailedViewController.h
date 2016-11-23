@@ -12,6 +12,7 @@
 #import "DealsOfTheDayViewController.h"
 #import "GlobalVariables.h"
 #import "AppDelegate.h"
+#import "CategoriesViewController.h"
 
 @interface DetailedViewController : ViewPagerController <ViewPagerDataSource,ViewPagerDelegate>
 

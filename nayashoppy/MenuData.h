@@ -34,5 +34,6 @@
 @property (strong,nonatomic) NSNumber *tabindex;
 @property (strong,nonatomic) NSString *PType;
 @property (strong,nonatomic) NSNumber *index;
+@property (strong,nonatomic) NSNumber *Mobileindex;
 +(MenuData *) Items;
 @end

@@ -146,13 +146,21 @@
     Categories *cobj=[[catid objectAtIndex:indexPath.row] objectAtIndex:indexPath.subRow-1];
     obj.BranchId=cobj.BranchID;
     obj.CatId=cobj.CatID;
-   
-    UIStoryboard * pStoryboard = [UIStoryboard storyboardWithName:@"ProductDetail" bundle:[NSBundle mainBundle]];
-    ProductViewController *pVC =[pStoryboard instantiateViewControllerWithIdentifier:@"ProductVC"];
-    pVC.title=self.contents[indexPath.section][indexPath.row][indexPath.subRow];
-    [self.navigationController pushViewController:pVC animated:YES];
+    if([obj.Mobileindex integerValue]==1 && indexPath.row==0)
+    {
+        UIStoryboard * pStoryboard = [UIStoryboard storyboardWithName:@"Mobiles" bundle:[NSBundle mainBundle]];
+        MobilesVC *pVC =[pStoryboard instantiateViewControllerWithIdentifier:@"Mobiles"];
+        pVC.title=self.contents[indexPath.section][indexPath.row][indexPath.subRow];
+        [self.navigationController pushViewController:pVC animated:YES];
+    }
+    else
+    {
+        UIStoryboard * pStoryboard = [UIStoryboard storyboardWithName:@"ProductDetail" bundle:[NSBundle mainBundle]];
+         ProductViewController *pVC =[pStoryboard instantiateViewControllerWithIdentifier:@"ProductVC"];
+         pVC.title=self.contents[indexPath.section][indexPath.row][indexPath.subRow];
+         [self.navigationController pushViewController:pVC animated:YES];
     
-    
+    }
 }
 
 #pragma mark - Actions

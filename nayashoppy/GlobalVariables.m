@@ -156,4 +156,12 @@ NSUserDefaults *defaults;
 
      }
 }
+//+(void) myvc:(UIViewController *) vc
+//{
+//    vc.view.backgroundColor=[UIColor groupTableViewBackgroundColor];
+//    SWRevealViewController *revealController = [self revealViewController];
+//    [vc.view addGestureRecognizer:revealController
+//     .panGestureRecognizer];
+//    [vc.view addGestureRecognizer:revealController.tapGestureRecognizer];
+//}
 @end

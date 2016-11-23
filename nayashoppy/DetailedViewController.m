@@ -55,9 +55,12 @@
 }
 
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index {
-   
+    if(index==0)
+        obj.Mobileindex=[NSNumber numberWithInt:1];
+    else
+        obj.Mobileindex=[NSNumber numberWithInt:0];
     UIStoryboard *deals=[UIStoryboard storyboardWithName:@"Categories" bundle:nil];
-      DealsOfTheDayViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"Categories"];
+      CategoriesViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"Categories"];
       dvc.view.backgroundColor=[UIColor whiteColor];
       [[NSNotificationCenter defaultCenter] postNotificationName:@"CategorieAtIndex" object:categories[index]];
        return dvc;

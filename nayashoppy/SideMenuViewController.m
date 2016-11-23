@@ -25,8 +25,12 @@ static NSString *SideMenuCell =@"SideMenu";
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
     self.navigationItem.titleView=[[GlobalVariables class]titleView:@"My User" andImg:@"UserIcon" andy:logoY+10];
     self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
+                                                 name:@"refreshView" object:nil];
+}
+-(void)refreshView:(NSNotification *) notification {
     
-
+    [self.sidetable reloadData];
 }
 
 #pragma mark - UITableDelegate Method

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SKSTableView.h"
 #import "SKSTableViewCell.h"
+#import "MobilesVC.h"
 
 @interface CategoriesViewController : UIViewController<SKSTableViewDelegate>
 
