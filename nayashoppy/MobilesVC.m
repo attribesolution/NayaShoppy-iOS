@@ -29,7 +29,8 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"slider"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBarBg"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setFrame:CGRectMake(0, 0, self.view.frame.size.width,120.0)];
     obj=[MenuData Items];
     [self activityIndicator];
     ApiParsing * mainVC = [[ApiParsing alloc] init];
@@ -126,11 +127,11 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 1.0;
+    return 2.0;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 1.0;
+    return 2.0;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
