@@ -16,6 +16,6 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *Rmenu;
 @property (strong, nonatomic) IBOutlet UIView *PagerView;
 @property (strong, nonatomic) PagerViewController *pager;
-@property (strong, nonatomic)  CouponsVC *collectionCont;
+
 @end
 

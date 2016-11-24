@@ -52,7 +52,7 @@ static NSString * const BHPhotoAlbumLayoutPhotoCellKind = @"PhotoCell";
 - (void)setup
 {
     self.itemInsets = UIEdgeInsetsMake(1.0f, 2.0f, 1.0f, 2.0f);
-    self.itemSize = CGSizeMake(125.0f, 180.0f);
+    self.itemSize = CGSizeMake(125.0f, 320.0f);
     self.interItemSpacingY = 0.0f;
     self.numberOfColumns = 2;
     

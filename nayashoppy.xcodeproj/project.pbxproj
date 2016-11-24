@@ -82,6 +82,8 @@
 		CF71F9C81DC0DB50004DDB9A /* CouponsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF71F9BF1DC0DB50004DDB9A /* CouponsCollectionViewCell.xib */; };
 		CF7CEA481DA7AA6100F4E31E /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7CEA471DA7AA6100F4E31E /* GlobalVariables.m */; };
 		CF815EFE1DE433250065C642 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = CF815EFD1DE433250065C642 /* UIView+Toast.m */; };
+		CF815F081DE472000065C642 /* Mobiles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF815F071DE472000065C642 /* Mobiles.storyboard */; };
+		CF815F0B1DE472D00065C642 /* MobilesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CF815F0A1DE472D00065C642 /* MobilesVC.m */; };
 		CF81BA791DB9F93C00ADE575 /* Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = CF81BA751DB9F93C00ADE575 /* Mapping.m */; };
 		CF81BA7A1DB9F93C00ADE575 /* SubCategories1.m in Sources */ = {isa = PBXBuildFile; fileRef = CF81BA761DB9F93C00ADE575 /* SubCategories1.m */; };
 		CF81BA7B1DB9F93C00ADE575 /* SubCategories2.m in Sources */ = {isa = PBXBuildFile; fileRef = CF81BA771DB9F93C00ADE575 /* SubCategories2.m */; };
@@ -276,6 +278,9 @@
 		CF7CEA471DA7AA6100F4E31E /* GlobalVariables.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalVariables.m; sourceTree = "<group>"; };
 		CF815EFC1DE433250065C642 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		CF815EFD1DE433250065C642 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
+		CF815F071DE472000065C642 /* Mobiles.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mobiles.storyboard; sourceTree = "<group>"; };
+		CF815F091DE472D00065C642 /* MobilesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilesVC.h; sourceTree = "<group>"; };
+		CF815F0A1DE472D00065C642 /* MobilesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilesVC.m; sourceTree = "<group>"; };
 		CF81BA6F1DB9F90200ADE575 /* Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mapping.h; sourceTree = "<group>"; };
 		CF81BA721DB9F93C00ADE575 /* SubCategories1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCategories1.h; sourceTree = "<group>"; };
 		CF81BA731DB9F93C00ADE575 /* SubCategories2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCategories2.h; sourceTree = "<group>"; };
@@ -572,9 +577,10 @@
 		CF607C5C1DB0B689004296F1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CF815F061DE471EA0065C642 /* Mobiles */,
 				CF7ACB611DA4EE1400DF3BD7 /* MainView */,
 				CFF8A7731DC1F6CD00FB633B /* Home */,
-				CF60D2931DD46F2200D6EFBE /* ProductDetail */,
+				CF60D2931DD46F2200D6EFBE /* SpecificationViewController */,
 				CF1E46831DC9D76D001B9D62 /* SignIn */,
 				477BC9111DC9D6E2008C3207 /* AllProduct */,
 				CF1E468E1DC9F99F001B9D62 /* NewArrivals */,
@@ -626,7 +632,7 @@
 			name = PopularProducts;
 			sourceTree = "<group>";
 		};
-		CF60D2931DD46F2200D6EFBE /* ProductDetail */ = {
+		CF60D2931DD46F2200D6EFBE /* SpecificationViewController */ = {
 			isa = PBXGroup;
 			children = (
 				CF151A791DD5E462000A747B /* Review */,
@@ -636,7 +642,7 @@
 				CF60D2951DD46F3B00D6EFBE /* SpecificationsViewController.m */,
 				CF60D2991DD46F7200D6EFBE /* Specifications.storyboard */,
 			);
-			name = ProductDetail;
+			name = SpecificationViewController;
 			sourceTree = "<group>";
 		};
 		CF60D29B1DD48DEC00D6EFBE /* price */ = {
@@ -737,6 +743,16 @@
 				CF815EFD1DE433250065C642 /* UIView+Toast.m */,
 			);
 			name = Toast;
+			sourceTree = "<group>";
+		};
+		CF815F061DE471EA0065C642 /* Mobiles */ = {
+			isa = PBXGroup;
+			children = (
+				CF815F071DE472000065C642 /* Mobiles.storyboard */,
+				CF815F091DE472D00065C642 /* MobilesVC.h */,
+				CF815F0A1DE472D00065C642 /* MobilesVC.m */,
+			);
+			name = Mobiles;
 			sourceTree = "<group>";
 		};
 		CF81BA701DB9F91700ADE575 /* TopMenuMapping */ = {
@@ -1320,6 +1336,7 @@
 				CF151A751DD5E182000A747B /* SpecificationList.storyboard in Resources */,
 				CF5262281DD345980075BDD0 /* star.png in Resources */,
 				CFB5B5B91DCCBC6400CBCB08 /* HomePager.storyboard in Resources */,
+				CF815F081DE472000065C642 /* Mobiles.storyboard in Resources */,
 				CF6B397E1DC89313003BDB4E /* DetailView.storyboard in Resources */,
 				CF1E46821DC9D761001B9D62 /* SignIn.storyboard in Resources */,
 			);
@@ -1409,6 +1426,7 @@
 				CF86A46F1DD5C77800F2F57A /* SimilarPCVCell.m in Sources */,
 				CFB5B5A61DCCA0B700CBCB08 /* OrderCell.m in Sources */,
 				CF60D28A1DD4626600D6EFBE /* PopularProducts.m in Sources */,
+				CF815F0B1DE472D00065C642 /* MobilesVC.m in Sources */,
 				CF60D2871DD4516E00D6EFBE /* SKSTableViewCellIndicator.m in Sources */,
 				CF9607CC1DDB255900899424 /* Features.m in Sources */,
 				CF71F9C41DC0DB50004DDB9A /* Categories.m in Sources */,

@@ -7,7 +7,7 @@
 //
 
 #import "DealsOfTheDayViewController.h"
-static NSString *dealsCell = @"DealsCell";
+static NSString *dealsCell = @"DealCell";
 @interface DealsOfTheDayViewController ()
 {
     MenuData *ob;
@@ -35,7 +35,7 @@ static NSString *dealsCell = @"DealsCell";
 
 -(void)viewWillAppear:(BOOL)animated{
     
-    [self.DealsOfTheDayCV registerNib:[UINib nibWithNibName:dealsCell bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:dealsCell];
+    [self.DealsOfTheDayCV registerNib:[UINib nibWithNibName:@"DealsCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:dealsCell];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{

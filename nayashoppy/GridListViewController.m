@@ -22,6 +22,7 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
     DGActivityIndicatorView *activityIndicatorView;
     Categories *cobj;
     UIImage *wishimg;
+    CGFloat Dlines;
 }
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -77,13 +78,12 @@ Boolean showInGridView = false;
     }
 
     self.tLayout = [[TabledCollectionViewFlowLayout alloc] init];
-    [self.tLayout setItemSize:CGSizeMake(self.collectionView.bounds.size.width, 220)];
+    [self.tLayout setItemSize:CGSizeMake(self.collectionView.bounds.size.width, 180)];
     [self.collectionView setScrollsToTop:YES];
     [self.collectionView registerNib:[UINib nibWithNibName:AKCollectionCell bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:AKCollectionCell];
-     
-    self.glayout = [[GridCollectionViewFlowLayout alloc] init];
-    [self.glayout setItemSize:CGSizeMake(self.collectionView.bounds.size.width, 160)];
    
+    self.glayout = [[GridCollectionViewFlowLayout alloc] init];
+    [self.collectionView setCollectionViewLayout:self.tLayout];
     
 }
 
@@ -99,10 +99,8 @@ Boolean showInGridView = false;
         
         [self.collectionView registerNib:[UINib nibWithNibName:AKTabelledCollectionCell bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:AKTabelledCollectionCell];
         [self.collectionView setCollectionViewLayout:self.glayout animated:YES completion:^(BOOL finished) {
-            
             [self.collectionView reloadItemsAtIndexPaths:[self.collectionView indexPathsForVisibleItems]];
              [self.collectionView reloadData];
-            
         }];
         
         
@@ -136,6 +134,12 @@ Boolean showInGridView = false;
     if(showInGridView){
         TabelledCollectionCell *cell =  [collectionView dequeueReusableCellWithReuseIdentifier:AKTabelledCollectionCell forIndexPath:indexPath];
         
+        CGSize textSize = [cobj.PName sizeWithAttributes:@{NSFontAttributeName:[cell.GridName font]}];
+        CGFloat strikeWidth = textSize.width;
+        Dlines=(strikeWidth/cell.GridName.frame.size.width+1)*25+25;
+        
+        cell.GridName.frame=CGRectMake(cell.GridName.frame.origin.x,cell.GridName.frame.origin.y, cell.GridName.frame.size.width, Dlines);
+        
         cell.GridName.text=cobj.PName;
         cell.Company.text=cobj.Pprice;
         if([tabindex integerValue]==0)
@@ -143,7 +147,8 @@ Boolean showInGridView = false;
         else
         wishimg=[[obj.popularproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
         cell.GridImage.image=wishimg;
-        [cell.WishButton addTarget:self action:@selector(AddToWishList) forControlEvents:UIControlEventTouchUpInside];
+        [cell.WishButton addTarget:self action:@selector(AddToWishList)forControlEvents:UIControlEventTouchUpInside];
+        [self.glayout setItemSize:CGSizeMake(self.collectionView.bounds.size.width, 160+Dlines)];
         return cell;
     }
     else{
@@ -201,10 +206,7 @@ Boolean showInGridView = false;
     return 1.5;
 }
 
-/*- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return CGSizeMake(collectionView.frame.size.width,215);
-}*/
+
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     return UIEdgeInsetsMake(1, 0, 1, 0);
 }
@@ -232,5 +234,6 @@ Boolean showInGridView = false;
 {
     [[GlobalVariables class]AddWhishList:cobj.PName :cobj.POfferPrice :wishimg: self.view];
 }
+
 
 @end
