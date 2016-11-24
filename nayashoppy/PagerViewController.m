@@ -19,17 +19,18 @@
 
 @implementation PagerViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     tabItem=[[NSMutableArray alloc]initWithObjects:@"HOME",@"DEALS OF THE DAY", nil];
-    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
-    tapRecognizer.cancelsTouchesInView = NO;
-    [self.view addGestureRecognizer:tapRecognizer];
-  //  self.view.frame=CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height);
+    self.lastSelectedTab = 0;
     self.dataSource = self;
     self.delegate = self;
+    
+    [self gesture];
     [self selectTabAtIndex:0];
-    self.lastSelectedTab = 0;
+  
 }
 
 
@@ -71,15 +72,12 @@
 }
 - (void)viewPager:(ViewPagerController *)viewPager didChangeTabToIndex:(NSUInteger)index{
     
-    //if(self.lastSelectedTab!= nil){
     UILabel *previouslabel = (UILabel*)[viewPager.view viewWithTag:100+self.lastSelectedTab];
     previouslabel.textColor = [UIColor blackColor];
-    //}else{
-    
+  
     UILabel *currentlabel = (UILabel*)[viewPager.view viewWithTag:100+index];
     currentlabel.textColor = [GlobalVariables themeColor];
     
-    //  }
     self.lastSelectedTab = index;
 }
 
@@ -121,5 +119,12 @@
 - (void)didTapAnywhere:(UITapGestureRecognizer *) sender
 {
     [self.view endEditing:YES];
+}
+-(void) gesture
+{
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
+    tapRecognizer.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapRecognizer];
+
 }
 @end

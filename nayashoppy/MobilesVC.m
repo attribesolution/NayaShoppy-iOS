@@ -104,7 +104,7 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
 
-    return CGSizeMake(collectionView.frame.size.width/2-1,250);
+    return CGSizeMake(collectionView.frame.size.width/2-1,180);
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -118,9 +118,10 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
     ApiParsing * mainVC = [[ApiParsing alloc] init];
     obj.ProductDetails=nil;
     obj.GernalFeatures=nil;
-    [mainVC getDetails:^(NSArray *respone) {
+    [mainVC getDetails:^(NSArray *respone, NSArray *generalFeatures) {
         
         obj.ProductDetails=[respone copy];
+        obj.GernalFeatures=[generalFeatures copy];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
         
     } failure:^(NSError *error, NSString *message) {
@@ -149,7 +150,7 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 -(void) navbar
 {
      [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBarBg"] forBarMetrics:UIBarMetricsDefault];
-     [self.navigationController.navigationBar setFrame:CGRectMake(0, 0, self.view.frame.size.width,120.0)];
+     [self.navigationController.navigationBar setFrame:CGRectMake(0, 0, self.view.frame.size.width,80.0)];
 
      CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
      self.navigationItem.titleView =[[GlobalVariables class] titleView:self.title andImg:@"Logo" andy:logoY] ;
@@ -194,6 +195,5 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 {
     [self.allProduct registerNib:[UINib nibWithNibName:@"DealsCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:dealsCell];
     [self.PopularProduct registerNib:[UINib nibWithNibName:@"DealsCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:dealsCell];
-
 }
 @end

@@ -56,6 +56,7 @@
     obj.PCatId=cobj.PcatId;
     obj.PPrice=cobj.Pprice;
     obj.slug=cobj.Pslug;
+    [self ParseData];
     if([self.XYZDelegate respondsToSelector:@selector(ReloadView)])
         [self.XYZDelegate ReloadView];
     
@@ -90,6 +91,22 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     self.SimilarPcollView.alwaysBounceHorizontal=NO;
+}
+-(void) ParseData
+{
+    ApiParsing * mainVC = [[ApiParsing alloc] init];
+    obj.ProductDetails=nil;
+    obj.GernalFeatures=nil;
+    [mainVC getDetails:^(NSArray *respone,NSArray *generalFeatures) {
+        
+        obj.ProductDetails=[respone copy];
+        obj.GernalFeatures=[generalFeatures copy];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+        
+    } failure:^(NSError *error, NSString *message) {
+        NSLog(@"%@",error);
+    }];
+    
 }
 
 @end

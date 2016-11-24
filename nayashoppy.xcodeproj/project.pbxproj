@@ -16,6 +16,8 @@
 		CF018C241DC0AA5F0024CD37 /* DealsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF018C221DC0AA5F0024CD37 /* DealsCell.m */; };
 		CF018C251DC0AA5F0024CD37 /* DealsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF018C231DC0AA5F0024CD37 /* DealsCell.xib */; };
 		CF018C261DC0BC9D0024CD37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFDDAF821DA24AB900AFBF34 /* Main.storyboard */; };
+		CF11432D1DE6FAB500751423 /* FilterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11432C1DE6FAB500751423 /* FilterVC.m */; };
+		CF11432F1DE6FACB00751423 /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF11432E1DE6FACB00751423 /* Filter.storyboard */; };
 		CF13D0C41DD1963F00956076 /* TabledCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CF13D0BB1DD1963F00956076 /* TabledCollectionViewFlowLayout.m */; };
 		CF13D0C51DD1963F00956076 /* CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF13D0BD1DD1963F00956076 /* CollectionCell.m */; };
 		CF13D0C61DD1963F00956076 /* TabelledCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF13D0BF1DD1963F00956076 /* TabelledCollectionCell.m */; };
@@ -34,8 +36,6 @@
 		CF151A7E1DD5E4B4000A747B /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF151A7D1DD5E4B4000A747B /* Review.storyboard */; };
 		CF1E46821DC9D761001B9D62 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF1E46811DC9D761001B9D62 /* SignIn.storyboard */; };
 		CF1E46861DC9D7A0001B9D62 /* SignInVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1E46851DC9D7A0001B9D62 /* SignInVC.m */; };
-		CF1E46911DC9F9BC001B9D62 /* NewArrivalsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1E46901DC9F9BC001B9D62 /* NewArrivalsViewController.m */; };
-		CF1E46931DC9F9F3001B9D62 /* NewArrival.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF1E46921DC9F9F3001B9D62 /* NewArrival.storyboard */; };
 		CF257D661DAF6B3200EC6789 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF257D651DAF6B3200EC6789 /* SWRevealViewController.m */; };
 		CF49D4201DDED414008A61ED /* SpecificationButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF49D41E1DDED414008A61ED /* SpecificationButtonCell.m */; };
 		CF49D4211DDED414008A61ED /* SpecificationButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF49D41F1DDED414008A61ED /* SpecificationButtonCell.xib */; };
@@ -171,6 +171,9 @@
 		CF018C211DC0AA5F0024CD37 /* DealsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealsCell.h; sourceTree = "<group>"; };
 		CF018C221DC0AA5F0024CD37 /* DealsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealsCell.m; sourceTree = "<group>"; };
 		CF018C231DC0AA5F0024CD37 /* DealsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealsCell.xib; sourceTree = "<group>"; };
+		CF11432B1DE6FAB500751423 /* FilterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterVC.h; sourceTree = "<group>"; };
+		CF11432C1DE6FAB500751423 /* FilterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterVC.m; sourceTree = "<group>"; };
+		CF11432E1DE6FACB00751423 /* Filter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Filter.storyboard; sourceTree = "<group>"; };
 		CF13D0BA1DD1963F00956076 /* TabledCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabledCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		CF13D0BB1DD1963F00956076 /* TabledCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabledCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		CF13D0BC1DD1963F00956076 /* CollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCell.h; sourceTree = "<group>"; };
@@ -201,9 +204,6 @@
 		CF1E46811DC9D761001B9D62 /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		CF1E46841DC9D7A0001B9D62 /* SignInVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInVC.h; sourceTree = "<group>"; };
 		CF1E46851DC9D7A0001B9D62 /* SignInVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInVC.m; sourceTree = "<group>"; };
-		CF1E468F1DC9F9BC001B9D62 /* NewArrivalsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewArrivalsViewController.h; sourceTree = "<group>"; };
-		CF1E46901DC9F9BC001B9D62 /* NewArrivalsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewArrivalsViewController.m; sourceTree = "<group>"; };
-		CF1E46921DC9F9F3001B9D62 /* NewArrival.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewArrival.storyboard; sourceTree = "<group>"; };
 		CF257D641DAF6B3200EC6789 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		CF257D651DAF6B3200EC6789 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		CF49D41D1DDED414008A61ED /* SpecificationButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecificationButtonCell.h; sourceTree = "<group>"; };
@@ -426,17 +426,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		477BC9111DC9D6E2008C3207 /* AllProduct */ = {
+		477BC9111DC9D6E2008C3207 /* ProductViewController */ = {
 			isa = PBXGroup;
 			children = (
 				477BC9121DC9D724008C3207 /* ProductDetail.storyboard */,
 				472B2DCD1DCB33FA008A15C0 /* ProductViewController.h */,
 				472B2DCE1DCB33FA008A15C0 /* ProductViewController.m */,
-				CF13D0CA1DD1972000956076 /* GridListViewController.h */,
-				CF13D0CB1DD1972000956076 /* GridListViewController.m */,
-				CF13D0CD1DD1973400956076 /* GridList.storyboard */,
+				CF1143271DE6CCEE00751423 /* GridViewController */,
 			);
-			name = AllProduct;
+			name = ProductViewController;
 			sourceTree = "<group>";
 		};
 		47C2789C1DD0722A008057BC /* AKCollectionController */ = {
@@ -462,6 +460,77 @@
 				A6336B5E970C4DC0C494B36A /* libPods-nayashoppy.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF1143251DE6CC4800751423 /* PagerView */ = {
+			isa = PBXGroup;
+			children = (
+				CFB5B5B51DCCBB1200CBCB08 /* PagerViewController.h */,
+				CFB5B5B61DCCBB1200CBCB08 /* PagerViewController.m */,
+				CFB5B5B81DCCBC6400CBCB08 /* HomePager.storyboard */,
+				CF607C641DB0D0A5004296F1 /* DealsOfTheDay */,
+				CFF8A7731DC1F6CD00FB633B /* Home */,
+			);
+			name = PagerView;
+			sourceTree = "<group>";
+		};
+		CF1143261DE6CCA000751423 /* TopMenuCell */ = {
+			isa = PBXGroup;
+			children = (
+				CF90F7341DC3612700C8AB2B /* CategorieCollCell */,
+				CFF8A7641DC1C84900FB633B /* CategoriesCell */,
+			);
+			name = TopMenuCell;
+			sourceTree = "<group>";
+		};
+		CF1143271DE6CCEE00751423 /* GridViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CF13D0CA1DD1972000956076 /* GridListViewController.h */,
+				CF13D0CB1DD1972000956076 /* GridListViewController.m */,
+				CF13D0CD1DD1973400956076 /* GridList.storyboard */,
+			);
+			name = GridViewController;
+			sourceTree = "<group>";
+		};
+		CF1143281DE6CD2B00751423 /* DealsCell */ = {
+			isa = PBXGroup;
+			children = (
+				CF018C211DC0AA5F0024CD37 /* DealsCell.h */,
+				CF018C221DC0AA5F0024CD37 /* DealsCell.m */,
+				CF018C231DC0AA5F0024CD37 /* DealsCell.xib */,
+			);
+			name = DealsCell;
+			sourceTree = "<group>";
+		};
+		CF1143291DE6CDDD00751423 /* SpecificationButtonCell */ = {
+			isa = PBXGroup;
+			children = (
+				CF49D41D1DDED414008A61ED /* SpecificationButtonCell.h */,
+				CF49D41E1DDED414008A61ED /* SpecificationButtonCell.m */,
+				CF49D41F1DDED414008A61ED /* SpecificationButtonCell.xib */,
+			);
+			name = SpecificationButtonCell;
+			sourceTree = "<group>";
+		};
+		CF11432A1DE6CE4300751423 /* SideMenuCell */ = {
+			isa = PBXGroup;
+			children = (
+				CF5C74FF1DB62A84008475D1 /* SideMenu.h */,
+				CF5C75001DB62A84008475D1 /* SideMenu.m */,
+				CF5C75011DB62A84008475D1 /* SideMenu.xib */,
+			);
+			name = SideMenuCell;
+			sourceTree = "<group>";
+		};
+		CF1143301DE6FAE000751423 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				CF11432B1DE6FAB500751423 /* FilterVC.h */,
+				CF11432C1DE6FAB500751423 /* FilterVC.m */,
+				CF11432E1DE6FACB00751423 /* Filter.storyboard */,
+			);
+			name = Filter;
 			sourceTree = "<group>";
 		};
 		CF13D0D21DD1B45200956076 /* AllProducts */ = {
@@ -521,16 +590,6 @@
 			name = SignIn;
 			sourceTree = "<group>";
 		};
-		CF1E468E1DC9F99F001B9D62 /* NewArrivals */ = {
-			isa = PBXGroup;
-			children = (
-				CF1E468F1DC9F9BC001B9D62 /* NewArrivalsViewController.h */,
-				CF1E46901DC9F9BC001B9D62 /* NewArrivalsViewController.m */,
-				CF1E46921DC9F9F3001B9D62 /* NewArrival.storyboard */,
-			);
-			name = NewArrivals;
-			sourceTree = "<group>";
-		};
 		CF5BC8DF1DBF7CEA00A9EC41 /* Slider */ = {
 			isa = PBXGroup;
 			children = (
@@ -556,11 +615,9 @@
 		CF5C75041DB62CA5008475D1 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				CF11432A1DE6CE4300751423 /* SideMenuCell */,
 				CF5C74FC1DB627EB008475D1 /* SideMenuViewController.h */,
 				CF5C74FD1DB627EB008475D1 /* SideMenuViewController.m */,
-				CF5C74FF1DB62A84008475D1 /* SideMenu.h */,
-				CF5C75001DB62A84008475D1 /* SideMenu.m */,
-				CF5C75011DB62A84008475D1 /* SideMenu.xib */,
 			);
 			name = SideMenu;
 			sourceTree = "<group>";
@@ -577,18 +634,10 @@
 		CF607C5C1DB0B689004296F1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				CF815F061DE471EA0065C642 /* Mobiles */,
 				CF7ACB611DA4EE1400DF3BD7 /* MainView */,
-				CFF8A7731DC1F6CD00FB633B /* Home */,
 				CF60D2931DD46F2200D6EFBE /* SpecificationViewController */,
-				CF1E46831DC9D76D001B9D62 /* SignIn */,
-				477BC9111DC9D6E2008C3207 /* AllProduct */,
-				CF1E468E1DC9F99F001B9D62 /* NewArrivals */,
-				CF607C641DB0D0A5004296F1 /* DealsOfTheDay */,
 				CF5C75041DB62CA5008475D1 /* SideMenu */,
 				CF6927091DBE281800B85F64 /* UserSideMenu */,
-				CFF8A77D1DC2092D00FB633B /* Detailed View  */,
-				CF6F2E221DC767DA0027FAD8 /* CategoriesView */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -596,12 +645,10 @@
 		CF607C641DB0D0A5004296F1 /* DealsOfTheDay */ = {
 			isa = PBXGroup;
 			children = (
+				CF1143281DE6CD2B00751423 /* DealsCell */,
 				CF71F9AE1DC0D721004DDB9A /* DealsStoryboard.storyboard */,
 				CF607C611DB0D09D004296F1 /* DealsOfTheDayViewController.h */,
 				CF607C621DB0D09D004296F1 /* DealsOfTheDayViewController.m */,
-				CF018C211DC0AA5F0024CD37 /* DealsCell.h */,
-				CF018C221DC0AA5F0024CD37 /* DealsCell.m */,
-				CF018C231DC0AA5F0024CD37 /* DealsCell.xib */,
 			);
 			name = DealsOfTheDay;
 			sourceTree = "<group>";
@@ -635,12 +682,12 @@
 		CF60D2931DD46F2200D6EFBE /* SpecificationViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CF151A791DD5E462000A747B /* Review */,
-				CF151A6E1DD5E078000A747B /* Specifications */,
-				CF60D29B1DD48DEC00D6EFBE /* price */,
 				CF60D2941DD46F3B00D6EFBE /* SpecificationsViewController.h */,
 				CF60D2951DD46F3B00D6EFBE /* SpecificationsViewController.m */,
 				CF60D2991DD46F7200D6EFBE /* Specifications.storyboard */,
+				CF151A791DD5E462000A747B /* Review */,
+				CF151A6E1DD5E078000A747B /* Specifications */,
+				CF60D29B1DD48DEC00D6EFBE /* price */,
 			);
 			name = SpecificationViewController;
 			sourceTree = "<group>";
@@ -648,19 +695,14 @@
 		CF60D29B1DD48DEC00D6EFBE /* price */ = {
 			isa = PBXGroup;
 			children = (
-				CF86A44D1DD5A27A00F2F57A /* PriceTabCells */,
-				CF60D2A11DD4920500D6EFBE /* PriceTab */,
-			);
-			name = price;
-			sourceTree = "<group>";
-		};
-		CF60D2A11DD4920500D6EFBE /* PriceTab */ = {
-			isa = PBXGroup;
-			children = (
+				CF1143301DE6FAE000751423 /* Filter */,
 				CF60D29E1DD48E1C00D6EFBE /* PriceViewController.h */,
 				CF60D29F1DD48E1C00D6EFBE /* PriceViewController.m */,
+				CF86A44D1DD5A27A00F2F57A /* PriceTabCells */,
+				CF60D2A71DD49F7200D6EFBE /* ImageCell */,
+				CF86A4641DD5C68900F2F57A /* Similar Products */,
 			);
-			name = PriceTab;
+			name = price;
 			sourceTree = "<group>";
 		};
 		CF60D2A71DD49F7200D6EFBE /* ImageCell */ = {
@@ -695,6 +737,7 @@
 		CF6927091DBE281800B85F64 /* UserSideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				CF1E46831DC9D76D001B9D62 /* SignIn */,
 				CFB5B5AF1DCCA6D800CBCB08 /* RateTheApp */,
 				CFB5B5AE1DCCA6A500CBCB08 /* AboutUs */,
 				CFB5B59E1DCC8E4600CBCB08 /* Order */,
@@ -711,6 +754,8 @@
 				CF6F2E231DC7681D0027FAD8 /* Categories.storyboard */,
 				CF6F2E251DC7686E0027FAD8 /* CategoriesViewController.h */,
 				CF6F2E261DC7686E0027FAD8 /* CategoriesViewController.m */,
+				CF815F061DE471EA0065C642 /* Mobiles */,
+				477BC9111DC9D6E2008C3207 /* ProductViewController */,
 			);
 			name = CategoriesView;
 			sourceTree = "<group>";
@@ -720,9 +765,7 @@
 			children = (
 				CFDDAF7F1DA24AB900AFBF34 /* ViewController.h */,
 				CFDDAF801DA24AB900AFBF34 /* ViewController.m */,
-				CFB5B5B51DCCBB1200CBCB08 /* PagerViewController.h */,
-				CFB5B5B61DCCBB1200CBCB08 /* PagerViewController.m */,
-				CFB5B5B81DCCBC6400CBCB08 /* HomePager.storyboard */,
+				CF1143251DE6CC4800751423 /* PagerView */,
 			);
 			name = MainView;
 			sourceTree = "<group>";
@@ -800,15 +843,11 @@
 		CF86A44D1DD5A27A00F2F57A /* PriceTabCells */ = {
 			isa = PBXGroup;
 			children = (
-				CF86A4641DD5C68900F2F57A /* Similar Products */,
 				CF86A4631DD5BC1900F2F57A /* ReviewCell */,
+				CF1143291DE6CDDD00751423 /* SpecificationButtonCell */,
 				CF86A4581DD5B11300F2F57A /* Specifications */,
 				CF86A44E1DD5A29600F2F57A /* GoToStore */,
 				CF60D2A81DD49F9E00D6EFBE /* DetailCell */,
-				CF60D2A71DD49F7200D6EFBE /* ImageCell */,
-				CF49D41D1DDED414008A61ED /* SpecificationButtonCell.h */,
-				CF49D41E1DDED414008A61ED /* SpecificationButtonCell.m */,
-				CF49D41F1DDED414008A61ED /* SpecificationButtonCell.xib */,
 			);
 			name = PriceTabCells;
 			sourceTree = "<group>";
@@ -925,11 +964,11 @@
 		CF90F71A1DC3215000C8AB2B /* TopMenuCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				CF90F7341DC3612700C8AB2B /* CategorieCollCell */,
-				CFF8A7641DC1C84900FB633B /* CategoriesCell */,
+				CF1143261DE6CCA000751423 /* TopMenuCell */,
 				CF90F71B1DC321B800C8AB2B /* TopMenuStoryboard.storyboard */,
 				CF90F7231DC3225300C8AB2B /* TopMenuVc.h */,
 				CF90F7241DC3225300C8AB2B /* TopMenuVc.m */,
+				CFF8A77D1DC2092D00FB633B /* Detailed View  */,
 			);
 			name = TopMenuCollectionView;
 			sourceTree = "<group>";
@@ -1189,6 +1228,7 @@
 				CFF8A7801DC20A1E00FB633B /* DetailedViewController.h */,
 				CFF8A7811DC20A1E00FB633B /* DetailedViewController.m */,
 				CF6B397D1DC89313003BDB4E /* DetailView.storyboard */,
+				CF6F2E221DC767DA0027FAD8 /* CategoriesView */,
 			);
 			name = "Detailed View ";
 			sourceTree = "<group>";
@@ -1308,7 +1348,6 @@
 				CFFB08581DC372EE00140574 /* RecentStoryboard.storyboard in Resources */,
 				CFB5B5A81DCCA0CD00CBCB08 /* OrderCell.xib in Resources */,
 				CF71F9AF1DC0D721004DDB9A /* DealsStoryboard.storyboard in Resources */,
-				CF1E46931DC9F9F3001B9D62 /* NewArrival.storyboard in Resources */,
 				CFC20F131DD9D6B20050E5B0 /* CollectionImages.storyboard in Resources */,
 				CFDDAF861DA24AB900AFBF34 /* Assets.xcassets in Resources */,
 				CF60D2AD1DD49FBA00D6EFBE /* DetailCell.xib in Resources */,
@@ -1324,6 +1363,7 @@
 				CFDDAF861DA24AB900AFBF34 /* Assets.xcassets in Resources */,
 				CF8B2C581DCC51630028DD6D /* Wallet.storyboard in Resources */,
 				CF71F9C31DC0DB50004DDB9A /* NewArrivalViewCell.xib in Resources */,
+				CF11432F1DE6FACB00751423 /* Filter.storyboard in Resources */,
 				CF5262261DD33F740075BDD0 /* about 20*17.png in Resources */,
 				CF6927151DBE303900B85F64 /* UserCell.xib in Resources */,
 				CF8B2C671DCC5BC10028DD6D /* WishList.storyboard in Resources */,
@@ -1458,7 +1498,6 @@
 				CFFB08601DC3751000140574 /* HomeViewController.m in Sources */,
 				CFB5B5AD1DCCA69D00CBCB08 /* AboutUsViewController.m in Sources */,
 				CF5C74FA1DB6124C008475D1 /* MenuData.m in Sources */,
-				CF1E46911DC9F9BC001B9D62 /* NewArrivalsViewController.m in Sources */,
 				CF151A781DD5E1AD000A747B /* SpecificationListViewController.m in Sources */,
 				CF9607CF1DDB261F00899424 /* FeaturesDetail.m in Sources */,
 				CF607C631DB0D09D004296F1 /* DealsOfTheDayViewController.m in Sources */,
@@ -1483,6 +1522,7 @@
 				CF81BA841DBA074A00ADE575 /* NewArrivals.m in Sources */,
 				CF13D0C61DD1963F00956076 /* TabelledCollectionCell.m in Sources */,
 				CFDDAF7B1DA24AB900AFBF34 /* main.m in Sources */,
+				CF11432D1DE6FAB500751423 /* FilterVC.m in Sources */,
 				CF6F2E271DC7686E0027FAD8 /* CategoriesViewController.m in Sources */,
 				CF90F7251DC3225300C8AB2B /* TopMenuVc.m in Sources */,
 				CF151A7C1DD5E4A6000A747B /* ReviewViewController.m in Sources */,

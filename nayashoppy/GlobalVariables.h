@@ -29,5 +29,5 @@ extern UIImage *productImg;
 +(NSArray *) UserInfo;
 +(UIColor*)themeColor;
 +(UIColor*) greenColor;
-+(void) myvc:(UIViewController *) vc;
+
 @end

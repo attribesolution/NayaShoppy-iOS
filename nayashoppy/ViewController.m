@@ -20,13 +20,8 @@
     
     [super viewDidLoad];
     [self navBar];
-    UIStoryboard *coupons=[UIStoryboard storyboardWithName:@"HomePager" bundle:nil];
-    self.pager = [coupons instantiateViewControllerWithIdentifier:@"Pager"];
-    [self addChildViewController:self.pager];
-    [self.pager didMoveToParentViewController:self];
-//    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Product"];
-//    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"ProductImg"];
-    [self.PagerView addSubview:self.pager.view];
+    [self addPagerView];
+ // [self EmptyUserDefaults];
  
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -34,6 +29,7 @@
     [super viewDidAppear:animated];
      self.pager.view.frame=self.PagerView.bounds;
 }
+
 #pragma mark - self.view Methods
 
 
@@ -81,9 +77,25 @@
 {
     [self.view endEditing:YES];
 }
+
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
     return YES;
+}
+
+-(void) EmptyUserDefaults
+{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Product"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"ProductImg"];
+}
+
+-(void) addPagerView
+{
+    UIStoryboard *coupons=[UIStoryboard storyboardWithName:@"HomePager" bundle:nil];
+    self.pager = [coupons instantiateViewControllerWithIdentifier:@"Pager"];
+    [self addChildViewController:self.pager];
+    [self.pager didMoveToParentViewController:self];
+    [self.PagerView addSubview:self.pager.view];
 }
 
 @end

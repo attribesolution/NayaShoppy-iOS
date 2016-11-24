@@ -30,5 +30,5 @@
 
 - (NSURLSessionDataTask *)getSimilarProducts:(void (^)(NSArray *products,NSArray *img))success failure:(void (^)(NSError *error, NSString *message))failure ;
 
-- (NSURLSessionDataTask *)getDetails:(void (^)(NSArray *details))success failure:(void (^)(NSError *error, NSString *message))failure ;
+- (NSURLSessionDataTask *)getDetails:(void (^)(NSArray *details,NSArray *generalFeatures))success failure:(void (^)(NSError *error, NSString *message))failure ;
 @end

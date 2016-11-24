@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NewArrivalViewCell.h"
 #import "MenuData.h"
-#import "NewArrivalsViewController.h"
+//#import "NewArrivalsViewController.h"
 #import "AppDelegate.h"
 #import "SpecificationsViewController.h"
 #import "PriceViewController.h"

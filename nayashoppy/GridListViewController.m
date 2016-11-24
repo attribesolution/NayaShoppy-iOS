@@ -220,9 +220,10 @@ Boolean showInGridView = false;
     ApiParsing * mainVC = [[ApiParsing alloc] init];
     obj.ProductDetails=nil;
     obj.GernalFeatures=nil;
-    [mainVC getDetails:^(NSArray *respone) {
+    [mainVC getDetails:^(NSArray *respone,NSArray *generalFeatures) {
         
         obj.ProductDetails=[respone copy];
+        obj.GernalFeatures=[generalFeatures copy];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
         
     } failure:^(NSError *error, NSString *message) {

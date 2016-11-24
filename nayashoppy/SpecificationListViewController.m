@@ -32,6 +32,13 @@
     self.myTable.SKSTableViewDelegate = self;
 
     self.navigationController.navigationItem.backBarButtonItem.title = @" ";
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
+                                                 name:@"refreshTable" object:nil];
+}
+-(void)refreshView:(NSNotification *) notification {
+    
+    [self.myTable reloadData];
+     _contents = @[obj.ProductDetails];
 }
 
 
