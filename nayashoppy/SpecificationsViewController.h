@@ -21,5 +21,4 @@
 @property(strong,nonatomic) ViewPagerController *vp;
 @property(copy,nonatomic) NSString *title;
 
-
 @end

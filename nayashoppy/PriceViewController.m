@@ -25,13 +25,16 @@
 @synthesize ToastView;
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    obj=[MenuData Items];
+     obj=[MenuData Items];
     [self arrayObject];
     [self Parsedetails];
+    [self recentlyViewed];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
                                                  name:@"refreshTable" object:nil];
 }
+
 -(void)refreshView:(NSNotification *) notification {
     
     [self.PriceTable reloadData];
@@ -59,10 +62,12 @@
 {
     return 10;
 }
+
 -(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 10;
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(section==3)
@@ -296,6 +301,26 @@
 {
     [[GlobalVariables class]AddWhishList:cobj.PName :cobj.Pprice :Pimg: self.ToastView];
 
+}
+-(void) recentlyViewed
+{
+    BOOL Ispresent;
+    Ispresent=NO;
+    NSData *imageData = UIImageJPEGRepresentation(Pimg, 100);
+    for(int i=0;i<obj.RecentlyViewed.count;i++)
+    {
+        Categories *rec=[obj.RecentlyViewed objectAtIndex:i];
+        if([rec.PName isEqualToString:cobj.PName])
+        { Ispresent=YES;
+            break;
+        }
+    }
+    if(!Ispresent)
+    {
+    Categories *rcobj=[[Categories alloc]initWithName:cobj.PName andPrice:cobj.Pprice andImg:imageData andCatId:obj.PCatId andSlug:obj.slug andType:obj.PType andIndex:obj.index];
+    [obj.RecentlyViewed addObject:rcobj];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+    }
 }
 
 @end

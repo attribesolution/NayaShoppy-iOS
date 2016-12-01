@@ -103,6 +103,8 @@
             return 0.0;
         case ViewPagerOptionTabLocation:
             return 1.0;
+        case ViewPagerOptionTabOffset:
+            return 200;
         default:
             return value;
     }

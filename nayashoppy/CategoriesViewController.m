@@ -84,13 +84,16 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.contents[section] count];
+    NSArray * temp = self.contents[section];
+    return  temp.count;
     
 }
 
 - (NSInteger)tableView:(SKSTableView *)tableView numberOfSubRowsAtIndexPath:(NSIndexPath *)indexPath
 {
-        return [self.contents[indexPath.section][indexPath.row] count] - 1;
+    NSArray * temp = self.contents[indexPath.section];
+    temp = temp[indexPath.row];
+    return temp.count - 1;
 }
 
 - (BOOL)tableView:(SKSTableView *)tableView shouldExpandSubRowsOfCellAtIndexPath:(NSIndexPath *)indexPath

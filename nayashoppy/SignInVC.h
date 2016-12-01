@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Google/SignIn.h>
 
-@interface SignInVC : UIViewController
-
+@interface SignInVC : UIViewController<GIDSignInUIDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *SignIn;
 @property (strong, nonatomic) IBOutlet UITextField *EmailField;
 @property (strong, nonatomic) IBOutlet UITextField *PasswordField;

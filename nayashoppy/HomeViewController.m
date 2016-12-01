@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "MenuData.h"
 
 static NSString *CouponsCell = @"CouponsCollectionViewCell";
 static NSString *CouponsLabelTitle=@"Coupons & Cashback";
@@ -14,6 +15,7 @@ static NSString *CouponsLabelImg=@"Coupon";
 
 @interface HomeViewController ()
 {
+    MenuData *obj;
     UIImageView *slider;
     DGActivityIndicatorView *activityIndicatorView;
 }
@@ -23,8 +25,9 @@ static NSString *CouponsLabelImg=@"Coupon";
 @implementation HomeViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
     
+    [super viewDidLoad];
+    obj=[MenuData Items];
     UIStoryboard *coupons=[UIStoryboard storyboardWithName:@"Coupons" bundle:nil];
     self.collectionCont = [coupons instantiateViewControllerWithIdentifier:@"Cash"];
     
@@ -54,7 +57,10 @@ static NSString *CouponsLabelImg=@"Coupon";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
                                                  name:@"refreshView" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
+                                                 name:@"refreshTable" object:nil];
 }
+
 -(void)refreshView:(NSNotification *) notification {
     
     [self.myTable reloadData];
@@ -87,7 +93,10 @@ static NSString *CouponsLabelImg=@"Coupon";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    if(obj.RecentlyViewed.count==0)
+        return 6;
+    else
+        return 8;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

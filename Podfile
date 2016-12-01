@@ -6,6 +6,7 @@ target 'nayashoppy' do
   # use_frameworks!
 
   # Pods for nayashoppy
+  
 pod 'ICViewPager'
 pod 'AFNetworking', '~> 3.0'
 pod 'DejalActivityView', '1.2'
@@ -14,4 +15,5 @@ pod 'DGActivityIndicatorView'
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
+pod 'Google/SignIn'
 end

@@ -21,15 +21,21 @@
 @property(nonatomic,strong) NSString * StoreDelivery;
 @property(nonatomic,strong) NSString * StorePrice;
 @property(nonatomic,strong) NSString * PcatId;
+@property(nonatomic,strong) NSData * PImg;
+@property(nonatomic,strong) NSString * PType;
 @property(nonatomic,strong) NSString * PName;
 @property(nonatomic,strong) NSString * Pprice;
 @property(nonatomic,strong) NSString * Pslug;
+@property(nonatomic,strong) NSNumber * Pindex;
 @property(nonatomic,strong) NSString * StoreUrl;
 @property(nonatomic,strong) NSString * StoreName;
 @property(nonatomic,strong) NSString * Discount;
 @property(nonatomic,strong) NSString * featurename;
 @property(nonatomic,strong) NSString * featurevalue;
 @property(nonatomic,strong) NSMutableArray * Supliers;
+@property(nonatomic,strong) NSString * filterName;
+@property(nonatomic,strong) NSMutableArray * FilterValues;
+@property(nonatomic,strong) NSMutableArray * RecentlyViewed;
 
 -(id) initWithTitle:title andCat:categories;
 -(id) initWithFeatureName:name andFeatureValue:value;
@@ -38,4 +44,7 @@
 -(id) initWithDilevery:delivery andinitWithurl:url andinitWithprice:price;
 -(id) initWithName:title andinitWithprice:price andinitWithofferPrice:oprice andinitWithDiscount:discount andinitWithSupliers:supliers andinitWithcat:catid andinitWithslug:slug ;
 -(id) initWithTitle:title andPrice:price;
+-(id) initWithFname:name andFvalue:values;
+-(id) initWithName:name andPrice:price andImg:img andCatId:catid andSlug:slug andType:type andIndex:index;
+
 @end

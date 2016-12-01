@@ -15,6 +15,7 @@ static NSString *Dealsofday = @"%@/v1/default/dealsoftheday";
 static NSString *allProducts = @"%@/v1/catalog/";
 static NSString *slider = @"http://nsapi.nayashoppy.com/";
 static NSString *details = @"%@/v1/catalog/detail/";
+static NSString *filterapi = @"%@/v1/search/products/";
 
 @interface  ApiParsing()
 
@@ -152,14 +153,7 @@ static NSString *details = @"%@/v1/catalog/detail/";
     keyValue= @{
                 @"slug":ob.slug,
                       };
-   /* NSString *string = details;
-    NSURL *url = [NSURL URLWithString:string];
-    self.sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:string]];
-    self.sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
-    
-    [self.sessionManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
-    self.sessionManager.responseSerializer=[AFJSONResponseSerializer serializer];*/
+  
     NSURL *url=[self setupSessionManager:details];
     self.sessionManager.responseSerializer=[AFJSONResponseSerializer serializer];
     
@@ -236,68 +230,66 @@ static NSString *details = @"%@/v1/catalog/detail/";
                                              @"page":@1,
                                              
                                              };
-
-    
-   /* NSString *string = allProducts;
-    NSURL *url = [NSURL URLWithString:string];
-    self.sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:string]];
-    self.sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
-    
-    [self.sessionManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-  
-    self.sessionManager.responseSerializer=[AFJSONResponseSerializer serializer];*/
     
     NSURL *url=[self setupSessionManager:allProducts];
     self.sessionManager.responseSerializer=[AFJSONResponseSerializer serializer];
    
         NSURLSessionDataTask *task =[self.sessionManager GET:url.absoluteString parameters:keyValue progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-       /* NSDictionary *dictionary = (NSDictionary *)responseObject;
-       
-        NSError *error;
-        NSData * jsonData = [NSJSONSerialization  dataWithJSONObject:dictionary options:0 error:&error];
-        NSString * myString =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        AllProduct *newproduct = [[AllProduct alloc] initWithString:myString  error:&error];
-            
-        NSMutableArray *allproduct,*allproductimg,*productimgs,*supliers;
-        allproduct=[[NSMutableArray alloc]init];
-        allproductimg=[[NSMutableArray alloc]init];
-        Categories *cobj;
-            
-        for(int i=0;i<newproduct.data.count;i++)
-        {
-            supliers=[[NSMutableArray alloc]init];
-            productimgs=[[NSMutableArray alloc]init];
-            ProductDetails *ic = newproduct.data[i];
-            if(ic.images.count==0)
-                [allproductimg addObject:[self image:nil]];
-            else{
-                for(int j=0;j<ic.images.count;j++)
-                {
-                ProductImg *img=ic.images[j];
-                [productimgs addObject:[self image:img.image_path]];
-                }
-                [allproductimg addObject:productimgs];}
-            for(int k=0;k<ic.suppliers.count;k++)
-            {
-                ProductSuppliers *sup= ic.suppliers[k];
-                cobj=[[Categories alloc]initWithDilevery:sup.delivery andinitWithurl:sup.url andinitWithprice:sup.price];
-                [supliers addObject:cobj];
-            }
-           
-           
-            cobj=[[Categories alloc] initWithName:ic.product_name andinitWithprice:ic.lowest_price andinitWithofferPrice:ic.original_price andinitWithDiscount:ic.discount andinitWithSupliers:supliers andinitWithcat:ic.categories_category_id andinitWithslug:ic.slug ];
-            [allproduct addObject:cobj];
-
-        }
-        
-        success(allproduct,allproductimg);*/
-            
-            NSMutableArray *array= [[NSMutableArray alloc]initWithArray:[self ParseData:responseObject]];
+                  NSMutableArray *array= [[NSMutableArray alloc]initWithArray:[self ParseData:responseObject]];
             
             success([array objectAtIndex:0],[array objectAtIndex:1]);
 
         
     } failure:^(NSURLSessionDataTask *operation, NSError *error) {
+        failure(error,nil); }];
+    
+    return task;
+    
+}
+- (NSURLSessionDataTask *)getFilters:(void (^)(NSArray *filter))success failure:(void (^)(NSError *error, NSString *message))failure {
+    
+    MenuData *ob=[MenuData Items];
+    NSDictionary *keyValue=[[NSDictionary alloc]init];
+    keyValue= @{      @"category_id":@2,
+                      
+                      
+                      };
+    
+    
+    NSURL *url=[self setupSessionManager:filterapi];
+    self.sessionManager.responseSerializer=[AFJSONResponseSerializer serializer];
+    
+    NSURLSessionDataTask *task =[self.sessionManager GET:url.absoluteString parameters:keyValue progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        
+        NSDictionary *dictionary = (NSDictionary *)responseObject;
+        NSDictionary *filters=[dictionary objectForKey:@"facets"];
+        NSError *error;
+        NSData * jsonData = [NSJSONSerialization  dataWithJSONObject:filters options:0 error:&error];
+        NSString * myString =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        FiltersValues *newproduct = [[FiltersValues alloc] initWithString:myString  error:&error];
+        NSMutableArray *items,*values;
+        items=[[NSMutableArray alloc]init];
+        
+        
+        Categories *cobj;
+
+        for(int i=0;i<newproduct.filters.count;i++)
+        {
+            values=[[NSMutableArray alloc]init];
+            Items *item=newproduct.filters[i];
+            
+                for(int j=0;j<item.values.count;j++)
+                {
+                    ItemValue *Ivalue=item.values[j];
+                    [values addObject:Ivalue.name];
+                }
+            cobj=[[Categories alloc]initWithFname:item.name andFvalue:values];
+            [items addObject:cobj];
+        }
+            success(items);
+        
+        
+    }  failure:^(NSURLSessionDataTask *operation, NSError *error) {
         failure(error,nil); }];
     
     return task;
@@ -326,46 +318,7 @@ static NSString *details = @"%@/v1/catalog/detail/";
     self.sessionManager.responseSerializer=[AFJSONResponseSerializer serializer];
     
     NSURLSessionDataTask *task =[self.sessionManager GET:url.absoluteString parameters:keyValue progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-     /*   NSDictionary *dictionary = (NSDictionary *)responseObject;
-        
-        NSError *error;
-        NSData * jsonData = [NSJSONSerialization  dataWithJSONObject:dictionary options:0 error:&error];
-        NSString * myString =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        AllProduct *newproduct = [[AllProduct alloc] initWithString:myString  error:&error];
-            NSMutableArray *allproduct,*allproductimg,*productimgs,*supliers;
-        allproduct=[[NSMutableArray alloc]init];
-        allproductimg=[[NSMutableArray alloc]init];
-        Categories *cobj;
-        
-        for(int i=0;i<newproduct.data.count;i++)
-        {
-            supliers=[[NSMutableArray alloc]init];
-            productimgs=[[NSMutableArray alloc]init];
-            ProductDetails *ic = newproduct.data[i];
-            if(ic.images.count==0)
-                [allproductimg addObject:[self image:nil]];
-            else{
-                for(int j=0;j<ic.images.count;j++)
-                {
-                    ProductImg *img=ic.images[j];
-                    [productimgs addObject:[self image:img.image_path]];
-                }
-                [allproductimg addObject:productimgs];}
-            for(int k=0;k<ic.suppliers.count;k++)
-            {
-                ProductSuppliers *sup= ic.suppliers[k];
-                cobj=[[Categories alloc]initWithDilevery:sup.delivery andinitWithurl:sup.url andinitWithprice:sup.price];
-                [supliers addObject:cobj];
-            }
-            
-            
-            cobj=[[Categories alloc] initWithName:ic.product_name andinitWithprice:ic.lowest_price andinitWithofferPrice:ic.original_price andinitWithDiscount:ic.discount andinitWithSupliers:supliers andinitWithcat:ic.categories_category_id andinitWithslug:ic.slug ];
-            [allproduct addObject:cobj];
-            
-        }
-        
-        success(allproduct,allproductimg);*/
-        NSMutableArray *array= [[NSMutableArray alloc]initWithArray:[self ParseData:responseObject]];
+           NSMutableArray *array= [[NSMutableArray alloc]initWithArray:[self ParseData:responseObject]];
         
         success([array objectAtIndex:0],[array objectAtIndex:1]);
         

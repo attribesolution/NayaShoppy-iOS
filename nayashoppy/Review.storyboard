@@ -35,7 +35,6 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="ReviewLabel" destination="kID-xQ-Nv9" id="h5V-Kj-YzH"/>
                         <outlet property="ReviewsLabel" destination="0ZS-CB-Uhb" id="9fY-zs-GES"/>
                     </connections>
                 </viewController>

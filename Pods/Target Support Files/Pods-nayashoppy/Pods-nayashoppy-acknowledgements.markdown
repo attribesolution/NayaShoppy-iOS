@@ -167,6 +167,50 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
+## FirebaseAnalytics
+
+Copyright 2016 Google
+
+## FirebaseCore
+
+Copyright 2016 Google
+
+## FirebaseInstanceID
+
+Copyright 2016 Google
+
+## Google
+
+Copyright 2016 Google Inc.
+
+## GoogleAppUtilities
+
+Copyright 2016 Google
+
+## GoogleAuthUtilities
+
+Copyright 2016 Google
+
+## GoogleInterchangeUtilities
+
+Copyright 2016 Google
+
+## GoogleNetworkingUtilities
+
+Copyright 2016 Google
+
+## GoogleSignIn
+
+Copyright 2015 Google Inc. All Rights Reserved.
+
+## GoogleSymbolUtilities
+
+Copyright 2016 Google
+
+## GoogleUtilities
+
+Copyright 2016 Google
+
 ## ICViewPager
 
 The MIT License (MIT)

@@ -8,6 +8,7 @@
 //
 
 #import "SpecificationsViewController.h"
+#import "FiltersVC.h"
 
 @interface SpecificationsViewController ()<ReloadSpecificationView,GoToSpecificationList>
 {
@@ -60,6 +61,7 @@
         [self myvc:cvc];
         cvc.ShowListDelegate=self;
         return cvc;
+        
     }
      if(index==1)
     {
@@ -154,6 +156,6 @@
 -(void)showList
 {
     [self selectTabAtIndex:[obj.tabindex integerValue]];
-   // [self.vp reloadData];
+
 }
 @end

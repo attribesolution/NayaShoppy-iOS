@@ -33,50 +33,14 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 
 Boolean showInGridView = false;
 @implementation GridListViewController
-@synthesize Loader,tabindex;
+@synthesize Loader,tabindex,FilterView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     obj=[MenuData Items];
-  
-    activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotatePulse tintColor:[UIColor redColor] size:40.0f];
-    activityIndicatorView.frame = self.Loader.bounds;
-    [self.Loader addSubview:activityIndicatorView];
-    [activityIndicatorView startAnimating];
-    ApiParsing * mainVC = [[ApiParsing alloc] init];
-    
-    if([tabindex integerValue]==0)
-    {
-    [mainVC getAllProducts:^(NSArray *respone,NSArray *img) {
-        [activityIndicatorView stopAnimating];
-        obj.allproductimg=[img copy];
-        obj.allproducts=[respone copy];
-        self.Loader.hidden=YES;
-        [self.collectionView reloadData];
-        
-        
-    } failure:^(NSError *error, NSString *message) {
-        NSLog(@"%@",error);
-    }];
-    
-    }
-    else
-    {
-    [mainVC getPopularProducts:^(NSArray *respone,NSArray *img) {
-        
-         obj.popularproductimg=[img copy];
-         obj.popularproducts=[respone copy];
-         self.Loader.hidden=YES;
-         [self.collectionView reloadData];
-         
-        NSLog(@"%@",respone);
-        
-    } failure:^(NSError *error, NSString *message) {
-        NSLog(@"%@",error);
-    }];
-    }
-
+    self.FilterView.hidden=YES;
+    [self ApiParsing];
     self.tLayout = [[TabledCollectionViewFlowLayout alloc] init];
     [self.tLayout setItemSize:CGSizeMake(self.collectionView.bounds.size.width, 180)];
     [self.collectionView setScrollsToTop:YES];
@@ -84,6 +48,8 @@ Boolean showInGridView = false;
    
     self.glayout = [[GridCollectionViewFlowLayout alloc] init];
     [self.collectionView setCollectionViewLayout:self.tLayout];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSLog(@"%@",appDelegate.navController);
     
 }
 
@@ -165,6 +131,14 @@ Boolean showInGridView = false;
     }
     
 }
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(8_0){
+    
+    NSInteger lastSectionIndex = [self.collectionView numberOfSections] - 1;
+    NSInteger lastRowIndex = [self.collectionView numberOfItemsInSection:lastSectionIndex] - 1;
+    if ((indexPath.section == lastSectionIndex) && (indexPath.row == lastRowIndex)) {
+        [self ApiParsing];
+    }
+}
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
    
@@ -192,12 +166,7 @@ Boolean showInGridView = false;
    
 }
 
--(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
-    if(showInGridView)
-        cell.backgroundColor = [UIColor whiteColor];
-    else
-        cell.backgroundColor = [UIColor whiteColor];
-}
+
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 1.0;
 }
@@ -214,6 +183,7 @@ Boolean showInGridView = false;
 {
     self.GLCollectionView.alwaysBounceVertical=NO;
     self.GLCollectionView.alwaysBounceHorizontal=NO;
+    
 }
 -(void) ParseData
 {
@@ -236,5 +206,52 @@ Boolean showInGridView = false;
     [[GlobalVariables class]AddWhishList:cobj.PName :cobj.POfferPrice :wishimg: self.view];
 }
 
+- (IBAction)FilterButton:(id)sender {
+    
+    UIStoryboard *deals=[UIStoryboard storyboardWithName:@"GridList" bundle:nil];
+    FiltersVC *dvc = [deals instantiateViewControllerWithIdentifier:@"test"];
+    //UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:dvc];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.navController pushViewController:dvc animated:YES];
+}
+-(void) ApiParsing
+{
+    activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotatePulse tintColor:[UIColor redColor] size:40.0f];
+    activityIndicatorView.frame = self.Loader.bounds;
+    [self.Loader addSubview:activityIndicatorView];
+    [activityIndicatorView startAnimating];
+    ApiParsing * mainVC = [[ApiParsing alloc] init];
+    
+    if([tabindex integerValue]==0)
+    {
+        [mainVC getAllProducts:^(NSArray *respone,NSArray *img) {
+            [activityIndicatorView stopAnimating];
+            obj.allproductimg=[img copy];
+            obj.allproducts=[respone copy];
+            self.Loader.hidden=YES;
+            [self.collectionView reloadData];
+            self.FilterView.hidden=NO;
+            
+        } failure:^(NSError *error, NSString *message) {
+            NSLog(@"%@",error);
+        }];
+        
+    }
+    else
+    {
+        [mainVC getPopularProducts:^(NSArray *respone,NSArray *img) {
+            
+            obj.popularproductimg=[img copy];
+            obj.popularproducts=[respone copy];
+            self.Loader.hidden=YES;
+            [self.collectionView reloadData];
+            self.FilterView.hidden=YES;
+            NSLog(@"%@",respone);
+            
+        } failure:^(NSError *error, NSString *message) {
+            NSLog(@"%@",error);
+        }];
+    }
 
+}
 @end

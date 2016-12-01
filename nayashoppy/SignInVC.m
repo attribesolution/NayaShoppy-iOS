@@ -8,6 +8,7 @@
 
 #import "SignInVC.h"
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @interface SignInVC ()
 {
@@ -31,6 +32,12 @@
    SignIn.clipsToBounds = YES;
    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardDidShowNotification object:nil];
    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
+    [GIDSignIn sharedInstance].uiDelegate = self;
+//    if ([FBSDKAccessToken currentAccessToken]) {
+//        // User is logged in, do work such as go to next view controller.
+//    }
+//    loginButton.readPermissions =
+//    @[@"public_profile", @"email", @"user_friends"];
 
   
 }
@@ -42,10 +49,24 @@
 }
 
 - (IBAction)GoogleSignIn:(id)sender {
-    
+    [[GIDSignIn sharedInstance] signIn];
 }
 
 - (IBAction)FacebookSignIn:(id)sender {
+    
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login
+     logInWithReadPermissions: @[@"public_profile"]
+     fromViewController:self
+     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+         if (error) {
+             NSLog(@"Process error");
+         } else if (result.isCancelled) {
+             NSLog(@"Cancelled");
+         } else {
+             NSLog(@"Logged in");
+         }
+     }];
     
  }
 
@@ -110,4 +131,20 @@
     [self.view endEditing:YES];
 }
 
-@end
+#pragma google sign in
+
+- (void)signInWillDispatch:(GIDSignIn *)signIn error:(NSError *)error {
+    
+}
+
+// Present a view that prompts the user to sign in with Google
+- (void)signIn:(GIDSignIn *)signIn
+presentViewController:(UIViewController *)viewController {
+    [self presentViewController:viewController animated:YES completion:nil];
+}
+
+// Dismiss the "Sign in with Google" view
+- (void)signIn:(GIDSignIn *)signIn
+dismissViewController:(UIViewController *)viewController {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}@end

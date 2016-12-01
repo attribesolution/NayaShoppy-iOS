@@ -27,8 +27,7 @@
     self.lastSelectedTab = 0;
     self.dataSource = self;
     self.delegate = self;
-    
-    [self gesture];
+        [self gesture];
     [self selectTabAtIndex:0];
   
 }

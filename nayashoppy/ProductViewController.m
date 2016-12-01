@@ -23,9 +23,11 @@
 
 @implementation ProductViewController
 @synthesize vc,title,TaostView;
+
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
     tabItem=[[NSMutableArray alloc]initWithObjects:@"ALL PRODUCTS",@"POPULAR PRODUCTS", nil];
     numberOfTabs = 2;
     self.dataSource = self;
@@ -33,11 +35,12 @@
     [self selectTabAtIndex:0];
     self.lastSelectedTab = 0;
     [self navBar];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -96,8 +99,8 @@
             return color;
     }
 }
+
 - (void)viewPager:(ViewPagerController *)viewPager didChangeTabToIndex:(NSUInteger)index{
-    
 
         UILabel *previouslabel = (UILabel*)[viewPager.view viewWithTag:100+self.lastSelectedTab];
         previouslabel.textColor = [UIColor blackColor];
@@ -105,26 +108,25 @@
         UILabel *currentlabel = (UILabel*)[viewPager.view viewWithTag:100+index];
         currentlabel.textColor = [GlobalVariables themeColor];
     
-    self.lastSelectedTab = index;
+        self.lastSelectedTab = index;
 }
+
 -(void) navBar
 {
-    
-    
+
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
     self.navigationItem.titleView =[[GlobalVariables class] titleView:self.title andImg:@"Logo" andy:logoY] ;
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Grid"]
                                                                                style:UIBarButtonItemStylePlain target:self action:@selector(Shuffle)];
-    
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.rightBarButtonItem.tintColor=[UIColor whiteColor];
 }
+
 -(void) Shuffle
 {
-   
     [self.vc shuffle];
-    
 }
 
 @end

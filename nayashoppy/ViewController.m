@@ -28,6 +28,8 @@
 {
     [super viewDidAppear:animated];
      self.pager.view.frame=self.PagerView.bounds;
+    [self.view bringSubviewToFront:self.searchbar];
+
 }
 
 #pragma mark - self.view Methods
