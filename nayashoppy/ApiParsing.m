@@ -221,13 +221,13 @@ static NSString *filterapi = @"%@/v1/search/products/";
 
     
 }
-- (NSURLSessionDataTask *)getAllProducts:(void (^)(NSArray *products,NSArray *img))success failure:(void (^)(NSError *error, NSString *message))failure {
+- (NSURLSessionDataTask *)getAllProducts:(void (^)(NSMutableArray *products,NSMutableArray *img))success failure:(void (^)(NSError *error, NSString *message))failure {
     
      MenuData *ob=[MenuData Items];
      NSDictionary *keyValue=[[NSDictionary alloc]init];
                            keyValue= @{      @"category_id":ob.CatId,
                                              @"brand_id":ob.BranchId,
-                                             @"page":@1,
+                                             @"page":ob.page,
                                              
                                              };
     
@@ -248,7 +248,6 @@ static NSString *filterapi = @"%@/v1/search/products/";
 }
 - (NSURLSessionDataTask *)getFilters:(void (^)(NSArray *filter))success failure:(void (^)(NSError *error, NSString *message))failure {
     
-    MenuData *ob=[MenuData Items];
     NSDictionary *keyValue=[[NSDictionary alloc]init];
     keyValue= @{      @"category_id":@2,
                       
@@ -296,14 +295,14 @@ static NSString *filterapi = @"%@/v1/search/products/";
     
 }
 
-- (NSURLSessionDataTask *)getPopularProducts:(void (^)(NSArray *products,NSArray *img))success failure:(void (^)(NSError *error, NSString *message))failure {
+- (NSURLSessionDataTask *)getPopularProducts:(void (^)(NSMutableArray *products,NSMutableArray *img))success failure:(void (^)(NSError *error, NSString *message))failure {
     
     
     MenuData *ob=[MenuData Items];
     NSDictionary *keyValue=[[NSDictionary alloc]init];
     keyValue= @{      @"category_id":ob.CatId,
                       @"brand_id":ob.BranchId,
-                      @"page":@1,
+                      @"page":ob.page,
                       
                       };
     

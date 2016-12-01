@@ -9,10 +9,13 @@
 #import "FiltersVC.h"
 #import "checkCell.h"
 #import "MenuData.h"
-
+#import "GlobalVariables.h"
+#import "Categories.h"
+#import <DGActivityIndicatorView/DGActivityIndicatorView.h>
 @interface FiltersVC ()
 {
     NSArray *filter,*filtervalues;
+    DGActivityIndicatorView *activityIndicatorView;
     Categories *cobj;
     MenuData *obj;
     NSString *key;
@@ -25,10 +28,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     obj=[MenuData Items];
+    [self navBar];
+    UINib *cell = [UINib nibWithNibName:@"checkCell" bundle:nil];
+    [self.FilterDTable registerNib:cell forCellReuseIdentifier:@"check"];
     self.FilterDTable.hidden=YES;
     filter=[[NSArray alloc]init];
     filtervalues=[[NSArray alloc]init];
-    DGActivityIndicatorView *activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotatePulse tintColor:[UIColor redColor] size:40.0f];
+    activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotatePulse tintColor:[UIColor redColor] size:40.0f];
     activityIndicatorView.frame = self.Laoder.bounds;
     [self.Laoder addSubview:activityIndicatorView];
     [activityIndicatorView startAnimating];
@@ -39,6 +45,7 @@
      
      filter=[items copy];
      [self.FilterNTable reloadData];
+     [activityIndicatorView stopAnimating];
 
      } failure:^(NSError *error, NSString *message) {
      NSLog(@"%@",error);
@@ -93,7 +100,6 @@
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"checkCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
         }
-        
         cell.ValueLabel.text=[filtervalues objectAtIndex:indexPath.row];
         cell.CheckButton.tag=indexPath.row;
         [cell.CheckButton setImage:nil forState:UIControlStateNormal];
@@ -130,8 +136,20 @@
     self.FilterNTable.alwaysBounceVertical=NO;
 }
 - (IBAction)BackButton:(id)sender {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSLog(@"%@",appDelegate.navController);
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+   
+}
+- (IBAction)ResetButton:(id)sender {
+    
+    [obj.MarkedFilters removeAllObjects] ;
+    [self.FilterDTable reloadData];
+}
+- (IBAction)ApplyFilterButton:(id)sender {
+}
+-(void) navBar
+{
+    CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
+    self.navigationItem.titleView =[[GlobalVariables class] titleView:@"Filters            " andImg:@"Logo" andy:logoY] ;
+    self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
+
 }
 @end

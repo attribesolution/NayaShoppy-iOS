@@ -26,8 +26,8 @@
 - (UIImage *) image:(NSString *)imgurl;
 - (NSURLSessionDataTask *)Slider:(void (^)(UIImage *))success failure:(void (^)(NSError *error, NSString *message))failure ;
 - (NSURLSessionDataTask *)DealsOfTheDay:(void (^)(BOOL success))success failure:(void (^)(NSError *error, NSString *message))failure ;
-- (NSURLSessionDataTask *)getAllProducts:(void (^)(NSArray *products,NSArray *img))success failure:(void (^)(NSError *error, NSString *message))failure ;
-- (NSURLSessionDataTask *)getPopularProducts:(void (^)(NSArray *products,NSArray *img))success failure:(void (^)(NSError *error, NSString *message))failure ;
+- (NSURLSessionDataTask *)getAllProducts:(void (^)(NSMutableArray *products,NSMutableArray *img))success failure:(void (^)(NSError *error, NSString *message))failure ;
+- (NSURLSessionDataTask *)getPopularProducts:(void (^)(NSMutableArray *products,NSMutableArray *img))success failure:(void (^)(NSError *error, NSString *message))failure ;
 
 - (NSURLSessionDataTask *)getSimilarProducts:(void (^)(NSArray *products,NSArray *img))success failure:(void (^)(NSError *error, NSString *message))failure ;
 

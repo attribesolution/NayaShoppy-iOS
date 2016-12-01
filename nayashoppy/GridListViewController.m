@@ -39,6 +39,7 @@ Boolean showInGridView = false;
     [super viewDidLoad];
     
     obj=[MenuData Items];
+    obj.page=[NSNumber numberWithInt:1];
     self.FilterView.hidden=YES;
     [self ApiParsing];
     self.tLayout = [[TabledCollectionViewFlowLayout alloc] init];
@@ -48,8 +49,7 @@ Boolean showInGridView = false;
    
     self.glayout = [[GridCollectionViewFlowLayout alloc] init];
     [self.collectionView setCollectionViewLayout:self.tLayout];
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSLog(@"%@",appDelegate.navController);
+   
     
 }
 
@@ -136,6 +136,12 @@ Boolean showInGridView = false;
     NSInteger lastSectionIndex = [self.collectionView numberOfSections] - 1;
     NSInteger lastRowIndex = [self.collectionView numberOfItemsInSection:lastSectionIndex] - 1;
     if ((indexPath.section == lastSectionIndex) && (indexPath.row == lastRowIndex)) {
+        int pg=[obj.page intValue];
+        NSLog(@"%d",pg);
+        obj.page=[NSNumber numberWithInt:pg+1];
+        NSLog(@"%@",obj.page);
+        self.Loader.frame=CGRectMake(self.Loader.frame.origin.x, self.FilterView.frame.origin.y-50, self.Loader.frame.size.width, self.Loader.frame.size.height);
+        self.Loader.hidden=NO;
         [self ApiParsing];
     }
 }
@@ -210,26 +216,20 @@ Boolean showInGridView = false;
     
     UIStoryboard *deals=[UIStoryboard storyboardWithName:@"GridList" bundle:nil];
     FiltersVC *dvc = [deals instantiateViewControllerWithIdentifier:@"test"];
-    //UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:dvc];
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate.navController pushViewController:dvc animated:YES];
+    [self.navigationController pushViewController:dvc animated:YES];
+    
 }
 -(void) ApiParsing
 {
-    activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotatePulse tintColor:[UIColor redColor] size:40.0f];
-    activityIndicatorView.frame = self.Loader.bounds;
-    [self.Loader addSubview:activityIndicatorView];
-    [activityIndicatorView startAnimating];
-    ApiParsing * mainVC = [[ApiParsing alloc] init];
+    [self activityInd];
     
-    if([tabindex integerValue]==0)
+   ApiParsing * mainVC = [[ApiParsing alloc] init];
+   if([tabindex integerValue]==0)
     {
-        [mainVC getAllProducts:^(NSArray *respone,NSArray *img) {
-            [activityIndicatorView stopAnimating];
-            obj.allproductimg=[img copy];
-            obj.allproducts=[respone copy];
-            self.Loader.hidden=YES;
-            [self.collectionView reloadData];
+        [mainVC getAllProducts:^(NSMutableArray *response,NSMutableArray *img) {
+            
+            [self ReLoadArray:response andvalue:img];
+
             self.FilterView.hidden=NO;
             
         } failure:^(NSError *error, NSString *message) {
@@ -239,19 +239,49 @@ Boolean showInGridView = false;
     }
     else
     {
-        [mainVC getPopularProducts:^(NSArray *respone,NSArray *img) {
+        [mainVC getPopularProducts:^(NSMutableArray *response,NSMutableArray *img) {
+           
+            [self ReLoadArray:response andvalue:img];
             
-            obj.popularproductimg=[img copy];
-            obj.popularproducts=[respone copy];
-            self.Loader.hidden=YES;
-            [self.collectionView reloadData];
             self.FilterView.hidden=YES;
-            NSLog(@"%@",respone);
+            
             
         } failure:^(NSError *error, NSString *message) {
             NSLog(@"%@",error);
         }];
     }
+
+}
+-(void) ReLoadArray:(NSMutableArray *)response andvalue:(NSMutableArray *)img
+{
+    if(obj.allproducts.count==0)
+    {
+        obj.allproductimg=[img copy];
+        obj.allproducts=[response copy];
+    }
+    else{
+        
+        NSArray *newArray,*newArrayimg;
+        newArrayimg=[[NSArray alloc]init];
+        newArray=[[NSArray alloc]init];
+        
+        newArray=[obj.allproductimg arrayByAddingObjectsFromArray:img];
+        obj.allproductimg=[newArray copy];
+        newArrayimg=[obj.allproducts arrayByAddingObjectsFromArray:response];
+        obj.allproducts=[newArrayimg copy];
+        
+    }
+    self.Loader.hidden=YES;
+    [activityIndicatorView stopAnimating];
+    [self.collectionView reloadData];
+
+}
+-(void) activityInd
+{
+    activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotatePulse tintColor:[UIColor redColor] size:40.0f];
+    activityIndicatorView.frame = self.Loader.bounds;
+    [self.Loader addSubview:activityIndicatorView];
+    [activityIndicatorView startAnimating];
 
 }
 @end
