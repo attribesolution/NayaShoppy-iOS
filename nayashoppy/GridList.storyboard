@@ -138,7 +138,7 @@
                                 </connections>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G8l-vN-ple">
-                                <rect key="frame" x="184" y="0.0" width="136" height="431"/>
+                                <rect key="frame" x="184" y="64" width="136" height="367"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.31372550129999999" green="0.96470594409999999" blue="0.058823533359999999" alpha="1" colorSpace="deviceRGB"/>
@@ -221,7 +221,7 @@
                             <constraint firstItem="Fji-Ie-ZCc" firstAttribute="top" secondItem="G8l-vN-ple" secondAttribute="bottom" constant="49" id="hqN-Um-fuS"/>
                             <constraint firstItem="Fji-Ie-ZCc" firstAttribute="top" secondItem="G8l-vN-ple" secondAttribute="bottom" constant="49" id="jBa-h3-OUE"/>
                             <constraint firstAttribute="trailing" secondItem="G8l-vN-ple" secondAttribute="trailing" id="lUf-ph-bTz"/>
-                            <constraint firstItem="G8l-vN-ple" firstAttribute="top" secondItem="Thh-Lk-gJa" secondAttribute="top" id="lyP-hv-4r9"/>
+                            <constraint firstItem="G8l-vN-ple" firstAttribute="top" secondItem="Thh-Lk-gJa" secondAttribute="top" constant="64" id="lyP-hv-4r9"/>
                             <constraint firstItem="Fji-Ie-ZCc" firstAttribute="top" secondItem="w3g-uZ-34T" secondAttribute="bottom" constant="49" id="t1t-lv-T6s"/>
                             <constraint firstItem="mfj-Ru-RIj" firstAttribute="centerX" secondItem="Thh-Lk-gJa" secondAttribute="centerX" id="uSx-2S-mgo"/>
                             <constraint firstItem="w3g-uZ-34T" firstAttribute="top" secondItem="Thh-Lk-gJa" secondAttribute="top" id="v2Z-lg-1GK"/>

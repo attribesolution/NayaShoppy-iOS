@@ -34,45 +34,31 @@
     self.FilterDTable.hidden=YES;
     filter=[[NSArray alloc]init];
     filtervalues=[[NSArray alloc]init];
-    activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotatePulse tintColor:[UIColor redColor] size:40.0f];
-    activityIndicatorView.frame = self.Laoder.bounds;
-    [self.Laoder addSubview:activityIndicatorView];
-    [activityIndicatorView startAnimating];
-
-    ApiParsing * mainVC = [[ApiParsing alloc] init];
-     
-     [mainVC getFilters:^(NSArray *items) {
-     
-     filter=[items copy];
-     [self.FilterNTable reloadData];
-     [activityIndicatorView stopAnimating];
-
-     } failure:^(NSError *error, NSString *message) {
-     NSLog(@"%@",error);
-     }];
-}
+    [self activityInd];
+    [self ApiParsing];
+    }
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if(tableView.tag==1)
-    return filter.count;
-    else
+//    if(tableView.tag==1)
+//    return filter.count;
+//    else
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(tableView.tag==1)
-        return 1;
+        return filter.count;
     else
         return filtervalues.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    cobj=[filter objectAtIndex:indexPath.section];
+    cobj=[filter objectAtIndex:indexPath.row];
     
     if(tableView.tag==1)
     {
@@ -95,11 +81,7 @@
         static NSString *simpleTableIdentifier = @"check";
         
         checkCell *cell = (checkCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-        if (cell == nil)
-        {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"checkCell" owner:self options:nil];
-            cell = [nib objectAtIndex:0];
-        }
+
         cell.ValueLabel.text=[filtervalues objectAtIndex:indexPath.row];
         cell.CheckButton.tag=indexPath.row;
         [cell.CheckButton setImage:nil forState:UIControlStateNormal];
@@ -116,17 +98,18 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(tableView.tag==1)
+    {
     self.FilterDTable.hidden=NO;
     filtervalues=nil;
-    cobj=[filter objectAtIndex:indexPath.section];
+    cobj=[filter objectAtIndex:indexPath.row];
     key=cobj.filterName;
     filtervalues=[cobj.FilterValues copy];
     [self.FilterDTable reloadData];
-    
+    }
 }
 -(void) checkMark:(UIButton *) sender
 {
-    
       [obj.MarkedFilters setObject:[filtervalues objectAtIndex:sender.tag] forKey:key];
       [sender setImage:[UIImage imageNamed:@"icon_chack.png"] forState:UIControlStateNormal];
 }
@@ -151,5 +134,28 @@
     self.navigationItem.titleView =[[GlobalVariables class] titleView:@"Filters            " andImg:@"Logo" andy:logoY] ;
     self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
 
+}
+-(void) activityInd
+{
+    activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotatePulse tintColor:[UIColor redColor] size:40.0f];
+    activityIndicatorView.frame = self.Laoder.bounds;
+    [self.Laoder addSubview:activityIndicatorView];
+    [activityIndicatorView startAnimating];
+}
+-(void) ApiParsing
+{
+    ApiParsing * mainVC = [[ApiParsing alloc] init];
+    
+    [mainVC getFilters:^(NSArray *items) {
+        
+        filter=[items copy];
+        [self.FilterNTable reloadData];
+        [activityIndicatorView stopAnimating];
+        
+    } failure:^(NSError *error, NSString *message) {
+        NSLog(@"%@",error);
+    }];
+
+    
 }
 @end
