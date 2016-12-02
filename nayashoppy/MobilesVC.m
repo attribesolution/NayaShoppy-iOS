@@ -21,6 +21,8 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
     DGActivityIndicatorView *activityInd1,*activityInd2;
     Categories *cobj;
     UIImage *wishimg;
+    NSString *imgUrl;
+
 }
 @property(copy,nonatomic) NSNumber *tabindex;
 @end
@@ -52,17 +54,42 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     DealsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:dealsCell forIndexPath:indexPath];
+//    if(collectionView.tag==100)
+//    {   cobj=[obj.allproducts objectAtIndex:indexPath.row];
+//        wishimg=[[obj.allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
+//    }
+//    else
+//    {   cobj=[obj.popularproducts objectAtIndex:indexPath.row];
+//        wishimg=[[obj.popularproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
+//    }
     if(collectionView.tag==100)
     {   cobj=[obj.allproducts objectAtIndex:indexPath.row];
-        wishimg=[[obj.allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
+        imgUrl=[[obj.allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
     }
     else
     {   cobj=[obj.popularproducts objectAtIndex:indexPath.row];
-        wishimg=[[obj.popularproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
+        imgUrl=[[obj.popularproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
     }
+
     cell.TitleLabel.text=cobj.PName;
     cell.PriceLabel.text=cobj.Pprice;
-        cell.ImageView.image=wishimg;
+    
+    NSURL *Url = [NSURL URLWithString:imgUrl];
+    NSURLRequest *request = [NSURLRequest requestWithURL:Url];
+    UIImage *placeholderImage = [UIImage imageNamed:@"PlaceHolder"];
+    
+    __weak DealsCell *weakCell = cell;
+    
+    [cell.ImageView setImageWithURLRequest:request
+                                   placeholderImage:placeholderImage
+                                            success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                                weakCell.ImageView.image = image;
+                                                wishimg=weakCell.ImageView.image;
+                                                [weakCell setNeedsLayout];
+                                                
+                                            } failure:nil];
+
+     //   cell.ImageView.image=wishimg;
     [cell.WishButton addTarget:self action:@selector(AddToWishList) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
@@ -132,7 +159,7 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 
 -(void)AddToWishList
 {
-    [[GlobalVariables class]AddWhishList:cobj.PName :cobj.POfferPrice :wishimg: self.view];
+    [[GlobalVariables class]AddWhishList:cobj.PName :cobj.POfferPrice :imgUrl: self.view];
 }
 
 -(void)activityIndicator

@@ -32,6 +32,8 @@ static NSString *filterapi = @"%@/v1/search/products/";
     
     NSURLSessionDataTask *task =[self.sessionManager GET:url.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         
+        NSMutableArray *subsubcat, *ParentChild,*subCat,*Catid;
+        
         NSDictionary *dictionary = (NSDictionary *)responseObject;
         
         NSError *error;
@@ -51,15 +53,15 @@ static NSString *filterapi = @"%@/v1/search/products/";
             img=[[ic.api_icon valueForKey:@"ios"]valueForKey:@"3x"];
         }
            
-           NSMutableArray *subsubcat=[[NSMutableArray alloc]init];
-           NSMutableArray *ParentChild=[[NSMutableArray alloc]init];
+           subsubcat=[[NSMutableArray alloc]init];
+           ParentChild=[[NSMutableArray alloc]init];
             
             for(int k=0;k<ic.children.count;k++)
             {
                 
             SubCategories1 *child=ic.children[k];
-            NSMutableArray *subCat=[[NSMutableArray alloc]init];
-            NSMutableArray *Catid=[[NSMutableArray alloc]init];
+            subCat=[[NSMutableArray alloc]init];
+            Catid=[[NSMutableArray alloc]init];
             [subCat addObject:child.title];
             for (int j=0; j<child.children.count; j++) {
                 
@@ -72,12 +74,11 @@ static NSString *filterapi = @"%@/v1/search/products/";
                 [subsubcat addObject:subCat];
                 
             }
-            Cobj=[[Categories alloc]initWithTitle:ic.title andCat:ParentChild];
+            Cobj=[[Categories alloc]initWithTitle:ic.title andCat:ParentChild andUrl:img];
             [ob.CatBranchIDs addObject:Cobj];
             
-         Cobj=[[Categories alloc] initWithTitle:ic.title andCat:subsubcat];
+         Cobj=[[Categories alloc] initWithTitle:ic.title andCat:subsubcat andUrl:img];
             
-         [ob.topmenuImg addObject:[self image:img]];
          [ob.topmenu addObject:Cobj];
         }
         success(true);
@@ -116,14 +117,17 @@ static NSString *filterapi = @"%@/v1/search/products/";
             productimgs=[[NSMutableArray alloc]init];
             ProductDetails *ic = newproduct.data[i];
             if(ic.images.count==0)
-                [ob.newarrivalImg addObject:[self image:nil]];
+                [ob.newarrivalImg addObject:@" "];
+                //[ob.newarrivalImg addObject:[self image:nil]];
             else{
                 for(int j=0;j<ic.images.count;j++)
                 {
                     ProductImg *img=ic.images[j];
-                    [productimgs addObject:[self image:img.image_path]];
+                    [productimgs addObject:img.image_path];
+                    //[productimgs addObject:[self image:img.image_path]];
                 }
-                [ob.newarrivalImg addObject:productimgs];}
+                [ob.newarrivalImg addObject:productimgs];
+            }
             for(int k=0;k<ic.suppliers.count;k++)
             {
                ProductSuppliers *sup= ic.suppliers[k];
@@ -235,7 +239,8 @@ static NSString *filterapi = @"%@/v1/search/products/";
     self.sessionManager.responseSerializer=[AFJSONResponseSerializer serializer];
    
         NSURLSessionDataTask *task =[self.sessionManager GET:url.absoluteString parameters:keyValue progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-                  NSMutableArray *array= [[NSMutableArray alloc]initWithArray:[self ParseData:responseObject]];
+           
+            NSMutableArray *array= [[NSMutableArray alloc]initWithArray:[self ParseData:responseObject]];
             
             success([array objectAtIndex:0],[array objectAtIndex:1]);
 
@@ -381,12 +386,12 @@ static NSString *filterapi = @"%@/v1/search/products/";
         productimgs=[[NSMutableArray alloc]init];
         ProductDetails *ic = newproduct.data[i];
         if(ic.images.count==0)
-            [allproductimg addObject:[self image:nil]];
+            [allproductimg addObject:@" "];
         else{
             for(int j=0;j<ic.images.count;j++)
             {
                 ProductImg *img=ic.images[j];
-                [productimgs addObject:[self image:img.image_path]];
+                [productimgs addObject:img.image_path];
             }
             [allproductimg addObject:productimgs];}
         if([ic.supplier_count integerValue]==0)
@@ -462,7 +467,7 @@ static NSString *filterapi = @"%@/v1/search/products/";
         {
             DealsOfDay *deals = newdeals.data[i];
             DealsChild *ch=deals.children[i];
-            [ob.DealsOfTheDayImg addObject:[self image:ch.image_path]];
+            [ob.DealsOfTheDayImg addObject:ch.image_path];
             
             Categories *Cobj=[[Categories alloc] initWithTitle:ch.title andPrice1:ch.price andPrice2:ch.offer_price];
             

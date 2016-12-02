@@ -66,7 +66,22 @@ static NSString *dealsCell = @"DealCell";
         cell.ImageView.image=[ob.DealsOfTheDayImg objectAtIndex:indexPath.row];
         cell.TitleLabel.text=obj.TMtitle;
         cell.PriceLabel.text=[[obj.OfferPrice stringByAppendingString:@"  "]stringByAppendingString:obj.ActualPrice];*/
-    cell.ImageView.image=[[ob.newarrivalImg objectAtIndex:indexPath.row]objectAtIndex:0];
+    
+    NSURL *Url = [NSURL URLWithString:[[ob.newarrivalImg objectAtIndex:indexPath.row]objectAtIndex:0]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:Url];
+    UIImage *placeholderImage = [UIImage imageNamed:@"PlaceHolder"];
+    
+    __weak DealsCell *weakCell = cell;
+    
+    [cell.ImageView setImageWithURLRequest:request
+                          placeholderImage:placeholderImage
+                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                       weakCell.ImageView.image = image;
+                                       [weakCell setNeedsLayout];
+                                       
+                                   } failure:nil];
+
+ //   cell.ImageView.image=[[ob.newarrivalImg objectAtIndex:indexPath.row]objectAtIndex:0];
     cell.TitleLabel.text=cobj.PName;
     cell.PriceLabel.text=cobj.Pprice;
         return cell;

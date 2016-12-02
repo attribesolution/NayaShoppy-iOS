@@ -13,9 +13,9 @@
 #import "GlobalVariables.h"
 
 @interface ProductViewController (){
- NSMutableArray *tabItem;
- NSInteger numberOfTabs ;
-    
+    NSMutableArray *tabItem;
+    NSInteger numberOfTabs ;
+    MenuData *obj;
 }
 
 @property (nonatomic,assign)NSInteger lastSelectedTab;
@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-
+    obj=[MenuData Items];
     tabItem=[[NSMutableArray alloc]initWithObjects:@"ALL PRODUCTS",@"POPULAR PRODUCTS", nil];
     numberOfTabs = 2;
     self.dataSource = self;
@@ -54,6 +54,7 @@
 
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index {
     
+        obj.page=[NSNumber numberWithInt:1];
         UIStoryboard *categoriesSB=[UIStoryboard storyboardWithName:@"GridList" bundle:nil];
         self.vc = [categoriesSB instantiateViewControllerWithIdentifier:@"GridList"];
         vc.tabindex=[NSNumber numberWithInteger: index];

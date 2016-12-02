@@ -10,14 +10,15 @@
 
 @implementation Categories
 
-@synthesize TMCat,TMtitle,OfferPrice,ActualPrice,BranchID,CatID,Ctitle,PName,Pprice,POfferPrice,PcatId,Pslug,Supliers,StoreUrl,StoreDelivery,StorePrice,featurename,featurevalue,Discount,filterName,PImg, FilterValues,PType,Pindex;
+@synthesize TMCat,TMtitle,OfferPrice,ActualPrice,BranchID,CatID,Ctitle,PName,Pprice,POfferPrice,PcatId,Pslug,Supliers,StoreUrl,StoreDelivery,StorePrice,featurename,featurevalue,Discount,filterName, FilterValues,PType,Pindex,ImgUrl;
 
--(id) initWithTitle:title andCat:categories
+-(id) initWithTitle:title andCat:categories andUrl:url
 {
     self=[super init];
     {
         TMtitle=title;
         TMCat=categories;
+        ImgUrl=url;
     }
     return self;
 }
@@ -40,6 +41,7 @@
         BranchID=Bid;
         CatID=Cid;
         Ctitle=title;
+        
     }
     return self;
 }
@@ -107,7 +109,7 @@
         Pprice=price;
         PcatId=catid;
         Pslug=slug;
-        PImg=img;
+        ImgUrl=img;
         PType=type;
         Pindex=index;
     }

@@ -60,7 +60,21 @@ static NSString *CategoriesVCell = @"CategoriesCell";
     
     Categories *ob=[obj.topmenu objectAtIndex:indexPath.row];
     
-    cell.thumbnailImageView.image=[obj.topmenuImg objectAtIndex:indexPath.row];
+    
+    NSURL *Url = [NSURL URLWithString:ob.ImgUrl];
+    NSURLRequest *request = [NSURLRequest requestWithURL:Url];
+    UIImage *placeholderImage = [UIImage imageNamed:@"PlaceHolder"];
+    
+    __weak CategoriesCell *weakCell = cell;
+    
+    [cell.thumbnailImageView setImageWithURLRequest:request
+                                   placeholderImage:placeholderImage
+                                            success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                                weakCell.thumbnailImageView.image = image;
+                                                [weakCell setNeedsLayout];
+                                                
+                                            } failure:nil];
+
     [cell.customLabel setText:ob.TMtitle];
            return cell;
 }

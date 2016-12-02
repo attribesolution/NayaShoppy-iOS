@@ -21,7 +21,7 @@
     [super viewDidLoad];
     [self navBar];
     [self addPagerView];
- // [self EmptyUserDefaults];
+    //[self EmptyUserDefaults];
  
 }
 -(void)viewDidAppear:(BOOL)animated

@@ -148,6 +148,8 @@
 		CFC20F0B1DD9BD630050E5B0 /* SproductDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = CFC20F0A1DD9BD630050E5B0 /* SproductDetail.m */; };
 		CFC20F111DD9D0A30050E5B0 /* CollectionImages.m in Sources */ = {isa = PBXBuildFile; fileRef = CFC20F101DD9D0A30050E5B0 /* CollectionImages.m */; };
 		CFC20F131DD9D6B20050E5B0 /* CollectionImages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFC20F121DD9D6B20050E5B0 /* CollectionImages.storyboard */; };
+		CFDD006F1DF14752009322EA /* ShareUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD006E1DF14752009322EA /* ShareUtility.m */; };
+		CFDD00721DF15142009322EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDD00711DF15142009322EA /* Foundation.framework */; };
 		CFDDAF7B1DA24AB900AFBF34 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDDAF7A1DA24AB900AFBF34 /* main.m */; };
 		CFDDAF7E1DA24AB900AFBF34 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDDAF7D1DA24AB900AFBF34 /* AppDelegate.m */; };
 		CFDDAF811DA24AB900AFBF34 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDDAF801DA24AB900AFBF34 /* ViewController.m */; };
@@ -392,6 +394,9 @@
 		CFC20F101DD9D0A30050E5B0 /* CollectionImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionImages.m; sourceTree = "<group>"; };
 		CFC20F121DD9D6B20050E5B0 /* CollectionImages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CollectionImages.storyboard; sourceTree = "<group>"; };
 		CFD038EC1DDC863300270695 /* fontello.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fontello.ttf; sourceTree = "<group>"; };
+		CFDD006D1DF14752009322EA /* ShareUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareUtility.h; sourceTree = "<group>"; };
+		CFDD006E1DF14752009322EA /* ShareUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareUtility.m; sourceTree = "<group>"; };
+		CFDD00711DF15142009322EA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CFDDAF761DA24AB900AFBF34 /* nayashoppy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nayashoppy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFDDAF7A1DA24AB900AFBF34 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CFDDAF7C1DA24AB900AFBF34 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -424,6 +429,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFDD00721DF15142009322EA /* Foundation.framework in Frameworks */,
 				737BD2040ADF0C45A6E387AA /* libPods-nayashoppy.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,6 +485,7 @@
 		AFDC9A79B5A197D2396DBF86 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CFDD00711DF15142009322EA /* Foundation.framework */,
 				A6336B5E970C4DC0C494B36A /* libPods-nayashoppy.a */,
 			);
 			name = Frameworks;
@@ -1136,6 +1143,15 @@
 			name = SimilarProducts;
 			sourceTree = "<group>";
 		};
+		CFDD00701DF1477E009322EA /* ShareUtility */ = {
+			isa = PBXGroup;
+			children = (
+				CFDD006D1DF14752009322EA /* ShareUtility.h */,
+				CFDD006E1DF14752009322EA /* ShareUtility.m */,
+			);
+			name = ShareUtility;
+			sourceTree = "<group>";
+		};
 		CFDDAF6D1DA24AB900AFBF34 = {
 			isa = PBXGroup;
 			children = (
@@ -1188,6 +1204,7 @@
 		CFDDAF791DA24AB900AFBF34 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CFDD00701DF1477E009322EA /* ShareUtility */,
 				CF815EFF1DE4332B0065C642 /* Toast */,
 				CF60D27A1DD4516E00D6EFBE /* SKSTableView */,
 				47C2789C1DD0722A008057BC /* AKCollectionController */,
@@ -1497,6 +1514,7 @@
 				CF13D0C41DD1963F00956076 /* TabledCollectionViewFlowLayout.m in Sources */,
 				CFB5B5B71DCCBB1200CBCB08 /* PagerViewController.m in Sources */,
 				CF5C74FE1DB627EB008475D1 /* SideMenuViewController.m in Sources */,
+				CFDD006F1DF14752009322EA /* ShareUtility.m in Sources */,
 				CF80B05D1DED6961004BE3DE /* checkCell.m in Sources */,
 				CF1143391DE710A900751423 /* Items.m in Sources */,
 				CF6927141DBE303900B85F64 /* UserCell.m in Sources */,
@@ -1695,6 +1713,7 @@
 				INFOPLIST_FILE = nayashoppy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"LINK_WITH_STANDARD_LIBRARIES[arch=*]" = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.attribe.nayashoppy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

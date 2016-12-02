@@ -80,7 +80,21 @@ static NSString *SideMenuCell =@"SideMenu";
     Categories *currentCat=[obj.topmenu objectAtIndex:indexPath.row];
     NSLog(@"%lu",(unsigned long)obj.topmenu.count);
     cell.NameLabel.text=currentCat.TMtitle;
-    cell.Imageview.image=[obj.topmenuImg objectAtIndex:indexPath.row];
+    
+    NSURL *Url = [NSURL URLWithString:currentCat.ImgUrl];
+    NSURLRequest *request = [NSURLRequest requestWithURL:Url];
+    UIImage *placeholderImage = [UIImage imageNamed:@"PlaceHolder"];
+    
+    __weak SideMenu *weakCell = cell;
+    
+    [cell.Imageview setImageWithURLRequest:request
+                                   placeholderImage:placeholderImage
+                                            success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                                weakCell.Imageview.image = image;
+                                                [weakCell setNeedsLayout];
+                                                
+                                            } failure:nil];
+    
     return cell;
 }
 

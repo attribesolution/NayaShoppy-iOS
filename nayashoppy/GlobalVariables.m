@@ -85,7 +85,7 @@ NSUserDefaults *defaults;
     return [UIColor colorWithRed:57.0/255.0 green:177.0/255.0 blue:44.0/255.0 alpha:1.0];
 }
 
-+(void) AddWhishList:(NSString *)name :(NSString *)price :(UIImage *) image :(UIView *) view
++(void) AddWhishList:(NSString *)name :(NSString *)price :(NSString *) image :(UIView *) view
 {
     BOOL find;
     find=NO;
@@ -113,11 +113,11 @@ NSUserDefaults *defaults;
         [ProductDetail addObject:name];
         [ProductDetail addObject:price];
         [Products addObject:ProductDetail];
-        UIImage *contactImage = image;
-        NSData *imageData = UIImageJPEGRepresentation(contactImage, 100);
-        [ProductsImg addObject:imageData];
+       // UIImage *contactImage = image;
+      //  NSData *imageData = UIImageJPEGRepresentation(contactImage, 100);
+        [ProductsImg addObject:image];
     
-           NSObject *myobj=[defaults objectForKey:@"Product"];
+        NSObject *myobj=[defaults objectForKey:@"Product"];
         NSObject *myImgobj=[defaults objectForKey:@"ProductImg"];
         if(myImgobj == nil){
             

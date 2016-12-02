@@ -64,8 +64,22 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
     cobj=[obj.RecentlyViewed objectAtIndex:indexPath.row];
     NewArrivalViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:NewArrivalCell forIndexPath:indexPath];
     
-    NSData *imageData = cobj.PImg;
-    cell.NAimg.image= [UIImage imageWithData:imageData];
+//    NSData *imageData = cobj.ImgUrl;
+//    cell.NAimg.image= [UIImage imageWithData:imageData];
+    NSURL *Url = [NSURL URLWithString:cobj.ImgUrl];
+    NSURLRequest *request = [NSURLRequest requestWithURL:Url];
+    UIImage *placeholderImage = [UIImage imageNamed:@"PlaceHolder"];
+    
+    __weak NewArrivalViewCell *weakCell = cell;
+    
+    [cell.NAimg setImageWithURLRequest:request
+                          placeholderImage:placeholderImage
+                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                       weakCell.NAimg.image = image;
+                                       [weakCell setNeedsLayout];
+                                       
+                                   } failure:nil];
+
     cell.NAProductName.text=cobj.PName;
     
     return cell;

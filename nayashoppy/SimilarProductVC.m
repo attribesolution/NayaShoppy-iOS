@@ -68,7 +68,20 @@
     SimilarPCVCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"SimilarPCVCell" forIndexPath:indexPath];
     cobj=[obj.Similarproducts objectAtIndex:indexPath.row];
     cell.backgroundColor=[UIColor clearColor];
-    cell.Image.image=[[obj.Similarproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
+   // cell.Image.image=[[obj.Similarproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
+    NSURL *Url = [NSURL URLWithString:[[obj.Similarproductimg objectAtIndex:indexPath.row]objectAtIndex:0]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:Url];
+    UIImage *placeholderImage = [UIImage imageNamed:@"PlaceHolder"];
+    
+    __weak SimilarPCVCell *weakCell = cell;
+    
+    [cell.Image setImageWithURLRequest:request
+                          placeholderImage:placeholderImage
+                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                       weakCell.Image.image = image;
+                                       [weakCell setNeedsLayout];
+                                       
+                                   } failure:nil];
     cell.Title.text=cobj.PName;
     cell.Company.text=cobj.POfferPrice;
     return cell;

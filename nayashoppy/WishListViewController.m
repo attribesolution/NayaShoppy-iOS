@@ -71,8 +71,21 @@
    
     cell.price.text= [[[myProducts objectAtIndex:indexPath.section]objectAtIndex:0] objectAtIndex:1];
     
-    NSData *imageData = [[myProductsImg objectAtIndex:indexPath.section]objectAtIndex:0];
-    cell.WishImage.image = [UIImage imageWithData:imageData];
+    NSURL *Url = [NSURL URLWithString:[[myProductsImg objectAtIndex:indexPath.section]objectAtIndex:0]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:Url];
+    UIImage *placeholderImage = [UIImage imageNamed:@"PlaceHolder"];
+    
+    __weak WishListCell *weakCell = cell;
+    
+    [cell.WishImage setImageWithURLRequest:request
+                          placeholderImage:placeholderImage
+                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                       weakCell.WishImage.image = image;
+                                      [weakCell setNeedsLayout];
+                                       
+                                   } failure:nil];
+   // NSData *imageData = [[myProductsImg objectAtIndex:indexPath.section]objectAtIndex:0];
+   // cell.WishImage.image = [UIImage imageWithData:imageData];
     cell.WishItem.text = [[[myProducts objectAtIndex:indexPath.section]objectAtIndex:0]objectAtIndex:0];
    // [cell.DeleteButton addTarget:self action:@selector(OrderRemove:) forControlEvents:UIControlEventTouchUpInside];
 

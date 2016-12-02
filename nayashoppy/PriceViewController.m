@@ -7,11 +7,12 @@
 //
 
 #import "PriceViewController.h"
+#import "ShareUtility.h"
 
 @interface PriceViewController ()
 
 {
-    UIImage *Pimg;
+    NSString *Pimg;
     MenuData *obj;
     Categories *cobj;
     ImageCell *imgcell;
@@ -94,6 +95,7 @@
         [imgcell.ImgCollView addSubview:self.imgcv.view];
         imgcell.TitleLabel.text=cobj.PName;
         [imgcell.WishIcon addTarget:self action:@selector(AddToWishList) forControlEvents:UIControlEventTouchUpInside];
+        [imgcell.ShareIcon addTarget:self action:@selector(SendUrl:) forControlEvents:UIControlEventTouchUpInside];
         return imgcell;
    }
  
@@ -306,7 +308,7 @@
 {
     BOOL Ispresent;
     Ispresent=NO;
-    NSData *imageData = UIImageJPEGRepresentation(Pimg, 100);
+ //   NSData *imageData = UIImageJPEGRepresentation(Pimg, 100);
     for(int i=0;i<obj.RecentlyViewed.count;i++)
     {
         Categories *rec=[obj.RecentlyViewed objectAtIndex:i];
@@ -317,10 +319,15 @@
     }
     if(!Ispresent)
     {
-    Categories *rcobj=[[Categories alloc]initWithName:cobj.PName andPrice:cobj.Pprice andImg:imageData andCatId:obj.PCatId andSlug:obj.slug andType:obj.PType andIndex:obj.index];
+    Categories *rcobj=[[Categories alloc]initWithName:cobj.PName andPrice:cobj.Pprice andImg:Pimg andCatId:obj.PCatId andSlug:obj.slug andType:obj.PType andIndex:obj.index];
     [obj.RecentlyViewed addObject:rcobj];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
     }
+}
+-(void)SendUrl:(UIButton *) sender
+{
+    Categories *sup=[cobj.Supliers objectAtIndex:sender.tag];
+    [[ShareUtility class]shareObject:@[sup.StoreUrl]];
 }
 
 @end
