@@ -10,5 +10,6 @@
 
 @interface ReviewViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITableView *ReviewsTabel;
 
 @end

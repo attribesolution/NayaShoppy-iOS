@@ -101,7 +101,7 @@ static NSString *CouponsLabelImg=@"Coupon";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+
 
 }
 

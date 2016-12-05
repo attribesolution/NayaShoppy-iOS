@@ -12,6 +12,6 @@
 
 @interface ProductViewController : ViewPagerController<ViewPagerDataSource,ViewPagerDelegate>
 @property (strong, nonatomic) IBOutlet UIView *TaostView;
-@property(strong,nonatomic) GridListViewController *vc;
+@property(strong,nonatomic) GridListViewController *PPvc,*APvc;
 @property(copy,nonatomic) NSString *title;
 @end

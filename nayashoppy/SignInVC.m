@@ -64,6 +64,7 @@
          } else if (result.isCancelled) {
              NSLog(@"Cancelled");
          } else {
+            
              NSLog(@"Logged in");
          }
      }];

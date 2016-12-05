@@ -11,6 +11,7 @@
 //
 
 #import "MobilesVC.h"
+#import "ShareUtility.h"
 
 static NSString *dealsCell = @"DealCell";
 static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
@@ -54,14 +55,7 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     DealsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:dealsCell forIndexPath:indexPath];
-//    if(collectionView.tag==100)
-//    {   cobj=[obj.allproducts objectAtIndex:indexPath.row];
-//        wishimg=[[obj.allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
-//    }
-//    else
-//    {   cobj=[obj.popularproducts objectAtIndex:indexPath.row];
-//        wishimg=[[obj.popularproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
-//    }
+
     if(collectionView.tag==100)
     {   cobj=[obj.allproducts objectAtIndex:indexPath.row];
         imgUrl=[[obj.allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
@@ -89,10 +83,12 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
                                                 
                                             } failure:nil];
 
-     //   cell.ImageView.image=wishimg;
     [cell.WishButton addTarget:self action:@selector(AddToWishList) forControlEvents:UIControlEventTouchUpInside];
+    [cell.ShareButton addTarget:self action:@selector(SendUrl:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
+
+
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -161,7 +157,11 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 {
     [[GlobalVariables class]AddWhishList:cobj.PName :cobj.POfferPrice :imgUrl: self.view];
 }
-
+-(void)SendUrl:(UIButton *) sender
+{
+    Categories *sup=[cobj.Supliers objectAtIndex:sender.tag];
+    [[ShareUtility class]shareObject:@[sup.StoreUrl]];
+}
 -(void)activityIndicator
 {
      activityInd1 = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotatePulse tintColor:[UIColor redColor] size:40.0f];
@@ -187,7 +187,8 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 
 -(void) ApiData
 {
-     obj=[MenuData Items];
+    obj=[MenuData Items];
+    obj.page=[NSNumber numberWithInt:1];
     [self activityIndicator];
     ApiParsing * mainVC = [[ApiParsing alloc] init];
     [mainVC getAllProducts:^(NSArray *respone,NSArray *img) {
@@ -211,7 +212,6 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
         self.PPLoader.hidden=YES;
         [self.PopularProduct reloadData];
         
-        NSLog(@"%@",respone);
         
     } failure:^(NSError *error, NSString *message) {
         NSLog(@"%@",error);

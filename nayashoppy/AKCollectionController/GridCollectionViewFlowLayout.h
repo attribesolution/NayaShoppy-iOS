@@ -11,4 +11,5 @@
 @interface GridCollectionViewFlowLayout : UICollectionViewLayout
 @property (nonatomic) NSInteger numberOfColumns;
 @property (nonatomic) CGSize itemSize;
+@property (nonatomic) CGFloat interItemSpacingY;
 @end

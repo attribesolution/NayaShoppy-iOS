@@ -14,7 +14,7 @@
 
 @interface ProductViewController (){
     NSMutableArray *tabItem;
-    NSInteger numberOfTabs ;
+    NSInteger numberOfTabs,tab ;
     MenuData *obj;
 }
 
@@ -22,7 +22,7 @@
 @end
 
 @implementation ProductViewController
-@synthesize vc,title,TaostView;
+@synthesize PPvc,APvc,title,TaostView;
 
 - (void)viewDidLoad {
     
@@ -54,12 +54,21 @@
 
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index {
     
-        obj.page=[NSNumber numberWithInt:1];
-        UIStoryboard *categoriesSB=[UIStoryboard storyboardWithName:@"GridList" bundle:nil];
-        self.vc = [categoriesSB instantiateViewControllerWithIdentifier:@"GridList"];
-        vc.tabindex=[NSNumber numberWithInteger: index];
-        return self.vc;
+    obj.page=[NSNumber numberWithInt:1];
+    UIStoryboard *categoriesSB=[UIStoryboard storyboardWithName:@"GridList" bundle:nil];
+    if(index==0)
+    {
         
+        self.APvc = [categoriesSB instantiateViewControllerWithIdentifier:@"GridList"];
+        APvc.tabindex=[NSNumber numberWithInteger: index];
+        return self.APvc;
+    }
+    else
+    {
+        self.PPvc = [categoriesSB instantiateViewControllerWithIdentifier:@"GridList"];
+        PPvc.tabindex=[NSNumber numberWithInteger: index];
+        return self.PPvc;
+    }
 }
 
 - (UIView *)viewPager:(ViewPagerController *)viewPager viewForTabAtIndex:(NSUInteger)index {
@@ -103,6 +112,10 @@
 
 - (void)viewPager:(ViewPagerController *)viewPager didChangeTabToIndex:(NSUInteger)index{
 
+    if(index==0)
+        tab=0;
+    else
+        tab=1;
         UILabel *previouslabel = (UILabel*)[viewPager.view viewWithTag:100+self.lastSelectedTab];
         previouslabel.textColor = [UIColor blackColor];
     
@@ -127,7 +140,10 @@
 
 -(void) Shuffle
 {
-    [self.vc shuffle];
+   if(tab==0)
+    [self.APvc shuffle];
+   else
+    [self.PPvc shuffle];
 }
 
 @end

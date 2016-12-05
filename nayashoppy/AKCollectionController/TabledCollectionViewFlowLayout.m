@@ -15,9 +15,9 @@ static NSString * const BHPhotoAlbumLayoutPhotoCellKind = @"PhotoCell";
 
 
 @property (nonatomic, strong) NSDictionary *layoutInfo;
-@property (nonatomic) UIEdgeInsets itemInsets;
+//@property (nonatomic) UIEdgeInsets itemInsets;
 
-@property (nonatomic) CGFloat interItemSpacingY;
+//@property (nonatomic) CGFloat interItemSpacingY;
 
 @property (nonatomic) NSInteger originX;
 @property (nonatomic) NSInteger originY;

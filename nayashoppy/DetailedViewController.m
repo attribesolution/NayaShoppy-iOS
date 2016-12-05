@@ -103,8 +103,6 @@
             return 0.0;
         case ViewPagerOptionTabLocation:
             return 1.0;
-        case ViewPagerOptionTabOffset:
-            return 200;
         default:
             return value;
     }
@@ -143,9 +141,11 @@
     [self.view addGestureRecognizer:tapRecognizer];
     
 }
+
 -(void) setdeleget
 {
     self.dataSource = self;
     self.delegate = self;
 }
+
 @end

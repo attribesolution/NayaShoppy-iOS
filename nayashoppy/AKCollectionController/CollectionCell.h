@@ -19,5 +19,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *LItemColor;
 
 @property (strong, nonatomic) IBOutlet UIButton *WishButton;
+@property (strong, nonatomic) IBOutlet UIButton *ShareButton;
 
 @end

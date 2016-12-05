@@ -12,6 +12,7 @@
 #import "TabelledCollectionCell.h"
 #import "GridCollectionViewFlowLayout.h"
 #import "DGActivityIndicatorView.h"
+#import "ShareUtility.h"
 
 static NSString *AKCollectionCell = @"CollectionCell";
 static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
@@ -45,9 +46,13 @@ Boolean showInGridView = false;
     [self ApiParsing];
     self.tLayout = [[TabledCollectionViewFlowLayout alloc] init];
     [self.tLayout setItemSize:CGSizeMake(self.collectionView.bounds.size.width, 180)];
+    [self.tLayout setInterItemSpacingY:1.0];
+    [self.glayout setInterItemSpacingY:1.0];
     [self.collectionView setScrollsToTop:YES];
     [self.collectionView registerNib:[UINib nibWithNibName:AKCollectionCell bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:AKCollectionCell];
-   
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:AKTabelledCollectionCell bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:AKTabelledCollectionCell];
+    
     self.glayout = [[GridCollectionViewFlowLayout alloc] init];
     [self.collectionView setCollectionViewLayout:self.tLayout];
    
@@ -109,10 +114,7 @@ Boolean showInGridView = false;
         
         cell.GridName.text=cobj.PName;
         cell.Company.text=cobj.Pprice;
-//        if([tabindex integerValue]==0)
-//        wishimg=[[obj.allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
-//        else
-//        wishimg=[[obj.popularproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
+
         if([tabindex integerValue]==0)
             imgUrl=[[obj.allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
         else
@@ -133,19 +135,24 @@ Boolean showInGridView = false;
                                            
                                        } failure:nil];
 
-      //  cell.GridImage.image=wishimg;
         [cell.WishButton addTarget:self action:@selector(AddToWishList)forControlEvents:UIControlEventTouchUpInside];
+        [cell.ShareButton addTarget:self action:@selector(SendUrl:) forControlEvents:UIControlEventTouchUpInside];
         [self.glayout setItemSize:CGSizeMake(self.collectionView.bounds.size.width, 160+Dlines)];
+    
         return cell;
     }
     else{
         CollectionCell *cell =  [collectionView dequeueReusableCellWithReuseIdentifier:AKCollectionCell forIndexPath:indexPath];
+        
+        CGSize textSize = [cobj.PName sizeWithAttributes:@{NSFontAttributeName:[cell.ListItem font]}];
+        CGFloat strikeWidth = textSize.width;
+        Dlines=(strikeWidth/cell.ListItem.frame.size.width+1)*25+25;
+        
+        cell.ListItem.frame=CGRectMake(cell.ListItem.frame.origin.x,cell.ListItem.frame.origin.y, cell.ListItem.frame.size.width, Dlines);
+        
         cell.ListItem.text=cobj.PName;
         cell.LPrice.text=cobj.Pprice;
-//        if([tabindex integerValue]==0)
-//            wishimg=[[obj.allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
-//        else
-//            wishimg=[[obj.popularproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
+
         if([tabindex integerValue]==0)
             imgUrl=[[obj.allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
         else
@@ -161,13 +168,13 @@ Boolean showInGridView = false;
                               placeholderImage:placeholderImage
                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                            weakCell.ListImage.image = image;
-                                           wishimg=weakCell.ListImage.image;
                                            [weakCell setNeedsLayout];
                                            
                                        } failure:nil];
 
-      //  cell.ListImage.image=wishimg;
+     
         [cell.WishButton addTarget:self action:@selector(AddToWishList) forControlEvents:UIControlEventTouchUpInside];
+        [cell.ShareButton addTarget:self action:@selector(SendUrl:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
     
@@ -214,14 +221,6 @@ Boolean showInGridView = false;
 }
 
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 1.0;
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 1.5;
-}
-
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     return UIEdgeInsetsMake(1, 0, 1, 0);
@@ -251,6 +250,11 @@ Boolean showInGridView = false;
 -(void)AddToWishList
 {
     [[GlobalVariables class]AddWhishList:cobj.PName :cobj.POfferPrice :imgUrl: self.view];
+}
+-(void)SendUrl:(UIButton *) sender
+{
+    Categories *sup=[cobj.Supliers objectAtIndex:sender.tag];
+    [[ShareUtility class]shareObject:@[sup.StoreUrl]];
 }
 
 - (IBAction)FilterButton:(id)sender {

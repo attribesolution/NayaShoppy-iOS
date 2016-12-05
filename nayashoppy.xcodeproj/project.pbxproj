@@ -35,6 +35,8 @@
 		CF151A781DD5E1AD000A747B /* SpecificationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF151A771DD5E1AD000A747B /* SpecificationListViewController.m */; };
 		CF151A7C1DD5E4A6000A747B /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF151A7B1DD5E4A6000A747B /* ReviewViewController.m */; };
 		CF151A7E1DD5E4B4000A747B /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF151A7D1DD5E4B4000A747B /* Review.storyboard */; };
+		CF17ECAD1DF53A6A00B7906B /* ReviewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF17ECAB1DF53A6A00B7906B /* ReviewsCell.m */; };
+		CF17ECAE1DF53A6A00B7906B /* ReviewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF17ECAC1DF53A6A00B7906B /* ReviewsCell.xib */; };
 		CF1E46821DC9D761001B9D62 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF1E46811DC9D761001B9D62 /* SignIn.storyboard */; };
 		CF1E46861DC9D7A0001B9D62 /* SignInVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1E46851DC9D7A0001B9D62 /* SignInVC.m */; };
 		CF257D661DAF6B3200EC6789 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF257D651DAF6B3200EC6789 /* SWRevealViewController.m */; };
@@ -215,6 +217,9 @@
 		CF151A7A1DD5E4A6000A747B /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
 		CF151A7B1DD5E4A6000A747B /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
 		CF151A7D1DD5E4B4000A747B /* Review.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
+		CF17ECAA1DF53A6A00B7906B /* ReviewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewsCell.h; sourceTree = "<group>"; };
+		CF17ECAB1DF53A6A00B7906B /* ReviewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewsCell.m; sourceTree = "<group>"; };
+		CF17ECAC1DF53A6A00B7906B /* ReviewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewsCell.xib; sourceTree = "<group>"; };
 		CF1E46811DC9D761001B9D62 /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		CF1E46841DC9D7A0001B9D62 /* SignInVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInVC.h; sourceTree = "<group>"; };
 		CF1E46851DC9D7A0001B9D62 /* SignInVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInVC.m; sourceTree = "<group>"; };
@@ -595,11 +600,22 @@
 		CF151A791DD5E462000A747B /* Review */ = {
 			isa = PBXGroup;
 			children = (
+				CF17ECAF1DF53A7B00B7906B /* ReviewCell */,
 				CF151A7A1DD5E4A6000A747B /* ReviewViewController.h */,
 				CF151A7B1DD5E4A6000A747B /* ReviewViewController.m */,
 				CF151A7D1DD5E4B4000A747B /* Review.storyboard */,
 			);
 			name = Review;
+			sourceTree = "<group>";
+		};
+		CF17ECAF1DF53A7B00B7906B /* ReviewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CF17ECAA1DF53A6A00B7906B /* ReviewsCell.h */,
+				CF17ECAB1DF53A6A00B7906B /* ReviewsCell.m */,
+				CF17ECAC1DF53A6A00B7906B /* ReviewsCell.xib */,
+			);
+			name = ReviewCell;
 			sourceTree = "<group>";
 		};
 		CF1E46801DC9D73B001B9D62 /* Model Class */ = {
@@ -1417,6 +1433,7 @@
 				CFC20F031DD996710050E5B0 /* ImageCVcell.xib in Resources */,
 				477BC9131DC9D724008C3207 /* ProductDetail.storyboard in Resources */,
 				CF52622A1DD3475F0075BDD0 /* ic_user.png in Resources */,
+				CF17ECAE1DF53A6A00B7906B /* ReviewsCell.xib in Resources */,
 				CF60BFDC1DEC347B00B746F5 /* icon_filter.png in Resources */,
 				CF13D0CE1DD1973400956076 /* GridList.storyboard in Resources */,
 				CF60D29A1DD46F7200D6EFBE /* Specifications.storyboard in Resources */,
@@ -1566,6 +1583,7 @@
 				CFFB08601DC3751000140574 /* HomeViewController.m in Sources */,
 				CFB5B5AD1DCCA69D00CBCB08 /* AboutUsViewController.m in Sources */,
 				CF5C74FA1DB6124C008475D1 /* MenuData.m in Sources */,
+				CF17ECAD1DF53A6A00B7906B /* ReviewsCell.m in Sources */,
 				CF151A781DD5E1AD000A747B /* SpecificationListViewController.m in Sources */,
 				CF9607CF1DDB261F00899424 /* FeaturesDetail.m in Sources */,
 				CF607C631DB0D09D004296F1 /* DealsOfTheDayViewController.m in Sources */,

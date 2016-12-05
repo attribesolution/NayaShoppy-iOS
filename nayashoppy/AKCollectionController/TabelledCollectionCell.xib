@@ -13,13 +13,6 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="220" height="213"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share 17*17.png" translatesAutoresizingMaskIntoConstraints="NO" id="lX9-r0-qtn">
-                        <rect key="frame" x="179" y="14" width="26" height="26"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="26" id="cff-Dm-Szq"/>
-                            <constraint firstAttribute="width" constant="26" id="elZ-Yx-sRZ"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2L1-cS-dRv">
                         <rect key="frame" x="23" y="117" width="174" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -53,24 +46,32 @@
                         </constraints>
                         <state key="normal" backgroundImage="WishIcon"/>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xu-ZY-Nyn">
+                        <rect key="frame" x="180" y="14" width="26" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26" id="MwZ-uY-gha"/>
+                            <constraint firstAttribute="width" constant="26" id="tqP-CN-NMx"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="Share"/>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Je5-7I-WDM" firstAttribute="leading" secondItem="1gt-V3-RTH" secondAttribute="leading" constant="24" id="56T-cw-wLw"/>
                 <constraint firstItem="8kn-vk-8mo" firstAttribute="top" secondItem="1gt-V3-RTH" secondAttribute="top" constant="14" id="77Y-E9-kQJ"/>
                 <constraint firstItem="7PM-P1-mpj" firstAttribute="leading" secondItem="8kn-vk-8mo" secondAttribute="trailing" constant="12" id="Aeh-hG-1av"/>
-                <constraint firstItem="lX9-r0-qtn" firstAttribute="top" secondItem="1gt-V3-RTH" secondAttribute="top" constant="14" id="KJA-AM-SmP"/>
-                <constraint firstItem="lX9-r0-qtn" firstAttribute="leading" secondItem="7PM-P1-mpj" secondAttribute="trailing" constant="13" id="Kq4-KL-8Dx"/>
                 <constraint firstItem="7PM-P1-mpj" firstAttribute="centerX" secondItem="1gt-V3-RTH" secondAttribute="centerX" id="NIb-Gb-we1"/>
                 <constraint firstItem="2L1-cS-dRv" firstAttribute="top" secondItem="7PM-P1-mpj" secondAttribute="bottom" constant="8" id="PbC-9I-pnt"/>
                 <constraint firstItem="2L1-cS-dRv" firstAttribute="top" secondItem="7PM-P1-mpj" secondAttribute="bottom" constant="14" id="WxE-q8-YDZ"/>
                 <constraint firstItem="2L1-cS-dRv" firstAttribute="top" secondItem="7PM-P1-mpj" secondAttribute="bottom" constant="3" id="YAy-GU-QAP"/>
+                <constraint firstItem="1xu-ZY-Nyn" firstAttribute="top" secondItem="1gt-V3-RTH" secondAttribute="top" constant="14" id="aAI-fj-JfZ"/>
                 <constraint firstAttribute="trailing" secondItem="2L1-cS-dRv" secondAttribute="trailing" constant="23" id="eFW-HU-v5A"/>
                 <constraint firstItem="Je5-7I-WDM" firstAttribute="centerX" secondItem="1gt-V3-RTH" secondAttribute="centerX" id="iSU-Em-pcv"/>
                 <constraint firstItem="2L1-cS-dRv" firstAttribute="leading" secondItem="1gt-V3-RTH" secondAttribute="leading" constant="23" id="k53-aP-9tx"/>
+                <constraint firstItem="1xu-ZY-Nyn" firstAttribute="leading" secondItem="7PM-P1-mpj" secondAttribute="trailing" constant="14" id="nyO-WG-ABE"/>
                 <constraint firstItem="2L1-cS-dRv" firstAttribute="centerX" secondItem="1gt-V3-RTH" secondAttribute="centerX" id="pti-hK-hiY"/>
-                <constraint firstAttribute="trailing" secondItem="lX9-r0-qtn" secondAttribute="trailing" constant="15" id="s0r-De-ehe"/>
                 <constraint firstItem="7PM-P1-mpj" firstAttribute="top" secondItem="1gt-V3-RTH" secondAttribute="top" constant="13" id="uPX-pM-XKK"/>
                 <constraint firstItem="Je5-7I-WDM" firstAttribute="top" secondItem="2L1-cS-dRv" secondAttribute="bottom" constant="32" id="wdC-0p-hdZ"/>
             </constraints>
@@ -85,13 +86,14 @@
                 <outlet property="Company" destination="Je5-7I-WDM" id="Xih-T1-Y6R"/>
                 <outlet property="GridImage" destination="7PM-P1-mpj" id="vij-w3-bkA"/>
                 <outlet property="GridName" destination="2L1-cS-dRv" id="j3X-kv-oeW"/>
+                <outlet property="ShareButton" destination="1xu-ZY-Nyn" id="h4x-kq-wIa"/>
                 <outlet property="WishButton" destination="8kn-vk-8mo" id="rSX-rs-6dV"/>
             </connections>
             <point key="canvasLocation" x="294" y="233.5"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="Share" width="24" height="17"/>
         <image name="WishIcon" width="18" height="20"/>
-        <image name="share 17*17.png" width="32" height="32"/>
     </resources>
 </document>

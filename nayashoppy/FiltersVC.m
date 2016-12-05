@@ -96,6 +96,13 @@
     }
 
 }
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIView *view = [[UIView alloc] init];
+    [view setBackgroundColor:[UIColor whiteColor]];
+    [cell setSelectedBackgroundView:view];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(tableView.tag==1)

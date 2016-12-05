@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Review View Controller-->
@@ -18,24 +17,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Reviews To Show" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kID-xQ-Nv9">
-                                <rect key="frame" x="16" y="230" width="288" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0i5-zv-utM">
+                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ltl-4d-oJE" id="EgG-H3-hNX"/>
+                                    <outlet property="delegate" destination="ltl-4d-oJE" id="eVz-AD-VGy"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kID-xQ-Nv9" firstAttribute="centerY" secondItem="d7K-Yh-dUR" secondAttribute="centerY" id="0ZS-CB-Uhb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kID-xQ-Nv9" secondAttribute="trailing" id="U3X-1p-Irp"/>
-                            <constraint firstItem="kID-xQ-Nv9" firstAttribute="centerX" secondItem="d7K-Yh-dUR" secondAttribute="centerX" id="e63-zJ-xb9"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="kID-xQ-Nv9" secondAttribute="leading" id="q63-S9-b7o"/>
+                            <constraint firstItem="0i5-zv-utM" firstAttribute="top" secondItem="W6Z-Li-9Bb" secondAttribute="bottom" id="Scf-bi-5vX"/>
+                            <constraint firstItem="HWi-QP-PSl" firstAttribute="top" secondItem="0i5-zv-utM" secondAttribute="bottom" id="ZRj-0U-5Gn"/>
+                            <constraint firstItem="0i5-zv-utM" firstAttribute="leading" secondItem="d7K-Yh-dUR" secondAttribute="leading" id="nbA-1r-wJO"/>
+                            <constraint firstAttribute="trailing" secondItem="0i5-zv-utM" secondAttribute="trailing" id="wzG-42-Kdb"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="ReviewsLabel" destination="0ZS-CB-Uhb" id="9fY-zs-GES"/>
+                        <outlet property="ReviewsTabel" destination="0i5-zv-utM" id="Vh5-wc-uRa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IGc-lG-eT6" userLabel="First Responder" sceneMemberID="firstResponder"/>
