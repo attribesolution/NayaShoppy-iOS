@@ -21,6 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [Fabric with:@[[Crashlytics class]]];
+    [Crashlytics sharedInstance].debugMode = YES;
     ApiParsing * mainVC = [[ApiParsing alloc] init];
    
     [mainVC getTopMenu:^(BOOL success) {
