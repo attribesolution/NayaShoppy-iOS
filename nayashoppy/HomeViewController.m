@@ -183,5 +183,10 @@ static NSString *CouponsLabelImg=@"Coupon";
     [self.myTable setContentOffset:CGPointZero animated:NO];
     
 }
-
-@end
+- (void)didTapAnywhere:(UITapGestureRecognizer *) sender
+{
+    [self.view endEditing:YES];
+}
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}@end

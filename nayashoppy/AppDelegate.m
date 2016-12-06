@@ -55,7 +55,7 @@
     NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
     
     [GIDSignIn sharedInstance].delegate = self;
-
+    [GIDSignIn sharedInstance].shouldFetchBasicProfile = YES;
     return YES;
 }
 - (BOOL)application:(UIApplication *)app
@@ -75,7 +75,11 @@ didSignInForUser:(GIDGoogleUser *)user
     NSString *givenName = user.profile.givenName;
     NSString *familyName = user.profile.familyName;
     NSString *email = user.profile.email;
-    // ...
+    if ([GIDSignIn sharedInstance].currentUser.profile.hasImage)
+    {
+        NSUInteger dimension = round(100 * [[UIScreen mainScreen] scale]);
+        NSURL *imageURL = [user.profile imageURLWithDimension:dimension];
+    }
 }
 
 - (void)signIn:(GIDSignIn *)signIn

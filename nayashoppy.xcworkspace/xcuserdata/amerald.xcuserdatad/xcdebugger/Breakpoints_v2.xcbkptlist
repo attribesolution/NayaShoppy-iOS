@@ -362,7 +362,7 @@
                   moduleName = "nayashoppy"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/amerald/Documents/mehreen/nayashoppy/nayashoppy/MobilesVC.m"
-                  timestampString = "502699719.435975"
+                  timestampString = "502715965.494384"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "194"
@@ -377,7 +377,7 @@
                   moduleName = "nayashoppy"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/amerald/Documents/mehreen/nayashoppy/nayashoppy/MobilesVC.m"
-                  timestampString = "502699719.436241"
+                  timestampString = "502715965.494651"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "194"
@@ -474,22 +474,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "nayashoppy/SignInVC.m"
-            timestampString = "502627794.479383"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "-FacebookSignIn:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "nayashoppy/SignInVC.m"
             timestampString = "502627796.775227"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -538,11 +522,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "nayashoppy/AppDelegate.m"
-            timestampString = "502703316.998493"
+            timestampString = "502717823.796391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "-signIn:didSignInForUser:withError:"
             landmarkType = "5">
          </BreakpointContent>
@@ -560,6 +544,54 @@
             startingLineNumber = "18"
             endingLineNumber = "18"
             landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "nayashoppy/ViewController.m"
+            timestampString = "502715379.102228"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "-didTapAnywhere:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "nayashoppy/ViewController.m"
+            timestampString = "502715704.970306"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-touchesBegan:withEvent:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "nayashoppy/HomeViewController.m"
+            timestampString = "502715802.748116"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "-didTapAnywhere:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

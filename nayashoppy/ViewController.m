@@ -81,7 +81,9 @@
 {
     [self.view endEditing:YES];
 }
-
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
     return YES;
