@@ -68,7 +68,7 @@
     SimilarPCVCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"SimilarPCVCell" forIndexPath:indexPath];
     cobj=[obj.Similarproducts objectAtIndex:indexPath.row];
     cell.backgroundColor=[UIColor clearColor];
-   // cell.Image.image=[[obj.Similarproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
+
     NSURL *Url = [NSURL URLWithString:[[obj.Similarproductimg objectAtIndex:indexPath.row]objectAtIndex:0]];
     NSURLRequest *request = [NSURLRequest requestWithURL:Url];
     UIImage *placeholderImage = [UIImage imageNamed:@"PlaceHolder"];
@@ -98,7 +98,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(collectionView.frame.size.width/3-1, 180);
+    return CGSizeMake(collectionView.frame.size.width/2-1, 180);
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

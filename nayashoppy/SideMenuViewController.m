@@ -8,6 +8,8 @@
 //
 
 #import "SideMenuViewController.h"
+#import <Crashlytics/Crashlytics.h>
+
 static NSString *SideMenuCell =@"SideMenu";
 @interface SideMenuViewController ()
 {
@@ -27,7 +29,17 @@ static NSString *SideMenuCell =@"SideMenu";
     self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
                                                  name:@"refreshView" object:nil];
+    UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = CGRectMake(20, 50, 100, 30);
+    [button setTitle:@"Crash" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(crashButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+
 }
+- (IBAction)crashButtonTapped:(id)sender {
+    [[Crashlytics sharedInstance] crash];
+}
+
 -(void)refreshView:(NSNotification *) notification {
     
     [self.sidetable reloadData];

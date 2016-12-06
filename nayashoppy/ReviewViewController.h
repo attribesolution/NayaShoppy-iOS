@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReviewViewController : UIViewController
+@interface ReviewViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UITableView *ReviewsTabel;
 

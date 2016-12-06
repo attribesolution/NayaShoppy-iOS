@@ -75,7 +75,6 @@
 		CF6D89E51DE2D8CE00D6C49B /* share 17*17.png in Resources */ = {isa = PBXBuildFile; fileRef = CF6D89E41DE2D8CE00D6C49B /* share 17*17.png */; };
 		CF6F2E241DC7681D0027FAD8 /* Categories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF6F2E231DC7681D0027FAD8 /* Categories.storyboard */; };
 		CF6F2E271DC7686E0027FAD8 /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6F2E261DC7686E0027FAD8 /* CategoriesViewController.m */; };
-		CF6F91811DEFEEF40005D37D /* HomePagerVc.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6F91801DEFEEF40005D37D /* HomePagerVc.m */; };
 		CF71F9AF1DC0D721004DDB9A /* DealsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF71F9AE1DC0D721004DDB9A /* DealsStoryboard.storyboard */; };
 		CF71F9C21DC0DB50004DDB9A /* NewArrivalViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF71F9B61DC0DB50004DDB9A /* NewArrivalViewCell.m */; };
 		CF71F9C31DC0DB50004DDB9A /* NewArrivalViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF71F9B71DC0DB50004DDB9A /* NewArrivalViewCell.xib */; };
@@ -280,8 +279,6 @@
 		CF6F2E231DC7681D0027FAD8 /* Categories.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Categories.storyboard; sourceTree = "<group>"; };
 		CF6F2E251DC7686E0027FAD8 /* CategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
 		CF6F2E261DC7686E0027FAD8 /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
-		CF6F917F1DEFEEF40005D37D /* HomePagerVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePagerVc.h; sourceTree = "<group>"; };
-		CF6F91801DEFEEF40005D37D /* HomePagerVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePagerVc.m; sourceTree = "<group>"; };
 		CF71F9AE1DC0D721004DDB9A /* DealsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DealsStoryboard.storyboard; sourceTree = "<group>"; };
 		CF71F9B51DC0DB50004DDB9A /* NewArrivalViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewArrivalViewCell.h; sourceTree = "<group>"; };
 		CF71F9B61DC0DB50004DDB9A /* NewArrivalViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewArrivalViewCell.m; sourceTree = "<group>"; };
@@ -684,8 +681,6 @@
 				CF60D2931DD46F2200D6EFBE /* SpecificationViewController */,
 				CF5C75041DB62CA5008475D1 /* SideMenu */,
 				CF6927091DBE281800B85F64 /* UserSideMenu */,
-				CF6F917F1DEFEEF40005D37D /* HomePagerVc.h */,
-				CF6F91801DEFEEF40005D37D /* HomePagerVc.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -1351,6 +1346,7 @@
 				CFDDAF741DA24AB900AFBF34 /* Resources */,
 				18A086B60C94AAD9FB72FFEC /* [CP] Embed Pods Frameworks */,
 				D088F1FE3EB798B6E79D5001 /* [CP] Copy Pods Resources */,
+				CFF3ACB11DF69562001F75AC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1497,6 +1493,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		CFF3ACB11DF69562001F75AC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 43dd89a8fd24758eb9b8d87db75aa487ca2a3b84 4ccfba376884c969bee6bd4895be08738045a819df3bed094aee7eadad47a4dc\n";
+		};
 		D088F1FE3EB798B6E79D5001 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1578,7 +1587,6 @@
 				CFFB085F1DC373F100140574 /* RecentCell.m in Sources */,
 				CF5BC8DE1DBF7B1E00A9EC41 /* Slider.m in Sources */,
 				CF13D0DB1DD1B9FD00956076 /* ProductSuppliers.m in Sources */,
-				CF6F91811DEFEEF40005D37D /* HomePagerVc.m in Sources */,
 				CF13D0C51DD1963F00956076 /* CollectionCell.m in Sources */,
 				CFFB08601DC3751000140574 /* HomeViewController.m in Sources */,
 				CFB5B5AD1DCCA69D00CBCB08 /* AboutUsViewController.m in Sources */,

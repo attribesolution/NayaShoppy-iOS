@@ -10,7 +10,6 @@
 #import "ViewPagerController.h"
 #import "GlobalVariables.h"
 #import "DealsOfTheDayViewController.h"
-#import "SWRevealViewController.h"
 #import "HomeViewController.h"
 
 @interface PagerViewController : ViewPagerController <ViewPagerDataSource,ViewPagerDelegate>

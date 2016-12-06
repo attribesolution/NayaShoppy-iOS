@@ -16,4 +16,7 @@ pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
 pod 'Google/SignIn'
+pod 'Fabric'
+pod 'Crashlytics'
+
 end

@@ -10,8 +10,8 @@
 #import "PagerViewController.h"
 
 @interface ViewController : UIViewController<UISearchBarDelegate>
-@property (strong, nonatomic) IBOutlet UISearchBar *searchbar;
 
+@property (strong, nonatomic) IBOutlet UISearchBar *searchbar;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *Lmenu;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *Rmenu;
 @property (strong, nonatomic) IBOutlet UIView *PagerView;

@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 @interface AppDelegate ()
 
@@ -17,7 +19,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-       ApiParsing * mainVC = [[ApiParsing alloc] init];
+    
+    [Fabric with:@[[Crashlytics class]]];
+    ApiParsing * mainVC = [[ApiParsing alloc] init];
    
     [mainVC getTopMenu:^(BOOL success) {
         
@@ -64,12 +68,12 @@
 didSignInForUser:(GIDGoogleUser *)user
      withError:(NSError *)error {
     // Perform any operations on signed in user here.
-   /* NSString *userId = user.userID;                  // For client-side use only!
+    NSString *userId = user.userID;                  // For client-side use only!
     NSString *idToken = user.authentication.idToken; // Safe to send to the server
     NSString *fullName = user.profile.name;
     NSString *givenName = user.profile.givenName;
     NSString *familyName = user.profile.familyName;
-    NSString *email = user.profile.email;*/
+    NSString *email = user.profile.email;
     // ...
 }
 

@@ -329,5 +329,10 @@
     Categories *sup=[cobj.Supliers objectAtIndex:sender.tag];
     [[ShareUtility class]shareObject:@[sup.StoreUrl]];
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.PriceTable deselectRowAtIndexPath:[self.PriceTable indexPathForSelectedRow] animated:NO];
+    [self.PriceTable setContentOffset:CGPointZero animated:NO];
+    
+}
 @end

@@ -177,7 +177,7 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 -(void) navbar
 {
      [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBarBg"] forBarMetrics:UIBarMetricsDefault];
-     [self.navigationController.navigationBar setFrame:CGRectMake(0, 0, self.view.frame.size.width,80.0)];
+     [self.navigationController.navigationBar setFrame:CGRectMake(0, 0, self.view.frame.size.width,self.navigationController.navigationBar.frame.size.height+30)];
 
      CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
      self.navigationItem.titleView =[[GlobalVariables class] titleView:self.title andImg:@"Logo" andy:logoY] ;

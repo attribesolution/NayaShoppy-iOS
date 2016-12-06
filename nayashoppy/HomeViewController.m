@@ -167,10 +167,21 @@ static NSString *CouponsLabelImg=@"Coupon";
         return cell;
     }
 }
-
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIView *view = [[UIView alloc] init];
+    [view setBackgroundColor:[UIColor whiteColor]];
+    [cell setSelectedBackgroundView:view];
+}
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     self.myTable.alwaysBounceVertical = NO;
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.myTable deselectRowAtIndexPath:[self.myTable indexPathForSelectedRow] animated:NO];
+    [self.myTable setContentOffset:CGPointZero animated:NO];
+    
 }
 
 @end

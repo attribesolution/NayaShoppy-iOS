@@ -134,7 +134,7 @@
     self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Grid"]
                                                                                style:UIBarButtonItemStylePlain target:self action:@selector(Shuffle)];
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    //[self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.rightBarButtonItem.tintColor=[UIColor whiteColor];
 }
 

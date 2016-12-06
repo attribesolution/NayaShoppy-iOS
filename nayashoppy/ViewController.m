@@ -69,6 +69,8 @@
     self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.hidesBackButton = YES;
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setFrame:CGRectMake(0, 0, self.view.frame.size.width,self.navigationController.navigationBar.frame.size.height)];
     self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.navController=self.navigationController;

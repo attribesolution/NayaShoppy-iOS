@@ -186,6 +186,11 @@
         }
 }
 
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.myTable deselectRowAtIndexPath:[self.myTable indexPathForSelectedRow] animated:NO];
+    [self.myTable setContentOffset:CGPointZero animated:NO];
+    
+}
 
 @end
