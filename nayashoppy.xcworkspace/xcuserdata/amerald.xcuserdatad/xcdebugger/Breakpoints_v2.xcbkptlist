@@ -362,7 +362,7 @@
                   moduleName = "nayashoppy"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/amerald/Documents/mehreen/nayashoppy/nayashoppy/MobilesVC.m"
-                  timestampString = "502715965.494384"
+                  timestampString = "502718363.677952"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "194"
@@ -377,7 +377,7 @@
                   moduleName = "nayashoppy"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/amerald/Documents/mehreen/nayashoppy/nayashoppy/MobilesVC.m"
-                  timestampString = "502715965.494651"
+                  timestampString = "502718363.678207"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "194"
@@ -521,22 +521,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "nayashoppy/AppDelegate.m"
-            timestampString = "502717823.796391"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "-signIn:didSignInForUser:withError:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "nayashoppy/ReviewViewController.m"
             timestampString = "502633784.270457"
             startingColumnNumber = "9223372036854775807"
@@ -592,6 +576,22 @@
             startingLineNumber = "188"
             endingLineNumber = "188"
             landmarkName = "-didTapAnywhere:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "nayashoppy/AppDelegate.m"
+            timestampString = "502718360.334872"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "-signIn:didDisconnectWithUser:withError:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
