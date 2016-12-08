@@ -25,6 +25,7 @@
 @property (strong,nonatomic) NSMutableArray *Similarproductimg;
 @property (strong,nonatomic) NSMutableArray *Similarproducts;
 @property (strong,nonatomic) NSMutableArray *ProductDetails;
+@property (strong,nonatomic) NSMutableArray *UserReviews;
 @property (strong,nonatomic) NSMutableArray *RecentlyViewed;
 @property (strong,nonatomic) NSMutableArray *GernalFeatures;
 @property (strong,nonatomic) NSMutableDictionary *MarkedFilters;

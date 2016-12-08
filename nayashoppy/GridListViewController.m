@@ -22,6 +22,8 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
     MenuData *obj;
     DGActivityIndicatorView *activityIndicatorView;
     Categories *cobj;
+    CollectionCell *cell;
+    TabelledCollectionCell *Tcell;
     NSString *imgUrl;
     UIImage *wishimg;
     CGFloat Dlines;
@@ -98,22 +100,24 @@ Boolean showInGridView = false;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    BOOL find;
+    find=NO;
     if([tabindex integerValue]==0)
     cobj=[obj.allproducts objectAtIndex:indexPath.row];
     else
     cobj=[obj.popularproducts objectAtIndex:indexPath.row];
     
     if(showInGridView){
-        TabelledCollectionCell *cell =  [collectionView dequeueReusableCellWithReuseIdentifier:AKTabelledCollectionCell forIndexPath:indexPath];
+        Tcell =  [collectionView dequeueReusableCellWithReuseIdentifier:AKTabelledCollectionCell forIndexPath:indexPath];
         
-        CGSize textSize = [cobj.PName sizeWithAttributes:@{NSFontAttributeName:[cell.GridName font]}];
+        CGSize textSize = [cobj.PName sizeWithAttributes:@{NSFontAttributeName:[Tcell.GridName font]}];
         CGFloat strikeWidth = textSize.width;
-        Dlines=(strikeWidth/cell.GridName.frame.size.width+1)*25+25;
+        Dlines=(strikeWidth/Tcell.GridName.frame.size.width+1)*25+25;
         
-        cell.GridName.frame=CGRectMake(cell.GridName.frame.origin.x,cell.GridName.frame.origin.y, cell.GridName.frame.size.width, Dlines);
+        Tcell.GridName.frame=CGRectMake(Tcell.GridName.frame.origin.x,Tcell.GridName.frame.origin.y, Tcell.GridName.frame.size.width, Dlines);
         
-        cell.GridName.text=cobj.PName;
-        cell.Company.text=cobj.Pprice;
+        Tcell.GridName.text=cobj.PName;
+        Tcell.Company.text=cobj.Pprice;
 
         if([tabindex integerValue]==0)
             imgUrl=[[obj.allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
@@ -126,7 +130,7 @@ Boolean showInGridView = false;
         
         __weak TabelledCollectionCell *weakCell = cell;
         
-        [cell.GridImage setImageWithURLRequest:request
+        [Tcell.GridImage setImageWithURLRequest:request
                               placeholderImage:placeholderImage
                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                            weakCell.GridImage.image = image;
@@ -134,15 +138,29 @@ Boolean showInGridView = false;
                                            [weakCell setNeedsLayout];
                                            
                                        } failure:nil];
+        
+        UIImage *image = [[UIImage imageNamed:@"WishIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        [Tcell.WishButton setImage:image forState:UIControlStateNormal];
+        for (int d=0; d<myProducts.count; d++) {
+            
+            NSString * Name=[[[myProducts objectAtIndex:d]objectAtIndex:0]objectAtIndex:0];
+            if ([cobj.PName isEqualToString:Name]) {
+                find=YES;
+                Tcell.WishButton.tintColor = [UIColor redColor];
+                break;
+            }
+        }
+        if(!find)
+            Tcell.WishButton.tintColor = [UIColor darkGrayColor];
 
-        [cell.WishButton addTarget:self action:@selector(AddToWishList)forControlEvents:UIControlEventTouchUpInside];
-        [cell.ShareButton addTarget:self action:@selector(SendUrl:) forControlEvents:UIControlEventTouchUpInside];
+        [Tcell.WishButton addTarget:self action:@selector(AddToWishList)forControlEvents:UIControlEventTouchUpInside];
+        [Tcell.ShareButton addTarget:self action:@selector(SendUrl:) forControlEvents:UIControlEventTouchUpInside];
         [self.glayout setItemSize:CGSizeMake(self.collectionView.bounds.size.width, 160+Dlines)];
     
-        return cell;
+        return Tcell;
     }
     else{
-        CollectionCell *cell =  [collectionView dequeueReusableCellWithReuseIdentifier:AKCollectionCell forIndexPath:indexPath];
+        cell =  [collectionView dequeueReusableCellWithReuseIdentifier:AKCollectionCell forIndexPath:indexPath];
         
         CGSize textSize = [cobj.PName sizeWithAttributes:@{NSFontAttributeName:[cell.ListItem font]}];
         CGFloat strikeWidth = textSize.width;
@@ -171,7 +189,19 @@ Boolean showInGridView = false;
                                            [weakCell setNeedsLayout];
                                            
                                        } failure:nil];
-
+        UIImage *image = [[UIImage imageNamed:@"WishIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        [cell.WishButton setImage:image forState:UIControlStateNormal];
+        for (int d=0; d<myProducts.count; d++) {
+            
+            NSString * Name=[[[myProducts objectAtIndex:d]objectAtIndex:0]objectAtIndex:0];
+            if ([cobj.PName isEqualToString:Name]) {
+                find=YES;
+                cell.WishButton.tintColor = [UIColor redColor];
+                break;
+            }
+        }
+        if(!find)
+            cell.WishButton.tintColor = [UIColor darkGrayColor];
      
         [cell.WishButton addTarget:self action:@selector(AddToWishList) forControlEvents:UIControlEventTouchUpInside];
         [cell.ShareButton addTarget:self action:@selector(SendUrl:) forControlEvents:UIControlEventTouchUpInside];
@@ -250,6 +280,8 @@ Boolean showInGridView = false;
 -(void)AddToWishList
 {
     [[GlobalVariables class]AddWhishList:cobj.PName :cobj.POfferPrice :imgUrl: self.view];
+    cell.WishButton.tintColor = [UIColor redColor];
+    Tcell.WishButton.tintColor = [UIColor redColor];
 }
 -(void)SendUrl:(UIButton *) sender
 {

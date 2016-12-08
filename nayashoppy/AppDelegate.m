@@ -10,6 +10,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import "UserReviews.h"
 
 @interface AppDelegate ()
 
@@ -68,17 +69,22 @@
 - (void)signIn:(GIDSignIn *)signIn
 didSignInForUser:(GIDGoogleUser *)user
      withError:(NSError *)error {
-    // Perform any operations on signed in user here.
+    MenuData *obj=[MenuData Items];
+    
+// Perform any operations on signed in user here.
     NSString *userId = user.userID;                  // For client-side use only!
     NSString *idToken = user.authentication.idToken; // Safe to send to the server
     NSString *fullName = user.profile.name;
-    NSString *givenName = user.profile.givenName;
-    NSString *familyName = user.profile.familyName;
-    NSString *email = user.profile.email;
+//    NSString *givenName = user.profile.givenName;
+//    NSString *familyName = user.profile.familyName;
+//    NSString *email = user.profile.email;
     if ([GIDSignIn sharedInstance].currentUser.profile.hasImage)
     {
         NSUInteger dimension = round(100 * [[UIScreen mainScreen] scale]);
         NSURL *imageURL = [user.profile imageURLWithDimension:dimension];
+        UserReviews *robj=[[UserReviews alloc]initWithName:fullName andUrl:imageURL];// andReview:@""];
+        [obj.UserReviews addObject:robj];
+        
     }
 }
 

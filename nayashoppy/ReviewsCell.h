@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ReviewsCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UIImageView *ProfileImg;
+@property (strong, nonatomic) IBOutlet UILabel *ProfileName;
+@property (strong, nonatomic) IBOutlet UILabel *ReviewDate;
+@property (strong, nonatomic) IBOutlet UILabel *Review;
 
 @end

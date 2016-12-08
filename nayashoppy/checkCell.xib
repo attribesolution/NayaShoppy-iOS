@@ -15,20 +15,28 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oeu-9e-dnp">
-                        <rect key="frame" x="20" y="10" width="23" height="23"/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="23" id="28J-mD-anr"/>
-                            <constraint firstAttribute="width" constant="23" id="B0E-tX-Qcq"/>
-                        </constraints>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKj-T8-VPC">
-                        <rect key="frame" x="66" y="13" width="36" height="17"/>
+                        <rect key="frame" x="73" y="13" width="36" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oeu-9e-dnp">
+                        <rect key="frame" x="20" y="7" width="30" height="30"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="1Xh-TL-Bgw"/>
+                            <constraint firstAttribute="height" constant="23" id="28J-mD-anr"/>
+                            <constraint firstAttribute="width" constant="23" id="B0E-tX-Qcq"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="Wyk-c0-PC5"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="28J-mD-anr"/>
+                                <exclude reference="B0E-tX-Qcq"/>
+                            </mask>
+                        </variation>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="pKj-T8-VPC" firstAttribute="leading" secondItem="oeu-9e-dnp" secondAttribute="trailing" constant="23" id="V47-5S-fp0"/>

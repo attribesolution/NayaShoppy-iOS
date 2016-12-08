@@ -28,21 +28,10 @@ static NSString *CouponsLabelImg=@"Coupon";
     
     [super viewDidLoad];
     obj=[MenuData Items];
-    UIStoryboard *coupons=[UIStoryboard storyboardWithName:@"Coupons" bundle:nil];
-    self.collectionCont = [coupons instantiateViewControllerWithIdentifier:@"Cash"];
     
-    UIStoryboard *categories=[UIStoryboard storyboardWithName:@"TopMenuStoryboard" bundle:nil];
-    self.topmenu = [categories instantiateViewControllerWithIdentifier:@"TopMenu"];
-    
-    UIStoryboard *newarrivals=[UIStoryboard storyboardWithName:@"NewArrivalsStoryboard" bundle:nil];
-    self.newarrival = [newarrivals instantiateViewControllerWithIdentifier:@"newAv"];
-    UIStoryboard *recently=[UIStoryboard storyboardWithName:@"RecentStoryboard" bundle:nil];
-    self.recent = [recently instantiateViewControllerWithIdentifier:@"Recent"];
-    activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotatePulse tintColor:[UIColor redColor] size:40.0f];
-    activityIndicatorView.frame = self.Loader.bounds;
-    [self.Loader addSubview:activityIndicatorView];
-    [activityIndicatorView startAnimating];
-    
+    [self gesture];
+    [self registerCell];
+    [self ActivityInd];
     /*  ApiParsing * mainVC = [[ApiParsing alloc] init];
     
     [mainVC Slider:^(UIImage *img) {
@@ -183,10 +172,38 @@ static NSString *CouponsLabelImg=@"Coupon";
     [self.myTable setContentOffset:CGPointZero animated:NO];
     
 }
+-(void) gesture
+{
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
+    tapRecognizer.cancelsTouchesInView = NO;
+    [self.myTable addGestureRecognizer:tapRecognizer];
+    
+}
 - (void)didTapAnywhere:(UITapGestureRecognizer *) sender
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"HideKeyboard" object:nil];
     [self.view endEditing:YES];
 }
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.view endEditing:YES];
-}@end
+-(void) registerCell
+{
+    UIStoryboard *coupons=[UIStoryboard storyboardWithName:@"Coupons" bundle:nil];
+    self.collectionCont = [coupons instantiateViewControllerWithIdentifier:@"Cash"];
+    
+    UIStoryboard *categories=[UIStoryboard storyboardWithName:@"TopMenuStoryboard" bundle:nil];
+    self.topmenu = [categories instantiateViewControllerWithIdentifier:@"TopMenu"];
+    
+    UIStoryboard *newarrivals=[UIStoryboard storyboardWithName:@"NewArrivalsStoryboard" bundle:nil];
+    self.newarrival = [newarrivals instantiateViewControllerWithIdentifier:@"newAv"];
+    UIStoryboard *recently=[UIStoryboard storyboardWithName:@"RecentStoryboard" bundle:nil];
+    self.recent = [recently instantiateViewControllerWithIdentifier:@"Recent"];
+
+}
+-(void) ActivityInd
+{
+    activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotatePulse tintColor:[UIColor redColor] size:40.0f];
+    activityIndicatorView.frame = self.Loader.bounds;
+    [self.Loader addSubview:activityIndicatorView];
+    [activityIndicatorView startAnimating];
+}
+
+@end

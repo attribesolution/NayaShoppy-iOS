@@ -106,7 +106,7 @@
                                             <outlet property="SimilarProductView" destination="tXi-KH-jnX" id="hsy-a8-SMf"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="170" id="WEM-Ge-K3J" customClass="ImageCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="170" id="WEM-Ge-K3J" customClass="ImageCell">
                                         <rect key="frame" x="0.0" y="245" width="320" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WEM-Ge-K3J" id="Uxy-Iq-X7Q">
@@ -132,13 +132,13 @@
                                                         </mask>
                                                     </variation>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsT-X2-BT5">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsT-X2-BT5">
                                                     <rect key="frame" x="249" y="19" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="8Bv-xH-r1o"/>
                                                         <constraint firstAttribute="height" constant="32" id="RzT-lw-J2j"/>
                                                     </constraints>
-                                                    <state key="normal" backgroundImage="WishIcon"/>
+                                                    <state key="normal" image="WishIcon"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAj-76-Dum">
                                                     <rect key="frame" x="249" y="59" width="32" height="32"/>

@@ -17,8 +17,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    User Reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YvZ-db-Ph3">
+                                <rect key="frame" x="0.0" y="20" width="320" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="yXL-Cq-9y6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFW-9e-avg">
+                                <rect key="frame" x="0.0" y="440" width="320" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write Reviews" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1nS-gn-lig">
+                                        <rect key="frame" x="14" y="5" width="292" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nD-FB-7Gs">
+                                        <rect key="frame" x="278" y="9" width="20" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="2wh-LP-MR2"/>
+                                            <constraint firstAttribute="height" constant="23" id="7Ln-gj-5ZZ"/>
+                                        </constraints>
+                                        <state key="normal" image="icon_plus.png"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="1nS-gn-lig" secondAttribute="trailing" constant="14" id="0h5-x6-D8G"/>
+                                    <constraint firstItem="1nD-FB-7Gs" firstAttribute="leading" secondItem="1nS-gn-lig" secondAttribute="trailing" constant="-32" id="HUR-MY-kGg"/>
+                                    <constraint firstItem="1nD-FB-7Gs" firstAttribute="centerY" secondItem="1nS-gn-lig" secondAttribute="centerY" id="PKX-Li-4Ty"/>
+                                    <constraint firstItem="1nS-gn-lig" firstAttribute="leading" secondItem="hFW-9e-avg" secondAttribute="leading" constant="14" id="Z67-RG-DzY"/>
+                                    <constraint firstItem="1nD-FB-7Gs" firstAttribute="leading" secondItem="1nS-gn-lig" secondAttribute="trailing" constant="-37" id="Zb4-AM-drU"/>
+                                    <constraint firstAttribute="height" constant="40" id="c3w-XL-JNO"/>
+                                    <constraint firstItem="1nD-FB-7Gs" firstAttribute="leading" secondItem="1nS-gn-lig" secondAttribute="trailing" constant="-28" id="lOZ-4L-85g"/>
+                                    <constraint firstItem="1nS-gn-lig" firstAttribute="centerY" secondItem="hFW-9e-avg" secondAttribute="centerY" id="ody-Sh-PlX"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="HUR-MY-kGg"/>
+                                        <exclude reference="Zb4-AM-drU"/>
+                                    </mask>
+                                </variation>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0i5-zv-utM">
-                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="51" width="320" height="390"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -29,14 +73,30 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="HWi-QP-PSl" firstAttribute="top" secondItem="hFW-9e-avg" secondAttribute="bottom" id="Aqp-gt-SN3"/>
+                            <constraint firstItem="YvZ-db-Ph3" firstAttribute="leading" secondItem="d7K-Yh-dUR" secondAttribute="leading" id="IWn-qb-bZO"/>
+                            <constraint firstAttribute="trailing" secondItem="hFW-9e-avg" secondAttribute="trailing" id="Ius-zq-qgN"/>
+                            <constraint firstAttribute="trailing" secondItem="YvZ-db-Ph3" secondAttribute="trailing" id="Lys-U9-MFO"/>
+                            <constraint firstItem="YvZ-db-Ph3" firstAttribute="top" secondItem="W6Z-Li-9Bb" secondAttribute="bottom" id="Mpz-GE-eM5"/>
                             <constraint firstItem="0i5-zv-utM" firstAttribute="top" secondItem="W6Z-Li-9Bb" secondAttribute="bottom" id="Scf-bi-5vX"/>
+                            <constraint firstItem="hFW-9e-avg" firstAttribute="top" secondItem="0i5-zv-utM" secondAttribute="bottom" constant="-1" id="Vpn-4a-L6j"/>
                             <constraint firstItem="HWi-QP-PSl" firstAttribute="top" secondItem="0i5-zv-utM" secondAttribute="bottom" id="ZRj-0U-5Gn"/>
                             <constraint firstItem="0i5-zv-utM" firstAttribute="leading" secondItem="d7K-Yh-dUR" secondAttribute="leading" id="nbA-1r-wJO"/>
+                            <constraint firstItem="hFW-9e-avg" firstAttribute="leading" secondItem="d7K-Yh-dUR" secondAttribute="leading" id="qP6-yd-Elw"/>
                             <constraint firstAttribute="trailing" secondItem="0i5-zv-utM" secondAttribute="trailing" id="wzG-42-Kdb"/>
+                            <constraint firstItem="0i5-zv-utM" firstAttribute="top" secondItem="YvZ-db-Ph3" secondAttribute="bottom" id="yaX-DA-9Ea"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Scf-bi-5vX"/>
+                                <exclude reference="ZRj-0U-5Gn"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="ReviewTextField" destination="1nS-gn-lig" id="wGI-hy-dZA"/>
+                        <outlet property="ReviewView" destination="hFW-9e-avg" id="Yqy-AA-iwE"/>
                         <outlet property="ReviewsTabel" destination="0i5-zv-utM" id="Vh5-wc-uRa"/>
                     </connections>
                 </viewController>
@@ -45,4 +105,7 @@
             <point key="canvasLocation" x="273" y="226"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_plus.png" width="48" height="48"/>
+    </resources>
 </document>

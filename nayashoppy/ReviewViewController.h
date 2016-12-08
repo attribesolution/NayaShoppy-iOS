@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ReviewsCell.h"
 
-@interface ReviewViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface ReviewViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *ReviewsTabel;
+@property (strong, nonatomic) IBOutlet UITextField *ReviewTextField;
+@property (strong, nonatomic) IBOutlet UIView *ReviewView;
 
 @end

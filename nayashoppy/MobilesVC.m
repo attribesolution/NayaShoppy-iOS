@@ -1,7 +1,3 @@
-
-
-
-
 //
 //  MobilesVC.m
 //  nayashoppy
@@ -157,11 +153,13 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 {
     [[GlobalVariables class]AddWhishList:cobj.PName :cobj.POfferPrice :imgUrl: self.view];
 }
+
 -(void)SendUrl:(UIButton *) sender
 {
     Categories *sup=[cobj.Supliers objectAtIndex:sender.tag];
     [[ShareUtility class]shareObject:@[sup.StoreUrl]];
 }
+
 -(void)activityIndicator
 {
      activityInd1 = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotatePulse tintColor:[UIColor redColor] size:40.0f];
@@ -176,13 +174,14 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 
 -(void) navbar
 {
+
      [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBarBg"] forBarMetrics:UIBarMetricsDefault];
-     [self.navigationController.navigationBar setFrame:CGRectMake(0, 0, self.view.frame.size.width,self.navigationController.navigationBar.frame.size.height+30)];
 
      CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
      self.navigationItem.titleView =[[GlobalVariables class] titleView:self.title andImg:@"Logo" andy:logoY] ;
      self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
      self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
+    
 }
 
 -(void) ApiData
@@ -218,6 +217,13 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
     }];
 
 }
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+}
+
 -(void) registerCell
 {
     [self.allProduct registerNib:[UINib nibWithNibName:@"DealsCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:dealsCell];

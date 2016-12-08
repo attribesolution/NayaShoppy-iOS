@@ -67,6 +67,8 @@
 		CF60D2A61DD4924600D6EFBE /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF60D2A51DD4924600D6EFBE /* ImageCell.m */; };
 		CF60D2AC1DD49FBA00D6EFBE /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF60D2AA1DD49FBA00D6EFBE /* DetailCell.m */; };
 		CF60D2AD1DD49FBA00D6EFBE /* DetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF60D2AB1DD49FBA00D6EFBE /* DetailCell.xib */; };
+		CF66E1901DF83961005BDD51 /* UserReviews.m in Sources */ = {isa = PBXBuildFile; fileRef = CF66E18F1DF83961005BDD51 /* UserReviews.m */; };
+		CF66E1931DF843FE005BDD51 /* icon_plus.png in Resources */ = {isa = PBXBuildFile; fileRef = CF66E1921DF843FE005BDD51 /* icon_plus.png */; };
 		CF6927051DBDFFB500B85F64 /* Images.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6927041DBDFFB500B85F64 /* Images.m */; };
 		CF6927081DBE27E500B85F64 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6927071DBE27E500B85F64 /* UserViewController.m */; };
 		CF6927141DBE303900B85F64 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6927121DBE303900B85F64 /* UserCell.m */; };
@@ -267,6 +269,9 @@
 		CF60D2A91DD49FBA00D6EFBE /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
 		CF60D2AA1DD49FBA00D6EFBE /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
 		CF60D2AB1DD49FBA00D6EFBE /* DetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCell.xib; sourceTree = "<group>"; };
+		CF66E18E1DF83961005BDD51 /* UserReviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserReviews.h; sourceTree = "<group>"; };
+		CF66E18F1DF83961005BDD51 /* UserReviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserReviews.m; sourceTree = "<group>"; };
+		CF66E1921DF843FE005BDD51 /* icon_plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_plus.png; sourceTree = "<group>"; };
 		CF6927031DBDFFB500B85F64 /* Images.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Images.h; sourceTree = "<group>"; };
 		CF6927041DBDFFB500B85F64 /* Images.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Images.m; sourceTree = "<group>"; };
 		CF6927061DBE27E500B85F64 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
@@ -618,6 +623,7 @@
 		CF1E46801DC9D73B001B9D62 /* Model Class */ = {
 			isa = PBXGroup;
 			children = (
+				CF66E1911DF839A9005BDD51 /* Reviews */,
 				CFF8A7681DC1C8E900FB633B /* CategorieClass */,
 			);
 			name = "Model Class";
@@ -769,6 +775,15 @@
 				CF60D2AB1DD49FBA00D6EFBE /* DetailCell.xib */,
 			);
 			name = DetailCell;
+			sourceTree = "<group>";
+		};
+		CF66E1911DF839A9005BDD51 /* Reviews */ = {
+			isa = PBXGroup;
+			children = (
+				CF66E18E1DF83961005BDD51 /* UserReviews.h */,
+				CF66E18F1DF83961005BDD51 /* UserReviews.m */,
+			);
+			name = Reviews;
 			sourceTree = "<group>";
 		};
 		CF67A7261DAF7143002967C7 /* SWReavealView */ = {
@@ -1184,6 +1199,7 @@
 		CFDDAF781DA24AB900AFBF34 /* nayashoppy */ = {
 			isa = PBXGroup;
 			children = (
+				CF66E1921DF843FE005BDD51 /* icon_plus.png */,
 				CF80B0651DEDA74D004BE3DE /* btn_back.png */,
 				CF80B0631DEDA2DD004BE3DE /* GoogleService-Info.plist */,
 				CF80B0611DED81CE004BE3DE /* icon_filter_toggle.png */,
@@ -1406,6 +1422,7 @@
 				CFDDAF891DA24AB900AFBF34 /* LaunchScreen.storyboard in Resources */,
 				CF90F71C1DC321B800C8AB2B /* TopMenuStoryboard.storyboard in Resources */,
 				CF86A4751DD5CB6200F2F57A /* SimilarProduct.storyboard in Resources */,
+				CF66E1931DF843FE005BDD51 /* icon_plus.png in Resources */,
 				CF86A45D1DD5B14900F2F57A /* SpecificationCell.xib in Resources */,
 				CF80B0621DED81CE004BE3DE /* icon_filter_toggle.png in Resources */,
 				CF86A4701DD5C77800F2F57A /* SimilarPCVCell.xib in Resources */,
@@ -1602,6 +1619,7 @@
 				CF13D0D11DD1B3F000956076 /* AllProduct.m in Sources */,
 				CFB5B5971DCC645600CBCB08 /* WishListCell.m in Sources */,
 				CF86A4781DD5CC2100F2F57A /* SimilarProductVC.m in Sources */,
+				CF66E1901DF83961005BDD51 /* UserReviews.m in Sources */,
 				CF1143361DE70F9600751423 /* FiltersValues.m in Sources */,
 				CF60D2AC1DD49FBA00D6EFBE /* DetailCell.m in Sources */,
 				CF9EACAE1DE800FD003066FA /* ItemValue.m in Sources */,

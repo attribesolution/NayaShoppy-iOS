@@ -12,6 +12,7 @@
 UIImage *productImg=nil;
 NSMutableArray *categories=nil,*myProducts=nil,*myProductsImg=nil;
 NSUserDefaults *defaults;
+
 @implementation GlobalVariables
 
 +(UIView *) titleView:(NSString *) title1 andImg:(NSString *) img andy:(CGFloat) y
@@ -89,7 +90,7 @@ NSUserDefaults *defaults;
 {
     BOOL find;
     find=NO;
-    
+
     for (int d=0; d<myProducts.count; d++) {
         
         NSString * Name=[[[myProducts objectAtIndex:d]objectAtIndex:0]objectAtIndex:0];

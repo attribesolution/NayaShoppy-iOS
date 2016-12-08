@@ -25,7 +25,7 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7PM-P1-mpj">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7PM-P1-mpj">
                         <rect key="frame" x="54" y="13" width="112" height="90"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="90" id="H2b-2B-liC"/>
@@ -38,13 +38,13 @@
                             </mask>
                         </variation>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kn-vk-8mo">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kn-vk-8mo">
                         <rect key="frame" x="16" y="14" width="26" height="26"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="26" id="S9e-6O-f1i"/>
                             <constraint firstAttribute="height" constant="26" id="UXe-xp-xkH"/>
                         </constraints>
-                        <state key="normal" backgroundImage="WishIcon"/>
+                        <state key="normal" image="WishIcon"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xu-ZY-Nyn">
                         <rect key="frame" x="180" y="14" width="26" height="26"/>

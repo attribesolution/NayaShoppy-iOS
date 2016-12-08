@@ -33,16 +33,15 @@
    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardDidShowNotification object:nil];
    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
     [GIDSignIn sharedInstance].uiDelegate = self;
-//    if ([FBSDKAccessToken currentAccessToken]) {
-//        // User is logged in, do work such as go to next view controller.
-//    }
-//    loginButton.readPermissions =
-//    @[@"public_profile", @"email", @"user_friends"];
-
+    if ([FBSDKAccessToken currentAccessToken]) {
+        // User is logged in, do work such as go to next view controller.
+    }
+   
   
 }
 
 - (IBAction)SignInButton:(id)sender {
+  [[GIDSignIn sharedInstance] signOut];
 }
 
 - (IBAction)Hint:(id)sender {
@@ -50,10 +49,14 @@
 
 - (IBAction)GoogleSignIn:(id)sender {
     [[GIDSignIn sharedInstance] signIn];
+    
 }
 
 - (IBAction)FacebookSignIn:(id)sender {
     
+//    sender.readPermissions =
+//    @[@"public_profile", @"email", @"user_friends"];
+
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
     [login
      logInWithReadPermissions: @[@"public_profile"]

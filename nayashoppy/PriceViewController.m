@@ -87,15 +87,33 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    BOOL find;
+    find=NO;
     if(indexPath.section==0)
     {
     imgcell = (ImageCell*)[tableView dequeueReusableCellWithIdentifier:@"ImageCell" forIndexPath:indexPath];
+        
         self.imgcv.view.frame =imgcell.ImgCollView.bounds;
         [imgcell.ImgCollView addSubview:self.imgcv.view];
         imgcell.TitleLabel.text=cobj.PName;
-        [imgcell.WishIcon addTarget:self action:@selector(AddToWishList) forControlEvents:UIControlEventTouchUpInside];
+        UIImage *image = [[UIImage imageNamed:@"WishIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        [imgcell.WishIcon setImage:image forState:UIControlStateNormal];
+        
+        for (int d=0; d<myProducts.count; d++) {
+            
+            NSString * Name=[[[myProducts objectAtIndex:d]objectAtIndex:0]objectAtIndex:0];
+            if ([cobj.PName isEqualToString:Name]) {
+                find=YES;
+                imgcell.WishIcon.tintColor = [UIColor redColor];
+                break;
+            }
+        }
+        if(!find)
+            imgcell.WishIcon.tintColor = [UIColor darkGrayColor];
+        
+       [imgcell.WishIcon addTarget:self action:@selector(AddToWishList) forControlEvents:UIControlEventTouchUpInside];
         [imgcell.ShareIcon addTarget:self action:@selector(SendUrl:) forControlEvents:UIControlEventTouchUpInside];
+        
         return imgcell;
    }
  
@@ -216,7 +234,8 @@
    {
         SimilarProductsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SimilarProduct" forIndexPath:indexPath];
         self.sproduct.view.frame = cell.SimilarProductView.bounds;
-        self.sproduct.XYZDelegate = (SpecificationsViewController *)[self.navigationController topViewController];
+        self.sproduct.XYZDelegate = (SpecificationsViewController *
+                                )[self.navigationController topViewController];
        [cell.SimilarProductView addSubview:self.sproduct.view];
        return cell;
     }
@@ -257,12 +276,14 @@
     Categories *sup=[cobj.Supliers objectAtIndex:sender.tag];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: sup.StoreUrl]];
 }
+
 -(void) GoToSpecifications :(UIButton *) sender
 {
     obj.tabindex=[NSNumber numberWithInt:1];
     if([self.ShowListDelegate respondsToSelector:@selector(showList)])
         [self.ShowListDelegate showList];
 }
+
 -(void) Parsedetails
 {
     UIStoryboard *coupons=[UIStoryboard storyboardWithName:@"SimilarProduct" bundle:nil];
@@ -271,7 +292,7 @@
     self.imgcv = [img instantiateViewControllerWithIdentifier:@"BannerImagesVC"];
     [self addChildViewController:self.imgcv];
     [self.imgcv didMoveToParentViewController:self];
-    }
+}
 
 -(void) arrayObject
 {
@@ -299,16 +320,19 @@
     }
 
 }
+
 -(void)AddToWishList
 {
     [[GlobalVariables class]AddWhishList:cobj.PName :cobj.Pprice :Pimg: self.ToastView];
+    imgcell.WishIcon.tintColor = [UIColor redColor];
 
 }
+
 -(void) recentlyViewed
 {
     BOOL Ispresent;
     Ispresent=NO;
- //   NSData *imageData = UIImageJPEGRepresentation(Pimg, 100);
+
     for(int i=0;i<obj.RecentlyViewed.count;i++)
     {
         Categories *rec=[obj.RecentlyViewed objectAtIndex:i];
@@ -324,15 +348,17 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
     }
 }
+
 -(void)SendUrl:(UIButton *) sender
 {
     Categories *sup=[cobj.Supliers objectAtIndex:sender.tag];
     [[ShareUtility class]shareObject:@[sup.StoreUrl]];
 }
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [self.PriceTable deselectRowAtIndexPath:[self.PriceTable indexPathForSelectedRow] animated:NO];
     [self.PriceTable setContentOffset:CGPointZero animated:NO];
-    
 }
+
 @end

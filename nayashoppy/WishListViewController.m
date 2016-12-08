@@ -22,7 +22,7 @@
 
     WishListTable.frame=CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    self.navigationItem.titleView =[[GlobalVariables class] titleView:@"WishList" andImg:@"Logo" andy:logoY] ;
+    self.navigationItem.titleView =[[GlobalVariables class] titleView:@"WishList" andImg:@"Logo" andy:logoY];
     [self data];
 }
 
