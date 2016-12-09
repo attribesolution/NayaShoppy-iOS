@@ -38,6 +38,7 @@
 -(void)refreshView:(NSNotification *) notification {
     
     [self.myTable reloadData];
+    if(obj.ProductDetails!=nil)
      _contents = @[obj.ProductDetails];
 }
 

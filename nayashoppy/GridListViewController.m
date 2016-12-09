@@ -128,7 +128,7 @@ Boolean showInGridView = false;
         NSURLRequest *request = [NSURLRequest requestWithURL:Url];
         UIImage *placeholderImage = [UIImage imageNamed:@"PlaceHolder"];
         
-        __weak TabelledCollectionCell *weakCell = cell;
+        __weak TabelledCollectionCell *weakCell = Tcell;
         
         [Tcell.GridImage setImageWithURLRequest:request
                               placeholderImage:placeholderImage

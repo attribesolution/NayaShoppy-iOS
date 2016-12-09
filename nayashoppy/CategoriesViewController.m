@@ -49,8 +49,7 @@
 
 - (void) incomingNotification:(NSNotification *)notification{
     CatName = [notification object];
-    
-    }
+}
 
 - (NSArray *)contents
 {

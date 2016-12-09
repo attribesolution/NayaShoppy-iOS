@@ -15,12 +15,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="364" height="91"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BEST PRICE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8P-VX-xIz">
-                        <rect key="frame" x="25" y="18" width="78" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rs " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orc-Vs-XGx">
                         <rect key="frame" x="25" y="35" width="18" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -28,7 +22,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(80% OFF)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ml-8t-oXI">
-                        <rect key="frame" x="25" y="51" width="60" height="15"/>
+                        <rect key="frame" x="25" y="54" width="60" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -119,7 +113,7 @@
                         </variation>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="145 Reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRg-bx-nU2">
-                        <rect key="frame" x="243" y="46" width="76" height="16"/>
+                        <rect key="frame" x="243" y="53" width="76" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -137,35 +131,41 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BEST PRICE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8P-VX-xIz">
+                        <rect key="frame" x="25" y="15" width="78" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="mg8-tm-ftF" firstAttribute="leading" secondItem="3t5-qP-et5" secondAttribute="trailing" id="0jq-vb-GNV"/>
+                    <constraint firstItem="Orc-Vs-XGx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="17" id="5p4-lm-5Fm"/>
+                    <constraint firstItem="8Ml-8t-oXI" firstAttribute="top" secondItem="Z1U-0v-uj7" secondAttribute="bottom" constant="4" id="8g7-1a-zjt"/>
+                    <constraint firstItem="bRg-bx-nU2" firstAttribute="top" secondItem="3t5-qP-et5" secondAttribute="bottom" constant="8" id="CU1-Ig-HI7"/>
+                    <constraint firstItem="Z1U-0v-uj7" firstAttribute="leading" secondItem="Orc-Vs-XGx" secondAttribute="trailing" constant="8" id="DYM-hL-eAp"/>
+                    <constraint firstItem="S8P-VX-xIz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="17" id="E6g-Kt-dEQ"/>
                     <constraint firstItem="Z1U-0v-uj7" firstAttribute="leading" secondItem="Orc-Vs-XGx" secondAttribute="trailing" constant="15" id="FHd-A3-gVK"/>
                     <constraint firstItem="glC-R3-JuN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="G2m-8l-BdG"/>
-                    <constraint firstItem="S8P-VX-xIz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="INf-fp-Pez"/>
                     <constraint firstItem="3t5-qP-et5" firstAttribute="leading" secondItem="nAm-3e-VBc" secondAttribute="trailing" id="K6y-nq-BYP"/>
-                    <constraint firstItem="Z1U-0v-uj7" firstAttribute="leading" secondItem="Orc-Vs-XGx" secondAttribute="trailing" constant="8" id="K8c-ol-FCG"/>
-                    <constraint firstItem="8Ml-8t-oXI" firstAttribute="top" secondItem="Orc-Vs-XGx" secondAttribute="bottom" constant="1" id="LwD-nu-MtO"/>
-                    <constraint firstItem="bRg-bx-nU2" firstAttribute="leading" secondItem="glC-R3-JuN" secondAttribute="trailing" constant="22" id="Ood-KU-IMe"/>
+                    <constraint firstItem="Z1U-0v-uj7" firstAttribute="top" secondItem="S8P-VX-xIz" secondAttribute="bottom" constant="3" id="KLZ-V1-HMJ"/>
+                    <constraint firstItem="8Ml-8t-oXI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="17" id="R28-cE-2n8"/>
                     <constraint firstItem="Z1U-0v-uj7" firstAttribute="leading" secondItem="Orc-Vs-XGx" secondAttribute="trailing" constant="8" id="S7G-zz-3Rz"/>
                     <constraint firstItem="nAm-3e-VBc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="26" id="TdE-47-eN4"/>
-                    <constraint firstItem="Z1U-0v-uj7" firstAttribute="top" secondItem="S8P-VX-xIz" secondAttribute="bottom" id="Wci-K6-CCK"/>
                     <constraint firstItem="glC-R3-JuN" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Wkp-zG-PeM"/>
-                    <constraint firstItem="bRg-bx-nU2" firstAttribute="top" secondItem="3t5-qP-et5" secondAttribute="bottom" constant="1" id="Y39-Px-2xn"/>
                     <constraint firstItem="mg8-tm-ftF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="26" id="Z9x-Se-ZFR"/>
                     <constraint firstItem="glC-R3-JuN" firstAttribute="leading" secondItem="S8P-VX-xIz" secondAttribute="trailing" constant="17" id="b3z-Wn-1Bg"/>
                     <constraint firstItem="glC-R3-JuN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="21" id="egE-dU-LVN"/>
+                    <constraint firstItem="S8P-VX-xIz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="faR-I7-zea"/>
                     <constraint firstItem="Rcy-21-naD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="26" id="hhG-Kg-lK0"/>
                     <constraint firstItem="nAm-3e-VBc" firstAttribute="leading" secondItem="glC-R3-JuN" secondAttribute="trailing" constant="22" id="i5m-Fh-hwR"/>
+                    <constraint firstItem="bRg-bx-nU2" firstAttribute="leading" secondItem="glC-R3-JuN" secondAttribute="trailing" constant="22" id="jLc-oG-HLi"/>
                     <constraint firstItem="3t5-qP-et5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="26" id="k9f-SI-VM3"/>
-                    <constraint firstItem="S8P-VX-xIz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="17" id="kil-Wk-NYu"/>
                     <constraint firstItem="glC-R3-JuN" firstAttribute="leading" secondItem="S8P-VX-xIz" secondAttribute="trailing" constant="89" id="lXV-ln-Fey"/>
                     <constraint firstItem="Rcy-21-naD" firstAttribute="leading" secondItem="mg8-tm-ftF" secondAttribute="trailing" id="o3e-j4-Rwy"/>
+                    <constraint firstItem="Orc-Vs-XGx" firstAttribute="top" secondItem="S8P-VX-xIz" secondAttribute="bottom" constant="3" id="oYz-wK-6G2"/>
                     <constraint firstItem="Nt7-A9-v9m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="26" id="sQt-De-4FX"/>
                     <constraint firstItem="Nt7-A9-v9m" firstAttribute="leading" secondItem="Rcy-21-naD" secondAttribute="trailing" id="sp6-so-00B"/>
-                    <constraint firstItem="8Ml-8t-oXI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="17" id="tSQ-KY-9Ya"/>
-                    <constraint firstItem="Orc-Vs-XGx" firstAttribute="top" secondItem="S8P-VX-xIz" secondAttribute="bottom" id="u4t-gH-mk6"/>
-                    <constraint firstItem="Orc-Vs-XGx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="17" id="vWU-Ae-0th"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">

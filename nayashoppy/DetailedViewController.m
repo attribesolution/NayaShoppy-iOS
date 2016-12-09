@@ -15,6 +15,7 @@
      MenuData *obj;
      AppDelegate *appDelegate;
 }
+
 @property (nonatomic,assign)NSInteger lastSelectedTab;
 @end
 
@@ -47,6 +48,8 @@
      [super viewWillAppear:animated];
      appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
      [self selectTabAtIndex:[appDelegate.rowindex integerValue]];
+     obj.ProductDetails=nil;
+     obj.GernalFeatures=nil;
 }
 
 
@@ -65,7 +68,7 @@
       CategoriesViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"Categories"];
       dvc.view.backgroundColor=[UIColor whiteColor];
       [[NSNotificationCenter defaultCenter] postNotificationName:@"CategorieAtIndex" object:categories[index]];
-    appDelegate.rowindex=[NSNumber numberWithInteger:index];
+     appDelegate.rowindex=[NSNumber numberWithInteger:index];
        return dvc;
 }
 
@@ -97,7 +100,7 @@
     
     switch (option) {
         case ViewPagerOptionTabWidth:
-            return self.view.frame.size.width/2;
+            return self.view.frame.size.width/2-1;
         case ViewPagerOptionStartFromSecondTab:
             return 0.0;
         case ViewPagerOptionCenterCurrentTab:
@@ -127,7 +130,6 @@
     self.navigationItem.titleView =[[GlobalVariables class] titleView:@"Shop By Categories            " andImg:@"Logo" andy:logoY] ;
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
-
 }
 
 - (void)didTapAnywhere:(UITapGestureRecognizer *) sender
@@ -140,7 +142,6 @@
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
     tapRecognizer.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tapRecognizer];
-    
 }
 
 -(void) setdeleget

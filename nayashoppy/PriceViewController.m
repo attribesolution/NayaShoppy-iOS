@@ -131,7 +131,10 @@
         cell.priceLabel.text=[@"Rs " stringByAppendingString:cobj.Pprice];
         cell.DiscountLabel.textColor=[[GlobalVariables class]greenColor];
         cell.OriginalPriceLabel.text=[@"Rs " stringByAppendingString:cobj.POfferPrice];
-        cell.DiscountLabel.text=[[@"( " stringByAppendingString:cobj.Discount ] stringByAppendingString:@" % OFF)"];
+        if(cobj.Discount==nil)
+            cell.DiscountLabel.text=[[@"(" stringByAppendingString:@"No Discount"] stringByAppendingString:@")"];
+        else
+            cell.DiscountLabel.text=[[@"( " stringByAppendingString:cobj.Discount ] stringByAppendingString:@" % OFF)"];
         return cell;
         
     }
@@ -149,7 +152,7 @@
        }
       
       Categories *sup=[cobj.Supliers objectAtIndex:indexPath.row];
-      cell.PRICE.text=sup.StorePrice;
+      cell.PRICE.text=[@"₹ " stringByAppendingString:sup.StorePrice];
       cell.Description.text=sup.StoreDelivery;
       cell.StoreButton.tag=indexPath.row;
       [cell.StoreButton addTarget:self action:@selector(openURL:) forControlEvents:UIControlEventTouchUpInside];
