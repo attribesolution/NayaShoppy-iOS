@@ -7,11 +7,14 @@
 //
 
 #import "SimilarProductVC.h"
+#import "ShareUtility.h"
 
 @interface SimilarProductVC ()
 {
     MenuData *obj;
     Categories *cobj;
+    NSString *imgUrl;
+    SimilarPCVCell *cell;
 }
 @end
 
@@ -64,8 +67,8 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    
-    SimilarPCVCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"SimilarPCVCell" forIndexPath:indexPath];
+    BOOL find=NO;
+    cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"SimilarPCVCell" forIndexPath:indexPath];
     cobj=[obj.Similarproducts objectAtIndex:indexPath.row];
     cell.backgroundColor=[UIColor clearColor];
 
@@ -82,6 +85,25 @@
                                        [weakCell setNeedsLayout];
                                        
                                    } failure:nil];
+    UIImage *image = [[UIImage imageNamed:@"WishIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [cell.WishIcon setImage:image forState:UIControlStateNormal];
+    for (int d=0; d<myProducts.count; d++) {
+        
+        NSString * Name=[[[myProducts objectAtIndex:d]objectAtIndex:0]objectAtIndex:0];
+        if ([cobj.PName isEqualToString:Name]) {
+            find=YES;
+            cell.WishIcon.tintColor = [UIColor redColor];
+            break;
+        }
+    }
+    if(!find)
+        cell.WishIcon.tintColor = [UIColor darkGrayColor];
+    
+    cell.WishIcon.tag=indexPath.row;
+    cell.ShareIcon.tag=indexPath.row;
+    [cell.WishIcon addTarget:self action:@selector(AddToWishList:)forControlEvents:UIControlEventTouchUpInside];
+    [cell.ShareIcon addTarget:self action:@selector(SendUrl:) forControlEvents:UIControlEventTouchUpInside];
+
     cell.Title.text=cobj.PName;
     cell.Company.text=cobj.POfferPrice;
     return cell;
@@ -120,6 +142,20 @@
         NSLog(@"%@",error);
     }];
     
+}
+
+-(void)AddToWishList:(UIButton *) sender
+{   cobj=[obj.Similarproducts objectAtIndex:sender.tag];
+    imgUrl=[[obj.Similarproductimg objectAtIndex:sender.tag]objectAtIndex:0];
+    [[GlobalVariables class]AddWhishList:cobj.PName :cobj.POfferPrice :imgUrl: self.view];
+    cell.WishIcon.tintColor = [UIColor redColor];
+     [self.SimilarPcollView reloadData];
+}
+
+-(void)SendUrl:(UIButton *) sender
+{
+    Categories *sup=[cobj.Supliers objectAtIndex:sender.tag];
+    [[ShareUtility class]shareObject:@[sup.StoreUrl]];
 }
 
 @end

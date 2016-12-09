@@ -42,7 +42,6 @@ Boolean showInGridView = false;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     obj=[MenuData Items];
     self.FilterView.hidden=YES;
     [self ApiParsing];
@@ -93,19 +92,13 @@ Boolean showInGridView = false;
 
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    if([tabindex integerValue]==0)
-        return obj.allproducts.count;
-    else
-        return obj.popularproducts.count;
+    return  [[self loadArray] count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     BOOL find;
     find=NO;
-    if([tabindex integerValue]==0)
-    cobj=[obj.allproducts objectAtIndex:indexPath.row];
-    else
-    cobj=[obj.popularproducts objectAtIndex:indexPath.row];
+    cobj=[[self loadArray] objectAtIndex:indexPath.row];
     
     if(showInGridView){
         Tcell =  [collectionView dequeueReusableCellWithReuseIdentifier:AKTabelledCollectionCell forIndexPath:indexPath];
@@ -119,12 +112,7 @@ Boolean showInGridView = false;
         Tcell.GridName.text=cobj.PName;
         Tcell.Company.text=cobj.Pprice;
 
-        if([tabindex integerValue]==0)
-            imgUrl=[[obj.allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
-        else
-            imgUrl=[[obj.popularproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
-        
-        NSURL *Url = [NSURL URLWithString:imgUrl];
+        NSURL *Url = [NSURL URLWithString:[self ImgUrl:indexPath.row]];
         NSURLRequest *request = [NSURLRequest requestWithURL:Url];
         UIImage *placeholderImage = [UIImage imageNamed:@"PlaceHolder"];
         
@@ -152,8 +140,10 @@ Boolean showInGridView = false;
         }
         if(!find)
             Tcell.WishButton.tintColor = [UIColor darkGrayColor];
-
-        [Tcell.WishButton addTarget:self action:@selector(AddToWishList)forControlEvents:UIControlEventTouchUpInside];
+        
+        Tcell.WishButton.tag=indexPath.row;
+        Tcell.ShareButton.tag=indexPath.row;
+        [Tcell.WishButton addTarget:self action:@selector(AddToWishList:)forControlEvents:UIControlEventTouchUpInside];
         [Tcell.ShareButton addTarget:self action:@selector(SendUrl:) forControlEvents:UIControlEventTouchUpInside];
         [self.glayout setItemSize:CGSizeMake(self.collectionView.bounds.size.width, 160+Dlines)];
     
@@ -171,12 +161,7 @@ Boolean showInGridView = false;
         cell.ListItem.text=cobj.PName;
         cell.LPrice.text=cobj.Pprice;
 
-        if([tabindex integerValue]==0)
-            imgUrl=[[obj.allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
-        else
-            imgUrl=[[obj.popularproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
-        
-        NSURL *Url = [NSURL URLWithString:imgUrl];
+        NSURL *Url = [NSURL URLWithString:[self ImgUrl:indexPath.row]];
         NSURLRequest *request = [NSURLRequest requestWithURL:Url];
         UIImage *placeholderImage = [UIImage imageNamed:@"PlaceHolder"];
         
@@ -202,8 +187,9 @@ Boolean showInGridView = false;
         }
         if(!find)
             cell.WishButton.tintColor = [UIColor darkGrayColor];
-     
-        [cell.WishButton addTarget:self action:@selector(AddToWishList) forControlEvents:UIControlEventTouchUpInside];
+        cell.WishButton.tag=indexPath.row;
+        cell.ShareButton.tag=indexPath.row;
+        [cell.WishButton addTarget:self action:@selector(AddToWishList:) forControlEvents:UIControlEventTouchUpInside];
         [cell.ShareButton addTarget:self action:@selector(SendUrl:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
@@ -277,11 +263,12 @@ Boolean showInGridView = false;
     }];
 
 }
--(void)AddToWishList
-{
-    [[GlobalVariables class]AddWhishList:cobj.PName :cobj.POfferPrice :imgUrl: self.view];
+-(void)AddToWishList:(UIButton *) sender
+{   cobj=[[self loadArray] objectAtIndex:sender.tag];
+    [[GlobalVariables class]AddWhishList:cobj.PName :cobj.POfferPrice :[self ImgUrl:sender.tag]: self.view];
     cell.WishButton.tintColor = [UIColor redColor];
     Tcell.WishButton.tintColor = [UIColor redColor];
+    [self.GLCollectionView reloadData];
 }
 -(void)SendUrl:(UIButton *) sender
 {
@@ -373,6 +360,22 @@ Boolean showInGridView = false;
     activityIndicatorView.frame = self.Loader.bounds;
     [self.Loader addSubview:activityIndicatorView];
     [activityIndicatorView startAnimating];
+
+}
+-(NSMutableArray *) loadArray
+{
+    if([tabindex integerValue]==0)
+       return obj.allproducts;
+    else
+        return obj.popularproducts;
+
+}
+-(NSString *) ImgUrl:(NSInteger) ind
+{
+    if([tabindex integerValue]==0)
+        return [[obj.allproductimg objectAtIndex:ind]objectAtIndex:0];
+    else
+        return [[obj.popularproductimg objectAtIndex:ind]objectAtIndex:0];
 
 }
 @end

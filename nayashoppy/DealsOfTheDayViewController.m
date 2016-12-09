@@ -30,6 +30,7 @@ static NSString *dealsCell = @"DealCell";
      else*/
     self.myView.hidden=YES;
     //  self.DealsOfTheDayCV.backgroundColor=[UIColor whiteColor];
+    [self gesture];
    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshDealsCV:)
                                                  name:@"refreshDealsCV" object:nil];
       }
@@ -106,8 +107,9 @@ static NSString *dealsCell = @"DealCell";
     }
     if(!find)
         cell.WishButton.tintColor = [UIColor darkGrayColor];
-    
-    [cell.WishButton addTarget:self action:@selector(AddToWishList) forControlEvents:UIControlEventTouchUpInside];
+    cell.WishButton.tag=indexPath.row;
+    cell.ShareButton.tag=indexPath.row;
+    [cell.WishButton addTarget:self action:@selector(AddToWishList:) forControlEvents:UIControlEventTouchUpInside];
     [cell.ShareButton addTarget:self action:@selector(SendUrl:) forControlEvents:UIControlEventTouchUpInside];
     
 
@@ -126,9 +128,16 @@ static NSString *dealsCell = @"DealCell";
     
         return CGSizeMake(collectionView.frame.size.width/2-1, collectionView.frame.size.height/3-2);
 }
-
+-(void) gesture
+{
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
+    tapRecognizer.cancelsTouchesInView = NO;
+    [self.DealsOfTheDayCV addGestureRecognizer:tapRecognizer];
+    
+}
 - (void)didTapAnywhere:(UITapGestureRecognizer *) sender
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"HideKeyboard" object:nil];
     [self.view endEditing:YES];
 }
 
@@ -137,10 +146,13 @@ static NSString *dealsCell = @"DealCell";
     self.DealsOfTheDayCV.alwaysBounceVertical = NO;
 }
 
--(void)AddToWishList
+-(void)AddToWishList:(UIButton *) sender
 {
+    cobj=[ob.newarrival objectAtIndex:sender.tag];
+    Pimg=[[ob.newarrivalImg objectAtIndex:sender.tag]objectAtIndex:0];
     [[GlobalVariables class]AddWhishList:cobj.PName :cobj.Pprice :Pimg: self.view];
     cell.WishButton.tintColor = [UIColor redColor];
+    [self.DealsOfTheDayCV reloadData];
 }
 
 -(void)SendUrl:(UIButton *) sender
