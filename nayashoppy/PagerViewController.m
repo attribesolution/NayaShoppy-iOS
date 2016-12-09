@@ -21,13 +21,10 @@
 
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
     
-    tabItem=[[NSMutableArray alloc]initWithObjects:@"HOME",@"DEALS OF THE DAY", nil];
-    self.lastSelectedTab = 0;
-    self.dataSource = self;
-    self.delegate = self;
-    [self gesture];
+    [super viewDidLoad];
+    [self tabItems];
+  //  [self gesture];
     [self selectTabAtIndex:0];
   
 }
@@ -115,15 +112,24 @@
      .panGestureRecognizer];
     [vc.view addGestureRecognizer:revealController.tapGestureRecognizer];
 }
+
 - (void)didTapAnywhere:(UITapGestureRecognizer *) sender
 {
     [self.view endEditing:YES];
 }
+
 -(void) gesture
 {
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
     tapRecognizer.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tapRecognizer];
+}
 
+-(void)tabItems
+{
+    tabItem=[[NSMutableArray alloc]initWithObjects:@"HOME",@"DEALS OF THE DAY", nil];
+    self.lastSelectedTab = 0;
+    self.dataSource = self;
+    self.delegate = self;
 }
 @end

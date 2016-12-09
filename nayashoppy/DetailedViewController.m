@@ -13,6 +13,7 @@
 {
      NSMutableArray *tabItem,*categories;
      MenuData *obj;
+     AppDelegate *appDelegate;
 }
 @property (nonatomic,assign)NSInteger lastSelectedTab;
 @end
@@ -42,8 +43,9 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+     [super viewWillAppear:animated];
+     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
      [self selectTabAtIndex:[appDelegate.rowindex integerValue]];
 }
 
@@ -63,9 +65,9 @@
       CategoriesViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"Categories"];
       dvc.view.backgroundColor=[UIColor whiteColor];
       [[NSNotificationCenter defaultCenter] postNotificationName:@"CategorieAtIndex" object:categories[index]];
+    appDelegate.rowindex=[NSNumber numberWithInteger:index];
        return dvc;
 }
-
 
 - (UIView *)viewPager:(ViewPagerController *)viewPager viewForTabAtIndex:(NSUInteger)index {
     
@@ -79,19 +81,18 @@
     label.tag=100+index;
     return label;
 }
+
 - (void)viewPager:(ViewPagerController *)viewPager didChangeTabToIndex:(NSUInteger)index{
     
-    //if(self.lastSelectedTab!= nil){
     UILabel *previouslabel = (UILabel*)[viewPager.view viewWithTag:100+self.lastSelectedTab];
     previouslabel.textColor = [UIColor blackColor];
-    //}else{
-    
+
     UILabel *currentlabel = (UILabel*)[viewPager.view viewWithTag:100+index];
     currentlabel.textColor = [GlobalVariables themeColor];
-    
-    //  }
+ 
     self.lastSelectedTab = index;
 }
+
 - (CGFloat)viewPager:(ViewPagerController *)viewPager valueForOption:(ViewPagerOption)option withDefault:(CGFloat)value {
     
     switch (option) {

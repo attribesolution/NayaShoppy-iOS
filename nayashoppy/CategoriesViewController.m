@@ -17,6 +17,7 @@
     NSString *CatName ;
     NSMutableArray *catid;
     Categories *currentCat;
+    CGFloat tableY;
 }
 @property (nonatomic, strong) NSArray *contents;
 @end
@@ -32,11 +33,11 @@
     self.myTable.SKSTableViewDelegate = self;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(incomingNotification:) name:@"CategorieAtIndex" object:nil];
     self.navigationController.navigationItem.backBarButtonItem.title = @" ";
+    tableY=self.myTable.frame.origin.y;
 }
 
-
-
 #pragma mark - UITableViewDelegate
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -45,7 +46,6 @@
     }
     return self;
 }
-
 
 - (void) incomingNotification:(NSNotification *)notification{
     CatName = [notification object];
@@ -138,7 +138,6 @@
     return 50.0f;
 }
 
-
 - (void)tableView:(SKSTableView *)tableView didSelectSubRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self LoadData];
@@ -190,6 +189,7 @@
 {
     [self.myTable deselectRowAtIndexPath:[self.myTable indexPathForSelectedRow] animated:NO];
     [self.myTable setContentOffset:CGPointZero animated:NO];
+    self.myTable.frame=CGRectMake(0,tableY, self.myTable.frame.size.width, self.myTable.frame.size.height);
     
 }
 

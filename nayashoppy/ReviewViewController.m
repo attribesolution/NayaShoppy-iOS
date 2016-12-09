@@ -16,7 +16,6 @@
     CGRect oldFrame;
     MenuData *obj;
     NSMutableArray *myreview;
-
 }
 @end
 
@@ -177,7 +176,7 @@
 -(UIImageView *) textImg
 {
     UIImageView *arrow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_info.png"]];
-    arrow.frame = CGRectMake(0.0, 0.0, arrow.image.size.width+10.0, arrow.image.size.height);
+    arrow.frame = CGRectMake(0.0, 0.0, arrow.image.size.width+5.0, arrow.image.size.height);
     arrow.contentMode = UIViewContentModeCenter;
     return arrow;
 }

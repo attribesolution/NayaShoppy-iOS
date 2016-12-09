@@ -7,11 +7,17 @@
 //
 
 #import "DealsOfTheDayViewController.h"
+#import "ShareUtility.h"
+
 static NSString *dealsCell = @"DealCell";
 @interface DealsOfTheDayViewController ()
 {
     MenuData *ob;
+    Categories *cobj;
+    DealsCell *cell;
+    NSString *Pimg;
 }
+
 @end
 
 @implementation DealsOfTheDayViewController
@@ -45,7 +51,7 @@ static NSString *dealsCell = @"DealCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ob.index=[NSNumber numberWithInteger:indexPath.row];
-    Categories *cobj=[ob.newarrival objectAtIndex:indexPath.row];
+    cobj=[ob.newarrival objectAtIndex:indexPath.row];
     ob.PType=@"NewArrivals";
     ob.PCatId=cobj.PcatId;
     ob.PPrice=cobj.Pprice;
@@ -60,16 +66,19 @@ static NSString *dealsCell = @"DealCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    Categories *cobj=[ob.newarrival objectAtIndex:indexPath.row];
-       DealsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:dealsCell forIndexPath:indexPath];
+    BOOL find;
+    cobj=[ob.newarrival objectAtIndex:indexPath.row];
+    
+    cell = [collectionView dequeueReusableCellWithReuseIdentifier:dealsCell forIndexPath:indexPath];
    /*  Categories *obj=[ob.DealsOfTheDay objectAtIndex:indexPath.row];
         cell.ImageView.image=[ob.DealsOfTheDayImg objectAtIndex:indexPath.row];
         cell.TitleLabel.text=obj.TMtitle;
         cell.PriceLabel.text=[[obj.OfferPrice stringByAppendingString:@"  "]stringByAppendingString:obj.ActualPrice];*/
-    
-    NSURL *Url = [NSURL URLWithString:[[ob.newarrivalImg objectAtIndex:indexPath.row]objectAtIndex:0]];
+    Pimg=[[ob.newarrivalImg objectAtIndex:indexPath.row]objectAtIndex:0];
+    NSURL *Url = [NSURL URLWithString:Pimg];
     NSURLRequest *request = [NSURLRequest requestWithURL:Url];
     UIImage *placeholderImage = [UIImage imageNamed:@"PlaceHolder"];
+    
     
     __weak DealsCell *weakCell = cell;
     
@@ -81,9 +90,27 @@ static NSString *dealsCell = @"DealCell";
                                        
                                    } failure:nil];
 
- //   cell.ImageView.image=[[ob.newarrivalImg objectAtIndex:indexPath.row]objectAtIndex:0];
     cell.TitleLabel.text=cobj.PName;
     cell.PriceLabel.text=cobj.Pprice;
+    UIImage *image = [[UIImage imageNamed:@"WishIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [cell.WishButton setImage:image forState:UIControlStateNormal];
+    
+    for (int d=0; d<myProducts.count; d++) {
+        
+        NSString * Name=[[[myProducts objectAtIndex:d]objectAtIndex:0]objectAtIndex:0];
+        if ([cobj.PName isEqualToString:Name]) {
+            find=YES;
+            cell.WishButton.tintColor = [UIColor redColor];
+            break;
+        }
+    }
+    if(!find)
+        cell.WishButton.tintColor = [UIColor darkGrayColor];
+    
+    [cell.WishButton addTarget:self action:@selector(AddToWishList) forControlEvents:UIControlEventTouchUpInside];
+    [cell.ShareButton addTarget:self action:@selector(SendUrl:) forControlEvents:UIControlEventTouchUpInside];
+    
+
         return cell;
 }
 
@@ -108,6 +135,18 @@ static NSString *dealsCell = @"DealCell";
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     self.DealsOfTheDayCV.alwaysBounceVertical = NO;
+}
+
+-(void)AddToWishList
+{
+    [[GlobalVariables class]AddWhishList:cobj.PName :cobj.Pprice :Pimg: self.view];
+    cell.WishButton.tintColor = [UIColor redColor];
+}
+
+-(void)SendUrl:(UIButton *) sender
+{
+    Categories *sup=[cobj.Supliers objectAtIndex:sender.tag];
+    [[ShareUtility class]shareObject:@[sup.StoreUrl]];
 }
 
 @end

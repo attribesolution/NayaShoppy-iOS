@@ -177,7 +177,7 @@ static NSString *CouponsLabelImg=@"Coupon";
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
     tapRecognizer.cancelsTouchesInView = NO;
     [self.myTable addGestureRecognizer:tapRecognizer];
-    
+       
 }
 - (void)didTapAnywhere:(UITapGestureRecognizer *) sender
 {

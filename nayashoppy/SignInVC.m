@@ -34,9 +34,16 @@
    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
     [GIDSignIn sharedInstance].uiDelegate = self;
     if ([FBSDKAccessToken currentAccessToken]) {
-        // User is logged in, do work such as go to next view controller.
+        // TODO:Token is already available.
     }
-   
+
+// ....
+FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+[loginManager logInWithReadPermissions:@[@"email"]
+                    fromViewController:self
+                               handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+                                   NSLog(@"%@",result);
+                               }];
   
 }
 
@@ -56,8 +63,7 @@
     
 //    sender.readPermissions =
 //    @[@"public_profile", @"email", @"user_friends"];
-
-    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+       FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
     [login
      logInWithReadPermissions: @[@"public_profile"]
      fromViewController:self
@@ -67,13 +73,11 @@
          } else if (result.isCancelled) {
              NSLog(@"Cancelled");
          } else {
-            
+
              NSLog(@"Logged in");
          }
      }];
-    
- }
-
+}
 - (IBAction)SignUp:(id)sender {
 }
 #pragma mark - UITextFieldDelegate

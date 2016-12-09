@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AppDelegate.h"
+#import "ShareUtility.h"
 
 @interface ViewController ()
 
@@ -37,11 +38,9 @@
     [super viewDidAppear:animated];
      self.pager.view.frame=self.PagerView.bounds;
     [self.view bringSubviewToFront:self.searchbar];
-
 }
 
 #pragma mark - self.view Methods
-
 
 -(void) navBar
 {
@@ -64,10 +63,7 @@
     title.textColor = [UIColor blackColor];
 
     UIBarButtonItem *share =  [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share 17*17"]
-                                                                style:UIBarButtonItemStylePlain target:self action:nil];
-
-  
-    
+                                                               style:UIBarButtonItemStylePlain target:self action:@selector(share)];
     NSArray *actionButtonItems = @[rightRevealButtonItem, share];
     
     self.navigationItem.rightBarButtonItems = actionButtonItems;
@@ -88,9 +84,11 @@
 {
     [self.view endEditing:YES];
 }
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 }
+
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
     return YES;
@@ -110,9 +108,15 @@
     [self.pager didMoveToParentViewController:self];
     [self.PagerView addSubview:self.pager.view];
 }
+
 -(void) UserDefaults
 {
     defaults = [NSUserDefaults standardUserDefaults];
     myProducts = [defaults objectForKey:@"Product"];
+}
+-(void) share
+{
+    NSString *appUrl=@"Let me recommend you this application \n https://play.google.com/store/apps/details?id=com.attribe.nayashoppy.app ";
+    [[ShareUtility class]shareObject:@[appUrl]];
 }
 @end
