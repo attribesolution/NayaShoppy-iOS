@@ -11,6 +11,7 @@
 #import "GlobalVariables.h"
 
 @interface SignInVC : UIViewController<GIDSignInUIDelegate>
+@property (strong, nonatomic) IBOutlet UIButton *FbSignIn;
 @property (strong, nonatomic) IBOutlet UIButton *SignIn;
 @property (strong, nonatomic) IBOutlet UITextField *EmailField;
 @property (strong, nonatomic) IBOutlet UITextField *PasswordField;

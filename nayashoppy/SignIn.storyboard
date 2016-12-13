@@ -280,6 +280,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="EmailField" destination="5eH-sU-IPb" id="Sjy-75-HVi"/>
+                        <outlet property="FbSignIn" destination="ZVG-E9-YHa" id="N43-by-Ls9"/>
                         <outlet property="LogoImg" destination="aEC-dk-nKj" id="1Je-eS-nsQ"/>
                         <outlet property="PasswordField" destination="2pG-qL-5e8" id="c1m-ZP-b0Q"/>
                         <outlet property="SignIn" destination="hoB-Sz-pjO" id="sSa-Z4-2oO"/>

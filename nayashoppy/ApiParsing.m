@@ -16,6 +16,8 @@ static NSString *allProducts = @"%@/v1/catalog/";
 static NSString *slider = @"http://nsapi.nayashoppy.com/";
 static NSString *details = @"%@/v1/catalog/detail/";
 static NSString *filterapi = @"%@/v1/search/products/";
+static NSString *PopularProduct = @"%@/v1/catalog/popularproducts";
+static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
 
 @interface  ApiParsing()
 
@@ -118,13 +120,11 @@ static NSString *filterapi = @"%@/v1/search/products/";
             ProductDetails *ic = newproduct.data[i];
             if(ic.images.count==0)
                 [ob.newarrivalImg addObject:@" "];
-                //[ob.newarrivalImg addObject:[self image:nil]];
             else{
                 for(int j=0;j<ic.images.count;j++)
                 {
                     ProductImg *img=ic.images[j];
                     [productimgs addObject:img.image_path];
-                    //[productimgs addObject:[self image:img.image_path]];
                 }
                 [ob.newarrivalImg addObject:productimgs];
             }
@@ -311,14 +311,7 @@ static NSString *filterapi = @"%@/v1/search/products/";
                       
                       };
     
-    
-    NSString *string = @"http://nsapi.nayashoppy.com/v1/catalog/popularproducts";
-    NSURL *url = [NSURL URLWithString:string];
-    self.sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:string]];
-    self.sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
-    
-    [self.sessionManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
+    NSURL *url=[self setupSessionManager:PopularProduct];
     self.sessionManager.responseSerializer=[AFJSONResponseSerializer serializer];
     
     NSURLSessionDataTask *task =[self.sessionManager GET:url.absoluteString parameters:keyValue progress:nil success:^(NSURLSessionTask *task, id responseObject) {
@@ -342,15 +335,7 @@ static NSString *filterapi = @"%@/v1/search/products/";
     keyValue= @{      @"category_id":ob.PCatId,
                       @"price":ob.PPrice,
                                           };
-    
-    
-    NSString *string = @"http://nsapi.nayashoppy.com/v1/catalog/similarcatalog";
-    NSURL *url = [NSURL URLWithString:string];
-    self.sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:string]];
-    self.sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
-    
-    [self.sessionManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
+    NSURL *url=[self setupSessionManager:SimilarProduct];
     self.sessionManager.responseSerializer=[AFJSONResponseSerializer serializer];
     
     NSURLSessionDataTask *task =[self.sessionManager GET:url.absoluteString parameters:keyValue progress:nil success:^(NSURLSessionTask *task, id responseObject) {
@@ -416,16 +401,18 @@ static NSString *filterapi = @"%@/v1/search/products/";
 
 - (NSURLSessionDataTask *)Slider:(void (^)(UIImage *img))success failure:(void (^)(NSError *error, NSString *message))failure {
     
-    NSString *string = slider;
-    NSURL *url = [NSURL URLWithString:string];
-    self.sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:slider]];
-    self.sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
-    
-    [self.sessionManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-
-    
+//    NSString *string = slider;
+//    NSURL *url = [NSURL URLWithString:string];
+//    self.sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:slider]];
+//    self.sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    
+//    [self.sessionManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//
+//    
+//    self.sessionManager.responseSerializer=[AFJSONResponseSerializer serializer];
+    NSURL *url=[self setupSessionManager:@" "];
     self.sessionManager.responseSerializer=[AFJSONResponseSerializer serializer];
-    
+
     NSURLSessionDataTask *task =[self.sessionManager GET:url.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSDictionary *dictionary = (NSDictionary *)responseObject;
         

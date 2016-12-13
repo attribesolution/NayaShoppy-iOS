@@ -56,8 +56,12 @@ Boolean showInGridView = false;
     
     self.glayout = [[GridCollectionViewFlowLayout alloc] init];
     [self.collectionView setCollectionViewLayout:self.tLayout];
-   
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(incomingNotification:) name:@"ParseApi" object:nil];
+
+}
+
+- (void) incomingNotification:(NSNotification *)notification{
+    [self ApiParsing];
 }
 
 - (void)didReceiveMemoryWarning {

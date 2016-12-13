@@ -147,6 +147,7 @@
     Categories *cobj=[[catid objectAtIndex:indexPath.row] objectAtIndex:indexPath.subRow-1];
     obj.BranchId=cobj.BranchID;
     obj.CatId=cobj.CatID;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ParseApi" object:nil];
     if([obj.Mobileindex integerValue]==1 && indexPath.row==0)
     {
         UIStoryboard * pStoryboard = [UIStoryboard storyboardWithName:@"Mobiles" bundle:[NSBundle mainBundle]];
