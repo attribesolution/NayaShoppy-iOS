@@ -1099,6 +1099,28 @@
 			name = EmptyView;
 			sourceTree = "<group>";
 		};
+		CFA1B28C1E000E2D009D40D0 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				CF66E1921DF843FE005BDD51 /* icon_plus.png */,
+				CF80B0651DEDA74D004BE3DE /* btn_back.png */,
+				CF80B0631DEDA2DD004BE3DE /* GoogleService-Info.plist */,
+				CF80B0611DED81CE004BE3DE /* icon_filter_toggle.png */,
+				CF80B05F1DED6F1B004BE3DE /* icon_chack.png */,
+				CF60BFDB1DEC347B00B746F5 /* icon_filter.png */,
+				CF86A4561DD5AAAD00F2F57A /* logo_amazon.png */,
+				CF86A4541DD5A81700F2F57A /* icon_info.png */,
+				CF86A44B1DD58F1700F2F57A /* ic_amazon_logo.png */,
+				CF5262291DD3475F0075BDD0 /* ic_user.png */,
+				CF5262271DD345980075BDD0 /* star.png */,
+				CF6D89E41DE2D8CE00D6C49B /* share 17*17.png */,
+				CF5262251DD33F740075BDD0 /* about 20*17.png */,
+				CFB5B59B1DCC6FE200CBCB08 /* icon_cross.png */,
+				CF8B2C551DCC4FDE0028DD6D /* icon_wallet_screen.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		CFB5B59D1DCC808B00CBCB08 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -1215,27 +1237,13 @@
 		CFDDAF781DA24AB900AFBF34 /* nayashoppy */ = {
 			isa = PBXGroup;
 			children = (
-				CF66E1921DF843FE005BDD51 /* icon_plus.png */,
-				CF80B0651DEDA74D004BE3DE /* btn_back.png */,
-				CF80B0631DEDA2DD004BE3DE /* GoogleService-Info.plist */,
-				CF80B0611DED81CE004BE3DE /* icon_filter_toggle.png */,
-				CF80B05F1DED6F1B004BE3DE /* icon_chack.png */,
-				CF60BFDB1DEC347B00B746F5 /* icon_filter.png */,
-				CF86A4561DD5AAAD00F2F57A /* logo_amazon.png */,
-				CF86A4541DD5A81700F2F57A /* icon_info.png */,
-				CF86A44B1DD58F1700F2F57A /* ic_amazon_logo.png */,
-				CF5262291DD3475F0075BDD0 /* ic_user.png */,
-				CF5262271DD345980075BDD0 /* star.png */,
-				CF6D89E41DE2D8CE00D6C49B /* share 17*17.png */,
-				CF5262251DD33F740075BDD0 /* about 20*17.png */,
 				CFDDAF7C1DA24AB900AFBF34 /* AppDelegate.h */,
 				CFDDAF7D1DA24AB900AFBF34 /* AppDelegate.m */,
 				CFDDAF821DA24AB900AFBF34 /* Main.storyboard */,
-				CFB5B59B1DCC6FE200CBCB08 /* icon_cross.png */,
 				CFDDAF851DA24AB900AFBF34 /* Assets.xcassets */,
-				CF8B2C551DCC4FDE0028DD6D /* icon_wallet_screen.png */,
 				CFDDAF871DA24AB900AFBF34 /* LaunchScreen.storyboard */,
 				CFDDAF8A1DA24AB900AFBF34 /* Info.plist */,
+				CFA1B28C1E000E2D009D40D0 /* Images */,
 				472B2DD01DCB3853008A15C0 /* Categories */,
 				CF1E46801DC9D73B001B9D62 /* Model Class */,
 				CF607C5C1DB0B689004296F1 /* ViewControllers */,

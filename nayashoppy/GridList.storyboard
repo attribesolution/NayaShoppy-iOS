@@ -140,7 +140,7 @@
                                 </connections>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G8l-vN-ple">
-                                <rect key="frame" x="184" y="64" width="136" height="367"/>
+                                <rect key="frame" x="153" y="64" width="167" height="367"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.31372550129999999" green="0.96470594409999999" blue="0.058823533359999999" alpha="1" colorSpace="deviceRGB"/>
@@ -219,6 +219,7 @@
                             <constraint firstItem="Fji-Ie-ZCc" firstAttribute="top" secondItem="FAx-ge-hY0" secondAttribute="bottom" id="Ymk-aH-Ebt"/>
                             <constraint firstItem="FAx-ge-hY0" firstAttribute="leading" secondItem="Thh-Lk-gJa" secondAttribute="leading" id="Zf5-vg-YRc"/>
                             <constraint firstItem="G8l-vN-ple" firstAttribute="leading" secondItem="Thh-Lk-gJa" secondAttribute="leadingMargin" constant="168" id="dXf-7e-sbY"/>
+                            <constraint firstItem="G8l-vN-ple" firstAttribute="leading" secondItem="Thh-Lk-gJa" secondAttribute="leadingMargin" constant="137" id="eRg-eL-2vD"/>
                             <constraint firstItem="Fji-Ie-ZCc" firstAttribute="top" secondItem="FAx-ge-hY0" secondAttribute="bottom" id="ew0-3X-xRU"/>
                             <constraint firstItem="Fji-Ie-ZCc" firstAttribute="top" secondItem="G8l-vN-ple" secondAttribute="bottom" constant="49" id="hqN-Um-fuS"/>
                             <constraint firstItem="Fji-Ie-ZCc" firstAttribute="top" secondItem="G8l-vN-ple" secondAttribute="bottom" constant="49" id="jBa-h3-OUE"/>
@@ -233,6 +234,7 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="y6V-F7-fCa"/>
+                                <exclude reference="dXf-7e-sbY"/>
                                 <exclude reference="0x9-Mx-QPl"/>
                                 <exclude reference="VCr-oL-HAx"/>
                                 <exclude reference="jBa-h3-OUE"/>

@@ -18,25 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ici-Hb-Q8B">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GeM-kT-J7C">
-                                        <rect key="frame" x="129" y="215" width="62" height="51"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="51" id="Vvz-AI-wzU"/>
-                                            <constraint firstAttribute="width" constant="62" id="alY-kv-OEt"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="GeM-kT-J7C" firstAttribute="centerX" secondItem="Ici-Hb-Q8B" secondAttribute="centerX" id="05N-dc-ZzL"/>
-                                    <constraint firstItem="GeM-kT-J7C" firstAttribute="centerY" secondItem="Ici-Hb-Q8B" secondAttribute="centerY" id="PYb-kA-tDM"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TsJ-wM-cqY">
                                 <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,8 +55,23 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BjE-ek-d1M" id="OzT-GD-Rpv">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nS6-Ud-OFc">
+                                                    <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="nS6-Ud-OFc" secondAttribute="bottom" id="R9S-CD-Gzy"/>
+                                                <constraint firstAttribute="trailing" secondItem="nS6-Ud-OFc" secondAttribute="trailing" constant="10" id="h2E-91-zT5"/>
+                                                <constraint firstItem="nS6-Ud-OFc" firstAttribute="leading" secondItem="OzT-GD-Rpv" secondAttribute="leading" constant="10" id="hmZ-Wh-Owl"/>
+                                                <constraint firstItem="nS6-Ud-OFc" firstAttribute="top" secondItem="OzT-GD-Rpv" secondAttribute="top" id="k4o-zi-0vn"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="TopParentView" destination="OzT-GD-Rpv" id="YUW-GP-NjX"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ImageCell" id="xZB-GN-yaI">
                                         <rect key="frame" x="0.0" y="116" width="320" height="44"/>
@@ -184,6 +180,25 @@
                                     <outlet property="delegate" destination="lGv-w6-0Lb" id="Xpq-wX-pRz"/>
                                 </connections>
                             </tableView>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ici-Hb-Q8B">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GeM-kT-J7C">
+                                        <rect key="frame" x="129" y="215" width="62" height="51"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="51" id="Vvz-AI-wzU"/>
+                                            <constraint firstAttribute="width" constant="62" id="alY-kv-OEt"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="GeM-kT-J7C" firstAttribute="centerX" secondItem="Ici-Hb-Q8B" secondAttribute="centerX" id="05N-dc-ZzL"/>
+                                    <constraint firstItem="GeM-kT-J7C" firstAttribute="centerY" secondItem="Ici-Hb-Q8B" secondAttribute="centerY" id="PYb-kA-tDM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

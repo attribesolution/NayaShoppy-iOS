@@ -584,7 +584,7 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 - (void)setFrontViewController:(UIViewController *)frontViewController
 {
-    [self setFrontViewController:frontViewController animated:NO];
+    [self setFrontViewController:frontViewController animated:YES];
 }
 
 
@@ -645,7 +645,7 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 - (void)setFrontViewPosition:(FrontViewPosition)frontViewPosition
 {
-    [self setFrontViewPosition:frontViewPosition animated:NO];
+    [self setFrontViewPosition:frontViewPosition animated:YES];
 }
 
 
