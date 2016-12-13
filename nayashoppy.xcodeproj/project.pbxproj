@@ -132,6 +132,8 @@
 		CF9607CC1DDB255900899424 /* Features.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9607CB1DDB255900899424 /* Features.m */; };
 		CF9607CF1DDB261F00899424 /* FeaturesDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9607CE1DDB261F00899424 /* FeaturesDetail.m */; };
 		CF9EACAE1DE800FD003066FA /* ItemValue.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EACAD1DE800FD003066FA /* ItemValue.m */; };
+		CFA1B2881DFFE5CF009D40D0 /* EmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA1B2871DFFE5CF009D40D0 /* EmptyView.m */; };
+		CFA1B28A1DFFE5E7009D40D0 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFA1B2891DFFE5E7009D40D0 /* EmptyView.xib */; };
 		CFB5B5971DCC645600CBCB08 /* WishListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB5B5961DCC645600CBCB08 /* WishListCell.m */; };
 		CFB5B59A1DCC64C300CBCB08 /* WishListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB5B5991DCC64C300CBCB08 /* WishListViewController.m */; };
 		CFB5B59C1DCC6FE200CBCB08 /* icon_cross.png in Resources */ = {isa = PBXBuildFile; fileRef = CFB5B59B1DCC6FE200CBCB08 /* icon_cross.png */; };
@@ -370,6 +372,9 @@
 		CF9607CE1DDB261F00899424 /* FeaturesDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturesDetail.m; sourceTree = "<group>"; };
 		CF9EACAC1DE800FD003066FA /* ItemValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemValue.h; sourceTree = "<group>"; };
 		CF9EACAD1DE800FD003066FA /* ItemValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemValue.m; sourceTree = "<group>"; };
+		CFA1B2861DFFE5CF009D40D0 /* EmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyView.h; sourceTree = "<group>"; };
+		CFA1B2871DFFE5CF009D40D0 /* EmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyView.m; sourceTree = "<group>"; };
+		CFA1B2891DFFE5E7009D40D0 /* EmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		CFB5B5951DCC645600CBCB08 /* WishListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WishListCell.h; sourceTree = "<group>"; };
 		CFB5B5961DCC645600CBCB08 /* WishListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WishListCell.m; sourceTree = "<group>"; };
 		CFB5B5981DCC64C300CBCB08 /* WishListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WishListViewController.h; sourceTree = "<group>"; };
@@ -623,6 +628,7 @@
 		CF1E46801DC9D73B001B9D62 /* Model Class */ = {
 			isa = PBXGroup;
 			children = (
+				CFA1B28B1DFFE5F1009D40D0 /* EmptyView */,
 				CF66E1911DF839A9005BDD51 /* Reviews */,
 				CFF8A7681DC1C8E900FB633B /* CategorieClass */,
 			);
@@ -1083,6 +1089,16 @@
 			name = CategorieCollCell;
 			sourceTree = "<group>";
 		};
+		CFA1B28B1DFFE5F1009D40D0 /* EmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				CFA1B2891DFFE5E7009D40D0 /* EmptyView.xib */,
+				CFA1B2861DFFE5CF009D40D0 /* EmptyView.h */,
+				CFA1B2871DFFE5CF009D40D0 /* EmptyView.m */,
+			);
+			name = EmptyView;
+			sourceTree = "<group>";
+		};
 		CFB5B59D1DCC808B00CBCB08 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -1419,6 +1435,7 @@
 				CF13D0C71DD1963F00956076 /* CollectionCell.xib in Resources */,
 				CF6F2E241DC7681D0027FAD8 /* Categories.storyboard in Resources */,
 				CF13D0C81DD1963F00956076 /* TabelledCollectionCell.xib in Resources */,
+				CFA1B28A1DFFE5E7009D40D0 /* EmptyView.xib in Resources */,
 				CFDDAF891DA24AB900AFBF34 /* LaunchScreen.storyboard in Resources */,
 				CF90F71C1DC321B800C8AB2B /* TopMenuStoryboard.storyboard in Resources */,
 				CF86A4751DD5CB6200F2F57A /* SimilarProduct.storyboard in Resources */,
@@ -1625,6 +1642,7 @@
 				CF9EACAE1DE800FD003066FA /* ItemValue.m in Sources */,
 				CF60BFDA1DEC1B9000B746F5 /* FiltersVC.m in Sources */,
 				CF71F9C21DC0DB50004DDB9A /* NewArrivalViewCell.m in Sources */,
+				CFA1B2881DFFE5CF009D40D0 /* EmptyView.m in Sources */,
 				CFB5B59A1DCC64C300CBCB08 /* WishListViewController.m in Sources */,
 				CF607C5A1DB09E28004296F1 /* ApiParsing.m in Sources */,
 				CFC20F111DD9D0A30050E5B0 /* CollectionImages.m in Sources */,

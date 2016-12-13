@@ -14,11 +14,10 @@
                         <viewControllerLayoutGuide type="bottom" id="bM4-0O-rzO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RlR-ZK-Kcm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.88360053859999999" green="0.82225633259999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EpN-SG-nHM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

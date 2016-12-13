@@ -22,7 +22,7 @@
     [super viewDidLoad];
     [self navBar];
     [self addPagerView];
-   // [self EmptyUserDefaults];
+ // [self EmptyUserDefaults];
     [self UserDefaults];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
                                                  name:@"HideKeyboard" object:nil];
