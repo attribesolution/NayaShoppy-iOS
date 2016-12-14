@@ -32,6 +32,8 @@
     UINib *cell = [UINib nibWithNibName:@"checkCell" bundle:nil];
     [self.FilterDTable registerNib:cell forCellReuseIdentifier:@"check"];
     self.FilterDTable.hidden=YES;
+    self.ApplyFilter.hidden=YES;
+    self.ResetFilter.hidden=YES;
     filter=[[NSArray alloc]init];
     filtervalues=[[NSArray alloc]init];
     [self activityInd];
@@ -158,6 +160,8 @@
         filter=[items copy];
         [self.FilterNTable reloadData];
         [activityIndicatorView stopAnimating];
+        self.ResetFilter.hidden=NO;
+        self.ApplyFilter.hidden=NO;
         
     } failure:^(NSError *error, NSString *message) {
         NSLog(@"%@",error);

@@ -16,9 +16,10 @@
 #import "SimilarProductVC.h"
 
 
-@interface SpecificationsViewController : ViewPagerController <ViewPagerDataSource,ViewPagerDelegate> 
+@interface SpecificationsViewController : ViewPagerController <ViewPagerDataSource,ViewPagerDelegate>
 
 @property(strong,nonatomic) ViewPagerController *vp;
 @property(copy,nonatomic) NSString *title;
+
 
 @end

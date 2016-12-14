@@ -38,11 +38,13 @@ static NSString *specificationCell=@"SpecificationCell", *tableCell= @"SKSTableV
                                                  name:notification object:nil];
 }
 
+
 -(void)refreshView:(NSNotification *) notification {
     
     [self.myTable reloadData];
     if(obj.ProductDetails!=nil)
-     _contents = @[obj.ProductDetails];
+    {self.emptyview.hidden=YES;
+        _contents = @[obj.ProductDetails];}
 }
 
 #pragma mark - UITableViewDelegate
@@ -61,7 +63,9 @@ static NSString *specificationCell=@"SpecificationCell", *tableCell= @"SKSTableV
     if (!_contents && obj.ProductDetails!=nil)
     {
           _contents = @[obj.ProductDetails];
+        
     }
+    
     
     return _contents;
 }
@@ -134,7 +138,12 @@ static NSString *specificationCell=@"SpecificationCell", *tableCell= @"SKSTableV
 -(void)viewWillAppear:(BOOL)animated
 {
     [self.myTable deselectRowAtIndexPath:[self.myTable indexPathForSelectedRow] animated:NO];
-    [self.myTable setContentOffset:CGPointZero animated:NO];  
+    [self.myTable setContentOffset:CGPointZero animated:NO];
+    [super viewWillAppear:animated];
+    if(self.contents.count!=0)
+        self.emptyview.hidden=YES;
+    else
+        self.emptyview.hidden=NO;
 }
 
 @end

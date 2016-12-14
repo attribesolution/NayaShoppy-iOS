@@ -12,5 +12,8 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *NAimg;
 @property (strong, nonatomic) IBOutlet UILabel *NAProductName;
+@property (strong, nonatomic) IBOutlet UILabel *Price;
+@property (strong, nonatomic) IBOutlet UILabel *Discount;
+@property (strong, nonatomic) IBOutlet UILabel *Company;
 
 @end

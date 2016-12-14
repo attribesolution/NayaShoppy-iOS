@@ -76,9 +76,15 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
                                                 [weakCell setNeedsLayout];
                                                 
                                             } failure:nil];
+    CGSize textSize = [cobj.PName sizeWithAttributes:@{NSFontAttributeName:[cell.NAProductName font]}];
+    CGFloat strikeWidth = textSize.width;
+    CGFloat Dlines=(strikeWidth/cell.NAProductName.frame.size.width+1)*25+25;
+    
+    cell.NAProductName.frame=CGRectMake(cell.NAProductName.frame.origin.x,cell.NAProductName.frame.origin.y, cell.NAProductName.frame.size.width, Dlines);
 
-   // cell.NAimg.image= [[obj.newarrivalImg objectAtIndex:indexPath.row]objectAtIndex:0];
     [cell.NAProductName setText:cobj.PName];
+    [cell.Price setText:[[@"Rs " stringByAppendingString:cobj.Pprice ] stringByAppendingString:[[@" ( " stringByAppendingString:cobj.Discount ] stringByAppendingString:@" % OFF)"]]];
+   
    
     return cell;
     
@@ -93,7 +99,7 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-     return CGSizeMake(collectionView.frame.size.width/3-1, 109);
+     return CGSizeMake(collectionView.frame.size.width/2-1, 150);
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

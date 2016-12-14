@@ -91,7 +91,7 @@
     previouslabel.textColor = [UIColor blackColor];
     previouslabel.font=[UIFont systemFontOfSize:13];
     UILabel *currentlabel = (UILabel*)[viewPager.view viewWithTag:100+index];
-    currentlabel.font=[UIFont systemFontOfSize:14];
+    currentlabel.font=[UIFont systemFontOfSize:15];
     currentlabel.textColor = [GlobalVariables themeColor];
  
     self.lastSelectedTab = index;
@@ -101,7 +101,7 @@
     
     switch (option) {
         case ViewPagerOptionTabWidth:
-            return self.view.frame.size.width/2-20;
+            return self.view.frame.size.width/2-1;
         case ViewPagerOptionStartFromSecondTab:
             return 0.0;
         case ViewPagerOptionCenterCurrentTab:

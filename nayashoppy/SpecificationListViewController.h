@@ -18,5 +18,8 @@
 @interface SpecificationListViewController : UIViewController<SKSTableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet SKSTableView *myTable;
+@property (strong, nonatomic) IBOutlet UIView *emptyview;
+
+
 
 @end

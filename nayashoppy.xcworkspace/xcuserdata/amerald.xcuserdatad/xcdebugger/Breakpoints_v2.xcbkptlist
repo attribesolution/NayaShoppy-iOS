@@ -266,7 +266,7 @@
                   moduleName = "nayashoppy"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/amerald/Documents/mehreen/nayashoppy/nayashoppy/SignInVC.m"
-                  timestampString = "503310897.347742"
+                  timestampString = "503413108.416994"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "61"
@@ -281,7 +281,7 @@
                   moduleName = "nayashoppy"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/amerald/Documents/mehreen/nayashoppy/nayashoppy/SignInVC.m"
-                  timestampString = "503310897.347992"
+                  timestampString = "503413108.417251"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "61"
@@ -304,38 +304,6 @@
             startingLineNumber = "74"
             endingLineNumber = "74"
             landmarkName = "-FacebookSignIn:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "nayashoppy/EmptyView.m"
-            timestampString = "503310857.387222"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "-awakeFromNib"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "nayashoppy/EmptyView.m"
-            timestampString = "503310857.850323"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "-awakeFromNib"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

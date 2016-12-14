@@ -63,9 +63,7 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
     
     cobj=[obj.RecentlyViewed objectAtIndex:indexPath.row];
     NewArrivalViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:NewArrivalCell forIndexPath:indexPath];
-    
-//    NSData *imageData = cobj.ImgUrl;
-//    cell.NAimg.image= [UIImage imageWithData:imageData];
+
     NSURL *Url = [NSURL URLWithString:cobj.ImgUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:Url];
     UIImage *placeholderImage = [UIImage imageNamed:@"PlaceHolder"];
@@ -81,6 +79,8 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
                                    } failure:nil];
 
     cell.NAProductName.text=cobj.PName;
+    cell.Price.hidden=YES;
+    cell.Company.hidden=YES;
     
     return cell;
     
@@ -96,7 +96,7 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(collectionView.frame.size.width/3-1, 109);
+    return CGSizeMake(collectionView.frame.size.width/2-1, 109);
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {

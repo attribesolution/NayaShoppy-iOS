@@ -150,7 +150,7 @@ static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct"
        }
       
       Categories *sup=[cobj.Supliers objectAtIndex:indexPath.row];
-      cell.PRICE.text=[@"₹ " stringByAppendingString:sup.StorePrice];
+      cell.PRICE.text=[@"Rs " stringByAppendingString:sup.StorePrice];
       cell.Description.text=sup.StoreDelivery;
       cell.StoreButton.tag=indexPath.row;
       [cell.StoreButton addTarget:self action:@selector(openURL:) forControlEvents:UIControlEventTouchUpInside];

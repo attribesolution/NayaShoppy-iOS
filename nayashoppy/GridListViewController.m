@@ -114,7 +114,7 @@ Boolean showInGridView = false;
         Tcell.GridName.frame=CGRectMake(Tcell.GridName.frame.origin.x,Tcell.GridName.frame.origin.y, Tcell.GridName.frame.size.width, Dlines);
         
         Tcell.GridName.text=cobj.PName;
-        Tcell.Company.text=cobj.Pprice;
+        Tcell.Company.text=[@"₹ " stringByAppendingString:cobj.Pprice];
 
         NSURL *Url = [NSURL URLWithString:[self ImgUrl:indexPath.row]];
         NSURLRequest *request = [NSURLRequest requestWithURL:Url];
@@ -163,7 +163,7 @@ Boolean showInGridView = false;
         cell.ListItem.frame=CGRectMake(cell.ListItem.frame.origin.x,cell.ListItem.frame.origin.y, cell.ListItem.frame.size.width, Dlines);
         
         cell.ListItem.text=cobj.PName;
-        cell.LPrice.text=cobj.Pprice;
+        cell.LPrice.text=[@"Rs " stringByAppendingString:cobj.Pprice];
 
         NSURL *Url = [NSURL URLWithString:[self ImgUrl:indexPath.row]];
         NSURLRequest *request = [NSURLRequest requestWithURL:Url];

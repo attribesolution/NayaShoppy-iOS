@@ -8,13 +8,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NewArrivalViewCell" id="gTV-IL-0wX" customClass="NewArrivalViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="84" height="117"/>
+            <rect key="frame" x="0.0" y="0.0" width="120" height="165"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="84" height="117"/>
+                <rect key="frame" x="0.0" y="0.0" width="120" height="165"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FmQ-ns-VKO">
-                        <rect key="frame" x="23" y="8" width="38" height="37"/>
+                        <rect key="frame" x="41" y="8" width="38" height="37"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="37" id="q43-wl-6PI"/>
@@ -28,8 +28,20 @@
                         </variation>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdr-bY-sDm">
-                        <rect key="frame" x="8" y="56" width="68" height="14"/>
+                        <rect key="frame" x="8" y="56" width="104" height="14"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abN-xS-E4U">
+                        <rect key="frame" x="46" y="77" width="27" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amazon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjJ-B1-ENz">
+                        <rect key="frame" x="41" y="99" width="39" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -38,17 +50,21 @@
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="abN-xS-E4U" firstAttribute="centerX" secondItem="bdr-bY-sDm" secondAttribute="centerX" id="NUC-o7-FGJ"/>
                 <constraint firstItem="bdr-bY-sDm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="P9J-Bx-vWZ"/>
                 <constraint firstItem="bdr-bY-sDm" firstAttribute="top" secondItem="FmQ-ns-VKO" secondAttribute="bottom" constant="11" id="T15-GJ-AGd"/>
+                <constraint firstItem="NjJ-B1-ENz" firstAttribute="centerX" secondItem="bdr-bY-sDm" secondAttribute="centerX" id="TEF-0h-S8h"/>
                 <constraint firstAttribute="trailing" secondItem="bdr-bY-sDm" secondAttribute="trailing" constant="8" id="VxZ-OV-bjI"/>
                 <constraint firstItem="FmQ-ns-VKO" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Wfi-Tp-bVT"/>
                 <constraint firstItem="FmQ-ns-VKO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="14" id="Y5F-WP-sKa"/>
+                <constraint firstItem="abN-xS-E4U" firstAttribute="top" secondItem="bdr-bY-sDm" secondAttribute="bottom" constant="7" id="YrK-A2-SEH"/>
                 <constraint firstItem="FmQ-ns-VKO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="hLx-ek-9QA"/>
                 <constraint firstItem="FmQ-ns-VKO" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="kPt-ua-kZt"/>
                 <constraint firstItem="FmQ-ns-VKO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="14" id="lzw-RL-mIV"/>
                 <constraint firstItem="FmQ-ns-VKO" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="tlw-RD-rnY"/>
+                <constraint firstItem="NjJ-B1-ENz" firstAttribute="top" secondItem="abN-xS-E4U" secondAttribute="bottom" constant="10" id="xlN-gq-qip"/>
             </constraints>
-            <size key="customSize" width="84" height="117"/>
+            <size key="customSize" width="120" height="165"/>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="Y5F-WP-sKa"/>
@@ -58,10 +74,12 @@
                 </mask>
             </variation>
             <connections>
+                <outlet property="Company" destination="NjJ-B1-ENz" id="BO8-Qt-1Wq"/>
                 <outlet property="NAProductName" destination="bdr-bY-sDm" id="JzU-QF-qtq"/>
                 <outlet property="NAimg" destination="FmQ-ns-VKO" id="OSx-QZ-brk"/>
+                <outlet property="Price" destination="abN-xS-E4U" id="kIw-X4-0Sr"/>
             </connections>
-            <point key="canvasLocation" x="324" y="165.5"/>
+            <point key="canvasLocation" x="342" y="189.5"/>
         </collectionViewCell>
     </objects>
 </document>

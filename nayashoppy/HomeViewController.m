@@ -63,7 +63,7 @@ static NSString *CouponsCell = @"CouponsCollectionViewCell", *CouponsLabelTitle=
     if(indexPath.row==3)
        return 90;
     if(indexPath.row==5)
-        return 120;
+        return 150;
     if(indexPath.row==7)
         return  109;
     else

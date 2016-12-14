@@ -244,11 +244,11 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="ApplyFilter" destination="Vvy-Iv-kdu" id="su3-Ba-Jh8"/>
+                        <outlet property="ApplyFilter" destination="Vvy-Iv-kdu" id="AOC-Ps-2i1"/>
                         <outlet property="FilterDTable" destination="G8l-vN-ple" id="c1B-tD-W51"/>
                         <outlet property="FilterNTable" destination="w3g-uZ-34T" id="N6T-is-VhP"/>
                         <outlet property="Laoder" destination="mfj-Ru-RIj" id="8cD-h9-PTL"/>
-                        <outlet property="ResetFilter" destination="Kfc-aw-LZ6" id="2FB-zm-YBD"/>
+                        <outlet property="ResetFilter" destination="Kfc-aw-LZ6" id="6YD-wr-9Zu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cnx-st-KYC" userLabel="First Responder" sceneMemberID="firstResponder"/>
