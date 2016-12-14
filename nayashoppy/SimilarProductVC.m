@@ -9,6 +9,8 @@
 #import "SimilarProductVC.h"
 #import "ShareUtility.h"
 
+static NSString *similarPCell=@"SimilarPCVCell", *similarProduct=@"SimilarProducts" ,*placeHolderImg=@"PlaceHolder",*wishIcon=@"WishIcon" ,*notification=@"refreshTable";
+
 @interface SimilarProductVC ()
 {
     MenuData *obj;
@@ -31,7 +33,7 @@
     obj.Similarproductimg=nil;
     obj.Similarproducts=nil;
     [super viewWillAppear:animated];
-    [self.SimilarPcollView registerNib:[UINib nibWithNibName:@"SimilarPCVCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"SimilarPCVCell"];
+    [self.SimilarPcollView registerNib:[UINib nibWithNibName:similarPCell bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:similarPCell];
     self.SimilarPcollView.backgroundColor=[UIColor clearColor];
     ApiParsing * mainVC = [[ApiParsing alloc] init];
     
@@ -55,7 +57,7 @@
 {
     obj.index=[NSNumber numberWithInteger:indexPath.row];
     cobj=[obj.Similarproducts objectAtIndex:indexPath.row];
-    obj.PType=@"SimilarProducts";
+    obj.PType=similarProduct;
     obj.PCatId=cobj.PcatId;
     obj.PPrice=cobj.Pprice;
     obj.slug=cobj.Pslug;
@@ -68,13 +70,13 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     BOOL find=NO;
-    cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"SimilarPCVCell" forIndexPath:indexPath];
+    cell=[collectionView dequeueReusableCellWithReuseIdentifier:similarPCell forIndexPath:indexPath];
     cobj=[obj.Similarproducts objectAtIndex:indexPath.row];
     cell.backgroundColor=[UIColor clearColor];
 
     NSURL *Url = [NSURL URLWithString:[[obj.Similarproductimg objectAtIndex:indexPath.row]objectAtIndex:0]];
     NSURLRequest *request = [NSURLRequest requestWithURL:Url];
-    UIImage *placeholderImage = [UIImage imageNamed:@"PlaceHolder"];
+    UIImage *placeholderImage = [UIImage imageNamed:placeHolderImg];
     
     __weak SimilarPCVCell *weakCell = cell;
     
@@ -85,7 +87,7 @@
                                        [weakCell setNeedsLayout];
                                        
                                    } failure:nil];
-    UIImage *image = [[UIImage imageNamed:@"WishIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *image = [[UIImage imageNamed:wishIcon] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [cell.WishIcon setImage:image forState:UIControlStateNormal];
     for (int d=0; d<myProducts.count; d++) {
         
@@ -136,7 +138,7 @@
         
         obj.ProductDetails=[respone copy];
         obj.GernalFeatures=[generalFeatures copy];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:notification object:nil];
         
     } failure:^(NSError *error, NSString *message) {
         NSLog(@"%@",error);

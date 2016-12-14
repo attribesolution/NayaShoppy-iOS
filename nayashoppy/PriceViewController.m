@@ -9,15 +9,16 @@
 #import "PriceViewController.h"
 #import "ShareUtility.h"
 
-@interface PriceViewController ()
+static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct" ,*SProduct=@"SimilarProducts" ,*newArrivals=@"NewArrivals", *Pproduct=@"PopularProducts" , * AProduct=@"AllProducts" , *ImgNib=@"CollectionImages" ,*imgCell=@"BannerImagesVC",*rcell=@"ReviewCell",*SimPro=@"Sproduct" , *store=@"Stores" ,*specification= @"SpecificationButtonCell" , *specficCell=@"SpecificationCell", *spLabelCell=@"Specification", *storeCell=@"StoreCell" , *imageCell=@"ImageCell" , *detailCell=@"Detail" , *detailnib=@"DetailCell";
 
+@interface PriceViewController ()
 {
     NSString *Pimg;
     MenuData *obj;
     Categories *cobj;
     ImageCell *imgcell;
-
 }
+
 @property(strong,nonatomic) SimilarProductVC *sproduct;
 @property (strong, nonatomic) SpecificationListViewController *cvc;
 @end
@@ -33,7 +34,7 @@
     [self Parsedetails];
     [self recentlyViewed];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
-                                                 name:@"refreshTable" object:nil];
+                                                 name:notification object:nil];
 }
 
 -(void)refreshView:(NSNotification *) notification {
@@ -91,7 +92,7 @@
     find=NO;
     if(indexPath.section==0)
     {
-    imgcell = (ImageCell*)[tableView dequeueReusableCellWithIdentifier:@"ImageCell" forIndexPath:indexPath];
+    imgcell = (ImageCell*)[tableView dequeueReusableCellWithIdentifier:imageCell forIndexPath:indexPath];
         
         self.imgcv.view.frame =imgcell.ImgCollView.bounds;
         [imgcell.ImgCollView addSubview:self.imgcv.view];
@@ -119,12 +120,10 @@
  
     if (indexPath.section==1)
     {
-        static NSString *simpleTableIdentifier = @"Detail";
-        
-        DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:detailCell];
         if (cell == nil)
         {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"DetailCell" owner:self options:  nil];
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:detailnib owner:self options:  nil];
             cell = [nib objectAtIndex:0];
         }
         cell.priceLabel.textColor=[[GlobalVariables class] themeColor];
@@ -142,12 +141,11 @@
     
    if (indexPath.section==3) {
         
-     static NSString *simpleTableIdentifier = @"StoreCell";
    
-     StoreCell *cell = (StoreCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+     StoreCell *cell = (StoreCell *)[tableView dequeueReusableCellWithIdentifier:storeCell];
       if (cell == nil)
       {
-         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"StoreCell" owner:self options:  nil];
+         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:storeCell owner:self options:  nil];
          cell = [nib objectAtIndex:0];
        }
       
@@ -162,12 +160,11 @@
     
     if (indexPath.section==4)
     {
-        static NSString *simpleTableIdentifier = @"Specification";
         
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:spLabelCell];
         
         if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:spLabelCell];
         }
         
         return cell;
@@ -175,31 +172,25 @@
 
     if(indexPath.section==5)
     {
-        static NSString *simpleTableIdentifier = @"SpecificationCell";
         
-        SpecificationCell *cell = (SpecificationCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        SpecificationCell *cell = (SpecificationCell *)[tableView dequeueReusableCellWithIdentifier:specficCell];
         if (cell == nil)
         {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SpecificationCell" owner:self options:  nil];
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:specficCell owner:self options:  nil];
             cell = [nib objectAtIndex:0];
         }
         Categories *sobj=[obj.GernalFeatures objectAtIndex:indexPath.row];
         cell.name.text = sobj.featurename;
         cell.value.text=sobj.featurevalue;
-      //  cell.name.attributedText
         return cell;
-        
-    }
-  
+ }
     
     if (indexPath.section==6) {
         
-        static NSString *simpleTableIdentifier = @"SpecificationButtonCell";
-        
-        SpecificationButtonCell *cell = (SpecificationButtonCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        SpecificationButtonCell *cell = (SpecificationButtonCell *)[tableView dequeueReusableCellWithIdentifier:specification];
         if (cell == nil)
         {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SpecificationButtonCell" owner:self options:nil];
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:specification owner:self options:nil];
             cell = [nib objectAtIndex:0];
         }
         [cell.SpecificationButton addTarget:self action:@selector(GoToSpecifications:) forControlEvents:UIControlEventTouchUpInside];
@@ -210,24 +201,21 @@
 
     if (indexPath.section==7) {
         
-        static NSString *simpleTableIdentifier = @"ReviewCell";
-        
-        ReviewCell *cell = (ReviewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        ReviewCell *cell = (ReviewCell *)[tableView dequeueReusableCellWithIdentifier:rcell];
         if (cell == nil)
         {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ReviewCell" owner:self options:  nil];
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:rcell owner:self options:  nil];
             cell = [nib objectAtIndex:0];
         }
         return cell;
     }
     
      if (indexPath.section==8) {
-         static NSString *simpleTableIdentifier = @"Sproduct";
          
-         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SimPro];
          
          if (cell == nil) {
-             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:SimPro];
          }
          
          return cell;
@@ -235,7 +223,7 @@
    
     if (indexPath.section==9)
    {
-        SimilarProductsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SimilarProduct" forIndexPath:indexPath];
+        SimilarProductsCell *cell = [tableView dequeueReusableCellWithIdentifier:SimilarProduct forIndexPath:indexPath];
         self.sproduct.view.frame = cell.SimilarProductView.bounds;
         self.sproduct.XYZDelegate = (SpecificationsViewController *
                                 )[self.navigationController topViewController];
@@ -244,12 +232,11 @@
     }
     else
     {
-    static NSString *simpleTableIdentifier = @"Stores";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:store];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:store];
     }
         
     return cell;
@@ -289,34 +276,34 @@
 
 -(void) Parsedetails
 {
-    UIStoryboard *coupons=[UIStoryboard storyboardWithName:@"SimilarProduct" bundle:nil];
-    self.sproduct = [coupons instantiateViewControllerWithIdentifier:@"SimilarProduct"];
-    UIStoryboard *img=[UIStoryboard storyboardWithName:@"CollectionImages" bundle:nil];
-    self.imgcv = [img instantiateViewControllerWithIdentifier:@"BannerImagesVC"];
+    UIStoryboard *coupons=[UIStoryboard storyboardWithName:SimilarProduct bundle:nil];
+    self.sproduct = [coupons instantiateViewControllerWithIdentifier:SimilarProduct];
+    UIStoryboard *img=[UIStoryboard storyboardWithName:ImgNib bundle:nil];
+    self.imgcv = [img instantiateViewControllerWithIdentifier:imgCell];
     [self addChildViewController:self.imgcv];
     [self.imgcv didMoveToParentViewController:self];
 }
 
 -(void) arrayObject
 {
-    if([obj.PType isEqualToString:@"AllProducts"])
+    if([obj.PType isEqualToString:AProduct])
     {
         cobj=[obj.allproducts objectAtIndex:[obj.index integerValue]];
         Pimg=[[obj.allproductimg objectAtIndex:[obj.index integerValue]]objectAtIndex:0];
     }
-    else if([obj.PType isEqualToString:@"PopularProducts"])
+    else if([obj.PType isEqualToString:Pproduct])
     {
         cobj=[obj.popularproducts objectAtIndex:[obj.index integerValue]];
         Pimg=[[obj.popularproductimg objectAtIndex:[obj.index integerValue]]objectAtIndex:0];
     }
 
-    else if([obj.PType isEqualToString:@"NewArrivals"])
+    else if([obj.PType isEqualToString:newArrivals])
     {
         cobj=[obj.newarrival objectAtIndex:[obj.index integerValue]];
         Pimg=[[obj.newarrivalImg objectAtIndex:[obj.index integerValue]]objectAtIndex:0];
 
     }
-    if([obj.PType isEqualToString:@"SimilarProducts"])
+    if([obj.PType isEqualToString:SProduct])
     {
         cobj=[obj.Similarproducts objectAtIndex:[obj.index integerValue]];
         Pimg=[[obj.Similarproductimg objectAtIndex:[obj.index integerValue]]objectAtIndex:0];
@@ -348,7 +335,7 @@
     {
     Categories *rcobj=[[Categories alloc]initWithName:cobj.PName andPrice:cobj.Pprice andImg:Pimg andCatId:obj.PCatId andSlug:obj.slug andType:obj.PType andIndex:obj.index];
     [obj.RecentlyViewed addObject:rcobj];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:notification object:nil];
     }
 }
 

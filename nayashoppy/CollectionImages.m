@@ -8,6 +8,7 @@
 //
 
 #import "CollectionImages.h"
+static NSString *allproduct=@"AllProducts", *SimilarProduct=@"SimilarProducts",*newArrivals=@"NewArrivals",*cellId=@"ImageCell",*cellNib=@"ImageCVcell", *PlaceHolderImg=@"PlaceHolder";
 
 @interface CollectionImages ()
 {
@@ -22,7 +23,7 @@
     [super viewDidLoad];
     
     obj=[MenuData Items];
-    [self.ImgCView registerNib:[UINib nibWithNibName:@"ImageCVcell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ImageCell"];
+    [self.ImgCView registerNib:[UINib nibWithNibName:cellNib bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:cellId];
    
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -32,17 +33,17 @@
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     NSArray *imgArray;
-   if([obj.PType isEqualToString:@"AllProducts"])
+   if([obj.PType isEqualToString:allproduct])
    {
        imgArray=[obj.allproductimg objectAtIndex:[obj.index integerValue]];
        
    }
-   else if([obj.PType isEqualToString:@"SimilarProducts"])
+   else if([obj.PType isEqualToString:SimilarProduct])
    {
       imgArray=[obj.Similarproductimg objectAtIndex:[obj.index integerValue]];
       
    }
-   else if([obj.PType isEqualToString:@"NewArrivals"])
+   else if([obj.PType isEqualToString:newArrivals])
    {
        imgArray=[obj.newarrivalImg objectAtIndex:[obj.index integerValue]];
    }
@@ -59,30 +60,21 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 
-    ImageCVcell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
-//    cell.backgroundColor=[UIColor clearColor];
-//    if([obj.PType isEqualToString:@"AllProducts"])
-//    cell.image.image=[[obj.allproductimg objectAtIndex:[obj.index integerValue]]objectAtIndex:indexPath.row];
-//    else if([obj.PType isEqualToString:@"SimilarProducts"])
-//    cell.image.image=[[obj.Similarproductimg objectAtIndex:[obj.index integerValue]]objectAtIndex:indexPath.row];
-//    else if([obj.PType isEqualToString:@"NewArrivals"])
-//        cell.image.image=[[obj.newarrivalImg objectAtIndex:[obj.index integerValue]]objectAtIndex:indexPath.row];
-//    else
-//    cell.image.image=[[obj.popularproductimg  objectAtIndex:[obj.index integerValue]]objectAtIndex:indexPath.row];
+    ImageCVcell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     
     cell.backgroundColor=[UIColor clearColor];
-    if([obj.PType isEqualToString:@"AllProducts"])
+    if([obj.PType isEqualToString:allproduct])
         imgurl=[[obj.allproductimg objectAtIndex:[obj.index integerValue]]objectAtIndex:indexPath.row];
-    else if([obj.PType isEqualToString:@"SimilarProducts"])
+    else if([obj.PType isEqualToString:SimilarProduct])
         imgurl=[[obj.Similarproductimg objectAtIndex:[obj.index integerValue]]objectAtIndex:indexPath.row];
-    else if([obj.PType isEqualToString:@"NewArrivals"])
+    else if([obj.PType isEqualToString:newArrivals])
         imgurl=[[obj.newarrivalImg objectAtIndex:[obj.index integerValue]]objectAtIndex:indexPath.row];
     else
        imgurl=[[obj.popularproductimg  objectAtIndex:[obj.index integerValue]]objectAtIndex:indexPath.row];
     
     NSURL *Url = [NSURL URLWithString:imgurl];
     NSURLRequest *request = [NSURLRequest requestWithURL:Url];
-    UIImage *placeholderImage = [UIImage imageNamed:@"PlaceHolder"];
+    UIImage *placeholderImage = [UIImage imageNamed:PlaceHolderImg];
     
     __weak ImageCVcell *weakCell = cell;
     

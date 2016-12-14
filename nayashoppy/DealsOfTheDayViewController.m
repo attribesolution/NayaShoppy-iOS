@@ -9,7 +9,8 @@
 #import "DealsOfTheDayViewController.h"
 #import "ShareUtility.h"
 
-static NSString *dealsCell = @"DealCell";
+static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" , *refreshNotification=@"refreshDealsCV", *specificationSB=@"Specifications" , *placeholder=@"PlaceHolder", *dealsCellNib=@"DealsCell";
+
 @interface DealsOfTheDayViewController ()
 {
     MenuData *ob;
@@ -32,7 +33,7 @@ static NSString *dealsCell = @"DealCell";
     //  self.DealsOfTheDayCV.backgroundColor=[UIColor whiteColor];
     [self gesture];
    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshDealsCV:)
-                                                 name:@"refreshDealsCV" object:nil];
+                                                 name:refreshNotification object:nil];
       }
 
 -(void)refreshDealsCV:(NSNotification *) notification{
@@ -42,11 +43,11 @@ static NSString *dealsCell = @"DealCell";
 
 -(void)viewWillAppear:(BOOL)animated{
     
-    [self.DealsOfTheDayCV registerNib:[UINib nibWithNibName:@"DealsCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:dealsCell];
+    [self.DealsOfTheDayCV registerNib:[UINib nibWithNibName:dealsCellNib bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:dealsCell];
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-   
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)sectio
+{
     return ob.newarrival.count;// ob.DealsOfTheDay.count;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -57,8 +58,8 @@ static NSString *dealsCell = @"DealCell";
     ob.PCatId=cobj.PcatId;
     ob.PPrice=cobj.Pprice;
     ob.slug=cobj.Pslug;
-    UIStoryboard *specifications=[UIStoryboard storyboardWithName:@"Specifications" bundle:nil];
-    SpecificationsViewController *dvc = [specifications instantiateViewControllerWithIdentifier:@"Specifications"];
+    UIStoryboard *specifications=[UIStoryboard storyboardWithName:specificationSB bundle:nil];
+    SpecificationsViewController *dvc = [specifications instantiateViewControllerWithIdentifier:specificationSB];
     dvc.title=cobj.PName;
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.navController pushViewController:dvc animated:YES];
@@ -78,7 +79,7 @@ static NSString *dealsCell = @"DealCell";
     Pimg=[[ob.newarrivalImg objectAtIndex:indexPath.row]objectAtIndex:0];
     NSURL *Url = [NSURL URLWithString:Pimg];
     NSURLRequest *request = [NSURLRequest requestWithURL:Url];
-    UIImage *placeholderImage = [UIImage imageNamed:@"PlaceHolder"];
+    UIImage *placeholderImage = [UIImage imageNamed:placeholder];
     
     
     __weak DealsCell *weakCell = cell;
@@ -137,7 +138,7 @@ static NSString *dealsCell = @"DealCell";
 }
 - (void)didTapAnywhere:(UITapGestureRecognizer *) sender
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"HideKeyboard" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:keyboardNotification object:nil];
     [self.view endEditing:YES];
 }
 
@@ -159,6 +160,11 @@ static NSString *dealsCell = @"DealCell";
 {
     Categories *sup=[cobj.Supliers objectAtIndex:sender.tag];
     [[ShareUtility class]shareObject:@[sup.StoreUrl]];
+}
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:keyboardNotification object:nil];
 }
 
 @end

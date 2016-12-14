@@ -754,11 +754,10 @@
 		CF60D29B1DD48DEC00D6EFBE /* price */ = {
 			isa = PBXGroup;
 			children = (
+				CF60D29C1DD48E0A00D6EFBE /* Price.storyboard */,
 				CF60D29E1DD48E1C00D6EFBE /* PriceViewController.h */,
 				CF60D29F1DD48E1C00D6EFBE /* PriceViewController.m */,
 				CF86A44D1DD5A27A00F2F57A /* PriceTabCells */,
-				CF60D2A71DD49F7200D6EFBE /* ImageCell */,
-				CF86A4641DD5C68900F2F57A /* Similar Products */,
 			);
 			name = price;
 			sourceTree = "<group>";
@@ -920,6 +919,8 @@
 		CF86A44D1DD5A27A00F2F57A /* PriceTabCells */ = {
 			isa = PBXGroup;
 			children = (
+				CF86A4641DD5C68900F2F57A /* Similar Products */,
+				CF60D2A71DD49F7200D6EFBE /* ImageCell */,
 				CF86A4631DD5BC1900F2F57A /* ReviewCell */,
 				CF1143291DE6CDDD00751423 /* SpecificationButtonCell */,
 				CF86A4581DD5B11300F2F57A /* Specifications */,
@@ -1170,7 +1171,6 @@
 			isa = PBXGroup;
 			children = (
 				CF60D2A41DD4924600D6EFBE /* ImageCell.h */,
-				CF60D29C1DD48E0A00D6EFBE /* Price.storyboard */,
 				CF60D2A51DD4924600D6EFBE /* ImageCell.m */,
 			);
 			name = "Image Cell";

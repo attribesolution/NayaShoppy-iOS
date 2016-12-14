@@ -11,6 +11,8 @@
 #import "UserReviews.h"
 #import "UIView+Toast.h"
 
+static NSString *reviewNib= @"ReviewsCell" , *reviewcell=@"Review",*toastmsg=@"Please Sign In first to write your reviews";
+
 @interface ReviewViewController ()
 {
     CGRect oldFrame;
@@ -27,7 +29,7 @@
     {
       _ReviewView.hidden=YES;
       _ReviewTextField.hidden=YES;
-      [self.view makeToast:@"Please Sign In first to write your reviews"];
+      [self.view makeToast:toastmsg];
     }
     myreview=[[NSMutableArray alloc]init];
     [super viewDidLoad];
@@ -60,12 +62,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"Review";
-    
-    ReviewsCell *cell = (ReviewsCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    ReviewsCell *cell = (ReviewsCell *)[tableView dequeueReusableCellWithIdentifier:reviewcell];
     if (cell == nil)
     {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ReviewsCell" owner:self options:nil];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:reviewNib owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
     UserReviews *urobj=[myreview objectAtIndex:indexPath.row];

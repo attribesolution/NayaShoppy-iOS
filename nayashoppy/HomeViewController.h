@@ -21,13 +21,12 @@
 #import "DGActivityIndicatorView.h"
 
 @interface HomeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
-@property (strong, nonatomic) IBOutlet UIView *Loader;
 
+@property (strong, nonatomic) IBOutlet UIView *Loader;
 @property (strong, nonatomic) IBOutlet UIView *LoadingView;
 @property (strong, nonatomic) IBOutlet UITableView *myTable;
 @property (strong, nonatomic)  CouponsVC *collectionCont;
 @property (strong, nonatomic)  TopMenuVc *topmenu;
-
 @property (strong, nonatomic)  NewArrivalVC *newarrival;
 @property (strong, nonatomic)  RecetVC *recent;
 @end

@@ -10,6 +10,8 @@
 #import "SpecificationsViewController.h"
 #import "FiltersVC.h"
 
+static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"SpecificationList";
+
 @interface SpecificationsViewController ()<ReloadSpecificationView,GoToSpecificationList>
 {
     NSMutableArray *tabItem;
@@ -26,24 +28,11 @@
 @synthesize title;
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-   
-    
     obj=[MenuData Items];
-    
-    tabItem=[[NSMutableArray alloc]initWithObjects:@"PRICES",@"SPECIFICATIONS", @"REVIEWS",nil];
-    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
-    tapRecognizer.cancelsTouchesInView = NO;
-    [self.view addGestureRecognizer:tapRecognizer];
-    self.dataSource = self;
-    self.delegate = self;
-    [self selectTabAtIndex:0];
-    self.lastSelectedTab = 0;
-    
-    CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    self.navigationItem.titleView =[[GlobalVariables class] titleView:self.title andImg:@"Logo" andy:logoY] ;
-    
-    
+    [self setTab];
+    [self nav];  
 }
 
 
@@ -56,8 +45,8 @@
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index {
     if(index==0)
     {
-        UIStoryboard *price=[UIStoryboard storyboardWithName:@"Price" bundle:nil];
-        cvc = [price instantiateViewControllerWithIdentifier:@"Price"];
+        UIStoryboard *price=[UIStoryboard storyboardWithName:pricecell bundle:nil];
+        cvc = [price instantiateViewControllerWithIdentifier:pricecell];
         [self myvc:cvc];
         cvc.ShowListDelegate=self;
         return cvc;
@@ -65,15 +54,15 @@
     }
      if(index==1)
     {
-        UIStoryboard *specification=[UIStoryboard storyboardWithName:@"SpecificationList" bundle:nil];
-        svc = [specification instantiateViewControllerWithIdentifier:@"SpecificationList"];
+        UIStoryboard *specification=[UIStoryboard storyboardWithName:spListCell bundle:nil];
+        svc = [specification instantiateViewControllerWithIdentifier:spListCell];
         [self myvc:svc];
         return svc;
     }
      else {
          
-         UIStoryboard *reviews=[UIStoryboard storyboardWithName:@"Review" bundle:nil];
-         ReviewViewController *rvc = [reviews instantiateViewControllerWithIdentifier:@"Review"];
+         UIStoryboard *reviews=[UIStoryboard storyboardWithName:reviewcell bundle:nil];
+         ReviewViewController *rvc = [reviews instantiateViewControllerWithIdentifier:reviewcell];
          [self myvc:rvc];
          return rvc;
      }
@@ -139,10 +128,41 @@
      .panGestureRecognizer];
     [vc.view addGestureRecognizer:revealController.tapGestureRecognizer];
 }
+
+-(void) addTabGesture
+{
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
+    tapRecognizer.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapRecognizer];
+
+}
+
 - (void)didTapAnywhere:(UITapGestureRecognizer *) sender
 {
     [self.view endEditing:YES];
 }
+
+-(void)showList
+{
+    [self selectTabAtIndex:[obj.tabindex integerValue]];
+    
+}
+
+-(void) nav
+{
+    CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
+    self.navigationItem.titleView =[[GlobalVariables class] titleView:self.title andImg:@"Logo" andy:logoY] ;
+}
+
+-(void) setTab
+{
+    tabItem=[[NSMutableArray alloc]initWithObjects:@"PRICES",@"SPECIFICATIONS", @"REVIEWS",nil];
+    self.dataSource = self;
+    self.delegate = self;
+    [self selectTabAtIndex:0];
+    self.lastSelectedTab = 0;
+}
+
 #pragma mark - ReloadSpecificationView Delegate methods
 
 -(void)ReloadView{
@@ -153,9 +173,5 @@
     [cvc refreshTableView];
 
 }
--(void)showList
-{
-    [self selectTabAtIndex:[obj.tabindex integerValue]];
 
-}
 @end

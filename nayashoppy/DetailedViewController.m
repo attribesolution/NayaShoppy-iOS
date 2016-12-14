@@ -78,7 +78,7 @@
     label.text = [tabItem objectAtIndex:index];
     [label autoresizingMask];
     [label sizeToFit];
-    label.font=[UIFont systemFontOfSize:15];
+    label.font=[UIFont systemFontOfSize:13];
     label.textColor=[UIColor blackColor];
     label.textAlignment=NSTextAlignmentCenter;
     label.tag=100+index;
@@ -89,8 +89,9 @@
     
     UILabel *previouslabel = (UILabel*)[viewPager.view viewWithTag:100+self.lastSelectedTab];
     previouslabel.textColor = [UIColor blackColor];
-
+    previouslabel.font=[UIFont systemFontOfSize:13];
     UILabel *currentlabel = (UILabel*)[viewPager.view viewWithTag:100+index];
+    currentlabel.font=[UIFont systemFontOfSize:14];
     currentlabel.textColor = [GlobalVariables themeColor];
  
     self.lastSelectedTab = index;
@@ -100,11 +101,11 @@
     
     switch (option) {
         case ViewPagerOptionTabWidth:
-            return self.view.frame.size.width/2-1;
+            return self.view.frame.size.width/2-20;
         case ViewPagerOptionStartFromSecondTab:
             return 0.0;
         case ViewPagerOptionCenterCurrentTab:
-            return 0.0;
+            return 1.0;
         case ViewPagerOptionTabLocation:
             return 1.0;
         default:

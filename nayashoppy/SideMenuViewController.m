@@ -10,7 +10,7 @@
 #import "SideMenuViewController.h"
 #import <Crashlytics/Crashlytics.h>
 
-static NSString *SideMenuCell =@"SideMenu";
+static NSString *SideMenuCell =@"SideMenu" , *placeholder=@"PlaceHolder", *refreshview=@"refreshView" , *detailview=@"DetailView" ,*DetailviewCell=@"Detail";
 @interface SideMenuViewController ()
 {
     MenuData *obj;
@@ -24,11 +24,9 @@ static NSString *SideMenuCell =@"SideMenu";
     
     [super viewDidLoad];
     obj=[MenuData Items];
-    CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    self.navigationItem.titleView=[[GlobalVariables class]titleView:@"My User" andImg:@"UserIcon" andy:logoY+10];
-    self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
+    [self nav];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
-                                                 name:@"refreshView" object:nil];
+                                                 name:refreshview object:nil];
 }
 
 -(void)refreshView:(NSNotification *) notification {
@@ -58,8 +56,8 @@ static NSString *SideMenuCell =@"SideMenu";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIStoryboard *deals=[UIStoryboard storyboardWithName:@"DetailView" bundle:nil];
-    DetailedViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"Detail"];
+    UIStoryboard *deals=[UIStoryboard storyboardWithName:detailview bundle:nil];
+    DetailedViewController *dvc = [deals instantiateViewControllerWithIdentifier:DetailviewCell];
     SWRevealViewController *sv=self.revealViewController;
     [sv revealToggle:self];
      
@@ -86,7 +84,7 @@ static NSString *SideMenuCell =@"SideMenu";
     
     NSURL *Url = [NSURL URLWithString:currentCat.ImgUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:Url];
-    UIImage *placeholderImage = [UIImage imageNamed:@"PlaceHolder"];
+    UIImage *placeholderImage = [UIImage imageNamed:placeholder];
     
     __weak SideMenu *weakCell = cell;
     
@@ -101,6 +99,12 @@ static NSString *SideMenuCell =@"SideMenu";
     return cell;
 }
 
+-(void) nav
+{
+    CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
+    self.navigationItem.titleView=[[GlobalVariables class]titleView:@"My User" andImg:@"UserIcon" andy:logoY+10];
+    self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
+}
 -(void)viewWillDisappear:(BOOL)animated
 {
     [self.sidetable deselectRowAtIndexPath:[self.sidetable indexPathForSelectedRow] animated:NO];

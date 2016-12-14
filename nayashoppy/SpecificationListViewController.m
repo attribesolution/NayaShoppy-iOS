@@ -10,6 +10,8 @@
 
 #import "SpecificationListViewController.h"
 
+static NSString *specificationCell=@"SpecificationCell", *tableCell= @"SKSTableViewCell", *notification=@"refreshTable";
+
 @interface SpecificationListViewController ()
 {
     NSNumber *index;
@@ -26,23 +28,22 @@
 @synthesize myTable;
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     obj=[MenuData Items];
     self.myTable.frame=CGRectMake(0, 50, 0, 0);
     self.myTable.SKSTableViewDelegate = self;
-
     self.navigationController.navigationItem.backBarButtonItem.title = @" ";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
-                                                 name:@"refreshTable" object:nil];
+                                                 name:notification object:nil];
 }
+
 -(void)refreshView:(NSNotification *) notification {
     
     [self.myTable reloadData];
     if(obj.ProductDetails!=nil)
      _contents = @[obj.ProductDetails];
 }
-
-
 
 #pragma mark - UITableViewDelegate
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -54,14 +55,12 @@
     return self;
 }
 
-
 - (NSArray *)contents
 {
     
     if (!_contents && obj.ProductDetails!=nil)
     {
           _contents = @[obj.ProductDetails];
-        
     }
     
     return _contents;
@@ -94,12 +93,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"SKSTableViewCell";
-    
-    SKSTableViewCell *cell = [myTable dequeueReusableCellWithIdentifier:CellIdentifier];
+    SKSTableViewCell *cell = [myTable dequeueReusableCellWithIdentifier:tableCell];
     
     if (!cell)
-        cell = [[SKSTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[SKSTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tableCell];
     cell.backgroundColor=[UIColor whiteColor];
     cell.textLabel.textColor=[UIColor blackColor];
     cell.textLabel.text = self.contents[indexPath.section][indexPath.row][0];
@@ -109,13 +106,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForSubRowAtIndexPath:(NSIndexPath *)indexPath
 {
-     
-    static NSString *simpleTableIdentifier = @"SpecificationCell";
     
-    SpecificationCell *cell = (SpecificationCell *)[myTable dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    SpecificationCell *cell = (SpecificationCell *)[myTable dequeueReusableCellWithIdentifier:specificationCell];
     if (cell == nil)
     {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SpecificationCell" owner:self options:  nil];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:specificationCell owner:self options:  nil];
         cell = [nib objectAtIndex:0];
     }
     Categories *cobj=[[[_contents objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]objectAtIndex:indexPath.subRow];
@@ -129,23 +124,17 @@
     return 50.0f;
 }
 
-
-- (void)tableView:(SKSTableView *)tableView didSelectSubRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
-
 #pragma mark - Actions
 
 - (void)collapseSubrows
 {
     [self.myTable collapseCurrentlyExpandedIndexPaths];
 }
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [self.myTable deselectRowAtIndexPath:[self.myTable indexPathForSelectedRow] animated:NO];
-    [self.myTable setContentOffset:CGPointZero animated:NO];
-    
+    [self.myTable setContentOffset:CGPointZero animated:NO];  
 }
 
 @end

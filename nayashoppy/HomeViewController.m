@@ -9,9 +9,7 @@
 #import "HomeViewController.h"
 #import "MenuData.h"
 
-static NSString *CouponsCell = @"CouponsCollectionViewCell";
-static NSString *CouponsLabelTitle=@"Coupons & Cashback";
-static NSString *CouponsLabelImg=@"Coupon";
+static NSString *CouponsCell = @"CouponsCollectionViewCell", *CouponsLabelTitle=@"Coupons & Cashback", *CouponsLabelImg=@"Coupon", *refreshnotif=@"refreshView", *refreshtable=@"refreshTable" ,*imgCell=@"ImageCell", *topmenucell=@"TopMenu", *tableCell=@"TableCell", *newarrivalCell=@"newArrival", *recentCell=@"Recent", *newATitle=@"New Arrivals", *recentVTitle=@"RecentlyViewed", *keyboardNotification=@"HideKeyboard", *couponSB=@"Coupons",*coupCell=@"Cash", *TopMenuSB=@"TopMenuStoryboard", *topMCell=@"TopMenu", *newArrSB=@"NewArrivalsStoryboard", *newarrCell=@"newAv", *recentViewSB=@"RecentStoryboard",*rCell=@"Recent";
 
 @interface HomeViewController ()
 {
@@ -32,6 +30,7 @@ static NSString *CouponsLabelImg=@"Coupon";
     [self gesture];
     [self registerCell];
     [self ActivityInd];
+    [self notifications];
     /*  ApiParsing * mainVC = [[ApiParsing alloc] init];
     
     [mainVC Slider:^(UIImage *img) {
@@ -44,10 +43,6 @@ static NSString *CouponsLabelImg=@"Coupon";
     }];
     */
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
-                                                 name:@"refreshView" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
-                                                 name:@"refreshTable" object:nil];
 }
 
 -(void)refreshView:(NSNotification *) notification {
@@ -98,12 +93,10 @@ static NSString *CouponsLabelImg=@"Coupon";
 {
   if(indexPath.row==0)
     {
-        static NSString *simpleTableIdentifier = @"ImageCell";
-        
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:imgCell];
         
         if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:imgCell];
         }
         
         return cell;
@@ -111,14 +104,14 @@ static NSString *CouponsLabelImg=@"Coupon";
     }
     if (indexPath.row==1) {
         
-        TopmenuCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TopMenu" forIndexPath:indexPath];
+        TopmenuCell *cell = [tableView dequeueReusableCellWithIdentifier:topmenucell forIndexPath:indexPath];
         self.topmenu.view.frame = cell.TopParentView.bounds;
         [cell.TopParentView addSubview:self.topmenu.view];
         return cell;
     }
     if (indexPath.row==3) {
     
-       TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TableCell" forIndexPath:indexPath];
+       TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tableCell forIndexPath:indexPath];
         self.collectionCont.view.frame = cell.ParentView.bounds;
         [cell.ParentView addSubview:self.collectionCont.view];
         return cell;
@@ -126,7 +119,7 @@ static NSString *CouponsLabelImg=@"Coupon";
     }
     if (indexPath.row==5) {
         
-        NewArrivalCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newArrival" forIndexPath:indexPath];
+        NewArrivalCell *cell = [tableView dequeueReusableCellWithIdentifier:newarrivalCell forIndexPath:indexPath];
         self.newarrival.view.frame = cell.PnewArrival.bounds;
         [cell.PnewArrival addSubview:self.newarrival.view];
         return cell;
@@ -134,7 +127,7 @@ static NSString *CouponsLabelImg=@"Coupon";
     }
     if (indexPath.row==7) {
         
-        RecentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Recent" forIndexPath:indexPath];
+        RecentCell *cell = [tableView dequeueReusableCellWithIdentifier:recentCell forIndexPath:indexPath];
         self.recent.view.frame = cell.Recentview.bounds;
         [cell.Recentview addSubview:self.recent.view];
         return cell;
@@ -149,9 +142,9 @@ static NSString *CouponsLabelImg=@"Coupon";
         cell.textLabel.font = [UIFont boldSystemFontOfSize:15];
 
         if(indexPath.row==4)
-        cell.textLabel.text= @"New Arrivals";
+        cell.textLabel.text=newATitle;
         if(indexPath.row==6)
-        cell.textLabel.text= @"RecentlyViewed";
+        cell.textLabel.text=recentVTitle;
 
         return cell;
     }
@@ -181,21 +174,27 @@ static NSString *CouponsLabelImg=@"Coupon";
 }
 - (void)didTapAnywhere:(UITapGestureRecognizer *) sender
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"HideKeyboard" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:keyboardNotification object:nil];
     [self.view endEditing:YES];
 }
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:keyboardNotification object:nil];
+}
+
 -(void) registerCell
 {
-    UIStoryboard *coupons=[UIStoryboard storyboardWithName:@"Coupons" bundle:nil];
-    self.collectionCont = [coupons instantiateViewControllerWithIdentifier:@"Cash"];
+    UIStoryboard *coupons=[UIStoryboard storyboardWithName:couponSB bundle:nil];
+    self.collectionCont = [coupons instantiateViewControllerWithIdentifier:coupCell];
     
-    UIStoryboard *categories=[UIStoryboard storyboardWithName:@"TopMenuStoryboard" bundle:nil];
-    self.topmenu = [categories instantiateViewControllerWithIdentifier:@"TopMenu"];
+    UIStoryboard *categories=[UIStoryboard storyboardWithName:TopMenuSB bundle:nil];
+    self.topmenu = [categories instantiateViewControllerWithIdentifier:topMCell];
     
-    UIStoryboard *newarrivals=[UIStoryboard storyboardWithName:@"NewArrivalsStoryboard" bundle:nil];
-    self.newarrival = [newarrivals instantiateViewControllerWithIdentifier:@"newAv"];
-    UIStoryboard *recently=[UIStoryboard storyboardWithName:@"RecentStoryboard" bundle:nil];
-    self.recent = [recently instantiateViewControllerWithIdentifier:@"Recent"];
+    UIStoryboard *newarrivals=[UIStoryboard storyboardWithName:newArrSB bundle:nil];
+    self.newarrival = [newarrivals instantiateViewControllerWithIdentifier:newarrCell];
+    UIStoryboard *recently=[UIStoryboard storyboardWithName:recentViewSB bundle:nil];
+    self.recent = [recently instantiateViewControllerWithIdentifier:rCell];
 
 }
 -(void) ActivityInd
@@ -204,6 +203,14 @@ static NSString *CouponsLabelImg=@"Coupon";
     activityIndicatorView.frame = self.Loader.bounds;
     [self.Loader addSubview:activityIndicatorView];
     [activityIndicatorView startAnimating];
+}
+
+-(void) notifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
+                                                 name:refreshnotif object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
+                                                 name:refreshtable object:nil];
 }
 
 @end
