@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "MenuData.h"
+#import "SlideImgTableCell.h"
 
 static NSString *CouponsCell = @"CouponsCollectionViewCell", *CouponsLabelTitle=@"Coupons & Cashback", *CouponsLabelImg=@"Coupon", *refreshnotif=@"refreshView", *refreshtable=@"refreshTable" ,*imgCell=@"ImageCell", *topmenucell=@"TopMenu", *tableCell=@"TableCell", *newarrivalCell=@"newArrival", *recentCell=@"Recent", *newATitle=@"New Arrivals", *recentVTitle=@"RecentlyViewed", *keyboardNotification=@"HideKeyboard", *couponSB=@"Coupons",*coupCell=@"Cash", *TopMenuSB=@"TopMenuStoryboard", *topMCell=@"TopMenu", *newArrSB=@"NewArrivalsStoryboard", *newarrCell=@"newAv", *recentViewSB=@"RecentStoryboard",*rCell=@"Recent";
 
@@ -30,19 +31,7 @@ static NSString *CouponsCell = @"CouponsCollectionViewCell", *CouponsLabelTitle=
     [self gesture];
     [self registerCell];
     [self ActivityInd];
-    [self notifications];
-    /*  ApiParsing * mainVC = [[ApiParsing alloc] init];
-    
-    [mainVC Slider:^(UIImage *img) {
-        
-        slider = [[UIImageView alloc] initWithImage:img];
-        [self.myTable reloadData];
-        
-    } failure:^(NSError *error, NSString *message) {
-        NSLog(@"%@",error);
-    }];
-    */
-    
+    [self notifications];    
 }
 
 -(void)refreshView:(NSNotification *) notification {
@@ -93,13 +82,19 @@ static NSString *CouponsCell = @"CouponsCollectionViewCell", *CouponsLabelTitle=
 {
   if(indexPath.row==0)
     {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:imgCell];
-        
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:imgCell];
-        }
-        
+//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:imgCell];
+//        
+//        if (cell == nil) {
+//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:imgCell];
+//        }
+//        
+//        return cell;
+        SlideImgTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SlideImg" forIndexPath:indexPath];
+        self.slideimg.view.frame = cell.slideView.bounds;
+        [cell.slideView addSubview:self.slideimg.view];
+
         return cell;
+
 
     }
     if (indexPath.row==1) {
@@ -132,6 +127,7 @@ static NSString *CouponsCell = @"CouponsCollectionViewCell", *CouponsLabelTitle=
         [cell.Recentview addSubview:self.recent.view];
         return cell;
     }
+
     else
     {
         TableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CELL" forIndexPath:indexPath];
@@ -193,8 +189,12 @@ static NSString *CouponsCell = @"CouponsCollectionViewCell", *CouponsLabelTitle=
     
     UIStoryboard *newarrivals=[UIStoryboard storyboardWithName:newArrSB bundle:nil];
     self.newarrival = [newarrivals instantiateViewControllerWithIdentifier:newarrCell];
+    
     UIStoryboard *recently=[UIStoryboard storyboardWithName:recentViewSB bundle:nil];
     self.recent = [recently instantiateViewControllerWithIdentifier:rCell];
+    
+    UIStoryboard *slideImages=[UIStoryboard storyboardWithName:@"SlideImg" bundle:nil];
+    self.slideimg = [slideImages instantiateViewControllerWithIdentifier:@"Slider"];
 
 }
 -(void) ActivityInd

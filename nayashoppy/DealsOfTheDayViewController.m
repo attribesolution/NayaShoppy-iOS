@@ -93,7 +93,7 @@ static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" 
                                    } failure:nil];
 
     cell.TitleLabel.text=cobj.PName;
-    cell.PriceLabel.text=cobj.Pprice;
+    cell.PriceLabel.text=[@"Rs " stringByAppendingString:cobj.Pprice];
     UIImage *image = [[UIImage imageNamed:@"WishIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [cell.WishButton setImage:image forState:UIControlStateNormal];
     

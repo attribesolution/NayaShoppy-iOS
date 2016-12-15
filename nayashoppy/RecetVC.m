@@ -26,7 +26,8 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     obj=[MenuData Items];
-    [self.recentvc registerNib:[UINib nibWithNibName:NewArrivalCell bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NewArrivalCell];[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)                                                                                                                                                                                        name:@"refreshTable" object:nil];
+    [self.recentvc registerNib:[UINib nibWithNibName:NewArrivalCell bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NewArrivalCell];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)                                                                                                                                                                                        name:@"refreshTable" object:nil];
 }
 
 -(void)refreshView:(NSNotification *) notification {
@@ -50,8 +51,8 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
     obj.index=robj.Pindex;
     UIStoryboard *specifications=[UIStoryboard storyboardWithName:@"Specifications" bundle:nil];
     SpecificationsViewController *dvc = [specifications instantiateViewControllerWithIdentifier:@"Specifications"];
-    //SWRevealViewController *sv=self.revealViewController;
-    //[sv revealToggle:self];
+    SWRevealViewController *sv=self.revealViewController;
+    [sv revealToggle:self];
     dvc.title=robj.PName;
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.navController pushViewController:dvc animated:YES];

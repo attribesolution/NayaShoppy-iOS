@@ -19,6 +19,7 @@
 #import "RecentCell.h"
 #import "RecetVC.h"
 #import "DGActivityIndicatorView.h"
+#import "SlideImgVC.h"
 
 @interface HomeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 
@@ -29,4 +30,5 @@
 @property (strong, nonatomic)  TopMenuVc *topmenu;
 @property (strong, nonatomic)  NewArrivalVC *newarrival;
 @property (strong, nonatomic)  RecetVC *recent;
+@property (strong, nonatomic)  SlideImgVC *slideimg;
 @end

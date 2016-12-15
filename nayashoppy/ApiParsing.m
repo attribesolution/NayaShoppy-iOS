@@ -400,16 +400,7 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
 }
 
 - (NSURLSessionDataTask *)Slider:(void (^)(UIImage *img))success failure:(void (^)(NSError *error, NSString *message))failure {
-    
-//    NSString *string = slider;
-//    NSURL *url = [NSURL URLWithString:string];
-//    self.sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:slider]];
-//    self.sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
-//    
-//    [self.sessionManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//
-//    
-//    self.sessionManager.responseSerializer=[AFJSONResponseSerializer serializer];
+
     NSURL *url=[self setupSessionManager:@" "];
     self.sessionManager.responseSerializer=[AFJSONResponseSerializer serializer];
 
