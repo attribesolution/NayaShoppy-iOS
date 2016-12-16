@@ -20,8 +20,7 @@ static NSString *CategoriesVCell = @"CategoriesCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     obj=[MenuData Items];
-    // Do any additional setup after loading the view.
-}
+    }
 
 -(void)viewWillAppear:(BOOL)animated{
     

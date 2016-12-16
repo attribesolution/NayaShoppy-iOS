@@ -255,11 +255,8 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
     
     NSDictionary *keyValue=[[NSDictionary alloc]init];
     keyValue= @{      @"category_id":@2,
-                      
-                      
                       };
-    
-    
+
     NSURL *url=[self setupSessionManager:filterapi];
     self.sessionManager.responseSerializer=[AFJSONResponseSerializer serializer];
     
@@ -273,8 +270,7 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
         FiltersValues *newproduct = [[FiltersValues alloc] initWithString:myString  error:&error];
         NSMutableArray *items,*values;
         items=[[NSMutableArray alloc]init];
-        
-        
+
         Categories *cobj;
 
         for(int i=0;i<newproduct.filters.count;i++)
@@ -291,17 +287,14 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
             [items addObject:cobj];
         }
             success(items);
-        
-        
+ 
     }  failure:^(NSURLSessionDataTask *operation, NSError *error) {
         failure(error,nil); }];
     
     return task;
-    
 }
 
 - (NSURLSessionDataTask *)getPopularProducts:(void (^)(NSMutableArray *products,NSMutableArray *img))success failure:(void (^)(NSError *error, NSString *message))failure {
-    
     
     MenuData *ob=[MenuData Items];
     NSDictionary *keyValue=[[NSDictionary alloc]init];
@@ -324,7 +317,6 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
         failure(error,nil); }];
     
     return task;
-    
 }
 
 - (NSURLSessionDataTask *)getSimilarProducts:(void (^)(NSArray *products,NSArray *img))success failure:(void (^)(NSError *error, NSString *message))failure {
@@ -341,9 +333,7 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
     NSURLSessionDataTask *task =[self.sessionManager GET:url.absoluteString parameters:keyValue progress:nil success:^(NSURLSessionTask *task, id responseObject) {
      
         NSMutableArray *array= [[NSMutableArray alloc]initWithArray:[self ParseData:responseObject]];
-     
-    
-        
+   
         success([array objectAtIndex:0],[array objectAtIndex:1]);
     } failure:^(NSURLSessionDataTask *operation, NSError *error) {
         failure(error,nil); }];
@@ -399,24 +389,34 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
         return array;
 }
 
-- (NSURLSessionDataTask *)Slider:(void (^)(UIImage *img))success failure:(void (^)(NSError *error, NSString *message))failure {
+- (NSURLSessionDataTask *)Slider:(void (^)(NSArray *img))success failure:(void (^)(NSError *error, NSString *message))failure {
 
-    NSURL *url=[self setupSessionManager:@" "];
-    self.sessionManager.responseSerializer=[AFJSONResponseSerializer serializer];
-
+    NSURL *url = [NSURL URLWithString:baseUrl];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    self.sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    [self.sessionManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    manager.responseSerializer=[AFJSONResponseSerializer serializer];
+    
     NSURLSessionDataTask *task =[self.sessionManager GET:url.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+       
         NSDictionary *dictionary = (NSDictionary *)responseObject;
         
         NSError *error;
         NSData * jsonData = [NSJSONSerialization  dataWithJSONObject:dictionary options:0 error:&error];
         NSString * myString =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         
-        SlidingImages *slider = [[SlidingImages alloc] initWithString:myString  error:&error];
-        Slider *obj=slider.data[0];
-        SlideImg *imgurl=obj.images[0];
-        UIImage *simg=[self image:imgurl.image];
+        NSMutableArray *images=[[NSMutableArray alloc]init];
         
-        success(simg);
+        SlidingImages *slider = [[SlidingImages alloc] initWithString:myString  error:&error];
+        for (int i=0; i<slider.data.count; i++) {
+           
+        Slider *obj=slider.data[i];
+        SlideImg *imgurl=obj.images[0];
+        [images addObject:imgurl.image];
+        }
+        success(images);
         
     } failure:^(NSURLSessionDataTask *operation, NSError *error) {
         failure(error,nil); }];

@@ -8,9 +8,13 @@
 
 #import "SlideImgVC.h"
 #import "SlideImgCell.h"
+#import "ApiParsing.h"
 
 @interface SlideImgVC ()
-
+{
+    UIImageView *slider;
+    NSArray *images;
+}
 @end
 
 @implementation SlideImgVC
@@ -18,32 +22,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
      [self.SlideImgCVC registerNib:[UINib nibWithNibName:@"SlideImgCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ImageCell"];
-    [self ApiParsing];
+   // [self ApiParsing];
+    images=[[NSArray alloc] init];
+    
+    
    
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    return 2;
+   // if(images!=nil)
+    return 2;//images.count;
+    
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     SlideImgCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
     
-  /*  NSURL *Url = [NSURL URLWithString:cobj.ImgUrl];
+  /*  NSURL *Url = [NSURL URLWithString:[images objectAtIndex:indexPath.row]];
     NSURLRequest *request = [NSURLRequest requestWithURL:Url];
     UIImage *placeholderImage = [UIImage imageNamed:@"PlaceHolder"];
     
     __weak SlideImgCell *weakCell = cell;
     
-    [cell.NAimg setImageWithURLRequest:request
+    [cell.ImageView setImageWithURLRequest:request
                       placeholderImage:placeholderImage
                                success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                   weakCell.NAimg.image = image;
+                                   weakCell.ImageView.image = image;
                                    [weakCell setNeedsLayout];
                                    
                                } failure:nil];*/
-    cell.ImageView.image=[UIImage imageNamed:@"slider"];
+    
+    cell.ImageView.image=[UIImage imageNamed:@"slider"];//[images objectAtIndex:indexPath.row];
     return cell;
     
 }
@@ -66,17 +76,16 @@
 }
 -(void) ApiParsing
 {
-    /*  ApiParsing * mainVC = [[ApiParsing alloc] init];
+     ApiParsing *mainVC = [[ApiParsing alloc] init];
      
-     [mainVC Slider:^(UIImage *img) {
+     [mainVC Slider:^(NSArray *img) {
      
-     slider = [[UIImageView alloc] initWithImage:img];
-     [self.myTable reloadData];
+     images =[img copy];
+     [self.SlideImgCVC reloadData];
      
      } failure:^(NSError *error, NSString *message) {
      NSLog(@"%@",error);
      }];
-     */
 }
 
 @end

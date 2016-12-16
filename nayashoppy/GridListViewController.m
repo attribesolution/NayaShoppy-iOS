@@ -45,19 +45,9 @@ Boolean showInGridView = false;
     obj=[MenuData Items];
     self.FilterView.hidden=YES;
     [self ApiParsing];
-    self.tLayout = [[TabledCollectionViewFlowLayout alloc] init];
-    [self.tLayout setItemSize:CGSizeMake(self.collectionView.bounds.size.width, 180)];
-    [self.tLayout setInterItemSpacingY:1.0];
-    [self.glayout setInterItemSpacingY:1.0];
-    [self.collectionView setScrollsToTop:YES];
-    [self.collectionView registerNib:[UINib nibWithNibName:AKCollectionCell bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:AKCollectionCell];
-    
-    [self.collectionView registerNib:[UINib nibWithNibName:AKTabelledCollectionCell bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:AKTabelledCollectionCell];
-    
-    self.glayout = [[GridCollectionViewFlowLayout alloc] init];
-    [self.collectionView setCollectionViewLayout:self.tLayout];
+    [self registerCell];
+    [self setLayout];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(incomingNotification:) name:@"ParseApi" object:nil];
-
 }
 
 - (void) incomingNotification:(NSNotification *)notification{
@@ -66,8 +56,8 @@ Boolean showInGridView = false;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-   
 }
+
 -(void) shuffle
 {
     showInGridView = !showInGridView;
@@ -90,11 +80,10 @@ Boolean showInGridView = false;
             [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] atScrollPosition:(UICollectionViewScrollPositionTop) animated:NO];
             [self.collectionView reloadItemsAtIndexPaths:[self.collectionView indexPathsForVisibleItems]];
               [self.collectionView reloadData];
-            
         }];
     }
-
 }
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return  [[self loadArray] count];
 }
@@ -114,7 +103,7 @@ Boolean showInGridView = false;
         Tcell.GridName.frame=CGRectMake(Tcell.GridName.frame.origin.x,Tcell.GridName.frame.origin.y, Tcell.GridName.frame.size.width, Dlines);
         
         Tcell.GridName.text=cobj.PName;
-        Tcell.Company.text=[@"₹ " stringByAppendingString:cobj.Pprice];
+        Tcell.Company.text=[@"Rs " stringByAppendingString:cobj.Pprice];
 
         NSURL *Url = [NSURL URLWithString:[self ImgUrl:indexPath.row]];
         NSURLRequest *request = [NSURLRequest requestWithURL:Url];
@@ -199,6 +188,7 @@ Boolean showInGridView = false;
     }
     
 }
+
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(8_0){
     
     NSInteger lastSectionIndex = [self.collectionView numberOfSections] - 1;
@@ -213,9 +203,9 @@ Boolean showInGridView = false;
         [self ApiParsing];
     }
 }
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-   
    obj.index=[NSNumber numberWithInteger:indexPath.row];
    obj.tabindex=[NSNumber numberWithInteger:0];
 
@@ -237,20 +227,18 @@ Boolean showInGridView = false;
     obj.slug=cobj.Pslug;
     [self ParseData];
     [self.navigationController pushViewController:dvc animated:YES];
-   
 }
-
-
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     return UIEdgeInsetsMake(1, 0, 1, 0);
 }
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     self.GLCollectionView.alwaysBounceVertical=NO;
     self.GLCollectionView.alwaysBounceHorizontal=NO;
-    
 }
+
 -(void) ParseData
 {
     ApiParsing * mainVC = [[ApiParsing alloc] init];
@@ -265,8 +253,8 @@ Boolean showInGridView = false;
     } failure:^(NSError *error, NSString *message) {
         NSLog(@"%@",error);
     }];
-
 }
+
 -(void)AddToWishList:(UIButton *) sender
 {   cobj=[[self loadArray] objectAtIndex:sender.tag];
     [[GlobalVariables class]AddWhishList:cobj.PName :cobj.POfferPrice :[self ImgUrl:sender.tag]: self.view];
@@ -274,6 +262,7 @@ Boolean showInGridView = false;
     Tcell.WishButton.tintColor = [UIColor redColor];
     [self.GLCollectionView reloadData];
 }
+
 -(void)SendUrl:(UIButton *) sender
 {
     Categories *sup=[cobj.Supliers objectAtIndex:sender.tag];
@@ -285,8 +274,8 @@ Boolean showInGridView = false;
     UIStoryboard *deals=[UIStoryboard storyboardWithName:@"GridList" bundle:nil];
     FiltersVC *dvc = [deals instantiateViewControllerWithIdentifier:@"test"];
     [self.navigationController pushViewController:dvc animated:YES];
-    
 }
+
 -(void) ApiParsing
 {
     [self activityInd];
@@ -319,8 +308,8 @@ Boolean showInGridView = false;
             NSLog(@"%@",error);
         }];
     }
-
 }
+
 -(void) ReLoadArray:(NSMutableArray *)response andvalue:(NSMutableArray *)img
 {
     if(obj.allproducts.count==0 && i==1)
@@ -358,6 +347,7 @@ Boolean showInGridView = false;
     [self.collectionView reloadData];
 
 }
+
 -(void) activityInd
 {
     activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotatePulse tintColor:[UIColor redColor] size:40.0f];
@@ -366,6 +356,7 @@ Boolean showInGridView = false;
     [activityIndicatorView startAnimating];
 
 }
+
 -(NSMutableArray *) loadArray
 {
     if([tabindex integerValue]==0)
@@ -374,12 +365,30 @@ Boolean showInGridView = false;
         return obj.popularproducts;
 
 }
+
 -(NSString *) ImgUrl:(NSInteger) ind
 {
     if([tabindex integerValue]==0)
         return [[obj.allproductimg objectAtIndex:ind]objectAtIndex:0];
     else
         return [[obj.popularproductimg objectAtIndex:ind]objectAtIndex:0];
-
 }
+
+-(void) setLayout
+{
+    self.tLayout = [[TabledCollectionViewFlowLayout alloc] init];
+    [self.tLayout setItemSize:CGSizeMake(self.collectionView.bounds.size.width, 180)];
+    [self.tLayout setInterItemSpacingY:1.0];
+    [self.glayout setInterItemSpacingY:1.0];
+    [self.collectionView setScrollsToTop:YES];
+    self.glayout = [[GridCollectionViewFlowLayout alloc] init];
+    [self.collectionView setCollectionViewLayout:self.tLayout];
+}
+
+-(void) registerCell
+{
+    [self.collectionView registerNib:[UINib nibWithNibName:AKCollectionCell bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:AKCollectionCell];
+    [self.collectionView registerNib:[UINib nibWithNibName:AKTabelledCollectionCell bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:AKTabelledCollectionCell];
+}
+
 @end

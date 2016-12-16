@@ -82,13 +82,7 @@ static NSString *CouponsCell = @"CouponsCollectionViewCell", *CouponsLabelTitle=
 {
   if(indexPath.row==0)
     {
-//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:imgCell];
-//        
-//        if (cell == nil) {
-//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:imgCell];
-//        }
-//        
-//        return cell;
+
         SlideImgTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SlideImg" forIndexPath:indexPath];
         self.slideimg.view.frame = cell.slideView.bounds;
         [cell.slideView addSubview:self.slideimg.view];

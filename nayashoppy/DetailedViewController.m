@@ -91,7 +91,7 @@
     previouslabel.textColor = [UIColor blackColor];
     previouslabel.font=[UIFont systemFontOfSize:13];
     UILabel *currentlabel = (UILabel*)[viewPager.view viewWithTag:100+index];
-    currentlabel.font=[UIFont systemFontOfSize:15];
+    currentlabel.font=[UIFont systemFontOfSize:14];
     currentlabel.textColor = [GlobalVariables themeColor];
  
     self.lastSelectedTab = index;
