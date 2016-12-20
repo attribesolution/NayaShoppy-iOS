@@ -106,6 +106,7 @@
 		CF81BA811DB9FB6600ADE575 /* MainCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = CF81BA801DB9FB6600ADE575 /* MainCategories.m */; };
 		CF81BA841DBA074A00ADE575 /* NewArrivals.m in Sources */ = {isa = PBXBuildFile; fileRef = CF81BA831DBA074A00ADE575 /* NewArrivals.m */; };
 		CF81BA891DBA07F800ADE575 /* Products.m in Sources */ = {isa = PBXBuildFile; fileRef = CF81BA881DBA07F800ADE575 /* Products.m */; };
+		CF86452C1E0944E100D6E3E5 /* singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = CF86452B1E0944E100D6E3E5 /* singleton.m */; };
 		CF86A44C1DD58F1700F2F57A /* ic_amazon_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CF86A44B1DD58F1700F2F57A /* ic_amazon_logo.png */; };
 		CF86A4511DD5A2B600F2F57A /* StoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF86A4501DD5A2B600F2F57A /* StoreCell.m */; };
 		CF86A4531DD5A2CE00F2F57A /* StoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF86A4521DD5A2CE00F2F57A /* StoreCell.xib */; };
@@ -337,6 +338,8 @@
 		CF81BA831DBA074A00ADE575 /* NewArrivals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewArrivals.m; sourceTree = "<group>"; };
 		CF81BA871DBA07F800ADE575 /* Products.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Products.h; sourceTree = "<group>"; };
 		CF81BA881DBA07F800ADE575 /* Products.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Products.m; sourceTree = "<group>"; };
+		CF86452A1E0944E100D6E3E5 /* singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = singleton.h; sourceTree = "<group>"; };
+		CF86452B1E0944E100D6E3E5 /* singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = singleton.m; sourceTree = "<group>"; };
 		CF86A44B1DD58F1700F2F57A /* ic_amazon_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_amazon_logo.png; sourceTree = "<group>"; };
 		CF86A44F1DD5A2B600F2F57A /* StoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreCell.h; sourceTree = "<group>"; };
 		CF86A4501DD5A2B600F2F57A /* StoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreCell.m; sourceTree = "<group>"; };
@@ -644,6 +647,8 @@
 				CFA1B28B1DFFE5F1009D40D0 /* EmptyView */,
 				CF66E1911DF839A9005BDD51 /* Reviews */,
 				CFF8A7681DC1C8E900FB633B /* CategorieClass */,
+				CF86452A1E0944E100D6E3E5 /* singleton.h */,
+				CF86452B1E0944E100D6E3E5 /* singleton.m */,
 			);
 			name = "Model Class";
 			sourceTree = "<group>";
@@ -1690,6 +1695,7 @@
 				CF6927081DBE27E500B85F64 /* UserViewController.m in Sources */,
 				CF1E46861DC9D7A0001B9D62 /* SignInVC.m in Sources */,
 				CFB5B5A11DCC9FD400CBCB08 /* OrderViewController.m in Sources */,
+				CF86452C1E0944E100D6E3E5 /* singleton.m in Sources */,
 				CF13D0D11DD1B3F000956076 /* AllProduct.m in Sources */,
 				CFB5B5971DCC645600CBCB08 /* WishListCell.m in Sources */,
 				CF86A4781DD5CC2100F2F57A /* SimilarProductVC.m in Sources */,
@@ -1826,6 +1832,7 @@
 			baseConfigurationReference = 1D18F8C52544AF8BC0D74C5B /* Pods-nayashoppy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -1837,6 +1844,8 @@
 				"LINK_WITH_STANDARD_LIBRARIES[arch=*]" = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.attribe.nayashoppy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "nayashoppy/nayashoppy-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -1845,6 +1854,7 @@
 			baseConfigurationReference = 1B401358B27273FCA5E1C110 /* Pods-nayashoppy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
 					"$(inherited)",
@@ -1854,6 +1864,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.attribe.nayashoppy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "nayashoppy/nayashoppy-Bridging-Header.h";
 			};
 			name = Release;
 		};

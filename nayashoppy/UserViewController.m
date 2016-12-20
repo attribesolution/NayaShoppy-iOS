@@ -10,14 +10,23 @@
 static NSString *userCell =@"UserCell";
 
 @interface UserViewController ()
-
+{
+    NSString *status;
+    MenuData *obj;
+}
 @end
 
 @implementation UserViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    obj=[MenuData Items];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
+                                                 name:@"SignIn" object:nil];}
+-(void) refreshView:(id) sender
+{
+    status=@"Sign Out";
+    [self.UserInfoTable reloadData];
 }
 
 #pragma mark - UITableDelegate Method
@@ -36,10 +45,17 @@ static NSString *userCell =@"UserCell";
 {
     if(indexPath.row==0)
     {
+        if([status isEqualToString:@"Sign Out"])
+        {   status=@"Login/Register";
+            [self.UserInfoTable reloadData];
+            [[GIDSignIn sharedInstance] signOut];
+            [obj.UserReviews removeAllObjects];
+        }
+        else{
         UIStoryboard *deals=[UIStoryboard storyboardWithName:@"SignIn" bundle:nil];
         SignInVC *dvc = [deals instantiateViewControllerWithIdentifier:@"SignIn"];
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        [appDelegate.navController pushViewController:dvc animated:YES];
+            [appDelegate.navController pushViewController:dvc animated:YES];}
         
      }
     if(indexPath.row==2)
@@ -87,6 +103,7 @@ static NSString *userCell =@"UserCell";
     [sv revealToggle:self];
     [sv revealToggle:self];
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
@@ -98,8 +115,18 @@ static NSString *userCell =@"UserCell";
     }
     if(indexPath.row<5)
     {
-    cell.Ulabel.text=[[[GlobalVariables class] UserInfo] objectAtIndex:indexPath.row][1];
-    cell.Uimage.image=[[[GlobalVariables class] UserInfo] objectAtIndex:indexPath.row][0];
+     if(indexPath.row==0)
+     {   if([status isEqualToString:@"Sign Out"])
+         cell.Ulabel.text=@"Sign Out";
+     else
+         cell.Ulabel.text=[[[GlobalVariables class] UserInfo] objectAtIndex:0][1];
+         cell.Uimage.image=[[[GlobalVariables class] UserInfo] objectAtIndex:0][0];
+     }
+     else
+     {
+         cell.Ulabel.text=[[[GlobalVariables class] UserInfo] objectAtIndex:indexPath.row][1];
+         cell.Uimage.image=[[[GlobalVariables class] UserInfo] objectAtIndex:indexPath.row][0];
+     }
     }
     else
      cell.Ulabel.text=[[[GlobalVariables class] UserInfo] objectAtIndex:indexPath.row][0];
@@ -113,11 +140,11 @@ static NSString *userCell =@"UserCell";
     [self.UserInfoTable deselectRowAtIndexPath:[self.UserInfoTable indexPathForSelectedRow] animated:NO];
     [self.UserInfoTable setContentOffset:CGPointZero animated:NO];
 }
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     self.UserInfoTable.alwaysBounceVertical = NO;
 
 }
-
 
 @end

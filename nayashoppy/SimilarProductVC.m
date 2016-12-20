@@ -42,6 +42,8 @@ static NSString *similarPCell=@"SimilarPCVCell", *similarProduct=@"SimilarProduc
         obj.Similarproductimg=[img copy];
         obj.Similarproducts=[respone copy];
         [self.SimilarPcollView reloadData];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"StopInd" object:nil];
+
         
     } failure:^(NSError *error, NSString *message) {
         NSLog(@"%@",error);

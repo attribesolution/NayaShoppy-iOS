@@ -1,4 +1,4 @@
-//
+ //
 //  AppDelegate.m
 //  nayashoppy
 //
@@ -50,11 +50,11 @@
     
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
-   
+    [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
     NSError* configureError;
     [[GGLContext sharedInstance] configureWithError: &configureError];
     NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
-    
+  
     [GIDSignIn sharedInstance].delegate = self;
     [GIDSignIn sharedInstance].shouldFetchBasicProfile = YES;
     return YES;
@@ -82,10 +82,12 @@ didSignInForUser:(GIDGoogleUser *)user
     {
         NSUInteger dimension = round(100 * [[UIScreen mainScreen] scale]);
         NSURL *imageURL = [user.profile imageURLWithDimension:dimension];
-        UserReviews *robj=[[UserReviews alloc]initWithName:fullName andUrl:imageURL];// andReview:@""];
+        UserReviews *robj=[[UserReviews alloc]initWithName:fullName andUrl:imageURL];
         [obj.UserReviews addObject:robj];
         
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SignIn" object:nil];
+    
 }
 
 - (void)signIn:(GIDSignIn *)signIn

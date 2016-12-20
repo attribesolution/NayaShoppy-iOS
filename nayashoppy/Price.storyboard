@@ -92,7 +92,21 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXi-KH-jnX">
                                                     <rect key="frame" x="15" y="8" width="297" height="68"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1MH-bF-Dnr">
+                                                            <rect key="frame" x="124" y="11" width="50" height="47"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="47" id="dY2-CI-D9j"/>
+                                                                <constraint firstAttribute="width" constant="50" id="rVP-5U-vmu"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="1MH-bF-Dnr" firstAttribute="centerX" secondItem="tXi-KH-jnX" secondAttribute="centerX" id="6tm-Oq-WBt"/>
+                                                        <constraint firstItem="1MH-bF-Dnr" firstAttribute="centerY" secondItem="tXi-KH-jnX" secondAttribute="centerY" id="sxw-MJ-3mA"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -103,6 +117,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="Loader" destination="1MH-bF-Dnr" id="yUR-CX-dXc"/>
                                             <outlet property="SimilarProductView" destination="tXi-KH-jnX" id="hsy-a8-SMf"/>
                                         </connections>
                                     </tableViewCell>

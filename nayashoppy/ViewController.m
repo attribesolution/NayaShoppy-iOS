@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "AppDelegate.h"
 #import "ShareUtility.h"
+#import "singleton.h"
 
 @interface ViewController ()
 
@@ -26,6 +27,8 @@
     [self UserDefaults];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
                                                  name:@"HideKeyboard" object:nil];
+    singleton *sharedManager = [singleton sharedManager];
+    self.searchbar.text=sharedManager.someProperty;
 }
 
 -(void)refreshView:(NSNotification *) notification {

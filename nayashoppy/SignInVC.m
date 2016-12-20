@@ -34,17 +34,14 @@
    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
     [GIDSignIn sharedInstance].uiDelegate = self;
     self.FbSignIn = [[FBSDKLoginButton alloc] init];
+    [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
     if ([FBSDKAccessToken currentAccessToken]) {
-        // TODO:Token is already available.
+       
     }
-
-// ....
-
-  
 }
 
 - (IBAction)SignInButton:(id)sender {
-  [[GIDSignIn sharedInstance] signOut];
+  
 }
 
 - (IBAction)Hint:(id)sender {
@@ -56,44 +53,21 @@
 }
 
 - (IBAction)FacebookSignIn:(id)sender {
-    
+
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-    [login logInWithReadPermissions:@[@"public_profile", @"email"] fromViewController:self  handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-        if (error)
-        {
-            NSLog(@"Unexpected login error: %@", error);
-           
-        }
-        else
-        {
-            if(result.token)   // This means if There is current access token.
-            { 
-                [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me"
-                                                   parameters:@{@"fields": @"picture, name, email"}]
-                 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id userinfo, NSError *error) {
-                     if (!error) {
-                         
-                         
-                         dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
-                         dispatch_async(queue, ^(void) {
-                             
-                             dispatch_async(dispatch_get_main_queue(), ^{
-                                 
-                                 // you are authorised and can access user data from user info object
-                                 
-                             });
-                         });
-                         
-                     }
-                     else{
-                         
-                         NSLog(@"%@", [error localizedDescription]);
-                     }
-                 }];
-            }
-            NSLog(@"Login Cancel");
-        }
-    }];}
+    [login
+     logInWithReadPermissions: @[@"public_profile",@"email"]
+     fromViewController:self
+     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+         if (error) {
+             NSLog(@"Process error");
+         } else if (result.isCancelled) {
+             NSLog(@"Cancelled");
+         } else {
+             NSLog(@"Logged in");
+         }
+     }];
+}
 - (IBAction)SignUp:(id)sender {
 }
 #pragma mark - UITextFieldDelegate

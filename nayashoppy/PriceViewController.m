@@ -8,7 +8,7 @@
 
 #import "PriceViewController.h"
 #import "ShareUtility.h"
-
+#import "DGActivityIndicatorView.h"
 static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct" ,*SProduct=@"SimilarProducts" ,*newArrivals=@"NewArrivals", *Pproduct=@"PopularProducts" , * AProduct=@"AllProducts" , *ImgNib=@"CollectionImages" ,*imgCell=@"BannerImagesVC",*rcell=@"ReviewCell",*SimPro=@"Sproduct" , *store=@"Stores" ,*specification= @"SpecificationButtonCell" , *specficCell=@"SpecificationCell", *spLabelCell=@"Specification", *storeCell=@"StoreCell" , *imageCell=@"ImageCell" , *detailCell=@"Detail" , *detailnib=@"DetailCell";
 
 @interface PriceViewController ()
@@ -17,6 +17,7 @@ static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct"
     MenuData *obj;
     Categories *cobj;
     ImageCell *imgcell;
+    DGActivityIndicatorView *activityIndicatorView ;
 }
 
 @property(strong,nonatomic) SimilarProductVC *sproduct;
@@ -35,10 +36,17 @@ static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct"
     [self recentlyViewed];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
                                                  name:notification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeLoader:)
+                                                 name:@"StopInd" object:nil];
 }
 
 -(void)refreshView:(NSNotification *) notification {
     
+    [self.PriceTable reloadData];
+}
+-(void)removeLoader:(NSNotification *) notification {
+    
+    [activityIndicatorView stopAnimating];
     [self.PriceTable reloadData];
 }
 
@@ -223,7 +231,12 @@ static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct"
    
     if (indexPath.section==9)
    {
-        SimilarProductsCell *cell = [tableView dequeueReusableCellWithIdentifier:SimilarProduct forIndexPath:indexPath];
+       SimilarProductsCell *cell = [tableView dequeueReusableCellWithIdentifier:SimilarProduct forIndexPath:indexPath];
+       activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotatePulse tintColor:[UIColor redColor] size:40.0f];
+       activityIndicatorView.frame = cell.Loader.bounds;
+       [cell.Loader addSubview:activityIndicatorView];
+       [activityIndicatorView startAnimating];
+
         self.sproduct.view.frame = cell.SimilarProductView.bounds;
         self.sproduct.XYZDelegate = (SpecificationsViewController *
                                 )[self.navigationController topViewController];
@@ -233,13 +246,13 @@ static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct"
     else
     {
         
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:store];
+       UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:store];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:store];
-    }
+       if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:store];
+       }
         
-    return cell;
+       return cell;
     }
 
 }

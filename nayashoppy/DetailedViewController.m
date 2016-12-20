@@ -14,13 +14,13 @@
      NSMutableArray *tabItem,*categories;
      MenuData *obj;
      AppDelegate *appDelegate;
+    CategoriesViewController *dvc;
 }
 
 @property (nonatomic,assign)NSInteger lastSelectedTab;
 @end
 
 @implementation DetailedViewController
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,6 +48,7 @@
      [super viewWillAppear:animated];
      appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
      [self selectTabAtIndex:[appDelegate.rowindex integerValue]];
+     dvc.myTable.frame=CGRectMake(0, 0, dvc.myTable.frame.size.width, dvc.myTable.frame.size.height);
      obj.ProductDetails=nil;
      obj.GernalFeatures=nil;
 }
@@ -60,15 +61,16 @@
 }
 
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index {
+    
     if(index==0)
         obj.Mobileindex=[NSNumber numberWithInt:1];
     else
         obj.Mobileindex=[NSNumber numberWithInt:0];
     UIStoryboard *deals=[UIStoryboard storyboardWithName:@"Categories" bundle:nil];
-      CategoriesViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"Categories"];
-      dvc.view.backgroundColor=[UIColor whiteColor];
-      [[NSNotificationCenter defaultCenter] postNotificationName:@"CategorieAtIndex" object:categories[index]];
-     appDelegate.rowindex=[NSNumber numberWithInteger:index];
+    dvc = [deals instantiateViewControllerWithIdentifier:@"Categories"];
+    dvc.view.backgroundColor=[UIColor whiteColor];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"CategorieAtIndex" object:categories[index]];
+    appDelegate.rowindex=[NSNumber numberWithInteger:index];
        return dvc;
 }
 
