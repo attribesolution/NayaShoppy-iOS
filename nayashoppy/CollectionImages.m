@@ -8,11 +8,13 @@
 //
 
 #import "CollectionImages.h"
+#import "singleton.h"
+
 static NSString *allproduct=@"AllProducts", *SimilarProduct=@"SimilarProducts",*newArrivals=@"NewArrivals",*cellId=@"ImageCell",*cellNib=@"ImageCVcell", *PlaceHolderImg=@"PlaceHolder";
 
 @interface CollectionImages ()
 {
-    MenuData *obj;
+    singleton *obj;
     NSString *imgurl;
 }
 @end
@@ -22,7 +24,7 @@ static NSString *allproduct=@"AllProducts", *SimilarProduct=@"SimilarProducts",*
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    obj=[MenuData Items];
+    obj=[singleton sharedManager];
     [self.ImgCView registerNib:[UINib nibWithNibName:cellNib bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:cellId];
    
 }

@@ -7,16 +7,16 @@
 //
 
 #import "RecetVC.h"
-#import "MenuData.h"
 #import "Categories.h"
 #import "SpecificationsViewController.h"
 #import "AppDelegate.h"
+#import "singleton.h"
 
 static NSString *NewArrivalCell=@"NewArrivalViewCell";
 
 @interface RecetVC ()
 {
-    MenuData *obj;
+    singleton *obj;
     Categories *cobj;
 }
 @end
@@ -25,7 +25,7 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    obj=[MenuData Items];
+    obj=[singleton sharedManager];
     [self.recentvc registerNib:[UINib nibWithNibName:NewArrivalCell bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NewArrivalCell];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)                                                                                                                                                                                        name:@"refreshTable" object:nil];
 }

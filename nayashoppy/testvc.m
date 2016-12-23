@@ -1,17 +1,14 @@
 //
-//  CategoriesViewController.m
+//  testvc.m
 //  nayashoppy
 //
-//  Created by Amerald on 31/10/2016.
+//  Created by Amerald on 21/12/2016.
 //  Copyright © 2016 attribe. All rights reserved.
 //
 
-#import "CategoriesViewController.h"
-#import "Categories.h"
-#import "ProductViewController.h"
-#import "singleton.h"
+#import "testvc.h"
 
-@interface CategoriesViewController ()
+@interface testvc ()
 {
     singleton *obj;
     NSString *CatName ;
@@ -19,17 +16,16 @@
     Categories *currentCat;
     CGFloat tableY;
 }
+
 @property (nonatomic, strong) NSArray *contents;
 @end
 
-@implementation CategoriesViewController
+@implementation testvc
 @synthesize myTable;
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
     obj=[singleton sharedManager];
-    self.myTable.SKSTableViewDelegate = self;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(incomingNotification:) name:@"CategorieAtIndex" object:nil];
     self.navigationController.navigationItem.backBarButtonItem.title = @" ";
 }
@@ -54,18 +50,18 @@
     
     if (!_contents )
     {
-       for (int i=0; i<obj.topmenu.count; i++) {
-           
-       currentCat=[obj.topmenu objectAtIndex:i];
-      
-        if([CatName isEqualToString:currentCat.TMtitle])
-        {
-        _contents = @[currentCat.TMCat];
-            break;
+        for (int i=0; i<obj.topmenu.count; i++) {
+            
+            currentCat=[obj.topmenu objectAtIndex:i];
+            
+            if([CatName isEqualToString:currentCat.TMtitle])
+            {
+                _contents = @[currentCat.TMCat];
+                break;
+            }
         }
-       }
     }
-     else {
+    else {
         
         
     }
@@ -86,34 +82,8 @@
     
 }
 
-- (NSInteger)tableView:(SKSTableView *)tableView numberOfSubRowsAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSArray * temp = self.contents[indexPath.section];
-    temp = temp[indexPath.row];
-    return temp.count - 1;
-}
-
-- (BOOL)tableView:(SKSTableView *)tableView shouldExpandSubRowsOfCellAtIndexPath:(NSIndexPath *)indexPath
-{
-    return NO;
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"SKSTableViewCell";
-    
-    SKSTableViewCell *cell = [myTable dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (!cell)
-        cell = [[SKSTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    cell.backgroundColor=[UIColor whiteColor];
-    cell.textLabel.textColor=[UIColor blackColor];
-    cell.textLabel.text = self.contents[indexPath.section][indexPath.row][0];
-    cell.expandable = YES;
-    return cell;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForSubRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *simpleTableIdentifier = @"CELL";
     
@@ -122,27 +92,27 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
- 
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", self.contents[indexPath.section][indexPath.row][indexPath.subRow]];
-    cell.textLabel.font=[UIFont systemFontOfSize:15];
-    cell.textLabel.textColor=[UIColor darkGrayColor];
     cell.backgroundColor=[UIColor whiteColor];
+    cell.textLabel.textColor=[UIColor blackColor];
+    cell.textLabel.text = self.contents[indexPath.section][indexPath.row][0];
+    cell.backgroundColor=[UIColor purpleColor];
     return cell;
 }
+
 
 - (CGFloat)tableView:(SKSTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 50.0f;
 }
 
-- (void)tableView:(SKSTableView *)tableView didSelectSubRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self LoadData];
     obj.allproductimg=nil;
     obj.allproducts=nil;
     obj.popularproducts=nil;
     obj.popularproductimg=nil;
-    Categories *cobj=[[catid objectAtIndex:indexPath.row] objectAtIndex:indexPath.subRow-1];
+    Categories *cobj=[[catid objectAtIndex:indexPath.row] objectAtIndex:0];
     obj.BranchId=cobj.BranchID;
     obj.CatId=cobj.CatID;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ParseApi" object:nil];
@@ -150,15 +120,15 @@
     {
         UIStoryboard * pStoryboard = [UIStoryboard storyboardWithName:@"Mobiles" bundle:[NSBundle mainBundle]];
         MobilesVC *pVC =[pStoryboard instantiateViewControllerWithIdentifier:@"Mobiles"];
-        pVC.title=self.contents[indexPath.section][indexPath.row][indexPath.subRow];
+        pVC.title=self.contents[indexPath.section][indexPath.row][0];
         [self.navigationController pushViewController:pVC animated:YES];
-       
+        
     }
     else
     {
         UIStoryboard * pStoryboard = [UIStoryboard storyboardWithName:@"ProductDetail" bundle:[NSBundle mainBundle]];
-         ProductViewController *pVC =[pStoryboard instantiateViewControllerWithIdentifier:@"ProductVC"];
-         pVC.title=self.contents[indexPath.section][indexPath.row][indexPath.subRow];
+        ProductViewController *pVC =[pStoryboard instantiateViewControllerWithIdentifier:@"ProductVC"];
+        pVC.title=self.contents[indexPath.section][indexPath.row][0];
         [self.navigationController pushViewController:pVC animated:YES];
         
     }
@@ -166,29 +136,27 @@
 
 #pragma mark - Actions
 
-- (void)collapseSubrows
-{
-    [self.myTable collapseCurrentlyExpandedIndexPaths];
-}
 -(void)LoadData
 {
-        for (int i=0;i<obj.CatBranchIDs.count; i++) {
-            
-            currentCat=[obj.CatBranchIDs objectAtIndex:i];
-            
-            if([CatName isEqualToString:currentCat.TMtitle])
-            {
-                catid=[[NSMutableArray alloc]initWithArray:currentCat.TMCat];
-                break;
-            }
+    for (int i=0;i<obj.CatBranchIDs.count; i++) {
+        
+        currentCat=[obj.CatBranchIDs objectAtIndex:i];
+        
+        if([CatName isEqualToString:currentCat.TMtitle])
+        {
+            catid=[[NSMutableArray alloc]initWithArray:currentCat.TMCat];
+            break;
         }
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.myTable deselectRowAtIndexPath:[self.myTable indexPathForSelectedRow] animated:NO];
-     [self.myTable setContentOffset:CGPointZero animated:NO];
- }
+    // [self.myTable setContentOffset:CGPointZero animated:NO];
+    // self.myTable.frame=CGRectMake(0,tableY, self.myTable.frame.size.width, self.myTable.frame.size.height);
+    
+}
 
 @end

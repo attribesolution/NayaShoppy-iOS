@@ -11,7 +11,6 @@
 #import "GlobalVariables.h"
 #import "PriceViewController.h"
 #import "SpecificationListViewController.h"
-#import "MenuData.h"
 #import "ReviewViewController.h"
 #import "SimilarProductVC.h"
 

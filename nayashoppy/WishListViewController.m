@@ -9,9 +9,7 @@
 #import "WishListViewController.h"
 
 @interface WishListViewController ()
-{
-    MenuData *ob;
-}
+
 @end
 
 @implementation WishListViewController

@@ -7,16 +7,16 @@
 //
 
 #import "ReviewViewController.h"
-#import "MenuData.h"
 #import "UserReviews.h"
 #import "UIView+Toast.h"
+#import "singleton.h"
 
 static NSString *reviewNib= @"ReviewsCell" , *reviewcell=@"Review",*toastmsg=@"Please Sign In first to write your reviews";
 
 @interface ReviewViewController ()
 {
     CGRect oldFrame;
-    MenuData *obj;
+    singleton *obj;
     NSMutableArray *myreview;
 }
 @end
@@ -24,7 +24,7 @@ static NSString *reviewNib= @"ReviewsCell" , *reviewcell=@"Review",*toastmsg=@"P
 @implementation ReviewViewController
 
 - (void)viewDidLoad {
-    obj=[MenuData Items];
+    obj=[singleton sharedManager];
     if(obj.UserReviews.count==0)
     {
       _ReviewView.hidden=YES;

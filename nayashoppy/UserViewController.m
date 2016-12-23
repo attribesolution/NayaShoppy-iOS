@@ -7,12 +7,14 @@
 //
 
 #import "UserViewController.h"
+#import "singleton.h"
+
 static NSString *userCell =@"UserCell";
 
 @interface UserViewController ()
 {
     NSString *status;
-    MenuData *obj;
+    singleton *obj;
 }
 @end
 
@@ -20,7 +22,7 @@ static NSString *userCell =@"UserCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    obj=[MenuData Items];
+    obj=[singleton sharedManager];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
                                                  name:@"SignIn" object:nil];}
 -(void) refreshView:(id) sender

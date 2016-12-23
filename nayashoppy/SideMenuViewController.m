@@ -9,11 +9,12 @@
 
 #import "SideMenuViewController.h"
 #import <Crashlytics/Crashlytics.h>
+#import "singleton.h"
 
 static NSString *SideMenuCell =@"SideMenu" , *placeholder=@"PlaceHolder", *refreshview=@"refreshView" , *detailview=@"DetailView" ,*DetailviewCell=@"Detail";
 @interface SideMenuViewController ()
 {
-    MenuData *obj;
+    singleton *obj;
 }
 @end
 
@@ -23,7 +24,7 @@ static NSString *SideMenuCell =@"SideMenu" , *placeholder=@"PlaceHolder", *refre
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    obj=[MenuData Items];
+    obj=[singleton sharedManager];
     [self nav];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
                                                  name:refreshview object:nil];

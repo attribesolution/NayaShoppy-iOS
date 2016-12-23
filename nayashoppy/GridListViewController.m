@@ -13,13 +13,14 @@
 #import "GridCollectionViewFlowLayout.h"
 #import "DGActivityIndicatorView.h"
 #import "ShareUtility.h"
+#import "singleton.h"
 
 static NSString *AKCollectionCell = @"CollectionCell";
 static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 
 @interface GridListViewController ()
 {
-    MenuData *obj;
+    singleton *obj;
     DGActivityIndicatorView *activityIndicatorView;
     Categories *cobj;
     CollectionCell *cell;
@@ -42,7 +43,7 @@ Boolean showInGridView = false;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    obj=[MenuData Items];
+    obj=[singleton sharedManager];
     self.FilterView.hidden=YES;
     [self ApiParsing];
     [self registerCell];
@@ -317,7 +318,7 @@ Boolean showInGridView = false;
         obj.allproductimg=[img copy];
         obj.allproducts=[response copy];
     }
-    if(obj.popularproducts.count==0 && i==2)
+    else if(obj.popularproducts.count==0 && i==2)
     {
         obj.popularproductimg=[img copy];
         obj.popularproducts=[response copy];

@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "WishListCell.h"
 #import "Categories.h"
-#import "MenuData.h"
 #import "GlobalVariables.h"
 
 @interface WishListViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>

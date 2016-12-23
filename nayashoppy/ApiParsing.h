@@ -10,7 +10,6 @@
 #import "AFHTTPSessionManager.h"
 #import "Categories.h"
 #import "GlobalVariables.h"
-#import "MenuData.h"
 #import "Mapping.h"
 #import "NewArrivals.h"
 #import "SlidingImages.h"
@@ -18,6 +17,7 @@
 #import "AllProduct.h"
 #import "ProductImg.h"
 #import "Filters.h"
+#import "singleton.h"
 
 @interface ApiParsing : NSObject
 

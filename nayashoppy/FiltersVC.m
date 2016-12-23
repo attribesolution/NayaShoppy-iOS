@@ -8,16 +8,17 @@
 
 #import "FiltersVC.h"
 #import "checkCell.h"
-#import "MenuData.h"
 #import "GlobalVariables.h"
 #import "Categories.h"
 #import <DGActivityIndicatorView/DGActivityIndicatorView.h>
+#import "singleton.h"
+
 @interface FiltersVC ()
 {
     NSArray *filter,*filtervalues;
     DGActivityIndicatorView *activityIndicatorView;
     Categories *cobj;
-    MenuData *obj;
+    singleton *obj;
     NSString *key;
 }
 @end
@@ -27,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    obj=[MenuData Items];
+    obj=[singleton sharedManager];
     [self navBar];
     UINib *cell = [UINib nibWithNibName:@"checkCell" bundle:nil];
     [self.FilterDTable registerNib:cell forCellReuseIdentifier:@"check"];

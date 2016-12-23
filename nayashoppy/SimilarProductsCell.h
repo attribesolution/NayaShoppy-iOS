@@ -10,6 +10,6 @@
 
 @interface SimilarProductsCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIView *SimilarProductView;
-@property (strong, nonatomic) IBOutlet UIView *Loader;
+
 
 @end

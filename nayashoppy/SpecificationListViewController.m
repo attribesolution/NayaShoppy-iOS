@@ -9,13 +9,14 @@
 //
 
 #import "SpecificationListViewController.h"
+#import "singleton.h"
 
 static NSString *specificationCell=@"SpecificationCell", *tableCell= @"SKSTableViewCell", *notification=@"refreshTable";
 
 @interface SpecificationListViewController ()
 {
     NSNumber *index;
-    MenuData *obj;
+    singleton *obj;
 }
 
 @property (nonatomic, strong) NSArray *contents;
@@ -30,7 +31,7 @@ static NSString *specificationCell=@"SpecificationCell", *tableCell= @"SKSTableV
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    obj=[MenuData Items];
+    obj=[singleton sharedManager];
     self.myTable.frame=CGRectMake(0, 50, 0, 0);
     self.myTable.SKSTableViewDelegate = self;
     self.navigationController.navigationItem.backBarButtonItem.title = @" ";

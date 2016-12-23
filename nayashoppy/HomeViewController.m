@@ -7,14 +7,14 @@
 //
 
 #import "HomeViewController.h"
-#import "MenuData.h"
 #import "SlideImgTableCell.h"
+#import "singleton.h"
 
 static NSString *CouponsCell = @"CouponsCollectionViewCell", *CouponsLabelTitle=@"Coupons & Cashback", *CouponsLabelImg=@"Coupon", *refreshnotif=@"refreshView", *refreshtable=@"refreshTable" ,*imgCell=@"ImageCell", *topmenucell=@"TopMenu", *tableCell=@"TableCell", *newarrivalCell=@"newArrival", *recentCell=@"Recent", *newATitle=@"New Arrivals", *recentVTitle=@"RecentlyViewed", *keyboardNotification=@"HideKeyboard", *couponSB=@"Coupons",*coupCell=@"Cash", *TopMenuSB=@"TopMenuStoryboard", *topMCell=@"TopMenu", *newArrSB=@"NewArrivalsStoryboard", *newarrCell=@"newAv", *recentViewSB=@"RecentStoryboard",*rCell=@"Recent";
 
 @interface HomeViewController ()
 {
-    MenuData *obj;
+    singleton *obj;
     UIImageView *slider;
     DGActivityIndicatorView *activityIndicatorView;
 }
@@ -26,7 +26,7 @@ static NSString *CouponsCell = @"CouponsCollectionViewCell", *CouponsLabelTitle=
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    obj=[MenuData Items];
+    obj=[singleton sharedManager];
     
     [self gesture];
     [self registerCell];

@@ -92,21 +92,7 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXi-KH-jnX">
                                                     <rect key="frame" x="15" y="8" width="297" height="68"/>
-                                                    <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1MH-bF-Dnr">
-                                                            <rect key="frame" x="124" y="11" width="50" height="47"/>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="47" id="dY2-CI-D9j"/>
-                                                                <constraint firstAttribute="width" constant="50" id="rVP-5U-vmu"/>
-                                                            </constraints>
-                                                        </view>
-                                                    </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstItem="1MH-bF-Dnr" firstAttribute="centerX" secondItem="tXi-KH-jnX" secondAttribute="centerX" id="6tm-Oq-WBt"/>
-                                                        <constraint firstItem="1MH-bF-Dnr" firstAttribute="centerY" secondItem="tXi-KH-jnX" secondAttribute="centerY" id="sxw-MJ-3mA"/>
-                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -117,7 +103,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="Loader" destination="1MH-bF-Dnr" id="yUR-CX-dXc"/>
                                             <outlet property="SimilarProductView" destination="tXi-KH-jnX" id="hsy-a8-SMf"/>
                                         </connections>
                                     </tableViewCell>
@@ -191,6 +176,14 @@
                                     <outlet property="delegate" destination="JYd-no-mWt" id="GpZ-VA-QJA"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1MH-bF-Dnr">
+                                <rect key="frame" x="135" y="321" width="50" height="47"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="dY2-CI-D9j"/>
+                                    <constraint firstAttribute="width" constant="50" id="rVP-5U-vmu"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOO-KQ-A9e">
                                 <rect key="frame" x="70" y="350" width="180" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -202,6 +195,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="1MH-bF-Dnr" firstAttribute="centerX" secondItem="TE0-H9-KYO" secondAttribute="centerX" id="Il9-Nu-qRh"/>
+                            <constraint firstItem="la9-dI-vBL" firstAttribute="top" secondItem="1MH-bF-Dnr" secondAttribute="bottom" constant="112" id="MQK-kn-Yc4"/>
                             <constraint firstAttribute="trailing" secondItem="Mp3-z5-Odh" secondAttribute="trailing" id="NPj-iF-nDM"/>
                             <constraint firstItem="la9-dI-vBL" firstAttribute="top" secondItem="Mp3-z5-Odh" secondAttribute="bottom" id="U1R-Q4-dFw"/>
                             <constraint firstItem="Mp3-z5-Odh" firstAttribute="leading" secondItem="TE0-H9-KYO" secondAttribute="leading" id="ZeF-28-5Em"/>
@@ -212,6 +207,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="Loader" destination="1MH-bF-Dnr" id="Dgd-nc-ryy"/>
                         <outlet property="PriceTable" destination="Mp3-z5-Odh" id="jhn-5A-Kyw"/>
                         <outlet property="ToastView" destination="wOO-KQ-A9e" id="0Wm-p2-5mR"/>
                     </connections>

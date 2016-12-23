@@ -9,6 +9,7 @@
 
 #import "SpecificationsViewController.h"
 #import "FiltersVC.h"
+#import "singleton.h"
 
 static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"SpecificationList";
 
@@ -17,7 +18,7 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
     NSMutableArray *tabItem;
     PriceViewController *cvc;
     SpecificationListViewController *svc;
-    MenuData *obj;
+    singleton *obj;
     
 }
 @property (nonatomic,assign)NSInteger lastSelectedTab;
@@ -30,7 +31,7 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    obj=[MenuData Items];
+    obj=[singleton sharedManager];
     [self setTab];
     [self nav];  
 }

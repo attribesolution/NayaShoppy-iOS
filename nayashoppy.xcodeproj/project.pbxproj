@@ -78,6 +78,8 @@
 		CF6927081DBE27E500B85F64 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6927071DBE27E500B85F64 /* UserViewController.m */; };
 		CF6927141DBE303900B85F64 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6927121DBE303900B85F64 /* UserCell.m */; };
 		CF6927151DBE303900B85F64 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF6927131DBE303900B85F64 /* UserCell.xib */; };
+		CF6A1D6A1E0A9E320064C150 /* testvc.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6A1D691E0A9E320064C150 /* testvc.m */; };
+		CF6A1D6C1E0AA43A0064C150 /* test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF6A1D6B1E0AA43A0064C150 /* test.storyboard */; };
 		CF6B397E1DC89313003BDB4E /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF6B397D1DC89313003BDB4E /* DetailView.storyboard */; };
 		CF6D89E51DE2D8CE00D6C49B /* share 17*17.png in Resources */ = {isa = PBXBuildFile; fileRef = CF6D89E41DE2D8CE00D6C49B /* share 17*17.png */; };
 		CF6F2E241DC7681D0027FAD8 /* Categories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF6F2E231DC7681D0027FAD8 /* Categories.storyboard */; };
@@ -295,6 +297,9 @@
 		CF6927111DBE303900B85F64 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
 		CF6927121DBE303900B85F64 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
 		CF6927131DBE303900B85F64 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		CF6A1D681E0A9E320064C150 /* testvc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testvc.h; sourceTree = "<group>"; };
+		CF6A1D691E0A9E320064C150 /* testvc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testvc.m; sourceTree = "<group>"; };
+		CF6A1D6B1E0AA43A0064C150 /* test.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = test.storyboard; sourceTree = "<group>"; };
 		CF6B397D1DC89313003BDB4E /* DetailView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
 		CF6D89E41DE2D8CE00D6C49B /* share 17*17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share 17*17.png"; sourceTree = "<group>"; };
 		CF6F2E231DC7681D0027FAD8 /* Categories.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Categories.storyboard; sourceTree = "<group>"; };
@@ -871,6 +876,9 @@
 				CF6F2E261DC7686E0027FAD8 /* CategoriesViewController.m */,
 				CF815F061DE471EA0065C642 /* Mobiles */,
 				477BC9111DC9D6E2008C3207 /* ProductViewController */,
+				CF6A1D681E0A9E320064C150 /* testvc.h */,
+				CF6A1D691E0A9E320064C150 /* testvc.m */,
+				CF6A1D6B1E0AA43A0064C150 /* test.storyboard */,
 			);
 			name = CategoriesView;
 			sourceTree = "<group>";
@@ -1526,6 +1534,7 @@
 				CF13D0CE1DD1973400956076 /* GridList.storyboard in Resources */,
 				CF60D29A1DD46F7200D6EFBE /* Specifications.storyboard in Resources */,
 				CF8B2C691DCC5C9D0028DD6D /* WishListCell.xib in Resources */,
+				CF6A1D6C1E0AA43A0064C150 /* test.storyboard in Resources */,
 				CF86A44C1DD58F1700F2F57A /* ic_amazon_logo.png in Resources */,
 				CF3064471E02AE4E00AF5EDD /* SlideImgCell.xib in Resources */,
 				CF60D2841DD4516E00D6EFBE /* expandableImage@2x.png in Resources */,
@@ -1635,6 +1644,7 @@
 				CFB5B5B71DCCBB1200CBCB08 /* PagerViewController.m in Sources */,
 				CF5C74FE1DB627EB008475D1 /* SideMenuViewController.m in Sources */,
 				CFDD006F1DF14752009322EA /* ShareUtility.m in Sources */,
+				CF6A1D6A1E0A9E320064C150 /* testvc.m in Sources */,
 				CF80B05D1DED6961004BE3DE /* checkCell.m in Sources */,
 				CF1143391DE710A900751423 /* Items.m in Sources */,
 				CF6927141DBE303900B85F64 /* UserCell.m in Sources */,

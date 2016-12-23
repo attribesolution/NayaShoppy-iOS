@@ -8,13 +8,14 @@
 //
 
 #import "DetailedViewController.h"
+#import "singleton.h"
 
 @interface DetailedViewController ()
 {
      NSMutableArray *tabItem,*categories;
-     MenuData *obj;
+     singleton *obj;
      AppDelegate *appDelegate;
-    CategoriesViewController *dvc;
+     CategoriesViewController *dvc;
 }
 
 @property (nonatomic,assign)NSInteger lastSelectedTab;
@@ -24,11 +25,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    obj=[MenuData Items];
+    obj=[singleton sharedManager];
     categories=[[NSMutableArray alloc]init];
     [self selectTabAtIndex:0];
     self.lastSelectedTab = 0;
-
+    self.view.backgroundColor=[UIColor clearColor];
     if(obj.topmenu.count!=0)
     {
     for (int i=0; i<obj.topmenu.count; i++) {
@@ -48,7 +49,6 @@
      [super viewWillAppear:animated];
      appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
      [self selectTabAtIndex:[appDelegate.rowindex integerValue]];
-     dvc.myTable.frame=CGRectMake(0, 0, dvc.myTable.frame.size.width, dvc.myTable.frame.size.height);
      obj.ProductDetails=nil;
      obj.GernalFeatures=nil;
 }
@@ -66,9 +66,13 @@
         obj.Mobileindex=[NSNumber numberWithInt:1];
     else
         obj.Mobileindex=[NSNumber numberWithInt:0];
-    UIStoryboard *deals=[UIStoryboard storyboardWithName:@"Categories" bundle:nil];
-    dvc = [deals instantiateViewControllerWithIdentifier:@"Categories"];
+//    UIStoryboard *deals=[UIStoryboard storyboardWithName:@"Categories" bundle:nil];
+//    dvc = [deals instantiateViewControllerWithIdentifier:@"Categories"];
+//    dvc.view.backgroundColor=[UIColor whiteColor];
+    UIStoryboard *deals=[UIStoryboard storyboardWithName:@"test" bundle:nil];
+    dvc = [deals instantiateViewControllerWithIdentifier:@"test"];
     dvc.view.backgroundColor=[UIColor whiteColor];
+
     [[NSNotificationCenter defaultCenter] postNotificationName:@"CategorieAtIndex" object:categories[index]];
     appDelegate.rowindex=[NSNumber numberWithInteger:index];
        return dvc;

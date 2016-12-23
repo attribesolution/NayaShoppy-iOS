@@ -7,10 +7,12 @@
 //
 
 #import "NewArrivalVC.h"
+#import "singleton.h"
+
 static NSString *NewArrivalCell=@"NewArrivalViewCell";
 @interface NewArrivalVC ()
 {
-    MenuData *obj;
+    singleton *obj;
 }
 
 @end
@@ -20,7 +22,7 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    obj=[MenuData Items];
+    obj=[singleton sharedManager];
     
 }
 -(void)viewWillAppear:(BOOL)animated{

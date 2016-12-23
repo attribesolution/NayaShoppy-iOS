@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "SpecificationsViewController.h"
-#import "MenuData.h"
 #import "DGActivityIndicatorView.h"
 #import "TabelledCollectionCell.h"
 #import "DealsCell.h"

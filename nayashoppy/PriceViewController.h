@@ -10,7 +10,6 @@
 #import "ImageCell.h"
 #import "DetailCell.h"
 #import "GlobalVariables.h"
-#import "MenuData.h"
 #import "StoreCell.h"
 #import "ReviewCell.h"
 #import "SimilarProductVC.h"
@@ -29,6 +28,7 @@
 
 
 @interface PriceViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
+@property (strong, nonatomic) IBOutlet UIView *Loader;
 
 @property (strong, nonatomic) IBOutlet UITableView *PriceTable;
 @property (strong, nonatomic) CollectionImages *imgcv;

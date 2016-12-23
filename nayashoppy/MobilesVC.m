@@ -8,13 +8,14 @@
 
 #import "MobilesVC.h"
 #import "ShareUtility.h"
+#import "singleton.h"
 
 static NSString *dealsCell = @"DealCell";
 static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 
 @interface MobilesVC ()
 {
-    MenuData *obj;
+    singleton *obj;
     DGActivityIndicatorView *activityInd1,*activityInd2;
     Categories *cobj;
     UIImage *wishimg;
@@ -186,7 +187,7 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 
 -(void) ApiData
 {
-    obj=[MenuData Items];
+    obj=[singleton sharedManager];
     obj.page=[NSNumber numberWithInt:1];
     [self activityIndicator];
     ApiParsing * mainVC = [[ApiParsing alloc] init];

@@ -11,8 +11,9 @@
 #import "SKSTableViewCell.h"
 #import "MobilesVC.h"
 
-@interface CategoriesViewController : UIViewController<SKSTableViewDelegate>
+@interface CategoriesViewController : UIViewController <SKSTableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet SKSTableView *myTable;
+
 
 @end

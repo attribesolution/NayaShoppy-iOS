@@ -11,11 +11,12 @@
 #import "HomeViewController.h"
 #import "DetailedViewController.h"
 #import "GlobalVariables.h"
+#import "singleton.h"
 
 @interface ProductViewController (){
     NSMutableArray *tabItem;
     NSInteger numberOfTabs,tab ;
-    MenuData *obj;
+    singleton *obj;
 }
 
 @property (nonatomic,assign)NSInteger lastSelectedTab;
@@ -27,7 +28,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    obj=[MenuData Items];
+    obj=[singleton sharedManager];
     tabItem=[[NSMutableArray alloc]initWithObjects:@"ALL PRODUCTS",@"POPULAR PRODUCTS", nil];
     numberOfTabs = 2;
     self.dataSource = self;

@@ -9,15 +9,18 @@
 #import "PriceViewController.h"
 #import "ShareUtility.h"
 #import "DGActivityIndicatorView.h"
+#import "singleton.h"
+
 static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct" ,*SProduct=@"SimilarProducts" ,*newArrivals=@"NewArrivals", *Pproduct=@"PopularProducts" , * AProduct=@"AllProducts" , *ImgNib=@"CollectionImages" ,*imgCell=@"BannerImagesVC",*rcell=@"ReviewCell",*SimPro=@"Sproduct" , *store=@"Stores" ,*specification= @"SpecificationButtonCell" , *specficCell=@"SpecificationCell", *spLabelCell=@"Specification", *storeCell=@"StoreCell" , *imageCell=@"ImageCell" , *detailCell=@"Detail" , *detailnib=@"DetailCell";
 
 @interface PriceViewController ()
 {
     NSString *Pimg;
-    MenuData *obj;
+    singleton *obj;
     Categories *cobj;
     ImageCell *imgcell;
     DGActivityIndicatorView *activityIndicatorView ;
+    BOOL isData;
 }
 
 @property(strong,nonatomic) SimilarProductVC *sproduct;
@@ -30,10 +33,15 @@ static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct"
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-     obj=[MenuData Items];
+     obj=[singleton sharedManager];
     [self arrayObject];
     [self Parsedetails];
     [self recentlyViewed];
+    activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotatePulse tintColor:[UIColor redColor] size:40.0f];
+    activityIndicatorView.frame = self.Loader.bounds;
+    [self.Loader addSubview:activityIndicatorView];
+    isData=NO;
+    self.Loader.hidden=YES;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
                                                  name:notification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeLoader:)
@@ -45,7 +53,7 @@ static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct"
     [self.PriceTable reloadData];
 }
 -(void)removeLoader:(NSNotification *) notification {
-    
+    isData=YES;
     [activityIndicatorView stopAnimating];
     [self.PriceTable reloadData];
 }
@@ -232,14 +240,13 @@ static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct"
     if (indexPath.section==9)
    {
        SimilarProductsCell *cell = [tableView dequeueReusableCellWithIdentifier:SimilarProduct forIndexPath:indexPath];
-       activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotatePulse tintColor:[UIColor redColor] size:40.0f];
-       activityIndicatorView.frame = cell.Loader.bounds;
-       [cell.Loader addSubview:activityIndicatorView];
-       [activityIndicatorView startAnimating];
-
         self.sproduct.view.frame = cell.SimilarProductView.bounds;
-        self.sproduct.XYZDelegate = (SpecificationsViewController *
-                                )[self.navigationController topViewController];
+        self.sproduct.XYZDelegate = (SpecificationsViewController * )[self.navigationController topViewController];
+       if(!isData)
+       {
+       [activityIndicatorView startAnimating];
+       self.Loader.hidden=NO;
+       }
        [cell.SimilarProductView addSubview:self.sproduct.view];
        return cell;
     }

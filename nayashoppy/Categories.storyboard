@@ -69,7 +69,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="myTable" destination="Q88-Dx-EpL" id="Tcz-h2-PuD"/>
+                        <outlet property="myTable" destination="Q88-Dx-EpL" id="pFP-ef-ux9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q51-CO-DH5" userLabel="First Responder" sceneMemberID="firstResponder"/>

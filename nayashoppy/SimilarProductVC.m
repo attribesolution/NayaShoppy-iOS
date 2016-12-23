@@ -8,12 +8,13 @@
 
 #import "SimilarProductVC.h"
 #import "ShareUtility.h"
+#import "singleton.h"
 
 static NSString *similarPCell=@"SimilarPCVCell", *similarProduct=@"SimilarProducts" ,*placeHolderImg=@"PlaceHolder",*wishIcon=@"WishIcon" ,*notification=@"refreshTable";
 
 @interface SimilarProductVC ()
 {
-    MenuData *obj;
+    singleton *obj;
     Categories *cobj;
     NSString *imgUrl;
     SimilarPCVCell *cell;
@@ -25,7 +26,8 @@ static NSString *similarPCell=@"SimilarPCVCell", *similarProduct=@"SimilarProduc
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    obj=[MenuData Items];
+    obj=[singleton sharedManager];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -43,7 +45,6 @@ static NSString *similarPCell=@"SimilarPCVCell", *similarProduct=@"SimilarProduc
         obj.Similarproducts=[respone copy];
         [self.SimilarPcollView reloadData];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"StopInd" object:nil];
-
         
     } failure:^(NSError *error, NSString *message) {
         NSLog(@"%@",error);

@@ -8,10 +8,12 @@
 //
 
 #import "TopMenuVc.h"
+#import "singleton.h"
+
 static NSString *CategoriesVCell = @"CategoriesCell";
 @interface TopMenuVc ()
 {
-    MenuData *obj;
+    singleton *obj;
 }
 @end
 
@@ -19,7 +21,7 @@ static NSString *CategoriesVCell = @"CategoriesCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    obj=[MenuData Items];
+    obj=[singleton sharedManager];
     }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -44,8 +46,8 @@ static NSString *CategoriesVCell = @"CategoriesCell";
     UIStoryboard *deals=[UIStoryboard storyboardWithName:@"DetailView" bundle:nil];
     DetailedViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"Detail"];
     SWRevealViewController *sv=self.revealViewController;
-     [sv revealToggle:self];
-    
+    [sv revealToggle:self];
+   // [self.navigationController pushViewController:dvc animated:YES];
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.navController pushViewController:dvc animated:YES];
     appDelegate.rowindex=[NSNumber numberWithInteger:indexPath.row];

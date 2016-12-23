@@ -44,7 +44,7 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
         Mapping *country = [[Mapping alloc] initWithString:myString  error:&error];
         Categories *Cobj;
         NSString *img;
-        MenuData *ob=[MenuData Items];
+        singleton *ob=[singleton sharedManager];
         for(int i=0;i<country.data.count;i++)
         {
         MainCategories *ic = country.data[i];
@@ -106,8 +106,7 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
         NSData * jsonData = [NSJSONSerialization  dataWithJSONObject:dictionary options:0 error:&error];
         NSString * myString =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         AllProduct *newproduct = [[AllProduct alloc] initWithString:myString  error:&error];
-
-        MenuData *ob=[MenuData Items];
+        singleton *ob=[singleton sharedManager];
         NSMutableArray *allproduct,*allproductimg,*productimgs,*supliers;
         allproduct=[[NSMutableArray alloc]init];
         allproductimg=[[NSMutableArray alloc]init];
@@ -152,7 +151,7 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
 - (NSURLSessionDataTask *)getDetails:(void (^)(NSArray *details,NSArray *generalFeatures))success failure:(void (^)(NSError *error, NSString *message))failure
 {
     
-    MenuData *ob=[MenuData Items];
+    singleton *ob=[singleton sharedManager];
     NSDictionary *keyValue=[[NSDictionary alloc]init];
     keyValue= @{
                 @"slug":ob.slug,
@@ -227,7 +226,7 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
 }
 - (NSURLSessionDataTask *)getAllProducts:(void (^)(NSMutableArray *products,NSMutableArray *img))success failure:(void (^)(NSError *error, NSString *message))failure {
     
-     MenuData *ob=[MenuData Items];
+    singleton *ob=[singleton sharedManager];
      NSDictionary *keyValue=[[NSDictionary alloc]init];
                            keyValue= @{      @"category_id":ob.CatId,
                                              @"brand_id":ob.BranchId,
@@ -296,7 +295,7 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
 
 - (NSURLSessionDataTask *)getPopularProducts:(void (^)(NSMutableArray *products,NSMutableArray *img))success failure:(void (^)(NSError *error, NSString *message))failure {
     
-    MenuData *ob=[MenuData Items];
+    singleton *ob=[singleton sharedManager];
     NSDictionary *keyValue=[[NSDictionary alloc]init];
     keyValue= @{      @"category_id":ob.CatId,
                       @"brand_id":ob.BranchId,
@@ -322,7 +321,7 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
 - (NSURLSessionDataTask *)getSimilarProducts:(void (^)(NSArray *products,NSArray *img))success failure:(void (^)(NSError *error, NSString *message))failure {
     
     
-    MenuData *ob=[MenuData Items];
+    singleton *ob=[singleton sharedManager];
     NSDictionary *keyValue=[[NSDictionary alloc]init];
     keyValue= @{      @"category_id":ob.PCatId,
                       @"price":ob.PPrice,
@@ -440,7 +439,7 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
        
         Deals *newdeals = [[Deals alloc] initWithString:myString  error:&error];
         
-        MenuData *ob=[MenuData Items];
+        singleton *ob=[singleton sharedManager];
         for(int i=0;i<newdeals.data.count;i++)
         {
             DealsOfDay *deals = newdeals.data[i];

@@ -11,6 +11,7 @@
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 #import "UserReviews.h"
+#import "singleton.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +22,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
+    [[UINavigationBar appearance] setTranslucent:YES];
     [Fabric with:@[[Crashlytics class]]];
     [Crashlytics sharedInstance].debugMode = YES;
     ApiParsing * mainVC = [[ApiParsing alloc] init];
@@ -69,7 +72,7 @@
 - (void)signIn:(GIDSignIn *)signIn
 didSignInForUser:(GIDGoogleUser *)user
      withError:(NSError *)error {
-    MenuData *obj=[MenuData Items];
+    singleton *obj=[singleton sharedManager];
     
 // Perform any operations on signed in user here.
     NSString *userId = user.userID;                  // For client-side use only!

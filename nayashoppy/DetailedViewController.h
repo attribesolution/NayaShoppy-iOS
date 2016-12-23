@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "ViewPagerController.h"
-#import "MenuData.h"
 #import "DealsOfTheDayViewController.h"
 #import "GlobalVariables.h"
 #import "AppDelegate.h"

@@ -8,12 +8,13 @@
 
 #import "DealsOfTheDayViewController.h"
 #import "ShareUtility.h"
+#import "singleton.h"
 
 static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" , *refreshNotification=@"refreshDealsCV", *specificationSB=@"Specifications" , *placeholder=@"PlaceHolder", *dealsCellNib=@"DealsCell";
 
 @interface DealsOfTheDayViewController ()
 {
-    MenuData *ob;
+    singleton *ob;
     Categories *cobj;
     DealsCell *cell;
     NSString *Pimg;
@@ -25,7 +26,7 @@ static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    ob=[MenuData Items];
+    ob=[singleton sharedManager];
     /* if(ob.DealsOfTheDay.count==0)
        self.myView.hidden=NO;
      else*/
