@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '80CEB4E28190590DC4D68A49B9A36820'
+               BlueprintIdentifier = '12013E04BE32FAAC968BDC84E26E508A'
                BlueprintName = 'Pods-nayashoppy'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-nayashoppy.a'>

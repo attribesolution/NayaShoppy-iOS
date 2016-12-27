@@ -155,6 +155,8 @@
 		CFB5B5B41DCCA71300CBCB08 /* RateAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB5B5B31DCCA71300CBCB08 /* RateAppViewController.m */; };
 		CFB5B5B71DCCBB1200CBCB08 /* PagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB5B5B61DCCBB1200CBCB08 /* PagerViewController.m */; };
 		CFB5B5B91DCCBC6400CBCB08 /* HomePager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB5B5B81DCCBC6400CBCB08 /* HomePager.storyboard */; };
+		CFBFC7BA1E126370006AD516 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBFC7B81E126370006AD516 /* FBSDKCoreKit.framework */; };
+		CFBFC7BB1E126370006AD516 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBFC7B91E126370006AD516 /* FBSDKLoginKit.framework */; };
 		CFC20F021DD996710050E5B0 /* ImageCVcell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFC20F001DD996710050E5B0 /* ImageCVcell.m */; };
 		CFC20F031DD996710050E5B0 /* ImageCVcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFC20F011DD996710050E5B0 /* ImageCVcell.xib */; };
 		CFC20F071DD9BD0C0050E5B0 /* SimilarProducts.m in Sources */ = {isa = PBXBuildFile; fileRef = CFC20F061DD9BD0C0050E5B0 /* SimilarProducts.m */; };
@@ -416,6 +418,8 @@
 		CFB5B5B51DCCBB1200CBCB08 /* PagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagerViewController.h; sourceTree = "<group>"; };
 		CFB5B5B61DCCBB1200CBCB08 /* PagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagerViewController.m; sourceTree = "<group>"; };
 		CFB5B5B81DCCBC6400CBCB08 /* HomePager.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomePager.storyboard; sourceTree = "<group>"; };
+		CFBFC7B81E126370006AD516 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		CFBFC7B91E126370006AD516 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		CFC20EFF1DD996710050E5B0 /* ImageCVcell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCVcell.h; sourceTree = "<group>"; };
 		CFC20F001DD996710050E5B0 /* ImageCVcell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCVcell.m; sourceTree = "<group>"; };
 		CFC20F011DD996710050E5B0 /* ImageCVcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCVcell.xib; sourceTree = "<group>"; };
@@ -463,6 +467,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFDD00721DF15142009322EA /* Foundation.framework in Frameworks */,
+				CFBFC7BA1E126370006AD516 /* FBSDKCoreKit.framework in Frameworks */,
+				CFBFC7BB1E126370006AD516 /* FBSDKLoginKit.framework in Frameworks */,
 				737BD2040ADF0C45A6E387AA /* libPods-nayashoppy.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,6 +524,8 @@
 		AFDC9A79B5A197D2396DBF86 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CFBFC7B81E126370006AD516 /* FBSDKCoreKit.framework */,
+				CFBFC7B91E126370006AD516 /* FBSDKLoginKit.framework */,
 				CFDD00711DF15142009322EA /* Foundation.framework */,
 				A6336B5E970C4DC0C494B36A /* libPods-nayashoppy.a */,
 			);
@@ -1847,12 +1855,14 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
 					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"~/Documents/FacebookSDKs-iOS-4-2",
 				);
 				INFOPLIST_FILE = nayashoppy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				"LINK_WITH_STANDARD_LIBRARIES[arch=*]" = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.attribe.nayashoppy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.attribe.nayashoppy123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "nayashoppy/nayashoppy-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1868,11 +1878,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
 					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"~/Documents/FacebookSDKs-iOS-4-2",
 				);
 				INFOPLIST_FILE = nayashoppy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.attribe.nayashoppy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.attribe.nayashoppy123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "nayashoppy/nayashoppy-Bridging-Header.h";
 			};

@@ -7,13 +7,16 @@
 //
 
 #import "SignInVC.h"
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "UserReviews.h"
 
 @interface SignInVC ()
 {
     CGRect oldFrame;
     int i;
+    NSString *userName;
+    NSURL *url;
 }
 @end
 
@@ -33,10 +36,7 @@
    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardDidShowNotification object:nil];
    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
     [GIDSignIn sharedInstance].uiDelegate = self;
-    self.FbSignIn = [[FBSDKLoginButton alloc] init];
-    [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
     if ([FBSDKAccessToken currentAccessToken]) {
-       
     }
 }
 
@@ -54,9 +54,10 @@
 
 - (IBAction)FacebookSignIn:(id)sender {
 
+    singleton *obj=[singleton sharedManager];
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
     [login
-     logInWithReadPermissions: @[@"public_profile",@"email"]
+     logInWithReadPermissions: @[@"public_profile"]
      fromViewController:self
      handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
          if (error) {
@@ -65,9 +66,38 @@
              NSLog(@"Cancelled");
          } else {
              NSLog(@"Logged in");
+             
+             FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
+                                           initWithGraphPath:@"me"
+                                           parameters:@{@"fields": @"name"}
+                                           HTTPMethod:@"GET"];
+             [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                                   id results,
+                                                   NSError *error) {
+                 NSLog(@"%@",results);
+                 userName=[results objectForKey:@"name"];
+            
+             }];
+             FBSDKGraphRequest *requestpic = [[FBSDKGraphRequest alloc]
+                                              initWithGraphPath:[NSString stringWithFormat:@"me/picture?type=large&redirect=false"]
+                                              parameters:nil
+                                              HTTPMethod:@"GET"];
+             [requestpic startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                                      id resultpic,
+                                                      NSError *error) {
+                 NSLog(@"%@",resultpic);
+                 url = [NSURL URLWithString:[[resultpic objectForKey:@"data" ] objectForKey:@"url"]];
+                 UserReviews *robj=[[UserReviews alloc]initWithName:userName andUrl:url];
+                 [obj.UserReviews addObject:robj];
+                 [[NSNotificationCenter defaultCenter] postNotificationName:@"SignIn" object:nil];
+             }];
          }
      }];
+    
+    
+
 }
+
 - (IBAction)SignUp:(id)sender {
 }
 #pragma mark - UITextFieldDelegate

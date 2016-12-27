@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Bolts.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>DGActivityIndicatorView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -24,17 +19,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FBSDKCoreKit.xcscheme</key>
+		<key>GTMOAuth2.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FBSDKLoginKit.xcscheme</key>
+		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FBSDKShareKit.xcscheme</key>
+		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -57,12 +52,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0C1F8E331232C34F034FD26C684AFA0A</key>
+		<key>0CE2C5FFABAA8D2B4DF63119BB10DB40</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2B1D61AC8FC8F0F7AA4E46CC76927A12</key>
+		<key>12013E04BE32FAAC968BDC84E26E508A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,27 +67,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3EC508E2AD93A8B7862551E8450FF1A8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>45BE495C85EAC1CFA55C75EF04EFEE2E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6E7B2CF2F9D161E4DB2C0174D7A3D9CA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7E61C9A8C176278C6C99C2C59E9C152E</key>
+		<key>6F2A2B4D4A40ACCDC6DAFF493130D0DC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>7F2706D536054A9E0F1610E2DF3973D5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>80CEB4E28190590DC4D68A49B9A36820</key>
 		<dict>
 			<key>primary</key>
 			<true/>

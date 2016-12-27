@@ -16,6 +16,7 @@
      singleton *obj;
      AppDelegate *appDelegate;
      CategoriesViewController *dvc;
+    int ind;
 }
 
 @property (nonatomic,assign)NSInteger lastSelectedTab;
@@ -25,6 +26,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    ind=0;
     obj=[singleton sharedManager];
     categories=[[NSMutableArray alloc]init];
     [self selectTabAtIndex:0];
@@ -46,9 +49,13 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
-     [super viewWillAppear:animated];
+    [super viewWillAppear:animated];
+    if (ind==0) {
+      
      appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
      [self selectTabAtIndex:[appDelegate.rowindex integerValue]];
+        ind++;
+    }
      obj.ProductDetails=nil;
      obj.GernalFeatures=nil;
 }
@@ -66,13 +73,10 @@
         obj.Mobileindex=[NSNumber numberWithInt:1];
     else
         obj.Mobileindex=[NSNumber numberWithInt:0];
-//    UIStoryboard *deals=[UIStoryboard storyboardWithName:@"Categories" bundle:nil];
-//    dvc = [deals instantiateViewControllerWithIdentifier:@"Categories"];
-//    dvc.view.backgroundColor=[UIColor whiteColor];
-    UIStoryboard *deals=[UIStoryboard storyboardWithName:@"test" bundle:nil];
-    dvc = [deals instantiateViewControllerWithIdentifier:@"test"];
+    UIStoryboard *deals=[UIStoryboard storyboardWithName:@"Categories" bundle:nil];
+    dvc = [deals instantiateViewControllerWithIdentifier:@"Categories"];
     dvc.view.backgroundColor=[UIColor whiteColor];
-
+   
     [[NSNotificationCenter defaultCenter] postNotificationName:@"CategorieAtIndex" object:categories[index]];
     appDelegate.rowindex=[NSNumber numberWithInteger:index];
        return dvc;
