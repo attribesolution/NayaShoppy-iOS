@@ -14,7 +14,6 @@
 @interface CategoriesViewController ()
 {
     singleton *obj;
-   // NSString *CatName ;
     NSMutableArray *catid;
     Categories *currentCat;
     CGFloat tableY;
@@ -30,7 +29,7 @@
     [super viewDidLoad];
     obj=[singleton sharedManager];
     self.myTable.SKSTableViewDelegate = self;
-    self.navigationController.navigationItem.backBarButtonItem.title = @" ";
+     self.navigationController.navigationItem.backBarButtonItem.title = @" ";
 }
 
 #pragma mark - UITableViewDelegate

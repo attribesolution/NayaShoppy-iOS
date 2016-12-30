@@ -340,7 +340,7 @@ Boolean showInGridView = false;
           newArray=[obj.popularproductimg arrayByAddingObjectsFromArray:img];
           obj.popularproductimg=[newArray copy];
           newArrayimg=[obj.popularproducts arrayByAddingObjectsFromArray:response];
-           obj.popularproducts=[newArrayimg copy];
+          obj.popularproducts=[newArrayimg copy];
         }
     }
     self.Loader.hidden=YES;
