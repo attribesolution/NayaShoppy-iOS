@@ -14,7 +14,7 @@
 @interface CategoriesViewController ()
 {
     singleton *obj;
-    NSString *CatName ;
+   // NSString *CatName ;
     NSMutableArray *catid;
     Categories *currentCat;
     CGFloat tableY;
@@ -30,7 +30,6 @@
     [super viewDidLoad];
     obj=[singleton sharedManager];
     self.myTable.SKSTableViewDelegate = self;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(incomingNotification:) name:@"CategorieAtIndex" object:nil];
     self.navigationController.navigationItem.backBarButtonItem.title = @" ";
 }
 
@@ -45,9 +44,6 @@
     return self;
 }
 
-- (void) incomingNotification:(NSNotification *)notification{
-    CatName = [notification object];
-}
 
 - (NSArray *)contents
 {
@@ -58,7 +54,7 @@
            
        currentCat=[obj.topmenu objectAtIndex:i];
       
-        if([CatName isEqualToString:currentCat.TMtitle])
+        if([self.catName isEqualToString:currentCat.TMtitle])
         {
         _contents = @[currentCat.TMCat];
             break;
@@ -176,7 +172,7 @@
             
             currentCat=[obj.CatBranchIDs objectAtIndex:i];
             
-            if([CatName isEqualToString:currentCat.TMtitle])
+            if([self.catName isEqualToString:currentCat.TMtitle])
             {
                 catid=[[NSMutableArray alloc]initWithArray:currentCat.TMCat];
                 break;

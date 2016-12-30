@@ -14,6 +14,6 @@
 @interface CategoriesViewController : UIViewController <SKSTableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet SKSTableView *myTable;
-
+@property (strong, nonatomic) NSString *catName;
 
 @end

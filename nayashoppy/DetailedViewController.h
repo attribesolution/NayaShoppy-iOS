@@ -16,5 +16,5 @@
 @interface DetailedViewController : ViewPagerController <ViewPagerDataSource,ViewPagerDelegate>
 
 @property(strong,nonatomic) ViewPagerController *vp;
-//@property(weak,nonatomic) NSInteger myrow;
+@property(weak,nonatomic) NSNumber *selectTab;
 @end

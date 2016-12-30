@@ -50,16 +50,13 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
-    if (ind==0) {
-      
-     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-     [self selectTabAtIndex:[appDelegate.rowindex integerValue]];
-        ind++;
-    }
-     obj.ProductDetails=nil;
-     obj.GernalFeatures=nil;
+    if(self.selectTab!=nil)
+    [self selectTabAtIndex:[self.selectTab integerValue]];
 }
-
+-(void) viewWillDisappear:(BOOL)animated
+{
+    self.selectTab=nil;
+}
 
 #pragma mark - ViewPagerControllerDelegate Methods
 
@@ -76,10 +73,8 @@
     UIStoryboard *deals=[UIStoryboard storyboardWithName:@"Categories" bundle:nil];
     dvc = [deals instantiateViewControllerWithIdentifier:@"Categories"];
     dvc.view.backgroundColor=[UIColor whiteColor];
-   
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"CategorieAtIndex" object:categories[index]];
-    appDelegate.rowindex=[NSNumber numberWithInteger:index];
-       return dvc;
+    dvc.catName=categories[index];
+    return dvc;
 }
 
 - (UIView *)viewPager:(ViewPagerController *)viewPager viewForTabAtIndex:(NSUInteger)index {

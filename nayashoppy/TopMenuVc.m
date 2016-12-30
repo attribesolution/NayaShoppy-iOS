@@ -47,10 +47,10 @@ static NSString *CategoriesVCell = @"CategoriesCell";
     DetailedViewController *dvc = [deals instantiateViewControllerWithIdentifier:@"Detail"];
     SWRevealViewController *sv=self.revealViewController;
     [sv revealToggle:self];
+    dvc.selectTab=[NSNumber numberWithInteger:indexPath.row];
    // [self.navigationController pushViewController:dvc animated:YES];
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.navController pushViewController:dvc animated:YES];
-    appDelegate.rowindex=[NSNumber numberWithInteger:indexPath.row];
     appDelegate.navController.navigationBar.tintColor=[UIColor whiteColor];
 }
 
