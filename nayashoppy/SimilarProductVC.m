@@ -58,15 +58,16 @@ static NSString *similarPCell=@"SimilarPCVCell", *similarProduct=@"SimilarProduc
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    obj.index=[NSNumber numberWithInteger:indexPath.row];
     cobj=[obj.Similarproducts objectAtIndex:indexPath.row];
-    obj.PType=similarProduct;
     obj.PCatId=cobj.PcatId;
     obj.PPrice=cobj.Pprice;
     obj.slug=cobj.Pslug;
+    NSMutableArray *catarr=[[NSMutableArray alloc]init];
+    [catarr addObject:cobj];
+    [catarr addObject:[obj.Similarproductimg objectAtIndex:indexPath.row]];
     [self ParseData];
-    if([self.XYZDelegate respondsToSelector:@selector(ReloadView)])
-        [self.XYZDelegate ReloadView];
+    if([self.XYZDelegate respondsToSelector:@selector(ReloadView:)])
+        [self.XYZDelegate ReloadView:catarr];
     
 }
 

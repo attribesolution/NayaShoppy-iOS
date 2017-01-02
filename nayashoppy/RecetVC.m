@@ -43,14 +43,14 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    Categories *robj=[obj.RecentlyViewed objectAtIndex:indexPath.row];
-    obj.PType=robj.PType;
+    Categories *robj=[[obj.RecentlyViewed objectAtIndex:indexPath.row]objectAtIndex:0];
     obj.PCatId=robj.PcatId;
     obj.PPrice=robj.Pprice;
     obj.slug=robj.Pslug;
-    obj.index=robj.Pindex;
     UIStoryboard *specifications=[UIStoryboard storyboardWithName:@"Specifications" bundle:nil];
     SpecificationsViewController *dvc = [specifications instantiateViewControllerWithIdentifier:@"Specifications"];
+    dvc.myobj=robj;
+    dvc.myobjImg=[[obj.RecentlyViewed objectAtIndex:indexPath.row]objectAtIndex:1];
     SWRevealViewController *sv=self.revealViewController;
     [sv revealToggle:self];
     dvc.title=robj.PName;
@@ -62,10 +62,10 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    cobj=[obj.RecentlyViewed objectAtIndex:indexPath.row];
+    cobj=[[obj.RecentlyViewed objectAtIndex:indexPath.row]objectAtIndex:0];
     NewArrivalViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:NewArrivalCell forIndexPath:indexPath];
 
-    NSURL *Url = [NSURL URLWithString:cobj.ImgUrl];
+    NSURL *Url = [NSURL URLWithString:[[[obj.RecentlyViewed objectAtIndex:indexPath.row]objectAtIndex:1]objectAtIndex:0]];
     NSURLRequest *request = [NSURLRequest requestWithURL:Url];
     UIImage *placeholderImage = [UIImage imageNamed:@"PlaceHolder"];
     

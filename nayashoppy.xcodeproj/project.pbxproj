@@ -52,7 +52,6 @@
 		CF52622A1DD3475F0075BDD0 /* ic_user.png in Resources */ = {isa = PBXBuildFile; fileRef = CF5262291DD3475F0075BDD0 /* ic_user.png */; };
 		CF5BC8DE1DBF7B1E00A9EC41 /* Slider.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5BC8DD1DBF7B1E00A9EC41 /* Slider.m */; };
 		CF5BC8E21DBF7D2B00A9EC41 /* SlideImg.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5BC8E11DBF7D2B00A9EC41 /* SlideImg.m */; };
-		CF5C74FA1DB6124C008475D1 /* MenuData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5C74F91DB6124C008475D1 /* MenuData.m */; };
 		CF5C74FE1DB627EB008475D1 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5C74FD1DB627EB008475D1 /* SideMenuViewController.m */; };
 		CF5C75021DB62A84008475D1 /* SideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5C75001DB62A84008475D1 /* SideMenu.m */; };
 		CF5C75031DB62A84008475D1 /* SideMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF5C75011DB62A84008475D1 /* SideMenu.xib */; };
@@ -78,8 +77,6 @@
 		CF6927081DBE27E500B85F64 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6927071DBE27E500B85F64 /* UserViewController.m */; };
 		CF6927141DBE303900B85F64 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6927121DBE303900B85F64 /* UserCell.m */; };
 		CF6927151DBE303900B85F64 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF6927131DBE303900B85F64 /* UserCell.xib */; };
-		CF6A1D6A1E0A9E320064C150 /* testvc.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6A1D691E0A9E320064C150 /* testvc.m */; };
-		CF6A1D6C1E0AA43A0064C150 /* test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF6A1D6B1E0AA43A0064C150 /* test.storyboard */; };
 		CF6B397E1DC89313003BDB4E /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF6B397D1DC89313003BDB4E /* DetailView.storyboard */; };
 		CF6D89E51DE2D8CE00D6C49B /* share 17*17.png in Resources */ = {isa = PBXBuildFile; fileRef = CF6D89E41DE2D8CE00D6C49B /* share 17*17.png */; };
 		CF6F2E241DC7681D0027FAD8 /* Categories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF6F2E231DC7681D0027FAD8 /* Categories.storyboard */; };
@@ -256,8 +253,6 @@
 		CF5BC8DD1DBF7B1E00A9EC41 /* Slider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slider.m; sourceTree = "<group>"; };
 		CF5BC8E01DBF7D2B00A9EC41 /* SlideImg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideImg.h; sourceTree = "<group>"; };
 		CF5BC8E11DBF7D2B00A9EC41 /* SlideImg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideImg.m; sourceTree = "<group>"; };
-		CF5C74F81DB6124C008475D1 /* MenuData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuData.h; sourceTree = "<group>"; };
-		CF5C74F91DB6124C008475D1 /* MenuData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuData.m; sourceTree = "<group>"; };
 		CF5C74FC1DB627EB008475D1 /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
 		CF5C74FD1DB627EB008475D1 /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
 		CF5C74FF1DB62A84008475D1 /* SideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenu.h; sourceTree = "<group>"; };
@@ -299,9 +294,6 @@
 		CF6927111DBE303900B85F64 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
 		CF6927121DBE303900B85F64 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
 		CF6927131DBE303900B85F64 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
-		CF6A1D681E0A9E320064C150 /* testvc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testvc.h; sourceTree = "<group>"; };
-		CF6A1D691E0A9E320064C150 /* testvc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testvc.m; sourceTree = "<group>"; };
-		CF6A1D6B1E0AA43A0064C150 /* test.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = test.storyboard; sourceTree = "<group>"; };
 		CF6B397D1DC89313003BDB4E /* DetailView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
 		CF6D89E41DE2D8CE00D6C49B /* share 17*17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share 17*17.png"; sourceTree = "<group>"; };
 		CF6F2E231DC7681D0027FAD8 /* Categories.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Categories.storyboard; sourceTree = "<group>"; };
@@ -657,11 +649,10 @@
 		CF1E46801DC9D73B001B9D62 /* Model Class */ = {
 			isa = PBXGroup;
 			children = (
+				CFB57CF11E1A7F4C00FF7085 /* Singleton */,
 				CFA1B28B1DFFE5F1009D40D0 /* EmptyView */,
 				CF66E1911DF839A9005BDD51 /* Reviews */,
 				CFF8A7681DC1C8E900FB633B /* CategorieClass */,
-				CF86452A1E0944E100D6E3E5 /* singleton.h */,
-				CF86452B1E0944E100D6E3E5 /* singleton.m */,
 			);
 			name = "Model Class";
 			sourceTree = "<group>";
@@ -718,15 +709,6 @@
 				CFF8A76F1DC1E47B00FB633B /* SlidingImages.m */,
 			);
 			name = Slider;
-			sourceTree = "<group>";
-		};
-		CF5C74FB1DB625B7008475D1 /* ApiData */ = {
-			isa = PBXGroup;
-			children = (
-				CF5C74F81DB6124C008475D1 /* MenuData.h */,
-				CF5C74F91DB6124C008475D1 /* MenuData.m */,
-			);
-			name = ApiData;
 			sourceTree = "<group>";
 		};
 		CF5C75041DB62CA5008475D1 /* SideMenu */ = {
@@ -884,9 +866,6 @@
 				CF6F2E261DC7686E0027FAD8 /* CategoriesViewController.m */,
 				CF815F061DE471EA0065C642 /* Mobiles */,
 				477BC9111DC9D6E2008C3207 /* ProductViewController */,
-				CF6A1D681E0A9E320064C150 /* testvc.h */,
-				CF6A1D691E0A9E320064C150 /* testvc.m */,
-				CF6A1D6B1E0AA43A0064C150 /* test.storyboard */,
 			);
 			name = CategoriesView;
 			sourceTree = "<group>";
@@ -1187,6 +1166,15 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		CFB57CF11E1A7F4C00FF7085 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				CF86452A1E0944E100D6E3E5 /* singleton.h */,
+				CF86452B1E0944E100D6E3E5 /* singleton.m */,
+			);
+			name = Singleton;
+			sourceTree = "<group>";
+		};
 		CFB5B59D1DCC808B00CBCB08 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -1327,7 +1315,6 @@
 				477BC90F1DC9D360008C3207 /* Fonts */,
 				CF81BA851DBA075700ADE575 /* Mapping */,
 				CF607C5B1DB0B649004296F1 /* ApiParsing */,
-				CF5C74FB1DB625B7008475D1 /* ApiData */,
 				CF67A7261DAF7143002967C7 /* SWReavealView */,
 				CF7CEA451DA7AA3400F4E31E /* Global Variables */,
 				CFDDAF7A1DA24AB900AFBF34 /* main.m */,
@@ -1542,7 +1529,6 @@
 				CF13D0CE1DD1973400956076 /* GridList.storyboard in Resources */,
 				CF60D29A1DD46F7200D6EFBE /* Specifications.storyboard in Resources */,
 				CF8B2C691DCC5C9D0028DD6D /* WishListCell.xib in Resources */,
-				CF6A1D6C1E0AA43A0064C150 /* test.storyboard in Resources */,
 				CF86A44C1DD58F1700F2F57A /* ic_amazon_logo.png in Resources */,
 				CF3064471E02AE4E00AF5EDD /* SlideImgCell.xib in Resources */,
 				CF60D2841DD4516E00D6EFBE /* expandableImage@2x.png in Resources */,
@@ -1652,7 +1638,6 @@
 				CFB5B5B71DCCBB1200CBCB08 /* PagerViewController.m in Sources */,
 				CF5C74FE1DB627EB008475D1 /* SideMenuViewController.m in Sources */,
 				CFDD006F1DF14752009322EA /* ShareUtility.m in Sources */,
-				CF6A1D6A1E0A9E320064C150 /* testvc.m in Sources */,
 				CF80B05D1DED6961004BE3DE /* checkCell.m in Sources */,
 				CF1143391DE710A900751423 /* Items.m in Sources */,
 				CF6927141DBE303900B85F64 /* UserCell.m in Sources */,
@@ -1704,7 +1689,6 @@
 				CF13D0C51DD1963F00956076 /* CollectionCell.m in Sources */,
 				CFFB08601DC3751000140574 /* HomeViewController.m in Sources */,
 				CFB5B5AD1DCCA69D00CBCB08 /* AboutUsViewController.m in Sources */,
-				CF5C74FA1DB6124C008475D1 /* MenuData.m in Sources */,
 				CF17ECAD1DF53A6A00B7906B /* ReviewsCell.m in Sources */,
 				CF151A781DD5E1AD000A747B /* SpecificationListViewController.m in Sources */,
 				CF9607CF1DDB261F00899424 /* FeaturesDetail.m in Sources */,

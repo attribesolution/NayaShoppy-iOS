@@ -61,7 +61,7 @@ static NSString *SideMenuCell =@"SideMenu" , *placeholder=@"PlaceHolder", *refre
     DetailedViewController *dvc = [deals instantiateViewControllerWithIdentifier:DetailviewCell];
     SWRevealViewController *sv=self.revealViewController;
     [sv revealToggle:self];
-     
+    dvc.selectTab=[NSNumber numberWithInteger:indexPath.row];
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.navController pushViewController:dvc animated:YES];
     appDelegate.navController.navigationBar.tintColor=[UIColor whiteColor];

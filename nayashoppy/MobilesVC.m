@@ -17,6 +17,7 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 {
     singleton *obj;
     DGActivityIndicatorView *activityInd1,*activityInd2;
+    NSMutableArray *allproducts,*allproductimg,*popularproductimg,*popularproducts;
     Categories *cobj;
     UIImage *wishimg;
     NSString *imgUrl;
@@ -44,9 +45,9 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     if(collectionView.tag==100)
-    return obj.allproducts.count;
+    return allproducts.count;
     else
-        return obj.popularproducts.count;
+        return popularproducts.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -54,12 +55,12 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
     DealsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:dealsCell forIndexPath:indexPath];
 
     if(collectionView.tag==100)
-    {   cobj=[obj.allproducts objectAtIndex:indexPath.row];
-        imgUrl=[[obj.allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
+    {   cobj=[allproducts objectAtIndex:indexPath.row];
+        imgUrl=[[allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
     }
     else
-    {   cobj=[obj.popularproducts objectAtIndex:indexPath.row];
-        imgUrl=[[obj.popularproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
+    {   cobj=[popularproducts objectAtIndex:indexPath.row];
+        imgUrl=[[popularproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
     }
 
     cell.TitleLabel.text=cobj.PName;
@@ -89,22 +90,23 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    obj.index=[NSNumber numberWithInteger:indexPath.row];
     obj.tabindex=[NSNumber numberWithInteger:0];
     
     UIStoryboard *specifications=[UIStoryboard storyboardWithName:@"Specifications" bundle:nil];
     SpecificationsViewController *dvc = [specifications instantiateViewControllerWithIdentifier:@"Specifications"];
     if(collectionView.tag==100)
     {
-        cobj=[obj.allproducts objectAtIndex:indexPath.row];
-        obj.PType=@"AllProducts";
+        cobj=[allproducts objectAtIndex:indexPath.row];
+        dvc.myobj=[allproducts objectAtIndex:indexPath.row];
+        dvc.myobjImg=[[NSMutableArray alloc]initWithArray:[allproductimg objectAtIndex:indexPath.row]];
     }
     else
     {
-        cobj=[obj.popularproducts objectAtIndex:indexPath.row];
-        obj.PType=@"PopularProducts";
+        cobj=[popularproducts objectAtIndex:indexPath.row];
+        dvc.myobj =[popularproducts objectAtIndex:indexPath.row];
+        dvc.myobjImg =[[NSMutableArray alloc]initWithArray:[popularproductimg objectAtIndex:indexPath.row]];
     }
+  
     dvc.title=cobj.PName;
     obj.PCatId=cobj.PcatId;
     obj.PPrice=cobj.Pprice;
@@ -194,8 +196,8 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
     [mainVC getAllProducts:^(NSArray *respone,NSArray *img) {
         
         [activityInd1 stopAnimating];
-        obj.allproductimg=[img copy];
-        obj.allproducts=[respone copy];
+        allproductimg=[img copy];
+        allproducts=[respone copy];
         self.AllPLoader.hidden=YES;
         [self.allProduct reloadData];
         
@@ -207,8 +209,8 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
     [mainVC getPopularProducts:^(NSArray *respone,NSArray *img) {
         
         [activityInd2 stopAnimating];
-        obj.popularproductimg=[img copy];
-        obj.popularproducts=[respone copy];
+        popularproductimg=[img copy];
+        popularproducts=[respone copy];
         self.PPLoader.hidden=YES;
         [self.PopularProduct reloadData];
         

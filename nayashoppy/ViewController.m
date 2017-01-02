@@ -27,9 +27,8 @@
     [self UserDefaults];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
                                                  name:@"HideKeyboard" object:nil];
-//    singleton *sharedManager = [singleton sharedManager];
-//    self.searchbar.text=sharedManager.someProperty;
-}
+    
+    }
 
 -(void)refreshView:(NSNotification *) notification {
     
@@ -60,10 +59,10 @@
     
     UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"User"]
                                                                               style:UIBarButtonItemStylePlain target:revealController action:@selector(rightRevealToggle:)];
-    UILabel *title=[[UILabel alloc]init];
-    title.font=[UIFont fontWithName:@"fontello" size:30];
-    title.text=[NSString stringWithUTF8String:"\uf1e0"];
-    title.textColor = [UIColor blackColor];
+//    UILabel *title=[[UILabel alloc]init];
+//    title.font=[UIFont fontWithName:@"fontello" size:30];
+//    title.text=[NSString stringWithUTF8String:"\uf1e0"];
+//    title.textColor = [UIColor blackColor];
 
     UIBarButtonItem *share =  [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share 17*17"]
                                                                style:UIBarButtonItemStylePlain target:self action:@selector(share)];

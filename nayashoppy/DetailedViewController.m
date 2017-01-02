@@ -66,12 +66,10 @@
 
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index {
     
-    if(index==0)
-        obj.Mobileindex=[NSNumber numberWithInt:1];
-    else
-        obj.Mobileindex=[NSNumber numberWithInt:0];
     UIStoryboard *deals=[UIStoryboard storyboardWithName:@"Categories" bundle:nil];
     dvc = [deals instantiateViewControllerWithIdentifier:@"Categories"];
+    if(index==0)
+        dvc.mobileind=[NSNumber numberWithInt:1];
     dvc.view.backgroundColor=[UIColor whiteColor];
     dvc.catName=categories[index];
     return dvc;

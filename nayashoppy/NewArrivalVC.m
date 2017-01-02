@@ -43,15 +43,16 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    obj.index=[NSNumber numberWithInteger:indexPath.row];
     Categories *cobj=[obj.newarrival objectAtIndex:indexPath.row];
-    obj.PType=@"NewArrivals";
     obj.PCatId=cobj.PcatId;
     obj.PPrice=cobj.Pprice;
     obj.slug=cobj.Pslug;
+    [self ParseData];
     UIStoryboard *specifications=[UIStoryboard storyboardWithName:@"Specifications" bundle:nil];
     SpecificationsViewController *dvc = [specifications instantiateViewControllerWithIdentifier:@"Specifications"];
     SWRevealViewController *sv=self.revealViewController;
+    dvc.myobj=cobj;
+    dvc.myobjImg=[obj.newarrivalImg objectAtIndex:indexPath.row];
     [sv revealToggle:self];
     dvc.title=cobj.PName;
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -109,5 +110,20 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
     self.NewarrivalCv.alwaysBounceVertical=NO;
 }
 
+-(void) ParseData
+{
+    ApiParsing * mainVC = [[ApiParsing alloc] init];
+    obj.ProductDetails=nil;
+    obj.GernalFeatures=nil;
+    [mainVC getDetails:^(NSArray *respone,NSArray *generalFeatures) {
+        
+        obj.ProductDetails=[respone copy];
+        obj.GernalFeatures=[generalFeatures copy];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+        
+    } failure:^(NSError *error, NSString *message) {
+        NSLog(@"%@",error);
+    }];
+}
 
 @end

@@ -19,6 +19,6 @@
 
 @property(strong,nonatomic) ViewPagerController *vp;
 @property(copy,nonatomic) NSString *title;
-
-
+@property(strong,nonatomic) Categories *myobj;
+@property(strong,nonatomic) NSMutableArray *myobjImg;
 @end

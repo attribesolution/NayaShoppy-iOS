@@ -133,15 +133,11 @@
 - (void)tableView:(SKSTableView *)tableView didSelectSubRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self LoadData];
-    obj.allproductimg=nil;
-    obj.allproducts=nil;
-    obj.popularproducts=nil;
-    obj.popularproductimg=nil;
     Categories *cobj=[[catid objectAtIndex:indexPath.row] objectAtIndex:indexPath.subRow-1];
     obj.BranchId=cobj.BranchID;
     obj.CatId=cobj.CatID;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ParseApi" object:nil];
-    if([obj.Mobileindex integerValue]==1 && indexPath.row==0)
+    if([self.mobileind integerValue]==1 && indexPath.row==0)
     {
         UIStoryboard * pStoryboard = [UIStoryboard storyboardWithName:@"Mobiles" bundle:[NSBundle mainBundle]];
         MobilesVC *pVC =[pStoryboard instantiateViewControllerWithIdentifier:@"Mobiles"];

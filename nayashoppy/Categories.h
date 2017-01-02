@@ -21,7 +21,7 @@
 @property(nonatomic,strong) NSString * StoreDelivery;
 @property(nonatomic,strong) NSString * StorePrice;
 @property(nonatomic,strong) NSString * PcatId;
-//@property(nonatomic,strong) NSData * PImg;
+@property(nonatomic,strong) NSMutableArray * Procat;
 @property(nonatomic,strong) NSString * PType;
 @property(nonatomic,strong) NSString * ImgUrl;
 @property(nonatomic,strong) NSString * PName;
@@ -47,5 +47,5 @@
 -(id) initWithTitle:title andPrice:price;
 -(id) initWithFname:name andFvalue:values;
 -(id) initWithName:name andPrice:price andImg:img andCatId:catid andSlug:slug andType:type andIndex:index;
-
+-(id) initWithCat:prodCat;
 @end

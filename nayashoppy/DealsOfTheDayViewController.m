@@ -25,6 +25,7 @@ static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" 
 @implementation DealsOfTheDayViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     ob=[singleton sharedManager];
     /* if(ob.DealsOfTheDay.count==0)
@@ -53,14 +54,15 @@ static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" 
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    ob.index=[NSNumber numberWithInteger:indexPath.row];
     cobj=[ob.newarrival objectAtIndex:indexPath.row];
-    ob.PType=@"NewArrivals";
     ob.PCatId=cobj.PcatId;
     ob.PPrice=cobj.Pprice;
     ob.slug=cobj.Pslug;
+    [self ParseData];
     UIStoryboard *specifications=[UIStoryboard storyboardWithName:specificationSB bundle:nil];
     SpecificationsViewController *dvc = [specifications instantiateViewControllerWithIdentifier:specificationSB];
+    dvc.myobj=cobj;
+    dvc.myobjImg=[ob.newarrivalImg objectAtIndex:indexPath.row];
     dvc.title=cobj.PName;
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.navController pushViewController:dvc animated:YES];
@@ -166,6 +168,22 @@ static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" 
 -(void) viewWillDisappear:(BOOL)animated
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:keyboardNotification object:nil];
+}
+
+-(void) ParseData
+{
+    ApiParsing * mainVC = [[ApiParsing alloc] init];
+    ob.ProductDetails=nil;
+    ob.GernalFeatures=nil;
+    [mainVC getDetails:^(NSArray *respone,NSArray *generalFeatures) {
+        
+        ob.ProductDetails=[respone copy];
+        ob.GernalFeatures=[generalFeatures copy];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+        
+    } failure:^(NSError *error, NSString *message) {
+        NSLog(@"%@",error);
+    }];
 }
 
 @end

@@ -19,11 +19,13 @@
 @optional
 -(void)doSomething;
 @required
--(void)ReloadView;
+-(void)ReloadView:(NSMutableArray *)catarray;
 @end
 
 @interface SimilarProductVC : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UICollectionView *SimilarPcollView;
 @property (strong, nonatomic)  id<ReloadSpecificationView> XYZDelegate;
+
+
 @end

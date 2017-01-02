@@ -10,6 +10,7 @@
 #import "ShareUtility.h"
 #import "DGActivityIndicatorView.h"
 #import "singleton.h"
+#import "CollectionImages.h"
 
 static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct" ,*SProduct=@"SimilarProducts" ,*newArrivals=@"NewArrivals", *Pproduct=@"PopularProducts" , * AProduct=@"AllProducts" , *ImgNib=@"CollectionImages" ,*imgCell=@"BannerImagesVC",*rcell=@"ReviewCell",*SimPro=@"Sproduct" , *store=@"Stores" ,*specification= @"SpecificationButtonCell" , *specficCell=@"SpecificationCell", *spLabelCell=@"Specification", *storeCell=@"StoreCell" , *imageCell=@"ImageCell" , *detailCell=@"Detail" , *detailnib=@"DetailCell";
 
@@ -46,6 +47,7 @@ static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct"
                                                  name:notification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeLoader:)
                                                  name:@"StopInd" object:nil];
+   
 }
 
 -(void)refreshView:(NSNotification *) notification {
@@ -112,6 +114,7 @@ static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct"
         
         self.imgcv.view.frame =imgcell.ImgCollView.bounds;
         [imgcell.ImgCollView addSubview:self.imgcv.view];
+        self.imgcv.ProImg=self.ProCatImg;
         imgcell.TitleLabel.text=cobj.PName;
         UIImage *image = [[UIImage imageNamed:@"WishIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [imgcell.WishIcon setImage:image forState:UIControlStateNormal];
@@ -142,12 +145,20 @@ static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct"
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:detailnib owner:self options:  nil];
             cell = [nib objectAtIndex:0];
         }
+        
+        NSAttributedString * title =
+        [[NSAttributedString alloc] initWithString:[@"Rs " stringByAppendingString:cobj.POfferPrice]
+                                        attributes:@{NSStrikethroughStyleAttributeName:@(NSUnderlineStyleSingle)}];
+        [cell.OriginalPriceLabel setAttributedText:title];
+        
         cell.priceLabel.textColor=[[GlobalVariables class] themeColor];
         cell.priceLabel.text=[@"Rs " stringByAppendingString:cobj.Pprice];
         cell.DiscountLabel.textColor=[[GlobalVariables class]greenColor];
-        cell.OriginalPriceLabel.text=[@"Rs " stringByAppendingString:cobj.POfferPrice];
-        if(cobj.Discount==nil)
-            cell.DiscountLabel.text=[[@"(" stringByAppendingString:@"No Discount"] stringByAppendingString:@")"];
+        if([cobj.Discount isEqualToString:@""] || cobj.Discount==0)
+        {
+            cell.OriginalPriceLabel.hidden=YES;
+            cell.DiscountLabel.text=@"No Discount";
+        }
         else
             cell.DiscountLabel.text=[[@"( " stringByAppendingString:cobj.Discount ] stringByAppendingString:@" % OFF)"];
         return cell;
@@ -306,29 +317,8 @@ static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct"
 
 -(void) arrayObject
 {
-    if([obj.PType isEqualToString:AProduct])
-    {
-        cobj=[obj.allproducts objectAtIndex:[obj.index integerValue]];
-        Pimg=[[obj.allproductimg objectAtIndex:[obj.index integerValue]]objectAtIndex:0];
-    }
-    else if([obj.PType isEqualToString:Pproduct])
-    {
-        cobj=[obj.popularproducts objectAtIndex:[obj.index integerValue]];
-        Pimg=[[obj.popularproductimg objectAtIndex:[obj.index integerValue]]objectAtIndex:0];
-    }
-
-    else if([obj.PType isEqualToString:newArrivals])
-    {
-        cobj=[obj.newarrival objectAtIndex:[obj.index integerValue]];
-        Pimg=[[obj.newarrivalImg objectAtIndex:[obj.index integerValue]]objectAtIndex:0];
-
-    }
-    if([obj.PType isEqualToString:SProduct])
-    {
-        cobj=[obj.Similarproducts objectAtIndex:[obj.index integerValue]];
-        Pimg=[[obj.Similarproductimg objectAtIndex:[obj.index integerValue]]objectAtIndex:0];
-    }
-
+        cobj =self.ProCat;
+        Pimg=[self.ProCatImg objectAtIndex:0];
 }
 
 -(void)AddToWishList
@@ -345,7 +335,7 @@ static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct"
 
     for(int i=0;i<obj.RecentlyViewed.count;i++)
     {
-        Categories *rec=[obj.RecentlyViewed objectAtIndex:i];
+        Categories *rec=[[obj.RecentlyViewed objectAtIndex:i]objectAtIndex:0];
         if([rec.PName isEqualToString:cobj.PName])
         { Ispresent=YES;
             break;
@@ -353,8 +343,10 @@ static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct"
     }
     if(!Ispresent)
     {
-    Categories *rcobj=[[Categories alloc]initWithName:cobj.PName andPrice:cobj.Pprice andImg:Pimg andCatId:obj.PCatId andSlug:obj.slug andType:obj.PType andIndex:obj.index];
-    [obj.RecentlyViewed addObject:rcobj];
+        NSMutableArray *proCat=[[NSMutableArray alloc]init];
+        [proCat addObject:self.ProCat];
+        [proCat addObject:self.ProCatImg];
+    [obj.RecentlyViewed addObject:proCat];
     [[NSNotificationCenter defaultCenter] postNotificationName:notification object:nil];
     }
 }

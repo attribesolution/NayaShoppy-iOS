@@ -31,9 +31,11 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    [self selectTabAtIndex:0];
     obj=[singleton sharedManager];
     [self setTab];
-    [self nav];  
+    [self nav];
+ 
 }
 
 
@@ -48,6 +50,8 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
     {
         UIStoryboard *price=[UIStoryboard storyboardWithName:pricecell bundle:nil];
         cvc = [price instantiateViewControllerWithIdentifier:pricecell];
+        cvc.ProCat=self.myobj;
+        cvc.ProCatImg=[[NSMutableArray alloc ]initWithArray:self.myobjImg];
         [self myvc:cvc];
         cvc.ShowListDelegate=self;
         return cvc;
@@ -166,8 +170,10 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
 
 #pragma mark - ReloadSpecificationView Delegate methods
 
--(void)ReloadView{
+-(void)ReloadView:(NSMutableArray *) catarray{
     
+    cvc.ProCat= [catarray objectAtIndex:0];
+    cvc.ProCatImg= [catarray objectAtIndex:1];
     [cvc Parsedetails];
     [cvc arrayObject];
     [cvc.PriceTable reloadData];

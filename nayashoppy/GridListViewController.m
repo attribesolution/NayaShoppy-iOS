@@ -25,6 +25,7 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
     Categories *cobj;
     CollectionCell *cell;
     TabelledCollectionCell *Tcell;
+    NSMutableArray *allproducts,*allproductimg,*popularproductimg,*popularproducts;
     NSString *imgUrl;
     UIImage *wishimg;
     CGFloat Dlines;
@@ -43,6 +44,10 @@ Boolean showInGridView = false;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    allproducts=[[NSMutableArray alloc]init];
+    allproductimg=[[NSMutableArray alloc]init];
+    popularproductimg=[[NSMutableArray alloc]init];
+    popularproducts=[[NSMutableArray alloc]init];
     obj=[singleton sharedManager];
     self.FilterView.hidden=YES;
     [self ApiParsing];
@@ -207,21 +212,24 @@ Boolean showInGridView = false;
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-   obj.index=[NSNumber numberWithInteger:indexPath.row];
    obj.tabindex=[NSNumber numberWithInteger:0];
 
    UIStoryboard *specifications=[UIStoryboard storyboardWithName:@"Specifications" bundle:nil];
    SpecificationsViewController *dvc = [specifications instantiateViewControllerWithIdentifier:@"Specifications"];
+
     if([tabindex integerValue]==0)
     {
-    cobj=[obj.allproducts objectAtIndex:indexPath.row];
-        obj.PType=@"AllProducts";
+        cobj=[allproducts objectAtIndex:indexPath.row];
+        dvc.myobj=[allproducts objectAtIndex:indexPath.row];
+        dvc.myobjImg=[[NSMutableArray alloc]initWithArray:[allproductimg objectAtIndex:indexPath.row]];
     }
     else
     {
-    cobj=[obj.popularproducts objectAtIndex:indexPath.row];
-        obj.PType=@"PopularProducts";
+        cobj=[popularproducts objectAtIndex:indexPath.row];
+        dvc.myobj =[popularproducts objectAtIndex:indexPath.row];
+        dvc.myobjImg =[[NSMutableArray alloc]initWithArray:[popularproductimg objectAtIndex:indexPath.row]];
     }
+
     dvc.title=cobj.PName;
     obj.PCatId=cobj.PcatId;
     obj.PPrice=cobj.Pprice;
@@ -313,15 +321,15 @@ Boolean showInGridView = false;
 
 -(void) ReLoadArray:(NSMutableArray *)response andvalue:(NSMutableArray *)img
 {
-    if(obj.allproducts.count==0 && i==1)
+    if(allproducts.count==0 && i==1)
     {
-        obj.allproductimg=[img copy];
-        obj.allproducts=[response copy];
+        allproductimg=[img copy];
+        allproducts=[response copy];
     }
-    else if(obj.popularproducts.count==0 && i==2)
+    else if(popularproducts.count==0 && i==2)
     {
-        obj.popularproductimg=[img copy];
-        obj.popularproducts=[response copy];
+        popularproductimg=[img copy];
+        popularproducts=[response copy];
     }
     else{
         
@@ -330,19 +338,20 @@ Boolean showInGridView = false;
         newArray=[[NSArray alloc]init];
         if(i==1)
         {
-        newArray=[obj.allproductimg arrayByAddingObjectsFromArray:img];
-        obj.allproductimg=[newArray copy];
-        newArrayimg=[obj.allproducts arrayByAddingObjectsFromArray:response];
-        obj.allproducts=[newArrayimg copy];
+            newArray=[allproductimg arrayByAddingObjectsFromArray:img];
+            allproductimg=[newArray copy];
+            newArrayimg=[allproducts arrayByAddingObjectsFromArray:response];
+            allproducts=[newArrayimg copy];
         }
         else
         {
-          newArray=[obj.popularproductimg arrayByAddingObjectsFromArray:img];
-          obj.popularproductimg=[newArray copy];
-          newArrayimg=[obj.popularproducts arrayByAddingObjectsFromArray:response];
-          obj.popularproducts=[newArrayimg copy];
+            newArray=[popularproductimg arrayByAddingObjectsFromArray:img];
+            popularproductimg=[newArray copy];
+            newArrayimg=[popularproducts arrayByAddingObjectsFromArray:response];
+            popularproducts=[newArrayimg copy];
         }
     }
+
     self.Loader.hidden=YES;
     [activityIndicatorView stopAnimating];
     [self.collectionView reloadData];
@@ -361,18 +370,17 @@ Boolean showInGridView = false;
 -(NSMutableArray *) loadArray
 {
     if([tabindex integerValue]==0)
-       return obj.allproducts;
+        return allproducts;
     else
-        return obj.popularproducts;
-
+        return popularproducts;
 }
 
 -(NSString *) ImgUrl:(NSInteger) ind
 {
     if([tabindex integerValue]==0)
-        return [[obj.allproductimg objectAtIndex:ind]objectAtIndex:0];
+        return [[allproductimg objectAtIndex:ind]objectAtIndex:0];
     else
-        return [[obj.popularproductimg objectAtIndex:ind]objectAtIndex:0];
+        return [[popularproductimg objectAtIndex:ind]objectAtIndex:0];
 }
 
 -(void) setLayout

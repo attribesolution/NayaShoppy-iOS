@@ -15,5 +15,5 @@
 
 @property (strong, nonatomic) IBOutlet SKSTableView *myTable;
 @property (strong, nonatomic) NSString *catName;
-
+@property (strong, nonatomic) NSNumber *mobileind;
 @end

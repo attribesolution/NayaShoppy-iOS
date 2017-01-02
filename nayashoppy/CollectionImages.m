@@ -34,26 +34,9 @@ static NSString *allproduct=@"AllProducts", *SimilarProduct=@"SimilarProducts",*
     
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    NSArray *imgArray;
-   if([obj.PType isEqualToString:allproduct])
-   {
-       imgArray=[obj.allproductimg objectAtIndex:[obj.index integerValue]];
-       
-   }
-   else if([obj.PType isEqualToString:SimilarProduct])
-   {
-      imgArray=[obj.Similarproductimg objectAtIndex:[obj.index integerValue]];
-      
-   }
-   else if([obj.PType isEqualToString:newArrivals])
-   {
-       imgArray=[obj.newarrivalImg objectAtIndex:[obj.index integerValue]];
-   }
-   else
-   {
-        imgArray=[obj.popularproductimg objectAtIndex:[obj.index integerValue]];
-   }
-    return imgArray.count;
+   
+    return self.ProImg.count;
+  
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -65,15 +48,9 @@ static NSString *allproduct=@"AllProducts", *SimilarProduct=@"SimilarProducts",*
     ImageCVcell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     
     cell.backgroundColor=[UIColor clearColor];
-    if([obj.PType isEqualToString:allproduct])
-        imgurl=[[obj.allproductimg objectAtIndex:[obj.index integerValue]]objectAtIndex:indexPath.row];
-    else if([obj.PType isEqualToString:SimilarProduct])
-        imgurl=[[obj.Similarproductimg objectAtIndex:[obj.index integerValue]]objectAtIndex:indexPath.row];
-    else if([obj.PType isEqualToString:newArrivals])
-        imgurl=[[obj.newarrivalImg objectAtIndex:[obj.index integerValue]]objectAtIndex:indexPath.row];
-    else
-       imgurl=[[obj.popularproductimg  objectAtIndex:[obj.index integerValue]]objectAtIndex:indexPath.row];
-    
+   
+    imgurl=[self.ProImg objectAtIndex:indexPath.row];
+ 
     NSURL *Url = [NSURL URLWithString:imgurl];
     NSURLRequest *request = [NSURLRequest requestWithURL:Url];
     UIImage *placeholderImage = [UIImage imageNamed:PlaceHolderImg];

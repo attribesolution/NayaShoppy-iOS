@@ -17,6 +17,7 @@
 #import "SpecificationCell.h"
 #import "CollectionImages.h"
 #import "SpecificationButtonCell.h"
+#import "SpecificationsViewController.h"
 
 @protocol GoToSpecificationList <NSObject>
 
@@ -34,6 +35,8 @@
 @property (strong, nonatomic) CollectionImages *imgcv;
 @property (strong, nonatomic) IBOutlet UIView *ToastView;
 @property (strong, nonatomic)  id <GoToSpecificationList> ShowListDelegate;
+@property (strong, nonatomic) Categories *ProCat;
+@property (strong, nonatomic) NSMutableArray *ProCatImg;
 
 -(void) Parsedetails;
 -(void) arrayObject;

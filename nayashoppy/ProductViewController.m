@@ -14,6 +14,7 @@
 #import "singleton.h"
 
 @interface ProductViewController (){
+    
     NSMutableArray *tabItem;
     NSInteger numberOfTabs,tab ;
     singleton *obj;
@@ -122,7 +123,6 @@
     
         UILabel *currentlabel = (UILabel*)[viewPager.view viewWithTag:100+index];
         currentlabel.textColor = [GlobalVariables themeColor];
-    
         self.lastSelectedTab = index;
 }
 
@@ -130,7 +130,7 @@
 {
 
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    self.navigationItem.titleView =[[GlobalVariables class] titleView:self.title andImg:@"Logo" andy:logoY] ;
+    self.navigationItem.titleView =[[GlobalVariables class] titleView:self.title andImg:@"Logo" andy:logoY];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Grid"]
