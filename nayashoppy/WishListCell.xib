@@ -39,40 +39,64 @@
                             </mask>
                         </variation>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSm-fm-B0N">
-                        <rect key="frame" x="127" y="16" width="179" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q34-xb-N7N">
                         <rect key="frame" x="127" y="35" width="33" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="1" green="0.0" blue="0.010051519910000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Tj-tv-vkf">
+                        <rect key="frame" x="278" y="13" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="1JV-L8-a6A"/>
+                            <constraint firstAttribute="width" constant="18" id="1eo-BV-NkU"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="RIp-jK-zie"/>
+                            <constraint firstAttribute="height" constant="20" id="RPc-Ty-Wev"/>
+                            <constraint firstAttribute="height" constant="35" id="y31-Wl-Yzm"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="29" id="yTy-Ap-FvJ"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="icon_cross.png"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1eo-BV-NkU"/>
+                                <exclude reference="RPc-Ty-Wev"/>
+                            </mask>
+                        </variation>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSm-fm-B0N">
+                        <rect key="frame" x="127" y="16" width="143" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="RSm-fm-B0N" firstAttribute="top" secondItem="hjM-2u-ihF" secondAttribute="topMargin" constant="8" id="K5e-PN-oQN"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="9Tj-tv-vkf" secondAttribute="trailing" id="IgD-Ee-AcP"/>
                     <constraint firstAttribute="trailingMargin" secondItem="yfU-Gm-VlX" secondAttribute="trailing" constant="-8" id="KoE-71-hkV"/>
+                    <constraint firstItem="9Tj-tv-vkf" firstAttribute="top" secondItem="hjM-2u-ihF" secondAttribute="topMargin" constant="5" id="L13-Sz-7IU"/>
                     <constraint firstItem="hH1-WT-Z41" firstAttribute="centerY" secondItem="hjM-2u-ihF" secondAttribute="centerY" id="OdO-lP-VwZ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="RSm-fm-B0N" secondAttribute="trailing" constant="7" id="Ph2-UM-Tee"/>
+                    <constraint firstItem="RSm-fm-B0N" firstAttribute="leading" secondItem="hH1-WT-Z41" secondAttribute="trailing" constant="19" id="Veg-c4-3k0"/>
                     <constraint firstItem="RSm-fm-B0N" firstAttribute="leading" secondItem="hH1-WT-Z41" secondAttribute="trailing" constant="8" id="ZSw-f8-tRY"/>
                     <constraint firstItem="Q34-xb-N7N" firstAttribute="leading" secondItem="hH1-WT-Z41" secondAttribute="trailing" constant="8" id="cAh-Fe-hG4"/>
+                    <constraint firstItem="RSm-fm-B0N" firstAttribute="top" secondItem="hjM-2u-ihF" secondAttribute="topMargin" constant="8" id="cEX-va-UQp"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="9Tj-tv-vkf" secondAttribute="trailing" constant="7" id="eKD-RB-DIF"/>
+                    <constraint firstItem="Q34-xb-N7N" firstAttribute="top" secondItem="RSm-fm-B0N" secondAttribute="bottom" constant="2" id="f2S-tO-Dj5"/>
                     <constraint firstItem="Q34-xb-N7N" firstAttribute="leading" secondItem="hH1-WT-Z41" secondAttribute="trailing" constant="19" id="gzb-5v-8pf"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="RSm-fm-B0N" secondAttribute="trailing" constant="43" id="pdE-lB-1wQ"/>
                     <constraint firstItem="RSm-fm-B0N" firstAttribute="top" secondItem="hjM-2u-ihF" secondAttribute="topMargin" constant="22" id="qTe-Zl-Xbg"/>
-                    <constraint firstItem="RSm-fm-B0N" firstAttribute="leading" secondItem="hH1-WT-Z41" secondAttribute="trailing" constant="19" id="t2g-0a-gQW"/>
                     <constraint firstItem="yfU-Gm-VlX" firstAttribute="leading" secondItem="hH1-WT-Z41" secondAttribute="trailing" constant="19" id="tMr-YI-mC4"/>
                     <constraint firstItem="hH1-WT-Z41" firstAttribute="leading" secondItem="hjM-2u-ihF" secondAttribute="leadingMargin" constant="12" id="vn7-mu-FvP"/>
                     <constraint firstAttribute="trailingMargin" secondItem="yfU-Gm-VlX" secondAttribute="trailing" constant="-44" id="x5D-r4-cFN"/>
-                    <constraint firstItem="Q34-xb-N7N" firstAttribute="top" secondItem="RSm-fm-B0N" secondAttribute="bottom" constant="2" id="yJx-qk-YQM"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="Ph2-UM-Tee"/>
                         <exclude reference="ZSw-f8-tRY"/>
                         <exclude reference="qTe-Zl-Xbg"/>
                         <exclude reference="cAh-Fe-hG4"/>
                         <exclude reference="KoE-71-hkV"/>
+                        <exclude reference="eKD-RB-DIF"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
@@ -80,6 +104,7 @@
                 <constraint firstAttribute="bottom" secondItem="yfU-Gm-VlX" secondAttribute="bottom" constant="9" id="RAY-MI-WVJ"/>
             </constraints>
             <connections>
+                <outlet property="DeleteButton" destination="9Tj-tv-vkf" id="7vj-nq-WMl"/>
                 <outlet property="WishCompany" destination="yfU-Gm-VlX" id="9Lp-Jo-Pse"/>
                 <outlet property="WishImage" destination="hH1-WT-Z41" id="H96-3S-S1u"/>
                 <outlet property="WishItem" destination="RSm-fm-B0N" id="rRh-Bq-xYd"/>
@@ -88,4 +113,7 @@
             <point key="canvasLocation" x="456.5" y="246.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icon_cross.png" width="72" height="72"/>
+    </resources>
 </document>

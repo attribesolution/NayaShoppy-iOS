@@ -82,24 +82,29 @@
                                       [weakCell setNeedsLayout];
                                        
                                    } failure:nil];
-   // NSData *imageData = [[myProductsImg objectAtIndex:indexPath.section]objectAtIndex:0];
-   // cell.WishImage.image = [UIImage imageWithData:imageData];
+  
+    CGSize textSize = [[[[myProducts objectAtIndex:indexPath.section]objectAtIndex:0]objectAtIndex:0] sizeWithAttributes:@{NSFontAttributeName:[cell.WishItem font]}];
+    CGFloat strikeWidth = textSize.width;
+    CGFloat Dlines=(strikeWidth/cell.WishItem.frame.size.width+1)*25+25;
+    
+    cell.WishItem.frame=CGRectMake(cell.WishItem.frame.origin.x,cell.WishItem.frame.origin.y,cell.WishItem.frame.size.width, Dlines);
+    
     cell.WishItem.text = [[[myProducts objectAtIndex:indexPath.section]objectAtIndex:0]objectAtIndex:0];
-   // [cell.DeleteButton addTarget:self action:@selector(OrderRemove:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.DeleteButton addTarget:self action:@selector(OrderRemove:) forControlEvents:UIControlEventTouchUpInside];
 
      return cell;
 }
 -(void)OrderRemove:(UIButton *) sender
 {
-    
    UITableViewCell *mycell= (UITableViewCell *)[[sender superview] superview];
-    mycell.backgroundColor=[UIColor darkGrayColor];
-  /* NSIndexPath *ind= [self.OrderTable indexPathForCell:mycell];
-   [ItemsOrder removeObjectAtIndex:ind.row];
-   [ self.view makeToast:@"Item Deleted"];
-   NSInteger diff=[TPrice integerValue]-totalPrice;
-   TPrice=[NSString stringWithFormat:@"%2lu", (unsigned long)diff];
-   [ OrderTable reloadData];*/
+   NSIndexPath *ind= [self.WishListTable indexPathForCell:mycell];
+   [myProducts removeObjectAtIndex:ind.section];
+   [myProductsImg removeObjectAtIndex:ind.section];
+   [defaults setObject:myProducts forKey:@"Product"];
+   [defaults setObject:myProductsImg forKey:@"ProductImg"];
+   [self.view makeToast:@"Item Deleted"];
+   [self reverseArray];
+   [self.WishListTable reloadData];
     
 }
 #pragma mark - Scroll View Methods
@@ -112,12 +117,15 @@
 -(void) data
 {
     defaults = [NSUserDefaults standardUserDefaults];
-    
+    [self reverseArray];
+    [self.WishListTable reloadData];
+}
+
+-(void) reverseArray
+{
     myProducts = [defaults objectForKey:@"Product"];
     myProducts=[[[myProducts reverseObjectEnumerator] allObjects] mutableCopy];
     myProductsImg=[defaults objectForKey:@"ProductImg"];
     myProductsImg=[[[myProductsImg reverseObjectEnumerator] allObjects] mutableCopy];
-    [self.WishListTable reloadData];
 }
-
 @end
