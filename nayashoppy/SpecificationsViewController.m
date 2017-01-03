@@ -38,7 +38,6 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
  
 }
 
-
 #pragma mark - ViewPagerControllerDelegate Methods
 
 - (NSUInteger)numberOfTabsForViewPager:(ViewPagerController *)viewPager {
@@ -150,7 +149,6 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
 -(void)showList
 {
     [self selectTabAtIndex:[obj.tabindex integerValue]];
-    
 }
 
 -(void) nav

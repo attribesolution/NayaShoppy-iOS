@@ -290,7 +290,7 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
 
 -(void) openURL:(UIButton *) sender
 {
-    Categories *sup=[cobj.Supliers objectAtIndex:sender.tag];
+    Categories *sup=[supliers objectAtIndex:sender.tag];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: sup.StoreUrl]];
 }
 
