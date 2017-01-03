@@ -42,14 +42,6 @@
         NSLog(@"%@",error);
     }];
     
-    [mainVC DealsOfTheDay: ^(BOOL success) {
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshDealsCV" object:nil];
-        
-    } failure:^(NSError *error, NSString *message) {
-        NSLog(@"%@",error);
-    }];
-    
    
     NSError* configureError;
     [[GGLContext sharedInstance] configureWithError: &configureError];

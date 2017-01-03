@@ -234,7 +234,6 @@ Boolean showInGridView = false;
     obj.PCatId=cobj.PcatId;
     obj.PPrice=cobj.Pprice;
     obj.slug=cobj.Pslug;
-    [self ParseData];
     [self.navigationController pushViewController:dvc animated:YES];
 }
 
@@ -246,22 +245,6 @@ Boolean showInGridView = false;
 {
     self.GLCollectionView.alwaysBounceVertical=NO;
     self.GLCollectionView.alwaysBounceHorizontal=NO;
-}
-
--(void) ParseData
-{
-    ApiParsing * mainVC = [[ApiParsing alloc] init];
-    obj.ProductDetails=nil;
-    obj.GernalFeatures=nil;
-    [mainVC getDetails:^(NSArray *respone,NSArray *generalFeatures) {
-        
-        obj.ProductDetails=[respone copy];
-        obj.GernalFeatures=[generalFeatures copy];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
-        
-    } failure:^(NSError *error, NSString *message) {
-        NSLog(@"%@",error);
-    }];
 }
 
 -(void)AddToWishList:(UIButton *) sender

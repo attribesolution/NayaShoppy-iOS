@@ -20,7 +20,7 @@
 @property (strong,nonatomic) NSNumber *brands_brand_id;
 @property (strong,nonatomic) NSString *product_name;
 @property (strong,nonatomic) NSString *slug ;
-@property (strong,nonatomic) NSString *image;
+@property (strong,nonatomic) NSString <Optional> *image;
 @property (strong,nonatomic) NSString *product_description;
 @property (strong,nonatomic) NSString *model_number;
 @property (strong,nonatomic) NSString *cod;

@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "NewArrivalViewCell.h"
-//#import "NewArrivalsViewController.h"
 #import "AppDelegate.h"
 #import "SpecificationsViewController.h"
 #import "PriceViewController.h"

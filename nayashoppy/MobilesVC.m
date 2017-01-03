@@ -111,7 +111,6 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
     obj.PCatId=cobj.PcatId;
     obj.PPrice=cobj.Pprice;
     obj.slug=cobj.Pslug;
-    [self ParseData];
     [self.navigationController pushViewController:dvc animated:YES];
     
 }
@@ -133,23 +132,6 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 {
     self.allProduct.alwaysBounceHorizontal=NO;
     self.PopularProduct.alwaysBounceVertical=NO;
-}
-
--(void) ParseData
-{
-    ApiParsing * mainVC = [[ApiParsing alloc] init];
-    obj.ProductDetails=nil;
-    obj.GernalFeatures=nil;
-    [mainVC getDetails:^(NSArray *respone, NSArray *generalFeatures) {
-        
-        obj.ProductDetails=[respone copy];
-        obj.GernalFeatures=[generalFeatures copy];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
-        
-    } failure:^(NSError *error, NSString *message) {
-        NSLog(@"%@",error);
-    }];
-    
 }
 
 -(void)AddToWishList

@@ -12,7 +12,7 @@
 #import "singleton.h"
 #import "CollectionImages.h"
 
-static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct" ,*SProduct=@"SimilarProducts" ,*newArrivals=@"NewArrivals", *Pproduct=@"PopularProducts" , * AProduct=@"AllProducts" , *ImgNib=@"CollectionImages" ,*imgCell=@"BannerImagesVC",*rcell=@"ReviewCell",*SimPro=@"Sproduct" , *store=@"Stores" ,*specification= @"SpecificationButtonCell" , *specficCell=@"SpecificationCell", *spLabelCell=@"Specification", *storeCell=@"StoreCell" , *imageCell=@"ImageCell" , *detailCell=@"Detail" , *detailnib=@"DetailCell";
+static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*imgCell=@"BannerImagesVC",*rcell=@"ReviewCell",*SimPro=@"Sproduct" , *store=@"Stores" ,*specification= @"SpecificationButtonCell" , *specficCell=@"SpecificationCell", *spLabelCell=@"Specification", *storeCell=@"StoreCell" , *imageCell=@"ImageCell" , *detailCell=@"Detail" , *detailnib=@"DetailCell";
 
 @interface PriceViewController ()
 {
@@ -43,17 +43,11 @@ static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct"
     [self.Loader addSubview:activityIndicatorView];
     isData=NO;
     self.Loader.hidden=YES;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
-                                                 name:notification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeLoader:)
+       [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeLoader:)
                                                  name:@"StopInd" object:nil];
    
 }
 
--(void)refreshView:(NSNotification *) notification {
-    
-    [self.PriceTable reloadData];
-}
 -(void)removeLoader:(NSNotification *) notification {
     isData=YES;
     [activityIndicatorView stopAnimating];
@@ -313,6 +307,21 @@ static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct"
     self.imgcv = [img instantiateViewControllerWithIdentifier:imgCell];
     [self addChildViewController:self.imgcv];
     [self.imgcv didMoveToParentViewController:self];
+    
+       ApiParsing * mainVC = [[ApiParsing alloc] init];
+        obj.ProductDetails=nil;
+        obj.GernalFeatures=nil;
+        [mainVC getDetails:^(NSArray *respone,NSArray *generalFeatures) {
+            
+            obj.ProductDetails=[respone copy];
+            obj.GernalFeatures=[generalFeatures copy];
+            [self.PriceTable reloadData];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+            
+        } failure:^(NSError *error, NSString *message) {
+            NSLog(@"%@",error);
+        }];
+
 }
 
 -(void) arrayObject
@@ -347,7 +356,7 @@ static NSString *notification=@"refreshTable" ,*SimilarProduct=@"SimilarProduct"
         [proCat addObject:self.ProCat];
         [proCat addObject:self.ProCatImg];
     [obj.RecentlyViewed addObject:proCat];
-    [[NSNotificationCenter defaultCenter] postNotificationName:notification object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
     }
 }
 

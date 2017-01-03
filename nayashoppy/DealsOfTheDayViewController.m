@@ -18,6 +18,7 @@ static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" 
     Categories *cobj;
     DealsCell *cell;
     NSString *Pimg;
+    NSMutableArray *dealsOfTheDay,*dealsOfTheDayImg;
 }
 
 @end
@@ -28,19 +29,15 @@ static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" 
     
     [super viewDidLoad];
     ob=[singleton sharedManager];
-    /* if(ob.DealsOfTheDay.count==0)
+    dealsOfTheDay=[[NSMutableArray alloc]init];
+    dealsOfTheDayImg=[[NSMutableArray alloc]init];
+    [self ParseData];
+    /* if(dealsOfTheDay.count==0)
        self.myView.hidden=NO;
      else*/
     self.myView.hidden=YES;
     //  self.DealsOfTheDayCV.backgroundColor=[UIColor whiteColor];
     [self gesture];
-   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshDealsCV:)
-                                                 name:refreshNotification object:nil];
-      }
-
--(void)refreshDealsCV:(NSNotification *) notification{
-    
-    [self.DealsOfTheDayCV reloadData];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -50,7 +47,7 @@ static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)sectio
 {
-    return ob.newarrival.count;// ob.DealsOfTheDay.count;
+    return ob.newarrival.count; //dealsOfTheDay.count;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -75,10 +72,12 @@ static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" 
     cobj=[ob.newarrival objectAtIndex:indexPath.row];
     
     cell = [collectionView dequeueReusableCellWithReuseIdentifier:dealsCell forIndexPath:indexPath];
-   /*  Categories *obj=[ob.DealsOfTheDay objectAtIndex:indexPath.row];
-        cell.ImageView.image=[ob.DealsOfTheDayImg objectAtIndex:indexPath.row];
+    
+   /*  Categories *obj=[dealsOfTheDay objectAtIndex:indexPath.row];
+        cell.ImageView.image=[dealsOfTheDayImg objectAtIndex:indexPath.row];
         cell.TitleLabel.text=obj.TMtitle;
         cell.PriceLabel.text=[[obj.OfferPrice stringByAppendingString:@"  "]stringByAppendingString:obj.ActualPrice];*/
+    
     Pimg=[[ob.newarrivalImg objectAtIndex:indexPath.row]objectAtIndex:0];
     NSURL *Url = [NSURL URLWithString:Pimg];
     NSURLRequest *request = [NSURLRequest requestWithURL:Url];
@@ -173,17 +172,16 @@ static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" 
 -(void) ParseData
 {
     ApiParsing * mainVC = [[ApiParsing alloc] init];
-    ob.ProductDetails=nil;
-    ob.GernalFeatures=nil;
-    [mainVC getDetails:^(NSArray *respone,NSArray *generalFeatures) {
+    [mainVC DealsOfTheDay: ^(NSMutableArray *array,NSMutableArray *img) {
         
-        ob.ProductDetails=[respone copy];
-        ob.GernalFeatures=[generalFeatures copy];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+        dealsOfTheDay=[array copy];
+        [self.DealsOfTheDayCV reloadData];
+ 
         
     } failure:^(NSError *error, NSString *message) {
         NSLog(@"%@",error);
     }];
 }
+
 
 @end

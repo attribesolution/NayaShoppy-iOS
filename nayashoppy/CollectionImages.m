@@ -10,7 +10,7 @@
 #import "CollectionImages.h"
 #import "singleton.h"
 
-static NSString *allproduct=@"AllProducts", *SimilarProduct=@"SimilarProducts",*newArrivals=@"NewArrivals",*cellId=@"ImageCell",*cellNib=@"ImageCVcell", *PlaceHolderImg=@"PlaceHolder";
+static NSString *cellId=@"ImageCell",*cellNib=@"ImageCVcell", *PlaceHolderImg=@"PlaceHolder";
 
 @interface CollectionImages ()
 {

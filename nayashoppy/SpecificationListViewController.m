@@ -118,8 +118,23 @@ static NSString *specificationCell=@"SpecificationCell", *tableCell= @"SKSTableV
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:specificationCell owner:self options:  nil];
         cell = [nib objectAtIndex:0];
     }
+    
     Categories *cobj=[[[_contents objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]objectAtIndex:indexPath.subRow];
+    
+    CGSize textSize = [cobj.PName sizeWithAttributes:@{NSFontAttributeName:[cell.name font]}];
+    CGFloat strikeWidth = textSize.width;
+    CGFloat Dlines=(strikeWidth/cell.name.frame.size.width+1)*25+25;
+    
+    cell.name.frame=CGRectMake(cell.name.frame.origin.x,cell.name.frame.origin.y,cell.name.frame.size.width, Dlines);
+
     cell.name.text = cobj.featurename;
+    
+    CGSize textSize1 = [cobj.featurevalue sizeWithAttributes:@{NSFontAttributeName:[cell.value font]}];
+    CGFloat strikeWidth1 = textSize1.width;
+    CGFloat Dlines1=(strikeWidth1/cell.value.frame.size.width+1)*25+25;
+    
+    cell.value.frame=CGRectMake(cell.value.frame.origin.x,cell.value.frame.origin.y,cell.value.frame.size.width, Dlines1);
+
     cell.value.text=cobj.featurevalue;
     return cell;
 }

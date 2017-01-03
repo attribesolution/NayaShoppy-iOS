@@ -319,8 +319,7 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
 }
 
 - (NSURLSessionDataTask *)getSimilarProducts:(void (^)(NSArray *products,NSArray *img))success failure:(void (^)(NSError *error, NSString *message))failure {
-    
-    
+
     singleton *ob=[singleton sharedManager];
     NSDictionary *keyValue=[[NSDictionary alloc]init];
     keyValue= @{      @"category_id":ob.PCatId,
@@ -337,8 +336,7 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
     } failure:^(NSURLSessionDataTask *operation, NSError *error) {
         failure(error,nil); }];
     
-    return task;
-    
+    return task;  
 }
 
 -(NSMutableArray *) ParseData:(NSDictionary *) response
@@ -360,14 +358,16 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
         productimgs=[[NSMutableArray alloc]init];
         ProductDetails *ic = newproduct.data[i];
         if(ic.images.count==0)
-            [allproductimg addObject:@" "];
+           [productimgs addObject:@" "];
+
         else{
             for(int j=0;j<ic.images.count;j++)
             {
                 ProductImg *img=ic.images[j];
                 [productimgs addObject:img.image_path];
             }
-            [allproductimg addObject:productimgs];}
+        }
+            [allproductimg addObject:productimgs];
         if([ic.supplier_count integerValue]==0)
         {
             cobj=[[Categories alloc]initWithDilevery:ic.delivery andinitWithurl:ic.url andinitWithprice:ic.lowest_price];
@@ -423,7 +423,7 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
     return task;
     
 }
-- (NSURLSessionDataTask *)DealsOfTheDay:(void (^)(BOOL success))success failure:(void (^)(NSError *error, NSString *message))failure
+- (NSURLSessionDataTask *)DealsOfTheDay:(void (^)(NSMutableArray *success,NSMutableArray *img))success failure:(void (^)(NSError *error, NSString *message))failure
 {
     
     NSURL *url=[self setupSessionManager:Dealsofday];
@@ -439,19 +439,21 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
        
         Deals *newdeals = [[Deals alloc] initWithString:myString  error:&error];
         
-        singleton *ob=[singleton sharedManager];
+        NSMutableArray *dealsArr=[[NSMutableArray alloc]init];
+        NSMutableArray *img=[[NSMutableArray alloc]init];
+        
         for(int i=0;i<newdeals.data.count;i++)
         {
             DealsOfDay *deals = newdeals.data[i];
             DealsChild *ch=deals.children[i];
-            [ob.DealsOfTheDayImg addObject:ch.image_path];
+            [img addObject:ch.image_path];
             
             Categories *Cobj=[[Categories alloc] initWithTitle:ch.title andPrice1:ch.price andPrice2:ch.offer_price];
             
-            [ob.DealsOfTheDay addObject:Cobj];
+            [dealsArr addObject:Cobj];
         }
 
-        success(true);
+        success(dealsArr,img);
         
     } failure:^(NSURLSessionDataTask *operation, NSError *error) {
         failure(error,nil); }];

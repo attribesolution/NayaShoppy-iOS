@@ -47,7 +47,7 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
     obj.PCatId=cobj.PcatId;
     obj.PPrice=cobj.Pprice;
     obj.slug=cobj.Pslug;
-    [self ParseData];
+    //[self ParseData];
     UIStoryboard *specifications=[UIStoryboard storyboardWithName:@"Specifications" bundle:nil];
     SpecificationsViewController *dvc = [specifications instantiateViewControllerWithIdentifier:@"Specifications"];
     SWRevealViewController *sv=self.revealViewController;
@@ -108,22 +108,6 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     self.NewarrivalCv.alwaysBounceVertical=NO;
-}
-
--(void) ParseData
-{
-    ApiParsing * mainVC = [[ApiParsing alloc] init];
-    obj.ProductDetails=nil;
-    obj.GernalFeatures=nil;
-    [mainVC getDetails:^(NSArray *respone,NSArray *generalFeatures) {
-        
-        obj.ProductDetails=[respone copy];
-        obj.GernalFeatures=[generalFeatures copy];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
-        
-    } failure:^(NSError *error, NSString *message) {
-        NSLog(@"%@",error);
-    }];
 }
 
 @end
