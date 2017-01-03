@@ -148,7 +148,7 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
     return task;
     
 }
-- (NSURLSessionDataTask *)getDetails:(void (^)(NSArray *details,NSArray *generalFeatures))success failure:(void (^)(NSError *error, NSString *message))failure
+- (NSURLSessionDataTask *)getDetails:(void (^)(NSArray *details,NSArray *generalFeatures,NSArray *supliers))success failure:(void (^)(NSError *error, NSString *message))failure
 {
     
     singleton *ob=[singleton sharedManager];
@@ -168,15 +168,28 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
         NSString * myString =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         AllProduct *newproduct = [[AllProduct alloc] initWithString:myString  error:&error];
         
-        NSMutableArray *features,*allfeatures,*generalFeatures;
+        NSMutableArray *features,*allfeatures,*generalFeatures,*supliers;
        
         allfeatures=[[NSMutableArray alloc]init];
         generalFeatures=[[NSMutableArray alloc]init];
+        supliers=[[NSMutableArray alloc]init];
         Categories *cobj;
         
-            ProductDetails *ic = newproduct.data[0];
+         ProductDetails *ic = newproduct.data[0];
          int find;
         
+        if(ic.suppliers.count==0 && [ic.supplier_count integerValue]== 0)
+        {
+            cobj=[[Categories alloc]initWithDilevery:ic.delivery andinitWithurl:ic.url andinitWithprice:ic.lowest_price];
+            [supliers addObject:cobj];
+        }
+        for(int k=0;k<ic.suppliers.count;k++)
+        {
+            ProductSuppliers *sup= ic.suppliers[k];
+            cobj=[[Categories alloc]initWithDilevery:sup.delivery andinitWithurl:sup.url andinitWithprice:sup.price];
+            [supliers addObject:cobj];
+        }
+
             for(int k=0;k<ic.featuresList.count;k++)
             {
                 find=0;
@@ -185,6 +198,7 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
                 [features addObject:feature.featureGroupName];
                 for(int j=0;j<feature.featureValues.count;j++)
                 {
+                    
                     FeaturesDetail *fd=feature.featureValues[j];
                    
                     if([fd.featureName isEqualToString:@"Display Size"] ||[fd.featureName isEqualToString:@"Operating System"] ||[fd.featureName isEqualToString:@"Internal Storage"] ||[fd.featureName isEqualToString:@"RAM"] ||[fd.featureName isEqualToString:@"Primary Camera"] ||[fd.featureName isEqualToString:@"Secondary Camera"]
@@ -214,7 +228,7 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
                 [allfeatures addObject:features];
             }
         
-        success(allfeatures,generalFeatures);
+        success(allfeatures,generalFeatures,supliers);
         
     } failure:^(NSURLSessionDataTask *operation, NSError *error) {
         failure(error,nil); }];
@@ -368,17 +382,6 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
             }
         }
             [allproductimg addObject:productimgs];
-        if([ic.supplier_count integerValue]==0)
-        {
-            cobj=[[Categories alloc]initWithDilevery:ic.delivery andinitWithurl:ic.url andinitWithprice:ic.lowest_price];
-            [supliers addObject:cobj];
-        }
-        for(int k=0;k<ic.suppliers.count;k++)
-        {
-            ProductSuppliers *sup= ic.suppliers[k];
-            cobj=[[Categories alloc]initWithDilevery:sup.delivery andinitWithurl:sup.url andinitWithprice:sup.price];
-            [supliers addObject:cobj];
-        }
         cobj=[[Categories alloc] initWithName:ic.product_name andinitWithprice:ic.lowest_price andinitWithofferPrice:ic.original_price andinitWithDiscount:ic.discount andinitWithSupliers:supliers andinitWithcat:ic.categories_category_id andinitWithslug:ic.slug ];
         [allproduct addObject:cobj];
     }

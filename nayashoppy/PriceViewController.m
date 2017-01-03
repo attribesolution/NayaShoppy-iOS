@@ -20,6 +20,7 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
     singleton *obj;
     Categories *cobj;
     ImageCell *imgcell;
+    NSMutableArray *supliers;
     DGActivityIndicatorView *activityIndicatorView ;
     BOOL isData;
 }
@@ -35,6 +36,7 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
     
     [super viewDidLoad];
      obj=[singleton sharedManager];
+    supliers=[[NSMutableArray alloc]init];
     [self arrayObject];
     [self Parsedetails];
     [self recentlyViewed];
@@ -85,7 +87,7 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(section==3)
-        return cobj.Supliers.count;
+        return supliers.count;
     if(section==5)
         return obj.GernalFeatures.count;
     else
@@ -170,7 +172,7 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
          cell = [nib objectAtIndex:0];
        }
       
-      Categories *sup=[cobj.Supliers objectAtIndex:indexPath.row];
+      Categories *sup=[supliers objectAtIndex:indexPath.row];
       cell.PRICE.text=[@"Rs " stringByAppendingString:sup.StorePrice];
       cell.Description.text=sup.StoreDelivery;
       cell.StoreButton.tag=indexPath.row;
@@ -311,8 +313,9 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
        ApiParsing * mainVC = [[ApiParsing alloc] init];
         obj.ProductDetails=nil;
         obj.GernalFeatures=nil;
-        [mainVC getDetails:^(NSArray *respone,NSArray *generalFeatures) {
+        [mainVC getDetails:^(NSArray *respone,NSArray *generalFeatures,NSArray *suplier) {
             
+            supliers=[suplier copy];
             obj.ProductDetails=[respone copy];
             obj.GernalFeatures=[generalFeatures copy];
             [self.PriceTable reloadData];
@@ -355,8 +358,8 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
         NSMutableArray *proCat=[[NSMutableArray alloc]init];
         [proCat addObject:self.ProCat];
         [proCat addObject:self.ProCatImg];
-    [obj.RecentlyViewed addObject:proCat];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+        [obj.RecentlyViewed addObject:proCat];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
     }
 }
 
