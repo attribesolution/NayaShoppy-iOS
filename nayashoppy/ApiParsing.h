@@ -21,7 +21,7 @@
 
 @interface ApiParsing : NSObject
 
-- (NSURLSessionDataTask *)getTopMenu:(void (^)(BOOL success))success failure:(void (^)(NSError *error, NSString *message))failure ;
+- (NSURLSessionDataTask *)getTopMenu:(void (^)(BOOL success))success failure:(void (^)(NSError *error, NSString *message))failure  ;
 - (NSURLSessionDataTask *)getNewArrivals:(void (^)(NSMutableArray *newArrivals,NSMutableArray *newArrivalsImg))success failure:(void (^)(NSError *error, NSString *message))failure ;
 - (UIImage *) image:(NSString *)imgurl;
 - (NSURLSessionDataTask *)Slider:(void (^)(NSArray *))success failure:(void (^)(NSError *error, NSString *message))failure ;
@@ -31,6 +31,6 @@
 
 - (NSURLSessionDataTask *)getSimilarProducts:(void (^)(NSArray *products,NSArray *img))success failure:(void (^)(NSError *error, NSString *message))failure ;
 
-- (NSURLSessionDataTask *)getDetails:(void (^)(NSArray *details,NSArray *generalFeatures,NSArray *supliers))success failure:(void (^)(NSError *error, NSString *message))failure;
+- (NSURLSessionDataTask *)getDetails:(void (^)(NSArray *details,NSArray *generalFeatures,NSArray *supliers))success failure:(void (^)(NSError *error, NSString *message))failure  slug:(NSString*) a;
 - (NSURLSessionDataTask *)getFilters:(void (^)(NSArray *filter))success failure:(void (^)(NSError *error, NSString *message))failure;
 @end

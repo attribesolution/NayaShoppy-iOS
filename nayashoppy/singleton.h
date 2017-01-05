@@ -20,7 +20,6 @@
 @property (strong,nonatomic) NSString *CatId;
 @property (strong,nonatomic) NSString *BranchId;
 @property (strong,nonatomic) NSString *PCatId;
-@property (strong,nonatomic) NSString *slug;
 @property (strong,nonatomic) NSString *PPrice;
 @property (strong,nonatomic) NSNumber *page;
 

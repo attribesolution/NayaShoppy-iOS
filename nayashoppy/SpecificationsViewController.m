@@ -29,7 +29,7 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
 @end
 
 @implementation SpecificationsViewController
-@synthesize title;
+@synthesize title,slug;
 
 - (void)viewDidLoad {
     
@@ -171,6 +171,7 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
     
     cvc.ProCat= [catarray objectAtIndex:0];
     cvc.ProCatImg= [catarray objectAtIndex:1];
+    self.slug= [catarray objectAtIndex:2];
     [cvc Parsedetails];
     [cvc arrayObject];
     [cvc.PriceTable reloadData];
@@ -180,18 +181,30 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
 -(void) ParseData
 {
     ApiParsing * mainVC = [[ApiParsing alloc] init];
-    
-    [mainVC getDetails:^(NSArray *respone,NSArray *generalFeatures,NSArray *suplier) {
+   
+    [mainVC getDetails:^(NSArray *respone,NSArray *generalFeatures,NSArray *suplier)  {
       
         cvc.supliers=[[NSMutableArray alloc]initWithArray:suplier];
         cvc.GernalFeatures=[[NSMutableArray alloc]initWithArray:generalFeatures];
         [cvc.PriceTable reloadData];
         svc.ProductDetail=[[NSMutableArray alloc]initWithArray:respone];
         [svc.myTable reloadData];
+        if( respone.count==0)
+        {
+            NSArray * nib = [[NSBundle mainBundle]
+                             loadNibNamed: @"EmptyView"
+                             owner: self
+                             options: nil];
+            UIView *ev= nib[0];
+            ev.frame=CGRectMake(0,self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
+            [svc.view addSubview:ev];
+        }
+
         
     } failure:^(NSError *error, NSString *message) {
         NSLog(@"%@",error);
-    }];
+    } slug:slug
+     ];
 
 }
 
@@ -204,4 +217,5 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
     UIStoryboard *reviews=[UIStoryboard storyboardWithName:reviewcell bundle:nil];
     rvc = [reviews instantiateViewControllerWithIdentifier:reviewcell];
 }
+
 @end

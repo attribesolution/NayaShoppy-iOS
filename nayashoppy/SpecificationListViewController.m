@@ -148,18 +148,8 @@ static NSString *specificationCell=@"SpecificationCell", *tableCell= @"SKSTableV
     [self.myTable setContentOffset:CGPointZero animated:NO];
     [super viewWillAppear:animated];
     NSArray *myArr=[self.contents objectAtIndex:0];
-    if( myArr.count==0)
-    {
-        NSArray * nib = [[NSBundle mainBundle]
-                         loadNibNamed: @"EmptyView"
-                         owner: self
-                         options: nil];
-        UIView *ev= nib[0];
-        ev.frame=CGRectMake(0,self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
-        [self.view addSubview:ev];
-
-    }
-   
+  
+       
 }
 
 @end

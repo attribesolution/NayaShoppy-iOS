@@ -28,7 +28,7 @@ static NSString *CouponsCell = @"CouponsCollectionViewCell", *CouponsLabelTitle=
     
     [super viewDidLoad];
     obj=[singleton sharedManager];
-
+    [self gesture];
     [self registerCell];
     [self ActivityInd];
     [self notifications];    
@@ -70,12 +70,6 @@ static NSString *CouponsCell = @"CouponsCollectionViewCell", *CouponsLabelTitle=
         return 6;
     else
         return 8;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-
-
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -128,7 +122,6 @@ static NSString *CouponsCell = @"CouponsCollectionViewCell", *CouponsLabelTitle=
 
         if(indexPath.row==2)
        [cell.Labelview addSubview:[UIView titleView:CouponsLabelTitle andImg:CouponsLabelImg]];
-
         cell.textLabel.textColor = [UIColor darkGrayColor];
         cell.textLabel.font = [UIFont boldSystemFontOfSize:15];
 
@@ -194,6 +187,19 @@ static NSString *CouponsCell = @"CouponsCollectionViewCell", *CouponsLabelTitle=
                                                  name:refreshnotif object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
                                                  name:refreshtable object:nil];
+}
+
+-(void) gesture
+{
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
+    tapRecognizer.cancelsTouchesInView = NO;
+    [self.myTable addGestureRecognizer:tapRecognizer];
+    
+}
+- (void)didTapAnywhere:(UITapGestureRecognizer *) sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:keyboardNotification object:nil];
+    [self.view endEditing:YES];
 }
 
 @end

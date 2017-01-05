@@ -223,7 +223,7 @@ Boolean showInGridView = false;
     dvc.title=cobj.PName;
     obj.PCatId=cobj.PcatId;
     obj.PPrice=cobj.Pprice;
-    obj.slug=cobj.Pslug;
+    dvc.slug=cobj.Pslug;
     [self.navigationController pushViewController:dvc animated:YES];
 }
 

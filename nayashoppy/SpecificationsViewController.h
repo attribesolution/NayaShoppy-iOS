@@ -18,7 +18,7 @@
 @interface SpecificationsViewController : ViewPagerController <ViewPagerDataSource,ViewPagerDelegate>
 
 @property(strong,nonatomic) ViewPagerController *vp;
-@property(copy,nonatomic) NSString *title;
+@property(copy,nonatomic) NSString *title,*slug;
 @property(strong,nonatomic) Categories *myobj;
 @property(strong,nonatomic) NSMutableArray *myobjImg;
 @end

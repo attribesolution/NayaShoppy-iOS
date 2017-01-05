@@ -33,7 +33,7 @@ static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" 
     dealsOfTheDay=[[NSMutableArray alloc]init];
     dealsOfTheDayImg=[[NSMutableArray alloc]init];
     [self ParseData];
-   
+    [self gesture];
 
 }
 
@@ -42,8 +42,7 @@ static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" 
     [self.DealsOfTheDayCV registerNib:[UINib nibWithNibName:dealsCellNib bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:dealsCell];
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)sectio
-{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return dealsOfTheDay.count;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -51,12 +50,12 @@ static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" 
     cobj=[dealsOfTheDay objectAtIndex:indexPath.row];
     ob.PCatId=cobj.PcatId;
     ob.PPrice=cobj.Pprice;
-    ob.slug=cobj.Pslug;
     [self ParseData];
     UIStoryboard *specifications=[UIStoryboard storyboardWithName:specificationSB bundle:nil];
     SpecificationsViewController *dvc = [specifications instantiateViewControllerWithIdentifier:specificationSB];
     dvc.myobj=cobj;
     dvc.myobjImg=[dealsOfTheDayImg objectAtIndex:indexPath.row];
+    dvc.slug=cobj.Pslug;
     dvc.title=cobj.PName;
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.navController pushViewController:dvc animated:YES];
@@ -175,5 +174,17 @@ static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" 
     }];
 }
 
+-(void) gesture
+{
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
+    tapRecognizer.cancelsTouchesInView = NO;
+    [self.DealsOfTheDayCV addGestureRecognizer:tapRecognizer];
+    
+}
+- (void)didTapAnywhere:(UITapGestureRecognizer *) sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:keyboardNotification object:nil];
+    [self.view endEditing:YES];
+}
 
 @end

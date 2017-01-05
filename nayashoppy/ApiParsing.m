@@ -151,14 +151,13 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
     return task;
     
 }
-- (NSURLSessionDataTask *)getDetails:(void (^)(NSArray *details,NSArray *generalFeatures,NSArray *supliers))success failure:(void (^)(NSError *error, NSString *message))failure
+- (NSURLSessionDataTask *)getDetails:(void (^)(NSArray *details,NSArray *generalFeatures,NSArray *supliers))success failure:(void (^)(NSError *error, NSString *message))failure slug:(NSString*) a
 {
     
-    singleton *ob=[singleton sharedManager];
     NSDictionary *keyValue=[[NSDictionary alloc]init];
     keyValue= @{
-                @"slug":ob.slug,
-                      };
+                @"slug":a,
+                };
   
     NSURL *url=[self setupSessionManager:details];
     self.sessionManager.responseSerializer=[AFJSONResponseSerializer serializer];

@@ -1,4 +1,3 @@
-
 //
 //  singleton.m
 //  nayashoppy
@@ -10,7 +9,7 @@
 #import "singleton.h"
 
 @implementation singleton
-@synthesize topmenu,topmenuImg,CatBranchIDs,CatId,BranchId,PPrice,PCatId,slug,RecentlyViewed, MarkedFilters,page,UserReviews;
+@synthesize topmenu,topmenuImg,CatBranchIDs,CatId,BranchId,PPrice,PCatId,RecentlyViewed, MarkedFilters,page,UserReviews;
 
 #pragma mark Singleton Methods
 
@@ -31,7 +30,6 @@
         BranchId=@" ";
         PPrice=@" ";
         PCatId=@" ";
-        slug=@" ";
         page=0;
         UserReviews=[[NSMutableArray alloc]init];
         topmenu=[[NSMutableArray alloc]init];

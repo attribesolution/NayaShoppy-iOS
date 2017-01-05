@@ -52,10 +52,10 @@ static NSString *similarPCell=@"SimilarPCVCell", *similarProduct=@"SimilarProduc
     cobj=[Similarproducts objectAtIndex:indexPath.row];
     obj.PCatId=cobj.PcatId;
     obj.PPrice=cobj.Pprice;
-    obj.slug=cobj.Pslug;
     NSMutableArray *catarr=[[NSMutableArray alloc]init];
     [catarr addObject:cobj];
     [catarr addObject:[Similarproductimg objectAtIndex:indexPath.row]];
+    [catarr addObject:cobj.Pslug];
     if([self.XYZDelegate respondsToSelector:@selector(ReloadView:)])
         [self.XYZDelegate ReloadView:catarr];
     
