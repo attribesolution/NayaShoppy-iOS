@@ -127,7 +127,7 @@ static NSString *CouponsCell = @"CouponsCollectionViewCell", *CouponsLabelTitle=
         TableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CELL" forIndexPath:indexPath];
 
         if(indexPath.row==2)
-       [cell.Labelview titleView:CouponsLabelTitle andImg:CouponsLabelImg];
+       [cell.Labelview addSubview:[UIView titleView:CouponsLabelTitle andImg:CouponsLabelImg]];
 
         cell.textLabel.textColor = [UIColor darkGrayColor];
         cell.textLabel.font = [UIFont boldSystemFontOfSize:15];

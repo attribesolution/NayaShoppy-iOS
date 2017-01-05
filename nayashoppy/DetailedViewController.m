@@ -133,7 +133,7 @@
 -(void) navBar
 {
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    [self.navigationItem.titleView titleView:@"Shop By Categories            " andImg:@"Logo" andy:logoY] ;
+    [self.navigationItem setTitleView:[UIView titleView:@"Shop By Categories            " andImg:@"Logo" andy:logoY]];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
 }

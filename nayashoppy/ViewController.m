@@ -57,7 +57,7 @@
     
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
 
-   [self.navigationItem.titleView titleView:@"NAYA SHOPPY" andImg:@"Logo"  andy:logoY];
+   [self.navigationItem setTitleView:[UIView titleView:@"NAYA SHOPPY" andImg:@"Logo"  andy:logoY]];
     
     UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"User"]
                                                                               style:UIBarButtonItemStylePlain target:revealController action:@selector(rightRevealToggle:)];

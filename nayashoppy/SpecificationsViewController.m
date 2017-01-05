@@ -153,7 +153,7 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
 -(void) nav
 {
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    [self.navigationItem.titleView titleView:self.title andImg:@"Logo" andy:logoY] ;
+    [self.navigationItem setTitleView:[UIView titleView:self.title andImg:@"Logo" andy:logoY]];
 }
 
 -(void) setTab

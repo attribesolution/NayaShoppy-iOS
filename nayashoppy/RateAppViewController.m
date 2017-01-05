@@ -40,7 +40,7 @@
 {
     
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    [self.navigationItem.titleView titleView:@"Rate the app" andImg:@"Logo" andy:logoY] ;
+    [self.navigationItem setTitleView:[UIView titleView:@"Rate the app" andImg:@"Logo" andy:logoY]];
 }
 
 @end

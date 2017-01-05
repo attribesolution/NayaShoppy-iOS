@@ -12,7 +12,7 @@
 
 @implementation UIView (UIView_Customize)
 
--(UIView *) titleView:(NSString *) title1 andImg:(NSString *) img andy:(CGFloat) y
++(UIView *) titleView:(NSString *) title1 andImg:(NSString *) img andy:(CGFloat) y
 {
     UIImage *logo=[UIImage imageNamed:img];
     UIImageView *img1=[[UIImageView alloc] initWithFrame:CGRectMake(0,-5 , logo.size.width, logo.size.height)];
@@ -28,7 +28,7 @@
     return titleView;
 }
 
--(UIView *) titleView:(NSString *) title1 andImg:(NSString *) img
++(UIView *) titleView:(NSString *) title1 andImg:(NSString *) img
 {
     UIImage *logo=[UIImage imageNamed:img];
     UIImageView *img1=[[UIImageView alloc] initWithImage:logo];

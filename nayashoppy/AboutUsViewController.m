@@ -18,7 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    [self.navigationItem.titleView titleView:@"About Us" andImg:@"Logo" andy:logoY] ;}
+    [self.navigationItem setTitleView:[UIView titleView:@"About Us" andImg:@"Logo" andy:logoY]];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

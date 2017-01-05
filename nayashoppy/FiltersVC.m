@@ -142,7 +142,7 @@
 -(void) navBar
 {
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    [self.navigationItem.titleView titleView:@"Filters            " andImg:@"Logo" andy:logoY] ;
+    [self.navigationItem setTitleView:[UIView titleView:@"Filters            " andImg:@"Logo" andy:logoY]];
     self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
 
 }

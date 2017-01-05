@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    [self.navigationItem.titleView titleView:@"My Wallet" andImg:@"Logo" andy:logoY] ;
+    [self.navigationItem setTitleView:[UIView titleView:@"My Wallet" andImg:@"Logo" andy:logoY]];
     // Do any additional setup after loading the view.
 }
 

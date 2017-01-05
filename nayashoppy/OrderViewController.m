@@ -20,7 +20,7 @@
     [super viewDidLoad];
     OrderTable.frame=CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    [self.navigationItem.titleView titleView:@"My Order" andImg:@"Logo" andy:logoY] ;
+    [self.navigationItem setTitleView:[UIView titleView:@"My Order" andImg:@"Logo" andy:logoY]];
     
 }
 #pragma mark - UITableDelegate Method

@@ -104,7 +104,7 @@ static NSString *SideMenuCell =@"SideMenu" , *placeholder=@"PlaceHolder", *refre
 -(void) nav
 {
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    [self.navigationItem.titleView titleView:@"My User" andImg:@"UserIcon" andy:logoY+10];
+    [self.navigationItem setTitleView:[UIView titleView:@"My User" andImg:@"UserIcon" andy:logoY+10]];
     self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
 }
 -(void)viewWillDisappear:(BOOL)animated
