@@ -10,6 +10,7 @@
 
 #import "SpecificationListViewController.h"
 #import "singleton.h"
+#import "EmptyView.h"
 
 static NSString *specificationCell=@"SpecificationCell", *tableCell= @"SKSTableViewCell", *notification=@"refreshTable";
 
@@ -17,6 +18,7 @@ static NSString *specificationCell=@"SpecificationCell", *tableCell= @"SKSTableV
 {
     NSNumber *index;
     singleton *obj;
+   
 }
 
 @property (nonatomic, strong) NSArray *contents;
@@ -25,27 +27,16 @@ static NSString *specificationCell=@"SpecificationCell", *tableCell= @"SKSTableV
 @end
 
 @implementation SpecificationListViewController
-
-@synthesize myTable;
+@synthesize myTable,ProductDetail;
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
     obj=[singleton sharedManager];
     self.myTable.frame=CGRectMake(0, 50, 0, 0);
     self.myTable.SKSTableViewDelegate = self;
     self.navigationController.navigationItem.backBarButtonItem.title = @" ";
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:)
-                                                 name:notification object:nil];
-}
-
-
--(void)refreshView:(NSNotification *) notification {
-    
-    [self.myTable reloadData];
-    if(obj.ProductDetails!=nil)
-    {self.emptyview.hidden=YES;
-        _contents = @[obj.ProductDetails];}
 }
 
 #pragma mark - UITableViewDelegate
@@ -61,9 +52,9 @@ static NSString *specificationCell=@"SpecificationCell", *tableCell= @"SKSTableV
 - (NSArray *)contents
 {
     
-    if (!_contents && obj.ProductDetails!=nil)
+    if (!_contents && ProductDetail!=nil)
     {
-          _contents = @[obj.ProductDetails];
+          _contents = @[ProductDetail];
         
     }
     
@@ -156,10 +147,19 @@ static NSString *specificationCell=@"SpecificationCell", *tableCell= @"SKSTableV
     [self.myTable deselectRowAtIndexPath:[self.myTable indexPathForSelectedRow] animated:NO];
     [self.myTable setContentOffset:CGPointZero animated:NO];
     [super viewWillAppear:animated];
-    if(self.contents.count!=0)
-        self.emptyview.hidden=YES;
-    else
-        self.emptyview.hidden=NO;
+    NSArray *myArr=[self.contents objectAtIndex:0];
+    if( myArr.count==0)
+    {
+        NSArray * nib = [[NSBundle mainBundle]
+                         loadNibNamed: @"EmptyView"
+                         owner: self
+                         options: nil];
+        UIView *ev= nib[0];
+        ev.frame=CGRectMake(0,self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
+        [self.view addSubview:ev];
+
+    }
+   
 }
 
 @end

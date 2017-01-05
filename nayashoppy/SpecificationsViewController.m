@@ -18,6 +18,7 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
     NSMutableArray *tabItem;
     PriceViewController *cvc;
     SpecificationListViewController *svc;
+    ReviewViewController *rvc;
     singleton *obj;
     
 }
@@ -33,8 +34,10 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
     [super viewDidLoad];
     [self selectTabAtIndex:0];
     obj=[singleton sharedManager];
+    [self ParseData];
     [self setTab];
     [self nav];
+    [self initializeControllers];
  
 }
 
@@ -47,8 +50,6 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index {
     if(index==0)
     {
-        UIStoryboard *price=[UIStoryboard storyboardWithName:pricecell bundle:nil];
-        cvc = [price instantiateViewControllerWithIdentifier:pricecell];
         cvc.ProCat=self.myobj;
         cvc.ProCatImg=[[NSMutableArray alloc ]initWithArray:self.myobjImg];
         [self myvc:cvc];
@@ -58,15 +59,11 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
     }
      if(index==1)
     {
-        UIStoryboard *specification=[UIStoryboard storyboardWithName:spListCell bundle:nil];
-        svc = [specification instantiateViewControllerWithIdentifier:spListCell];
         [self myvc:svc];
         return svc;
     }
      else {
          
-         UIStoryboard *reviews=[UIStoryboard storyboardWithName:reviewcell bundle:nil];
-         ReviewViewController *rvc = [reviews instantiateViewControllerWithIdentifier:reviewcell];
          [self myvc:rvc];
          return rvc;
      }
@@ -148,7 +145,7 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
 
 -(void)showList
 {
-    [self selectTabAtIndex:[obj.tabindex integerValue]];
+    [self selectTabAtIndex:1];
 }
 
 -(void) nav
@@ -178,5 +175,31 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
     [cvc refreshTableView];
 
 }
+-(void) ParseData
+{
+    ApiParsing * mainVC = [[ApiParsing alloc] init];
+    
+    [mainVC getDetails:^(NSArray *respone,NSArray *generalFeatures,NSArray *suplier) {
+      
+        cvc.supliers=[[NSMutableArray alloc]initWithArray:suplier];
+        cvc.GernalFeatures=[[NSMutableArray alloc]initWithArray:generalFeatures];
+        [cvc.PriceTable reloadData];
+        svc.ProductDetail=[[NSMutableArray alloc]initWithArray:respone];
+        [svc.myTable reloadData];
+        
+    } failure:^(NSError *error, NSString *message) {
+        NSLog(@"%@",error);
+    }];
 
+}
+
+-(void) initializeControllers
+{
+    UIStoryboard *price=[UIStoryboard storyboardWithName:pricecell bundle:nil];
+    cvc = [price instantiateViewControllerWithIdentifier:pricecell];
+    UIStoryboard *specification=[UIStoryboard storyboardWithName:spListCell bundle:nil];
+    svc = [specification instantiateViewControllerWithIdentifier:spListCell];
+    UIStoryboard *reviews=[UIStoryboard storyboardWithName:reviewcell bundle:nil];
+    rvc = [reviews instantiateViewControllerWithIdentifier:reviewcell];
+}
 @end

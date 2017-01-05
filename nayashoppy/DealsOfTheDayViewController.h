@@ -15,6 +15,6 @@
 @interface DealsOfTheDayViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UICollectionView *DealsOfTheDayCV;
-@property (strong, nonatomic) IBOutlet UIView *myView;
+
 
 @end

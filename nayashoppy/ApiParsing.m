@@ -93,7 +93,7 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
     
 }
 
- - (NSURLSessionDataTask *)getNewArrivals:(void (^)(BOOL success))success failure:(void (^)(NSError *error, NSString *message))failure {
+ - (NSURLSessionDataTask *)getNewArrivals:(void (^)(NSMutableArray *newArrivals,NSMutableArray *newArrivalsImg))success failure:(void (^)(NSError *error, NSString *message))failure {
     
      NSURL *url=[self setupSessionManager:newArrivals];
      
@@ -106,10 +106,13 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
         NSData * jsonData = [NSJSONSerialization  dataWithJSONObject:dictionary options:0 error:&error];
         NSString * myString =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         AllProduct *newproduct = [[AllProduct alloc] initWithString:myString  error:&error];
-        singleton *ob=[singleton sharedManager];
-        NSMutableArray *allproduct,*allproductimg,*productimgs,*supliers;
-        allproduct=[[NSMutableArray alloc]init];
+        
+        NSMutableArray *allproductimg,*productimgs,*supliers,*newarrival,*newarrivalImg;
+        
         allproductimg=[[NSMutableArray alloc]init];
+        newarrival=[[NSMutableArray alloc]init];
+        newarrivalImg=[[NSMutableArray alloc]init];
+        
         Categories *cobj;
         
         for(int i=0;i<newproduct.data.count;i++)
@@ -118,29 +121,29 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
             productimgs=[[NSMutableArray alloc]init];
             ProductDetails *ic = newproduct.data[i];
             if(ic.images.count==0)
-                [ob.newarrivalImg addObject:@" "];
+                [productimgs addObject:@" "];
             else{
                 for(int j=0;j<ic.images.count;j++)
                 {
                     ProductImg *img=ic.images[j];
                     [productimgs addObject:img.image_path];
                 }
-                [ob.newarrivalImg addObject:productimgs];
-            }
+             }
+            [newarrivalImg addObject:productimgs];
+
             for(int k=0;k<ic.suppliers.count;k++)
             {
                ProductSuppliers *sup= ic.suppliers[k];
                cobj=[[Categories alloc]initWithDilevery:sup.delivery andinitWithurl:sup.url andinitWithprice:sup.price];
                [supliers addObject:cobj];
             }
-            
-            
+
             cobj=[[Categories alloc] initWithName:ic.product_name andinitWithprice:ic.lowest_price andinitWithofferPrice:ic.original_price andinitWithDiscount:ic.discount andinitWithSupliers:supliers andinitWithcat:ic.categories_category_id andinitWithslug:ic.slug ];
-            [ob.newarrival addObject:cobj];
+            [newarrival addObject:cobj];
             
         }
 
-        success(true);
+        success(newarrival,newarrivalImg);
         
     } failure:^(NSURLSessionDataTask *operation, NSError *error) {
                                                      failure(error,nil); }];

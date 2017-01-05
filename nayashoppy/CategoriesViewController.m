@@ -161,6 +161,7 @@
 {
     [self.myTable collapseCurrentlyExpandedIndexPaths];
 }
+
 -(void)LoadData
 {
         for (int i=0;i<obj.CatBranchIDs.count; i++) {

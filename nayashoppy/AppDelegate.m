@@ -33,15 +33,7 @@
                
     } failure:^(NSError *error, NSString *message) {
         NSLog(@"%@",error);
-    }];
-    
-    [mainVC getNewArrivals: ^(BOOL success) {
-        
-     [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshNewArriavlCV" object:nil];  
-    } failure:^(NSError *error, NSString *message) {
-        NSLog(@"%@",error);
-    }];
-    
+    }];    
    
     NSError* configureError;
     [[GGLContext sharedInstance] configureWithError: &configureError];

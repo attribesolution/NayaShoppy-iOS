@@ -12,9 +12,8 @@
 @implementation EmptyView
 
 -(void)awakeFromNib {
-    //Note that you must change @”BNYSharedView’ with whatever your nib is named
-    [[NSBundle mainBundle] loadNibNamed:@"EmptyView" owner:self options:nil];
-    [self addSubview: self.emptyview];
+    
+ 
 }
 
 @end

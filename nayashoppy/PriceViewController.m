@@ -20,8 +20,7 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
     singleton *obj;
     Categories *cobj;
     ImageCell *imgcell;
-    NSMutableArray *supliers;
-    DGActivityIndicatorView *activityIndicatorView ;
+    DGActivityIndicatorView *activityIndicatorView;
     BOOL isData;
 }
 
@@ -30,13 +29,12 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
 @end
 
 @implementation PriceViewController
-@synthesize ToastView;
+@synthesize ToastView,supliers,GernalFeatures;
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
      obj=[singleton sharedManager];
-    supliers=[[NSMutableArray alloc]init];
     [self arrayObject];
     [self Parsedetails];
     [self recentlyViewed];
@@ -89,7 +87,7 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
     if(section==3)
         return supliers.count;
     if(section==5)
-        return obj.GernalFeatures.count;
+        return GernalFeatures.count;
     else
        return 1;
 }
@@ -202,7 +200,7 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:specficCell owner:self options:  nil];
             cell = [nib objectAtIndex:0];
         }
-        Categories *sobj=[obj.GernalFeatures objectAtIndex:indexPath.row];
+        Categories *sobj=[GernalFeatures objectAtIndex:indexPath.row];
         cell.name.text = sobj.featurename;
         cell.value.text=sobj.featurevalue;
         return cell;
@@ -296,7 +294,7 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
 
 -(void) GoToSpecifications :(UIButton *) sender
 {
-    obj.tabindex=[NSNumber numberWithInt:1];
+ 
     if([self.ShowListDelegate respondsToSelector:@selector(showList)])
         [self.ShowListDelegate showList];
 }
@@ -309,21 +307,6 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
     self.imgcv = [img instantiateViewControllerWithIdentifier:imgCell];
     [self addChildViewController:self.imgcv];
     [self.imgcv didMoveToParentViewController:self];
-    
-       ApiParsing * mainVC = [[ApiParsing alloc] init];
-        obj.ProductDetails=nil;
-        obj.GernalFeatures=nil;
-        [mainVC getDetails:^(NSArray *respone,NSArray *generalFeatures,NSArray *suplier) {
-            
-            supliers=[suplier copy];
-            obj.ProductDetails=[respone copy];
-            obj.GernalFeatures=[generalFeatures copy];
-            [self.PriceTable reloadData];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
-            
-        } failure:^(NSError *error, NSString *message) {
-            NSLog(@"%@",error);
-        }];
 
 }
 

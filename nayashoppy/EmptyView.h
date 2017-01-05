@@ -10,6 +10,4 @@
 
 @interface EmptyView : UIView
 
-@property (strong, nonatomic) IBOutlet EmptyView *emptyview;
-
 @end

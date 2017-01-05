@@ -59,10 +59,7 @@
     
     UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"User"]
                                                                               style:UIBarButtonItemStylePlain target:revealController action:@selector(rightRevealToggle:)];
-//    UILabel *title=[[UILabel alloc]init];
-//    title.font=[UIFont fontWithName:@"fontello" size:30];
-//    title.text=[NSString stringWithUTF8String:"\uf1e0"];
-//    title.textColor = [UIColor blackColor];
+
 
     UIBarButtonItem *share =  [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share 17*17"]
                                                                style:UIBarButtonItemStylePlain target:self action:@selector(share)];
@@ -80,15 +77,6 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.navController=self.navigationController;
     
-}
-
-- (void)didTapAnywhere:(UITapGestureRecognizer *) sender
-{
-    [self.view endEditing:YES];
-}
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.view endEditing:YES];
 }
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar

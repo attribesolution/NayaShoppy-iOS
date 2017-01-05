@@ -27,8 +27,7 @@ static NSString *CouponsCell = @"CouponsCollectionViewCell", *CouponsLabelTitle=
     
     [super viewDidLoad];
     obj=[singleton sharedManager];
-    
-    [self gesture];
+
     [self registerCell];
     [self ActivityInd];
     [self notifications];    
@@ -154,18 +153,6 @@ static NSString *CouponsCell = @"CouponsCollectionViewCell", *CouponsLabelTitle=
     [self.myTable deselectRowAtIndexPath:[self.myTable indexPathForSelectedRow] animated:NO];
     [self.myTable setContentOffset:CGPointZero animated:NO];
     
-}
--(void) gesture
-{
-    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
-    tapRecognizer.cancelsTouchesInView = NO;
-    [self.myTable addGestureRecognizer:tapRecognizer];
-       
-}
-- (void)didTapAnywhere:(UITapGestureRecognizer *) sender
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:keyboardNotification object:nil];
-    [self.view endEditing:YES];
 }
 
 -(void) viewWillDisappear:(BOOL)animated

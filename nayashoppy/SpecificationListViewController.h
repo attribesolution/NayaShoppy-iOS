@@ -17,8 +17,7 @@
 @interface SpecificationListViewController : UIViewController<SKSTableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet SKSTableView *myTable;
-@property (strong, nonatomic) IBOutlet UIView *emptyview;
-
+@property (strong, nonatomic) NSMutableArray *ProductDetail;
 
 
 @end

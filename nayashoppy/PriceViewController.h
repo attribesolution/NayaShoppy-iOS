@@ -36,7 +36,7 @@
 @property (strong, nonatomic) IBOutlet UIView *ToastView;
 @property (strong, nonatomic)  id <GoToSpecificationList> ShowListDelegate;
 @property (strong, nonatomic) Categories *ProCat;
-@property (strong, nonatomic) NSMutableArray *ProCatImg;
+@property (strong, nonatomic) NSMutableArray *ProCatImg, *supliers,*GernalFeatures;
 
 -(void) Parsedetails;
 -(void) arrayObject;

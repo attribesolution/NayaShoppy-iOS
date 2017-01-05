@@ -22,7 +22,7 @@
 @interface ApiParsing : NSObject
 
 - (NSURLSessionDataTask *)getTopMenu:(void (^)(BOOL success))success failure:(void (^)(NSError *error, NSString *message))failure ;
-- (NSURLSessionDataTask *)getNewArrivals:(void (^)(BOOL success))success failure:(void (^)(NSError *error, NSString *message))failure ;
+- (NSURLSessionDataTask *)getNewArrivals:(void (^)(NSMutableArray *newArrivals,NSMutableArray *newArrivalsImg))success failure:(void (^)(NSError *error, NSString *message))failure ;
 - (UIImage *) image:(NSString *)imgurl;
 - (NSURLSessionDataTask *)Slider:(void (^)(NSArray *))success failure:(void (^)(NSError *error, NSString *message))failure ;
 - (NSURLSessionDataTask *)DealsOfTheDay:(void (^)(NSMutableArray *success,NSMutableArray *img))success failure:(void (^)(NSError *error, NSString *message))failure ;

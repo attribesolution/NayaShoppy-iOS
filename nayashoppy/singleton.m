@@ -10,7 +10,7 @@
 #import "singleton.h"
 
 @implementation singleton
-@synthesize topmenu,topmenuImg,newarrival,newarrivalImg,Child,CatBranchIDs,CatId,BranchId,PPrice,ProductDetails,PCatId,slug,GernalFeatures,tabindex,RecentlyViewed, MarkedFilters,page,UserReviews;
+@synthesize topmenu,topmenuImg,CatBranchIDs,CatId,BranchId,PPrice,PCatId,slug,RecentlyViewed, MarkedFilters,page,UserReviews;
 
 #pragma mark Singleton Methods
 
@@ -33,16 +33,10 @@
         PCatId=@" ";
         slug=@" ";
         page=0;
-        tabindex=0;
         UserReviews=[[NSMutableArray alloc]init];
         topmenu=[[NSMutableArray alloc]init];
         topmenuImg=[[NSMutableArray alloc]init];
-        newarrival=[[NSMutableArray alloc]init];
-        newarrivalImg=[[NSMutableArray alloc]init];
-        Child=[[NSMutableArray alloc]init];
         CatBranchIDs=[[NSMutableArray alloc]init];
-        ProductDetails=[[NSMutableArray alloc]init];
-        GernalFeatures=[[NSMutableArray alloc]init];
         MarkedFilters=[[NSMutableDictionary alloc]init];
         RecentlyViewed=[[NSMutableArray alloc]init];
 

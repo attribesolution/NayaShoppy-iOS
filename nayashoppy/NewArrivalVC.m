@@ -13,46 +13,42 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
 @interface NewArrivalVC ()
 {
     singleton *obj;
+    NSMutableArray *newArrivals,*newArrivalsImg;
 }
-
 @end
 
 @implementation NewArrivalVC
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     obj=[singleton sharedManager];
-    
+    newArrivals=[[NSMutableArray alloc]init];
+    newArrivalsImg=[[NSMutableArray alloc]init];
+    [self Parseapi];
 }
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
-    [self.NewarrivalCv registerNib:[UINib nibWithNibName:NewArrivalCell bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NewArrivalCell];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshNewArriavlCV:) name:@"refreshNewArriavlCV" object:nil];
-    self.NewarrivalCv.backgroundColor=[UIColor whiteColor];
-}
--(void)refreshNewArriavlCV:(NSNotification *) notification{
     
-    [self.NewarrivalCv reloadData];
+    [self.NewarrivalCv registerNib:[UINib nibWithNibName:NewArrivalCell bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NewArrivalCell];
+        self.NewarrivalCv.backgroundColor=[UIColor whiteColor];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    return obj.newarrival.count;
+    return newArrivals.count;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    Categories *cobj=[obj.newarrival objectAtIndex:indexPath.row];
+    Categories *cobj=[newArrivals objectAtIndex:indexPath.row];
     obj.PCatId=cobj.PcatId;
     obj.PPrice=cobj.Pprice;
     obj.slug=cobj.Pslug;
-    //[self ParseData];
     UIStoryboard *specifications=[UIStoryboard storyboardWithName:@"Specifications" bundle:nil];
     SpecificationsViewController *dvc = [specifications instantiateViewControllerWithIdentifier:@"Specifications"];
     SWRevealViewController *sv=self.revealViewController;
     dvc.myobj=cobj;
-    dvc.myobjImg=[obj.newarrivalImg objectAtIndex:indexPath.row];
+    dvc.myobjImg=[newArrivalsImg objectAtIndex:indexPath.row];
     [sv revealToggle:self];
     dvc.title=cobj.PName;
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -63,10 +59,10 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    Categories *cobj=[obj.newarrival objectAtIndex:indexPath.row];
+    Categories *cobj=[newArrivals objectAtIndex:indexPath.row];
     NewArrivalViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:NewArrivalCell forIndexPath:indexPath];
     
-    NSURL *Url = [NSURL URLWithString:[[obj.newarrivalImg objectAtIndex:indexPath.row]objectAtIndex:0]];
+    NSURL *Url = [NSURL URLWithString:[[newArrivalsImg objectAtIndex:indexPath.row]objectAtIndex:0]];
     NSURLRequest *request = [NSURLRequest requestWithURL:Url];
     UIImage *placeholderImage = [UIImage imageNamed:@"PlaceHolder"];
     
@@ -86,7 +82,7 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
     cell.NAProductName.frame=CGRectMake(cell.NAProductName.frame.origin.x,cell.NAProductName.frame.origin.y, cell.NAProductName.frame.size.width, Dlines);
 
     [cell.NAProductName setText:cobj.PName];
-    [cell.Price setText:[[@"Rs " stringByAppendingString:cobj.Pprice ] stringByAppendingString:[[@" ( " stringByAppendingString:cobj.Discount ] stringByAppendingString:@" % OFF)"]]];
+    [cell.Price setText:[[@"Rs " stringByAppendingString:cobj.Pprice] stringByAppendingString:[[@" ( " stringByAppendingString:cobj.Discount] stringByAppendingString:@" % OFF)"]]];
    
    
     return cell;
@@ -110,4 +106,17 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
     self.NewarrivalCv.alwaysBounceVertical=NO;
 }
 
+-(void) Parseapi
+{
+    ApiParsing * mainVC = [[ApiParsing alloc] init];
+    [mainVC getNewArrivals: ^(NSMutableArray *newArrival,NSMutableArray *newArrivalImg) {
+        
+        newArrivals=[newArrival copy];
+        newArrivalsImg=[newArrivalImg copy];
+        [self.NewarrivalCv reloadData];
+        
+    } failure:^(NSError *error, NSString *message) {
+        NSLog(@"%@",error);
+    }];
+}
 @end
