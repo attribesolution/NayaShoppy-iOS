@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "ShareUtility.h"
 #import "singleton.h"
+#import "UIView+UIView_Customize.h"
 
 @interface ViewController ()
 
@@ -55,7 +56,8 @@
     NSArray *leftButtonItems = @[menu1];
     
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    self.navigationItem.titleView =[[GlobalVariables class] titleView:@"NAYA SHOPPY" andImg:@"Logo" andy:logoY] ;
+
+   [self.navigationItem.titleView titleView:@"NAYA SHOPPY" andImg:@"Logo"  andy:logoY];
     
     UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"User"]
                                                                               style:UIBarButtonItemStylePlain target:revealController action:@selector(rightRevealToggle:)];

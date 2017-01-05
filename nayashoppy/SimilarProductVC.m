@@ -9,6 +9,7 @@
 #import "SimilarProductVC.h"
 #import "ShareUtility.h"
 #import "singleton.h"
+#import "GlobalVariables.h"
 
 static NSString *similarPCell=@"SimilarPCVCell", *similarProduct=@"SimilarProducts" ,*placeHolderImg=@"PlaceHolder",*wishIcon=@"WishIcon" ,*notification=@"refreshTable";
 
@@ -85,17 +86,12 @@ static NSString *similarPCell=@"SimilarPCVCell", *similarProduct=@"SimilarProduc
     
     UIImage *image = [[UIImage imageNamed:wishIcon] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [cell.WishIcon setImage:image forState:UIControlStateNormal];
-    for (int d=0; d<myProducts.count; d++) {
-        
-        NSString * Name=[[[myProducts objectAtIndex:d]objectAtIndex:0]objectAtIndex:0];
-        if ([cobj.PName isEqualToString:Name]) {
-            find=YES;
-            cell.WishIcon.tintColor = [UIColor redColor];
-            break;
-        }
-    }
+
+    find=[[GlobalVariables class]IsFound:cobj.PName];
     if(!find)
         cell.WishIcon.tintColor = [UIColor darkGrayColor];
+    else
+        cell.WishIcon.tintColor = [UIColor redColor];
     
     cell.WishIcon.tag=indexPath.row;
     cell.ShareIcon.tag=indexPath.row;

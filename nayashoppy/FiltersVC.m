@@ -12,6 +12,7 @@
 #import "Categories.h"
 #import <DGActivityIndicatorView/DGActivityIndicatorView.h>
 #import "singleton.h"
+#import "UIView+UIView_Customize.h"
 
 @interface FiltersVC ()
 {
@@ -141,7 +142,7 @@
 -(void) navBar
 {
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    self.navigationItem.titleView =[[GlobalVariables class] titleView:@"Filters            " andImg:@"Logo" andy:logoY] ;
+    [self.navigationItem.titleView titleView:@"Filters            " andImg:@"Logo" andy:logoY] ;
     self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
 
 }

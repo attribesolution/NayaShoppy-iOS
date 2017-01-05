@@ -31,6 +31,6 @@
 
 - (NSURLSessionDataTask *)getSimilarProducts:(void (^)(NSArray *products,NSArray *img))success failure:(void (^)(NSError *error, NSString *message))failure ;
 
-- (NSURLSessionDataTask *)getDetails:(void (^)(NSArray *details,NSArray *generalFeatures,NSArray *supliers))success failure:(void (^)(NSError *error, NSString *message))failure ;
+- (NSURLSessionDataTask *)getDetails:(void (^)(NSArray *details,NSArray *generalFeatures,NSArray *supliers))success failure:(void (^)(NSError *error, NSString *message))failure;
 - (NSURLSessionDataTask *)getFilters:(void (^)(NSArray *filter))success failure:(void (^)(NSError *error, NSString *message))failure;
 @end

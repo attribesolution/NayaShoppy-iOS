@@ -7,11 +7,12 @@
 //
 
 #import "ProductViewController.h"
-#import "UINavigationItem+Customize.h"
 #import "HomeViewController.h"
 #import "DetailedViewController.h"
 #import "GlobalVariables.h"
 #import "singleton.h"
+#import "UIView+UIView_Customize.h"
+#import "UIColor+UIColor_Customize.h"
 
 @interface ProductViewController (){
     
@@ -106,7 +107,8 @@
     
     switch (component) {
         case ViewPagerIndicator:
-            return [GlobalVariables themeColor];
+            
+            return [UIColor themeColor];
         default:
             return color;
     }
@@ -122,7 +124,7 @@
         previouslabel.textColor = [UIColor blackColor];
     
         UILabel *currentlabel = (UILabel*)[viewPager.view viewWithTag:100+index];
-        currentlabel.textColor = [GlobalVariables themeColor];
+        [currentlabel setTextColor:[UIColor themeColor]];
         self.lastSelectedTab = index;
 }
 
@@ -130,7 +132,7 @@
 {
 
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    self.navigationItem.titleView =[[GlobalVariables class] titleView:self.title andImg:@"Logo" andy:logoY];
+    [self.navigationItem.titleView titleView:self.title andImg:@"Logo" andy:logoY];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Grid"]

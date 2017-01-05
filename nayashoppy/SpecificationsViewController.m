@@ -10,6 +10,8 @@
 #import "SpecificationsViewController.h"
 #import "FiltersVC.h"
 #import "singleton.h"
+#import "UIView+UIView_Customize.h"
+#import "UIColor+UIColor_Customize.h"
 
 static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"SpecificationList";
 
@@ -89,7 +91,7 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
 
     
     UILabel *currentlabel = (UILabel*)[viewPager.view viewWithTag:100+index];
-    currentlabel.textColor = [GlobalVariables themeColor];
+    [currentlabel setTextColor:[UIColor themeColor]];
 
     self.lastSelectedTab = index;
 }
@@ -115,7 +117,7 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
     
     switch (component) {
         case ViewPagerIndicator:
-            return [GlobalVariables themeColor];
+            return [UIColor themeColor];
         default:
             return color;
     }
@@ -151,7 +153,7 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
 -(void) nav
 {
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    self.navigationItem.titleView =[[GlobalVariables class] titleView:self.title andImg:@"Logo" andy:logoY] ;
+    [self.navigationItem.titleView titleView:self.title andImg:@"Logo" andy:logoY] ;
 }
 
 -(void) setTab

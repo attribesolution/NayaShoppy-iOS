@@ -11,6 +11,7 @@
 #import "DGActivityIndicatorView.h"
 #import "singleton.h"
 #import "CollectionImages.h"
+#import "UIColor+UIColor_Customize.h"
 
 static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*imgCell=@"BannerImagesVC",*rcell=@"ReviewCell",*SimPro=@"Sproduct" , *store=@"Stores" ,*specification= @"SpecificationButtonCell" , *specficCell=@"SpecificationCell", *spLabelCell=@"Specification", *storeCell=@"StoreCell" , *imageCell=@"ImageCell" , *detailCell=@"Detail" , *detailnib=@"DetailCell";
 
@@ -112,20 +113,14 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
         imgcell.TitleLabel.text=cobj.PName;
         UIImage *image = [[UIImage imageNamed:@"WishIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [imgcell.WishIcon setImage:image forState:UIControlStateNormal];
-        
-        for (int d=0; d<myProducts.count; d++) {
-            
-            NSString * Name=[[[myProducts objectAtIndex:d]objectAtIndex:0]objectAtIndex:0];
-            if ([cobj.PName isEqualToString:Name]) {
-                find=YES;
-                imgcell.WishIcon.tintColor = [UIColor redColor];
-                break;
-            }
-        }
+
+        find=[[GlobalVariables class]IsFound:cobj.PName];
         if(!find)
             imgcell.WishIcon.tintColor = [UIColor darkGrayColor];
-        
-       [imgcell.WishIcon addTarget:self action:@selector(AddToWishList) forControlEvents:UIControlEventTouchUpInside];
+        else
+            imgcell.WishIcon.tintColor = [UIColor redColor];
+
+        [imgcell.WishIcon addTarget:self action:@selector(AddToWishList) forControlEvents:UIControlEventTouchUpInside];
         [imgcell.ShareIcon addTarget:self action:@selector(SendUrl:) forControlEvents:UIControlEventTouchUpInside];
         
         return imgcell;
@@ -145,9 +140,9 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
                                         attributes:@{NSStrikethroughStyleAttributeName:@(NSUnderlineStyleSingle)}];
         [cell.OriginalPriceLabel setAttributedText:title];
         
-        cell.priceLabel.textColor=[[GlobalVariables class] themeColor];
+        [cell.priceLabel setTextColor:[UIColor themeColor]];
         cell.priceLabel.text=[@"Rs " stringByAppendingString:cobj.Pprice];
-        cell.DiscountLabel.textColor=[[GlobalVariables class]greenColor];
+        [cell.DiscountLabel.textColor greenColor];
         if([cobj.Discount isEqualToString:@""] || cobj.Discount==0)
         {
             cell.OriginalPriceLabel.hidden=YES;
@@ -348,8 +343,8 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
 
 -(void)SendUrl:(UIButton *) sender
 {
-    Categories *sup=[cobj.Supliers objectAtIndex:sender.tag];
-    [[ShareUtility class]shareObject:@[sup.StoreUrl]];
+   // Categories *sup=[cobj.Supliers objectAtIndex:sender.tag];
+   // [[ShareUtility class]shareObject:@[sup.StoreUrl]];
 }
 
 -(void)viewWillAppear:(BOOL)animated

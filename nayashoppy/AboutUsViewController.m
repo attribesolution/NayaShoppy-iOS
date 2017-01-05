@@ -7,6 +7,7 @@
 //
 
 #import "AboutUsViewController.h"
+#import "UIView+UIView_Customize.h"
 
 @interface AboutUsViewController ()
 
@@ -17,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    self.navigationItem.titleView =[[GlobalVariables class] titleView:@"About Us" andImg:@"Logo" andy:logoY] ;}
+    [self.navigationItem.titleView titleView:@"About Us" andImg:@"Logo" andy:logoY] ;}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

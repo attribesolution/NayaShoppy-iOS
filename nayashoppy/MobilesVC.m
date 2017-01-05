@@ -9,6 +9,7 @@
 #import "MobilesVC.h"
 #import "ShareUtility.h"
 #import "singleton.h"
+#import "UIView+UIView_Customize.h"
 
 static NSString *dealsCell = @"DealCell";
 static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
@@ -162,7 +163,7 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
      [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBarBg"] forBarMetrics:UIBarMetricsDefault];
 
      CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-     self.navigationItem.titleView =[[GlobalVariables class] titleView:self.title andImg:@"Logo" andy:logoY] ;
+     [self.navigationItem.titleView titleView:self.title andImg:@"Logo" andy:logoY] ;
      self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
      self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
     

@@ -92,17 +92,12 @@ static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" 
     UIImage *image = [[UIImage imageNamed:@"WishIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [cell.WishButton setImage:image forState:UIControlStateNormal];
     
-    for (int d=0; d<myProducts.count; d++) {
-        
-        NSString * Name=[[[myProducts objectAtIndex:d]objectAtIndex:0]objectAtIndex:0];
-        if ([obj.TMtitle isEqualToString:Name]) {
-            find=YES;
-            cell.WishButton.tintColor = [UIColor redColor];
-            break;
-        }
-    }
+    find=[[GlobalVariables class]IsFound:obj.TMtitle];
     if(!find)
         cell.WishButton.tintColor = [UIColor darkGrayColor];
+    else
+        cell.WishButton.tintColor = [UIColor redColor];
+
     cell.WishButton.tag=indexPath.row;
     cell.ShareButton.tag=indexPath.row;
     [cell.WishButton addTarget:self action:@selector(AddToWishList:) forControlEvents:UIControlEventTouchUpInside];

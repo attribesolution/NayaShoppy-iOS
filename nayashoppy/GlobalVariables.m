@@ -15,48 +15,17 @@ NSUserDefaults *defaults;
 
 @implementation GlobalVariables
 
-+(UIView *) titleView:(NSString *) title1 andImg:(NSString *) img andy:(CGFloat) y
-{
-    UIImage *logo=[UIImage imageNamed:img];
-    UIImageView *img1=[[UIImageView alloc] initWithFrame:CGRectMake(0,-5 , logo.size.width, logo.size.height)];
-    img1.image=logo;
-    UIView *titleView=[[UIView alloc]initWithFrame:CGRectMake(100,y- logo.size.height/2.0f , 180, logo.size.height)];
-    [titleView addSubview:img1];
-    UILabel *title= [[UILabel alloc] initWithFrame:CGRectMake(logo.size.width+10, -2, 180, 35)];
-    title.text=title1;
-    title.textColor = [UIColor whiteColor];
-    title.font = [UIFont boldSystemFontOfSize:17];
-    [titleView addSubview:title];
-    titleView.backgroundColor =[UIColor clearColor];
-    return titleView;
-}
-
-+(UIView *) titleView:(NSString *) title1 andImg:(NSString *) img
-{
-    UIImage *logo=[UIImage imageNamed:img];
-    UIImageView *img1=[[UIImageView alloc] initWithImage:logo];
-    UIView *titleView=[[UIView alloc]init];
-    [titleView addSubview:img1];
-    UILabel *title= [[UILabel alloc] initWithFrame:CGRectMake(logo.size.width+5, -2, 180, 35)];
-    title.text=title1;
-    title.textColor = [UIColor darkGrayColor];
-    title.font = [UIFont boldSystemFontOfSize:15];
-    [titleView addSubview:title];
-    titleView.backgroundColor =[UIColor clearColor];
-    return titleView;
-}
-
 +(NSArray *) CashCoupons
 {
 
     NSArray *CashCoupons = @[
-                                       @[ @"Mobile Recharge",[UIColor colorWithRed:230/255.0f green:141/255.0f blue:  25/255.0f alpha:1.0f]],
-                                       @[ @"Travel",[UIColor colorWithRed:92/255.0f green:181/255.0f blue:  159/255.0f alpha:1.0f]],
-                                       @[ @"Food & Dining",[UIColor colorWithRed:189/255.0f green:102/255.0f blue:  217/255.0f alpha:1.0f]],
-                                       @[ @"Groceries",[UIColor colorWithRed:202/255.0f green:81/255.0f blue:  50/255.0f alpha:1.0f]],
-                                       @[ @"Movie Tickets",[UIColor colorWithRed:133/255.0f green:242/255.0f blue:  131/255.0f alpha:1.0f]],
-                                       
-                                       ];
+                             @[ @"Mobile Recharge",[UIColor colorWithRed:230/255.0f green:141/255.0f blue:  25/255.0f alpha:1.0f]],
+                             @[ @"Travel",[UIColor colorWithRed:92/255.0f green:181/255.0f blue:159/255.0f alpha:1.0f]],
+                             @[ @"Food & Dining",[UIColor colorWithRed:189/255.0f green:102/255.0f blue:  217/255.0f alpha:1.0f]],
+                             @[ @"Groceries",[UIColor colorWithRed:202/255.0f green:81/255.0f blue:  50/255.0f alpha:1.0f]],
+                             @[ @"Movie Tickets",[UIColor colorWithRed:133/255.0f green:242/255.0f blue:  131/255.0f alpha:1.0f]],
+                             
+                             ];
     return CashCoupons;
 }
 
@@ -76,34 +45,17 @@ NSUserDefaults *defaults;
     return UserInfo;
 }
 
-+(UIColor*)themeColor{
-    
-    return [UIColor colorWithRed:255.0/255.0 green:0.0/255.0 blue:3.0/255.0 alpha:1.0];
-}
-
-+(UIColor*) greenColor
-{
-    return [UIColor colorWithRed:57.0/255.0 green:177.0/255.0 blue:44.0/255.0 alpha:1.0];
-}
 
 +(void) AddWhishList:(NSString *)name :(NSString *)price :(NSString *) image :(UIView *) view
 {
     BOOL find;
     find=NO;
-
-    for (int d=0; d<myProducts.count; d++) {
-        
-        NSString * Name=[[[myProducts objectAtIndex:d]objectAtIndex:0]objectAtIndex:0];
-        if ([name isEqualToString:Name]) {
-            
-            find=YES;
-            break;
-        }
-      }
     
-       if(!find)
-       {
-           
+
+    find=[self IsFound:name];
+    if(!find)
+    {
+        
         defaults = [NSUserDefaults standardUserDefaults];
         NSMutableArray *ProductsImg,*Products,*ProductDetail;
         
@@ -114,8 +66,6 @@ NSUserDefaults *defaults;
         [ProductDetail addObject:name];
         [ProductDetail addObject:price];
         [Products addObject:ProductDetail];
-       // UIImage *contactImage = image;
-      //  NSData *imageData = UIImageJPEGRepresentation(contactImage, 100);
         [ProductsImg addObject:image];
     
         NSObject *myobj=[defaults objectForKey:@"Product"];
@@ -157,12 +107,19 @@ NSUserDefaults *defaults;
 
      }
 }
-//+(void) myvc:(UIViewController *) vc
-//{
-//    vc.view.backgroundColor=[UIColor groupTableViewBackgroundColor];
-//    SWRevealViewController *revealController = [self revealViewController];
-//    [vc.view addGestureRecognizer:revealController
-//     .panGestureRecognizer];
-//    [vc.view addGestureRecognizer:revealController.tapGestureRecognizer];
-//}
+
++(BOOL) IsFound:(NSString*)name
+{
+    for (int d=0; d<myProducts.count; d++) {
+        
+        NSString * Name=[[[myProducts objectAtIndex:d]objectAtIndex:0]objectAtIndex:0];
+        if ([name isEqualToString:Name]) {
+            
+            return  YES;
+        }
+    }
+    return NO;
+
+}
+
 @end

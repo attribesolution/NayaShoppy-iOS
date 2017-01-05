@@ -7,6 +7,8 @@
 //
 
 #import "RateAppViewController.h"
+#import "UIView+UIView_Customize.h"
+#import "UIColor+UIColor_Customize.h"
 
 @interface RateAppViewController ()
 
@@ -27,7 +29,7 @@
     CancleButton.clipsToBounds = YES;
     SubmitButton.layer.cornerRadius = 5;
     SubmitButton.clipsToBounds = YES;
-    self.SubmitButton.backgroundColor=[[GlobalVariables class]greenColor];
+    [self.SubmitButton.backgroundColor greenColor];
     [Rating setFont:[UIFont fontWithName:@"fontello" size:30]];
     [Rating setText:[NSString stringWithUTF8String:"ue801"]];
  
@@ -38,7 +40,7 @@
 {
     
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    self.navigationItem.titleView =[[GlobalVariables class] titleView:@"Rate the app" andImg:@"Logo" andy:logoY] ;
+    [self.navigationItem.titleView titleView:@"Rate the app" andImg:@"Logo" andy:logoY] ;
 }
 
 @end

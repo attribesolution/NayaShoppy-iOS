@@ -10,6 +10,7 @@
 #import "SideMenuViewController.h"
 #import <Crashlytics/Crashlytics.h>
 #import "singleton.h"
+#import "UIView+UIView_Customize.h"
 
 static NSString *SideMenuCell =@"SideMenu" , *placeholder=@"PlaceHolder", *refreshview=@"refreshView" , *detailview=@"DetailView" ,*DetailviewCell=@"Detail";
 @interface SideMenuViewController ()
@@ -103,7 +104,7 @@ static NSString *SideMenuCell =@"SideMenu" , *placeholder=@"PlaceHolder", *refre
 -(void) nav
 {
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    self.navigationItem.titleView=[[GlobalVariables class]titleView:@"My User" andImg:@"UserIcon" andy:logoY+10];
+    [self.navigationItem.titleView titleView:@"My User" andImg:@"UserIcon" andy:logoY+10];
     self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
 }
 -(void)viewWillDisappear:(BOOL)animated

@@ -9,6 +9,8 @@
 
 #import "DetailedViewController.h"
 #import "singleton.h"
+#import "UIView+UIView_Customize.h"
+#import "UIColor+UIColor_Customize.h"
 
 @interface DetailedViewController ()
 {
@@ -95,7 +97,7 @@
     previouslabel.font=[UIFont systemFontOfSize:13];
     UILabel *currentlabel = (UILabel*)[viewPager.view viewWithTag:100+index];
     currentlabel.font=[UIFont systemFontOfSize:14];
-    currentlabel.textColor = [GlobalVariables themeColor];
+    [currentlabel setTextColor:[UIColor themeColor]];
  
     self.lastSelectedTab = index;
 }
@@ -131,7 +133,7 @@
 -(void) navBar
 {
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    self.navigationItem.titleView =[[GlobalVariables class] titleView:@"Shop By Categories            " andImg:@"Logo" andy:logoY] ;
+    [self.navigationItem.titleView titleView:@"Shop By Categories            " andImg:@"Logo" andy:logoY] ;
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
 }

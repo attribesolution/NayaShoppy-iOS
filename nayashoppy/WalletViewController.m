@@ -7,6 +7,7 @@
 //
 
 #import "WalletViewController.h"
+#import "UIView+UIView_Customize.h"
 
 @interface WalletViewController ()
 
@@ -17,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     CGFloat logoY = floorf(self.navigationController.navigationBar.frame.size.height);
-    self.navigationItem.titleView =[[GlobalVariables class] titleView:@"My Wallet" andImg:@"Logo" andy:logoY] ;
+    [self.navigationItem.titleView titleView:@"My Wallet" andImg:@"Logo" andy:logoY] ;
     // Do any additional setup after loading the view.
 }
 

@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "SlideImgTableCell.h"
 #import "singleton.h"
+#import "UIView+UIView_Customize.h"
 
 static NSString *CouponsCell = @"CouponsCollectionViewCell", *CouponsLabelTitle=@"Coupons & Cashback", *CouponsLabelImg=@"Coupon", *refreshnotif=@"refreshView", *refreshtable=@"refreshTable" ,*imgCell=@"ImageCell", *topmenucell=@"TopMenu", *tableCell=@"TableCell", *newarrivalCell=@"newArrival", *recentCell=@"Recent", *newATitle=@"New Arrivals", *recentVTitle=@"RecentlyViewed", *keyboardNotification=@"HideKeyboard", *couponSB=@"Coupons",*coupCell=@"Cash", *TopMenuSB=@"TopMenuStoryboard", *topMCell=@"TopMenu", *newArrSB=@"NewArrivalsStoryboard", *newarrCell=@"newAv", *recentViewSB=@"RecentStoryboard",*rCell=@"Recent";
 
@@ -126,7 +127,8 @@ static NSString *CouponsCell = @"CouponsCollectionViewCell", *CouponsLabelTitle=
         TableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CELL" forIndexPath:indexPath];
 
         if(indexPath.row==2)
-        [cell.Labelview addSubview:[[GlobalVariables class]titleView:CouponsLabelTitle andImg:CouponsLabelImg ]];
+       [cell.Labelview titleView:CouponsLabelTitle andImg:CouponsLabelImg];
+
         cell.textLabel.textColor = [UIColor darkGrayColor];
         cell.textLabel.font = [UIFont boldSystemFontOfSize:15];
 

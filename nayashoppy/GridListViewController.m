@@ -128,18 +128,13 @@ Boolean showInGridView = false;
         
         UIImage *image = [[UIImage imageNamed:@"WishIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [Tcell.WishButton setImage:image forState:UIControlStateNormal];
-        for (int d=0; d<myProducts.count; d++) {
-            
-            NSString * Name=[[[myProducts objectAtIndex:d]objectAtIndex:0]objectAtIndex:0];
-            if ([cobj.PName isEqualToString:Name]) {
-                find=YES;
-                Tcell.WishButton.tintColor = [UIColor redColor];
-                break;
-            }
-        }
+
+        find=[[GlobalVariables class]IsFound:cobj.PName];
         if(!find)
             Tcell.WishButton.tintColor = [UIColor darkGrayColor];
-        
+        else
+            cell.WishButton.tintColor = [UIColor redColor];
+
         Tcell.WishButton.tag=indexPath.row;
         Tcell.ShareButton.tag=indexPath.row;
         [Tcell.WishButton addTarget:self action:@selector(AddToWishList:)forControlEvents:UIControlEventTouchUpInside];
@@ -175,17 +170,13 @@ Boolean showInGridView = false;
                                        } failure:nil];
         UIImage *image = [[UIImage imageNamed:@"WishIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [cell.WishButton setImage:image forState:UIControlStateNormal];
-        for (int d=0; d<myProducts.count; d++) {
-            
-            NSString * Name=[[[myProducts objectAtIndex:d]objectAtIndex:0]objectAtIndex:0];
-            if ([cobj.PName isEqualToString:Name]) {
-                find=YES;
-                cell.WishButton.tintColor = [UIColor redColor];
-                break;
-            }
-        }
+
+        find=[[GlobalVariables class]IsFound:cobj.PName];
         if(!find)
             cell.WishButton.tintColor = [UIColor darkGrayColor];
+        else
+            cell.WishButton.tintColor = [UIColor redColor];
+
         cell.WishButton.tag=indexPath.row;
         cell.ShareButton.tag=indexPath.row;
         [cell.WishButton addTarget:self action:@selector(AddToWishList:) forControlEvents:UIControlEventTouchUpInside];

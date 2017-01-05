@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		472B2DCF1DCB33FA008A15C0 /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 472B2DCE1DCB33FA008A15C0 /* ProductViewController.m */; };
-		472B2DD61DCB3A91008A15C0 /* UINavigationItem+Customize.m in Sources */ = {isa = PBXBuildFile; fileRef = 472B2DD51DCB3A91008A15C0 /* UINavigationItem+Customize.m */; };
 		477BC9131DC9D724008C3207 /* ProductDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 477BC9121DC9D724008C3207 /* ProductDetail.storyboard */; };
 		737BD2040ADF0C45A6E387AA /* libPods-nayashoppy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6336B5E970C4DC0C494B36A /* libPods-nayashoppy.a */; };
 		CF018C1A1DC09C2A0024CD37 /* DealsChild.m in Sources */ = {isa = PBXBuildFile; fileRef = CF018C191DC09C2A0024CD37 /* DealsChild.m */; };
@@ -50,6 +49,8 @@
 		CF5262261DD33F740075BDD0 /* about 20*17.png in Resources */ = {isa = PBXBuildFile; fileRef = CF5262251DD33F740075BDD0 /* about 20*17.png */; };
 		CF5262281DD345980075BDD0 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = CF5262271DD345980075BDD0 /* star.png */; };
 		CF52622A1DD3475F0075BDD0 /* ic_user.png in Resources */ = {isa = PBXBuildFile; fileRef = CF5262291DD3475F0075BDD0 /* ic_user.png */; };
+		CF53D4671E1E368700884956 /* UIView+UIView_Customize.m in Sources */ = {isa = PBXBuildFile; fileRef = CF53D4661E1E368700884956 /* UIView+UIView_Customize.m */; };
+		CF53D46A1E1E39DA00884956 /* UIColor+UIColor_Customize.m in Sources */ = {isa = PBXBuildFile; fileRef = CF53D4691E1E39DA00884956 /* UIColor+UIColor_Customize.m */; };
 		CF5BC8DE1DBF7B1E00A9EC41 /* Slider.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5BC8DD1DBF7B1E00A9EC41 /* Slider.m */; };
 		CF5BC8E21DBF7D2B00A9EC41 /* SlideImg.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5BC8E11DBF7D2B00A9EC41 /* SlideImg.m */; };
 		CF5C74FE1DB627EB008475D1 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5C74FD1DB627EB008475D1 /* SideMenuViewController.m */; };
@@ -183,8 +184,6 @@
 		1D18F8C52544AF8BC0D74C5B /* Pods-nayashoppy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nayashoppy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nayashoppy/Pods-nayashoppy.debug.xcconfig"; sourceTree = "<group>"; };
 		472B2DCD1DCB33FA008A15C0 /* ProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductViewController.h; sourceTree = "<group>"; };
 		472B2DCE1DCB33FA008A15C0 /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewController.m; sourceTree = "<group>"; };
-		472B2DD41DCB3A91008A15C0 /* UINavigationItem+Customize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+Customize.h"; sourceTree = "<group>"; };
-		472B2DD51DCB3A91008A15C0 /* UINavigationItem+Customize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Customize.m"; sourceTree = "<group>"; };
 		477BC9121DC9D724008C3207 /* ProductDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductDetail.storyboard; sourceTree = "<group>"; };
 		A6336B5E970C4DC0C494B36A /* libPods-nayashoppy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nayashoppy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF018C181DC09C2A0024CD37 /* DealsChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealsChild.h; sourceTree = "<group>"; };
@@ -249,6 +248,10 @@
 		CF5262251DD33F740075BDD0 /* about 20*17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about 20*17.png"; sourceTree = "<group>"; };
 		CF5262271DD345980075BDD0 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		CF5262291DD3475F0075BDD0 /* ic_user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_user.png; sourceTree = "<group>"; };
+		CF53D4651E1E368700884956 /* UIView+UIView_Customize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIView_Customize.h"; sourceTree = "<group>"; };
+		CF53D4661E1E368700884956 /* UIView+UIView_Customize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIView_Customize.m"; sourceTree = "<group>"; };
+		CF53D4681E1E39DA00884956 /* UIColor+UIColor_Customize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColor_Customize.h"; sourceTree = "<group>"; };
+		CF53D4691E1E39DA00884956 /* UIColor+UIColor_Customize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColor_Customize.m"; sourceTree = "<group>"; };
 		CF5BC8DC1DBF7B1E00A9EC41 /* Slider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slider.h; sourceTree = "<group>"; };
 		CF5BC8DD1DBF7B1E00A9EC41 /* Slider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slider.m; sourceTree = "<group>"; };
 		CF5BC8E01DBF7D2B00A9EC41 /* SlideImg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideImg.h; sourceTree = "<group>"; };
@@ -471,8 +474,10 @@
 		472B2DD01DCB3853008A15C0 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				472B2DD41DCB3A91008A15C0 /* UINavigationItem+Customize.h */,
-				472B2DD51DCB3A91008A15C0 /* UINavigationItem+Customize.m */,
+				CF53D4651E1E368700884956 /* UIView+UIView_Customize.h */,
+				CF53D4661E1E368700884956 /* UIView+UIView_Customize.m */,
+				CF53D4681E1E39DA00884956 /* UIColor+UIColor_Customize.h */,
+				CF53D4691E1E39DA00884956 /* UIColor+UIColor_Customize.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1631,7 +1636,6 @@
 				CF81BA791DB9F93C00ADE575 /* Mapping.m in Sources */,
 				CF8ADA451DC095EA00BD8962 /* DealsOfDay.m in Sources */,
 				CF81BA7A1DB9F93C00ADE575 /* SubCategories1.m in Sources */,
-				472B2DD61DCB3A91008A15C0 /* UINavigationItem+Customize.m in Sources */,
 				472B2DCF1DCB33FA008A15C0 /* ProductViewController.m in Sources */,
 				CF49D4201DDED414008A61ED /* SpecificationButtonCell.m in Sources */,
 				CF13D0C41DD1963F00956076 /* TabledCollectionViewFlowLayout.m in Sources */,
@@ -1639,6 +1643,7 @@
 				CF5C74FE1DB627EB008475D1 /* SideMenuViewController.m in Sources */,
 				CFDD006F1DF14752009322EA /* ShareUtility.m in Sources */,
 				CF80B05D1DED6961004BE3DE /* checkCell.m in Sources */,
+				CF53D46A1E1E39DA00884956 /* UIColor+UIColor_Customize.m in Sources */,
 				CF1143391DE710A900751423 /* Items.m in Sources */,
 				CF6927141DBE303900B85F64 /* UserCell.m in Sources */,
 				CF71F9C51DC0DB50004DDB9A /* CategoriesCell.m in Sources */,
@@ -1704,6 +1709,7 @@
 				CF66E1901DF83961005BDD51 /* UserReviews.m in Sources */,
 				CF1143361DE70F9600751423 /* FiltersValues.m in Sources */,
 				CF60D2AC1DD49FBA00D6EFBE /* DetailCell.m in Sources */,
+				CF53D4671E1E368700884956 /* UIView+UIView_Customize.m in Sources */,
 				CF9EACAE1DE800FD003066FA /* ItemValue.m in Sources */,
 				CF60BFDA1DEC1B9000B746F5 /* FiltersVC.m in Sources */,
 				CF71F9C21DC0DB50004DDB9A /* NewArrivalViewCell.m in Sources */,

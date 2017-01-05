@@ -7,6 +7,7 @@
 //
 
 #import "PagerViewController.h"
+#import "UIColor+UIColor_Customize.h"
 
 @interface PagerViewController ()
 {
@@ -71,7 +72,7 @@
     previouslabel.textColor = [UIColor blackColor];
   
     UILabel *currentlabel = (UILabel*)[viewPager.view viewWithTag:100+index];
-    currentlabel.textColor = [GlobalVariables themeColor];
+   [currentlabel setTextColor:[UIColor themeColor]];
     
     self.lastSelectedTab = index;
 }
@@ -97,7 +98,7 @@
         
         switch (component) {
             case ViewPagerIndicator:
-                return [GlobalVariables themeColor];
+                return [UIColor themeColor];
             default:
                 return color;
         }

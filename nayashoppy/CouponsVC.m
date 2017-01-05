@@ -8,6 +8,7 @@
 //
 
 #import "CouponsVC.h"
+
 static NSString *CouponsCell = @"CouponsCollectionViewCell";
 
 @interface CouponsVC ()
@@ -41,7 +42,7 @@ static NSString *CouponsCell = @"CouponsCollectionViewCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     CouponsCollectionViewCell *CCcell = [collectionView dequeueReusableCellWithReuseIdentifier:CouponsCell forIndexPath:indexPath];
-    CCcell.CouponLabel.text=[[GlobalVariables class] CashCoupons][indexPath.row][0];
+    CCcell.CouponLabel.text= [[GlobalVariables class] CashCoupons][indexPath.row][0];
     CCcell.backgroundColor=[[GlobalVariables class] CashCoupons][indexPath.row][1];
     return CCcell;
 }
