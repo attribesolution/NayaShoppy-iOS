@@ -147,8 +147,6 @@ static NSString *specificationCell=@"SpecificationCell", *tableCell= @"SKSTableV
     [self.myTable deselectRowAtIndexPath:[self.myTable indexPathForSelectedRow] animated:NO];
     [self.myTable setContentOffset:CGPointZero animated:NO];
     [super viewWillAppear:animated];
-    NSArray *myArr=[self.contents objectAtIndex:0];
-  
        
 }
 

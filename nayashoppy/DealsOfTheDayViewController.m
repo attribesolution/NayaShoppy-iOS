@@ -48,8 +48,6 @@ static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     cobj=[dealsOfTheDay objectAtIndex:indexPath.row];
-    ob.PCatId=cobj.PcatId;
-    ob.PPrice=cobj.Pprice;
     [self ParseData];
     UIStoryboard *specifications=[UIStoryboard storyboardWithName:specificationSB bundle:nil];
     SpecificationsViewController *dvc = [specifications instantiateViewControllerWithIdentifier:specificationSB];

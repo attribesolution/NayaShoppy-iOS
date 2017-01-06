@@ -241,12 +241,11 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
     
 }
 - (NSURLSessionDataTask *)getAllProducts:(void (^)(NSMutableArray *products,NSMutableArray *img))success failure:(void (^)(NSError *error, NSString *message))failure catId:(NSString*) catid branchId:(NSString*) branchid page:(NSNumber*) page;{
-    
-    singleton *ob=[singleton sharedManager];
+
      NSDictionary *keyValue=[[NSDictionary alloc]init];
-                           keyValue= @{      @"category_id":catid,//ob.CatId,
-                                             @"brand_id":branchid,//ob.BranchId,
-                                             @"page":page,//ob.page,
+                           keyValue= @{      @"category_id":catid,
+                                             @"brand_id":branchid,
+                                             @"page":page,
                                              
                                              };
     
@@ -311,12 +310,11 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
 
 - (NSURLSessionDataTask *)getPopularProducts:(void (^)(NSMutableArray *products,NSMutableArray *img))success failure:(void (^)(NSError *error, NSString *message))failure catId:(NSString*) catid branchId:(NSString*) branchid page:(NSNumber*) page;{
     
-    singleton *ob=[singleton sharedManager];
-    NSDictionary *keyValue=[[NSDictionary alloc]init];
-    keyValue= @{      @"category_id":catid,//ob.CatId,
-                      @"brand_id":branchid,//ob.BranchId,
-                      @"page":page,//ob.page,
 
+    NSDictionary *keyValue=[[NSDictionary alloc]init];
+    keyValue= @{      @"category_id":catid,
+                      @"brand_id":branchid,
+                      @"page":page,
                       
                       };
     
@@ -335,12 +333,11 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
     return task;
 }
 
-- (NSURLSessionDataTask *)getSimilarProducts:(void (^)(NSArray *products,NSArray *img))success failure:(void (^)(NSError *error, NSString *message))failure {
+- (NSURLSessionDataTask *)getSimilarProducts:(void (^)(NSArray *products,NSArray *img))success failure:(void (^)(NSError *error, NSString *message))failure catId:(NSString*) catid Price:(NSString*) Price {
 
-    singleton *ob=[singleton sharedManager];
     NSDictionary *keyValue=[[NSDictionary alloc]init];
-    keyValue= @{      @"category_id":ob.PCatId,
-                      @"price":ob.PPrice,
+    keyValue= @{      @"category_id":catid,
+                      @"price":Price,
                                           };
     NSURL *url=[self setupSessionManager:SimilarProduct];
     self.sessionManager.responseSerializer=[AFJSONResponseSerializer serializer];
@@ -473,9 +470,8 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
     NSURL *url = [NSURL URLWithString:string];
     self.sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:baseUrl]];
     self.sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
-    
     [self.sessionManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-     self.sessionManager.session.configuration.timeoutIntervalForRequest = 25.0;
+    self.sessionManager.session.configuration.timeoutIntervalForRequest = 25.0;
     return url;
     
 }

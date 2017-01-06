@@ -50,8 +50,6 @@ static NSString *similarPCell=@"SimilarPCVCell", *similarProduct=@"SimilarProduc
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     cobj=[Similarproducts objectAtIndex:indexPath.row];
-    obj.PCatId=cobj.PcatId;
-    obj.PPrice=cobj.Pprice;
     NSMutableArray *catarr=[[NSMutableArray alloc]init];
     [catarr addObject:cobj];
     [catarr addObject:[Similarproductimg objectAtIndex:indexPath.row]];
@@ -136,6 +134,8 @@ static NSString *similarPCell=@"SimilarPCVCell", *similarProduct=@"SimilarProduc
 }
 -(void) getSimilarPro
 {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    SpecificationsViewController *svc=(SpecificationsViewController *) [appDelegate.navController topViewController];
     ApiParsing * mainVC = [[ApiParsing alloc] init];
     
     [mainVC getSimilarProducts:^(NSArray *respone,NSArray *img) {
@@ -147,7 +147,9 @@ static NSString *similarPCell=@"SimilarPCVCell", *similarProduct=@"SimilarProduc
         
     } failure:^(NSError *error, NSString *message) {
         NSLog(@"%@",error);
-    }];
+    }
+     catId:svc.myobj.PcatId Price:svc.myobj.Pprice
+     ];
 
 }
 

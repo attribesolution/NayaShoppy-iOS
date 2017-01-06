@@ -9,7 +9,7 @@
 #import "singleton.h"
 
 @implementation singleton
-@synthesize topmenu,topmenuImg,CatBranchIDs,PPrice,PCatId,RecentlyViewed, MarkedFilters,UserReviews;
+@synthesize topmenu,topmenuImg,CatBranchIDs,RecentlyViewed, MarkedFilters,UserReviews;
 
 #pragma mark Singleton Methods
 
@@ -26,8 +26,6 @@
 - (id)init {
     if (self = [super init]) {
 
-        PPrice=@" ";
-        PCatId=@" ";
         UserReviews=[[NSMutableArray alloc]init];
         topmenu=[[NSMutableArray alloc]init];
         topmenuImg=[[NSMutableArray alloc]init];

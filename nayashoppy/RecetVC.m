@@ -44,8 +44,6 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     Categories *robj=[[obj.RecentlyViewed objectAtIndex:indexPath.row]objectAtIndex:0];
-    obj.PCatId=robj.PcatId;
-    obj.PPrice=robj.Pprice;
     UIStoryboard *specifications=[UIStoryboard storyboardWithName:@"Specifications" bundle:nil];
     SpecificationsViewController *dvc = [specifications instantiateViewControllerWithIdentifier:@"Specifications"];
     dvc.myobj=robj;

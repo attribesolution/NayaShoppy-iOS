@@ -17,8 +17,6 @@
 @property (strong,nonatomic) NSMutableArray *UserReviews;
 @property (strong,nonatomic) NSMutableArray *RecentlyViewed;
 @property (strong,nonatomic) NSMutableDictionary *MarkedFilters;
-@property (strong,nonatomic) NSString *PCatId;
-@property (strong,nonatomic) NSString *PPrice;
 
 + (id)sharedManager;
 
