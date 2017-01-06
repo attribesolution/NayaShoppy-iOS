@@ -21,5 +21,6 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *allProduct;
 @property (strong, nonatomic) IBOutlet UICollectionView *PopularProduct;
 @property (strong, nonatomic) IBOutlet UIView *PPLoader;
-@property(copy,nonatomic) NSString *title;
+@property(copy,nonatomic) NSString *title,*branchId,*catId;
+@property (strong, nonatomic) NSNumber *page;
 @end

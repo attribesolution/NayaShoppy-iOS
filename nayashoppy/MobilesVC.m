@@ -32,7 +32,7 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _page=[NSNumber numberWithInt:1];
     [self navbar];
     [self ApiData];
     [self registerCell];
@@ -171,7 +171,6 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 -(void) ApiData
 {
     obj=[singleton sharedManager];
-    obj.page=[NSNumber numberWithInt:1];
     [self activityIndicator];
     ApiParsing * mainVC = [[ApiParsing alloc] init];
     [mainVC getAllProducts:^(NSArray *respone,NSArray *img) {
@@ -185,7 +184,9 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
         
     } failure:^(NSError *error, NSString *message) {
         NSLog(@"%@",error);
-    }];
+    }
+     catId:_catId branchId:_branchId page:_page
+     ];
     
     [mainVC getPopularProducts:^(NSArray *respone,NSArray *img) {
         
@@ -198,7 +199,9 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
         
     } failure:^(NSError *error, NSString *message) {
         NSLog(@"%@",error);
-    }];
+    }
+     catId:_catId branchId:_branchId page:_page
+     ];
 
 }
 

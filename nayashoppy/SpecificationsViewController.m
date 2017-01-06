@@ -204,7 +204,6 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
         NSLog(@"%@",error);
     } slug:_myobj.Pslug
      ];
-
 }
 
 -(void) initializeControllers

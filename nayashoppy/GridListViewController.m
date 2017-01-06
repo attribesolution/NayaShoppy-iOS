@@ -14,6 +14,7 @@
 #import "DGActivityIndicatorView.h"
 #import "ShareUtility.h"
 #import "singleton.h"
+#import "ProductViewController.h"
 
 static NSString *AKCollectionCell = @"CollectionCell";
 static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
@@ -44,6 +45,7 @@ Boolean showInGridView = false;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _page=[NSNumber numberWithInt:1];
     allproducts=[[NSMutableArray alloc]init];
     allproductimg=[[NSMutableArray alloc]init];
     popularproductimg=[[NSMutableArray alloc]init];
@@ -191,10 +193,8 @@ Boolean showInGridView = false;
     NSInteger lastSectionIndex = [self.collectionView numberOfSections] - 1;
     NSInteger lastRowIndex = [self.collectionView numberOfItemsInSection:lastSectionIndex] - 1;
     if ((indexPath.section == lastSectionIndex) && (indexPath.row == lastRowIndex)) {
-        int pg=[obj.page intValue];
-        NSLog(@"%d",pg);
-        obj.page=[NSNumber numberWithInt:pg+1];
-        NSLog(@"%@",obj.page);
+        int pg=[_page intValue];
+        _page=[NSNumber numberWithInt:pg+1];
         self.Loader.frame=CGRectMake(self.Loader.frame.origin.x, self.FilterView.frame.origin.y-50, self.Loader.frame.size.width, self.Loader.frame.size.height);
         self.Loader.hidden=NO;
         [self ApiParsing];
@@ -261,6 +261,8 @@ Boolean showInGridView = false;
 {
     [self activityInd];
     
+    ProductViewController *pvc=(ProductViewController *)[self.navigationController topViewController];
+    
    ApiParsing * mainVC = [[ApiParsing alloc] init];
    if([tabindex integerValue]==0)
     {
@@ -273,7 +275,9 @@ Boolean showInGridView = false;
             
         } failure:^(NSError *error, NSString *message) {
             NSLog(@"%@",error);
-        }];
+        }
+          catId:pvc.catId branchId:pvc.branchId page:_page
+         ];
         
     }
     else
@@ -287,7 +291,9 @@ Boolean showInGridView = false;
             
         } failure:^(NSError *error, NSString *message) {
             NSLog(@"%@",error);
-        }];
+        }
+          catId:pvc.catId branchId:pvc.branchId page:_page
+         ];
     }
 }
 

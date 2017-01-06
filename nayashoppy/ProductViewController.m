@@ -57,7 +57,6 @@
 
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index {
     
-    obj.page=[NSNumber numberWithInt:1];
     UIStoryboard *categoriesSB=[UIStoryboard storyboardWithName:@"GridList" bundle:nil];
     if(index==0)
     {

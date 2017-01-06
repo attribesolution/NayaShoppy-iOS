@@ -240,13 +240,13 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
 
     
 }
-- (NSURLSessionDataTask *)getAllProducts:(void (^)(NSMutableArray *products,NSMutableArray *img))success failure:(void (^)(NSError *error, NSString *message))failure {
+- (NSURLSessionDataTask *)getAllProducts:(void (^)(NSMutableArray *products,NSMutableArray *img))success failure:(void (^)(NSError *error, NSString *message))failure catId:(NSString*) catid branchId:(NSString*) branchid page:(NSNumber*) page;{
     
     singleton *ob=[singleton sharedManager];
      NSDictionary *keyValue=[[NSDictionary alloc]init];
-                           keyValue= @{      @"category_id":ob.CatId,
-                                             @"brand_id":ob.BranchId,
-                                             @"page":ob.page,
+                           keyValue= @{      @"category_id":catid,//ob.CatId,
+                                             @"brand_id":branchid,//ob.BranchId,
+                                             @"page":page,//ob.page,
                                              
                                              };
     
@@ -309,13 +309,14 @@ static NSString *SimilarProduct = @"%@/v1/catalog/similarcatalog";
     return task;
 }
 
-- (NSURLSessionDataTask *)getPopularProducts:(void (^)(NSMutableArray *products,NSMutableArray *img))success failure:(void (^)(NSError *error, NSString *message))failure {
+- (NSURLSessionDataTask *)getPopularProducts:(void (^)(NSMutableArray *products,NSMutableArray *img))success failure:(void (^)(NSError *error, NSString *message))failure catId:(NSString*) catid branchId:(NSString*) branchid page:(NSNumber*) page;{
     
     singleton *ob=[singleton sharedManager];
     NSDictionary *keyValue=[[NSDictionary alloc]init];
-    keyValue= @{      @"category_id":ob.CatId,
-                      @"brand_id":ob.BranchId,
-                      @"page":ob.page,
+    keyValue= @{      @"category_id":catid,//ob.CatId,
+                      @"brand_id":branchid,//ob.BranchId,
+                      @"page":page,//ob.page,
+
                       
                       };
     

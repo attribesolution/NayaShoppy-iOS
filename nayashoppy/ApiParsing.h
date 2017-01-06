@@ -26,8 +26,8 @@
 - (UIImage *) image:(NSString *)imgurl;
 - (NSURLSessionDataTask *)Slider:(void (^)(NSArray *))success failure:(void (^)(NSError *error, NSString *message))failure ;
 - (NSURLSessionDataTask *)DealsOfTheDay:(void (^)(NSMutableArray *success,NSMutableArray *img))success failure:(void (^)(NSError *error, NSString *message))failure ;
-- (NSURLSessionDataTask *)getAllProducts:(void (^)(NSMutableArray *products,NSMutableArray *img))success failure:(void (^)(NSError *error, NSString *message))failure ;
-- (NSURLSessionDataTask *)getPopularProducts:(void (^)(NSMutableArray *products,NSMutableArray *img))success failure:(void (^)(NSError *error, NSString *message))failure ;
+- (NSURLSessionDataTask *)getAllProducts:(void (^)(NSMutableArray *products,NSMutableArray *img))success failure:(void (^)(NSError *error, NSString *message))failure catId:(NSString*) catid branchId:(NSString*) branchid page:(NSNumber*) page;
+- (NSURLSessionDataTask *)getPopularProducts:(void (^)(NSMutableArray *products,NSMutableArray *img))success failure:(void (^)(NSError *error, NSString *message))failure catId:(NSString*) catid branchId:(NSString*) branchid page:(NSNumber*) page;
 
 - (NSURLSessionDataTask *)getSimilarProducts:(void (^)(NSArray *products,NSArray *img))success failure:(void (^)(NSError *error, NSString *message))failure ;
 

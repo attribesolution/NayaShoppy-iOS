@@ -134,14 +134,15 @@
 {
     [self LoadData];
     Categories *cobj=[[catid objectAtIndex:indexPath.row] objectAtIndex:indexPath.subRow-1];
-    obj.BranchId=cobj.BranchID;
-    obj.CatId=cobj.CatID;
+
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ParseApi" object:nil];
     if([self.mobileind integerValue]==1 && indexPath.row==0)
     {
         UIStoryboard * pStoryboard = [UIStoryboard storyboardWithName:@"Mobiles" bundle:[NSBundle mainBundle]];
         MobilesVC *pVC =[pStoryboard instantiateViewControllerWithIdentifier:@"Mobiles"];
         pVC.title=self.contents[indexPath.section][indexPath.row][indexPath.subRow];
+        pVC.branchId=cobj.BranchID;
+        pVC.catId=cobj.CatID;
         [self.navigationController pushViewController:pVC animated:YES];
        
     }
@@ -150,6 +151,8 @@
         UIStoryboard * pStoryboard = [UIStoryboard storyboardWithName:@"ProductDetail" bundle:[NSBundle mainBundle]];
          ProductViewController *pVC =[pStoryboard instantiateViewControllerWithIdentifier:@"ProductVC"];
          pVC.title=self.contents[indexPath.section][indexPath.row][indexPath.subRow];
+        pVC.branchId=cobj.BranchID;
+        pVC.catId=cobj.CatID;
         [self.navigationController pushViewController:pVC animated:YES];
         
     }
