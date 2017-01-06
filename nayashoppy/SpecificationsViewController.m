@@ -174,6 +174,7 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
     self.slug= [catarray objectAtIndex:2];
     [cvc Parsedetails];
     [cvc arrayObject];
+    [self ParseData];
     [cvc.PriceTable reloadData];
     [cvc refreshTableView];
 

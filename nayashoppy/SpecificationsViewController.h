@@ -21,4 +21,5 @@
 @property(copy,nonatomic) NSString *title,*slug;
 @property(strong,nonatomic) Categories *myobj;
 @property(strong,nonatomic) NSMutableArray *myobjImg;
+-(void) ParseData;
 @end

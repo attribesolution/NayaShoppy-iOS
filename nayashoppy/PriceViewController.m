@@ -343,8 +343,8 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
 
 -(void)SendUrl:(UIButton *) sender
 {
-   // Categories *sup=[cobj.Supliers objectAtIndex:sender.tag];
-   // [[ShareUtility class]shareObject:@[sup.StoreUrl]];
+    Categories *sup=[cobj.Supliers objectAtIndex:sender.tag];
+    [[ShareUtility class]shareObject:@[sup.StoreUrl]];
 }
 
 -(void)viewWillAppear:(BOOL)animated
