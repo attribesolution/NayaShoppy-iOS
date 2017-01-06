@@ -55,7 +55,6 @@ static NSString *similarPCell=@"SimilarPCVCell", *similarProduct=@"SimilarProduc
     NSMutableArray *catarr=[[NSMutableArray alloc]init];
     [catarr addObject:cobj];
     [catarr addObject:[Similarproductimg objectAtIndex:indexPath.row]];
-    [catarr addObject:cobj.Pslug];
     if([self.XYZDelegate respondsToSelector:@selector(ReloadView:)])
         [self.XYZDelegate ReloadView:catarr];
     

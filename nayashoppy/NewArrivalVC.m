@@ -47,7 +47,6 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
     SpecificationsViewController *dvc = [specifications instantiateViewControllerWithIdentifier:@"Specifications"];
     SWRevealViewController *sv=self.revealViewController;
     dvc.myobj=cobj;
-    dvc.slug=cobj.Pslug;
     dvc.myobjImg=[newArrivalsImg objectAtIndex:indexPath.row];
     [sv revealToggle:self];
     dvc.title=cobj.PName;

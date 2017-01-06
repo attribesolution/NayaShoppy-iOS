@@ -110,7 +110,6 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
     dvc.title=cobj.PName;
     obj.PCatId=cobj.PcatId;
     obj.PPrice=cobj.Pprice;
-    dvc.slug=cobj.Pslug;
     [self.navigationController pushViewController:dvc animated:YES];
     
 }

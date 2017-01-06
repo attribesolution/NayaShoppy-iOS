@@ -29,7 +29,7 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
 @end
 
 @implementation SpecificationsViewController
-@synthesize title,slug;
+@synthesize title;
 
 - (void)viewDidLoad {
     
@@ -171,14 +171,13 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
     
     cvc.ProCat= [catarray objectAtIndex:0];
     cvc.ProCatImg= [catarray objectAtIndex:1];
-    self.slug= [catarray objectAtIndex:2];
+    self.myobj=[catarray objectAtIndex:0];
     [cvc Parsedetails];
     [cvc arrayObject];
     [self ParseData];
-    [cvc.PriceTable reloadData];
     [cvc refreshTableView];
-
 }
+
 -(void) ParseData
 {
     ApiParsing * mainVC = [[ApiParsing alloc] init];
@@ -200,11 +199,10 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
             ev.frame=CGRectMake(0,self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
             [svc.view addSubview:ev];
         }
-
-        
+  
     } failure:^(NSError *error, NSString *message) {
         NSLog(@"%@",error);
-    } slug:slug
+    } slug:_myobj.Pslug
      ];
 
 }

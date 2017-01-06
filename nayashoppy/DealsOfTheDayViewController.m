@@ -55,7 +55,6 @@ static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" 
     SpecificationsViewController *dvc = [specifications instantiateViewControllerWithIdentifier:specificationSB];
     dvc.myobj=cobj;
     dvc.myobjImg=[dealsOfTheDayImg objectAtIndex:indexPath.row];
-    dvc.slug=cobj.Pslug;
     dvc.title=cobj.PName;
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.navController pushViewController:dvc animated:YES];

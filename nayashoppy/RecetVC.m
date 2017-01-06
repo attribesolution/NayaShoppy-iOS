@@ -49,7 +49,6 @@ static NSString *NewArrivalCell=@"NewArrivalViewCell";
     UIStoryboard *specifications=[UIStoryboard storyboardWithName:@"Specifications" bundle:nil];
     SpecificationsViewController *dvc = [specifications instantiateViewControllerWithIdentifier:@"Specifications"];
     dvc.myobj=robj;
-    dvc.slug=robj.Pslug;
     dvc.myobjImg=[[obj.RecentlyViewed objectAtIndex:indexPath.row]objectAtIndex:1];
     SWRevealViewController *sv=self.revealViewController;
     [sv revealToggle:self];
