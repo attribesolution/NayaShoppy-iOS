@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ImageCVcell.h"
-#import "GlobalVariables.h"
+
 
 @interface CollectionImages : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate>
 

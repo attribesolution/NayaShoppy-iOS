@@ -14,7 +14,6 @@
 #import "ReviewViewController.h"
 #import "SimilarProductVC.h"
 
-
 @interface SpecificationsViewController : ViewPagerController <ViewPagerDataSource,ViewPagerDelegate>
 
 @property(strong,nonatomic) ViewPagerController *vp;

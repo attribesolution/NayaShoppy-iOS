@@ -10,6 +10,7 @@
 #import "ShareUtility.h"
 #import "singleton.h"
 #import "EmptyView.h"
+#import "SpecificationsViewController.h"
 
 static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" , *refreshNotification=@"refreshDealsCV", *specificationSB=@"Specifications" , *placeholder=@"PlaceHolder", *dealsCellNib=@"DealsCell";
 

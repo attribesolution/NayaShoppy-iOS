@@ -8,7 +8,6 @@
 
 #import "SimilarProductVC.h"
 #import "ShareUtility.h"
-#import "GlobalVariables.h"
 
 static NSString *similarPCell=@"SimilarPCVCell", *similarProduct=@"SimilarProducts" ,*placeHolderImg=@"PlaceHolder",*wishIcon=@"WishIcon" ,*notification=@"refreshTable";
 
@@ -116,7 +115,8 @@ static NSString *similarPCell=@"SimilarPCVCell", *similarProduct=@"SimilarProduc
 }
 
 -(void)AddToWishList:(UIButton *) sender
-{   cobj=[Similarproducts objectAtIndex:sender.tag];
+{
+    cobj=[Similarproducts objectAtIndex:sender.tag];
     imgUrl=[[Similarproductimg objectAtIndex:sender.tag]objectAtIndex:0];
     [[GlobalVariables class]AddWhishList:cobj.PName :cobj.POfferPrice :imgUrl: self.view];
     cell.WishIcon.tintColor = [UIColor redColor];

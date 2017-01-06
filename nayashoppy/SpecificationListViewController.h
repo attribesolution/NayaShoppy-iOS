@@ -11,8 +11,7 @@
 #import "SKSTableViewCell.h"
 #import "Categories.h"
 #import "SpecificationCell.h"
-#import "PriceViewController.h"
-#import "SimilarProductVC.h"
+
 
 @interface SpecificationListViewController : UIViewController<SKSTableViewDelegate>
 

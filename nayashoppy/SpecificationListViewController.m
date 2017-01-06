@@ -9,20 +9,10 @@
 //
 
 #import "SpecificationListViewController.h"
-#import "singleton.h"
-#import "EmptyView.h"
 
 static NSString *specificationCell=@"SpecificationCell", *tableCell= @"SKSTableViewCell", *notification=@"refreshTable";
 
 @interface SpecificationListViewController ()
-{
-    NSNumber *index;
-    singleton *obj;
-   
-}
-
-
-@property(nonatomic,strong) PriceViewController *pvc;
 
 @end
 
@@ -32,8 +22,6 @@ static NSString *specificationCell=@"SpecificationCell", *tableCell= @"SKSTableV
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
-    obj=[singleton sharedManager];
     self.myTable.frame=CGRectMake(0, 50, 0, 0);
     self.myTable.SKSTableViewDelegate = self;
     self.navigationController.navigationItem.backBarButtonItem.title = @" ";

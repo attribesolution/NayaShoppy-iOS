@@ -11,7 +11,6 @@
 #import "ApiParsing.h"
 #import "Categories.h"
 #import "SpecificationsViewController.h"
-#import "PriceViewController.h"
 #import "AppDelegate.h"
 
 @protocol ReloadSpecificationView <NSObject>
