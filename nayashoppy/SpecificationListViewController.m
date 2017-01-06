@@ -21,7 +21,7 @@ static NSString *specificationCell=@"SpecificationCell", *tableCell= @"SKSTableV
    
 }
 
-@property (nonatomic, strong) NSArray *contents;
+
 @property(nonatomic,strong) PriceViewController *pvc;
 
 @end

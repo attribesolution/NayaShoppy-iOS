@@ -8,14 +8,15 @@
 //
 
 #import "CollectionImages.h"
-#import "singleton.h"
+#import "AppDelegate.h"
+#import "SpecificationsViewController.h"
 
 static NSString *cellId=@"ImageCell",*cellNib=@"ImageCVcell", *PlaceHolderImg=@"PlaceHolder";
 
 @interface CollectionImages ()
 {
-    singleton *obj;
     NSString *imgurl;
+    SpecificationsViewController *svc;
 }
 @end
 
@@ -24,9 +25,10 @@ static NSString *cellId=@"ImageCell",*cellNib=@"ImageCVcell", *PlaceHolderImg=@"
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    obj=[singleton sharedManager];
-    [self.ImgCView registerNib:[UINib nibWithNibName:cellNib bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:cellId];
-   
+     [self.ImgCView registerNib:[UINib nibWithNibName:cellNib bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:cellId];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    svc=(SpecificationsViewController *) [appDelegate.navController topViewController];
+
 }
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -35,8 +37,7 @@ static NSString *cellId=@"ImageCell",*cellNib=@"ImageCVcell", *PlaceHolderImg=@"
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
    
-    return self.ProImg.count;
-  
+    return svc.myobjImg.count;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -49,8 +50,7 @@ static NSString *cellId=@"ImageCell",*cellNib=@"ImageCVcell", *PlaceHolderImg=@"
     
     cell.backgroundColor=[UIColor clearColor];
    
-    imgurl=[self.ProImg objectAtIndex:indexPath.row];
- 
+    imgurl=[svc.myobjImg objectAtIndex:indexPath.row];
     NSURL *Url = [NSURL URLWithString:imgurl];
     NSURLRequest *request = [NSURLRequest requestWithURL:Url];
     UIImage *placeholderImage = [UIImage imageNamed:PlaceHolderImg];

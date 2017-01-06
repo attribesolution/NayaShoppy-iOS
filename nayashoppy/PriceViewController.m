@@ -22,6 +22,7 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
     Categories *cobj;
     ImageCell *imgcell;
     DGActivityIndicatorView *activityIndicatorView;
+    SpecificationsViewController *svc;
     BOOL isData;
 }
 
@@ -35,7 +36,7 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-     obj=[singleton sharedManager];
+    obj=[singleton sharedManager];
     [self arrayObject];
     [self Parsedetails];
     [self recentlyViewed];
@@ -109,7 +110,6 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
         
         self.imgcv.view.frame =imgcell.ImgCollView.bounds;
         [imgcell.ImgCollView addSubview:self.imgcv.view];
-        self.imgcv.ProImg=self.ProCatImg;
         imgcell.TitleLabel.text=cobj.PName;
         UIImage *image = [[UIImage imageNamed:@"WishIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [imgcell.WishIcon setImage:image forState:UIControlStateNormal];
@@ -307,8 +307,10 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
 
 -(void) arrayObject
 {
-        cobj =self.ProCat;
-        Pimg=[self.ProCatImg objectAtIndex:0];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    svc=(SpecificationsViewController *) [appDelegate.navController topViewController];
+    cobj =svc.myobj;
+    Pimg=[svc.myobjImg objectAtIndex:0];
 }
 
 -(void)AddToWishList
@@ -334,8 +336,8 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
     if(!Ispresent)
     {
         NSMutableArray *proCat=[[NSMutableArray alloc]init];
-        [proCat addObject:self.ProCat];
-        [proCat addObject:self.ProCatImg];
+        [proCat addObject:svc.myobj];
+        [proCat addObject:svc.myobjImg];
         [obj.RecentlyViewed addObject:proCat];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
     }

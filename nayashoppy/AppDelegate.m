@@ -21,10 +21,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
-    [[UINavigationBar appearance] setTranslucent:YES];
-    [Fabric with:@[[Crashlytics class]]];
+     [Fabric with:@[[Crashlytics class]]];
     [Crashlytics sharedInstance].debugMode = YES;
+    
     ApiParsing * mainVC = [[ApiParsing alloc] init];
    
     [mainVC getTopMenu:^(BOOL success) {
@@ -69,9 +68,10 @@
 - (void)signIn:(GIDSignIn *)signIn
 didSignInForUser:(GIDGoogleUser *)user
      withError:(NSError *)error {
+    
     singleton *obj=[singleton sharedManager];
     
-    NSString *idToken = user.authentication.idToken; // Safe to send to the server
+    NSString *idToken = user.authentication.idToken;
     NSString *fullName = user.profile.name;
 
     if ([GIDSignIn sharedInstance].currentUser.profile.hasImage)

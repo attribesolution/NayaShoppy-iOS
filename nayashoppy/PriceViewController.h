@@ -35,9 +35,7 @@
 @property (strong, nonatomic) CollectionImages *imgcv;
 @property (strong, nonatomic) IBOutlet UIView *ToastView;
 @property (strong, nonatomic)  id <GoToSpecificationList> ShowListDelegate;
-@property (strong, nonatomic) Categories *ProCat;
-@property (strong, nonatomic) NSMutableArray *ProCatImg, *supliers,*GernalFeatures;
-
+@property (strong, nonatomic) NSMutableArray  *supliers,*GernalFeatures;
 -(void) Parsedetails;
 -(void) arrayObject;
 -(void) refreshTableView;

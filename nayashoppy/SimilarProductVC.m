@@ -8,14 +8,12 @@
 
 #import "SimilarProductVC.h"
 #import "ShareUtility.h"
-#import "singleton.h"
 #import "GlobalVariables.h"
 
 static NSString *similarPCell=@"SimilarPCVCell", *similarProduct=@"SimilarProducts" ,*placeHolderImg=@"PlaceHolder",*wishIcon=@"WishIcon" ,*notification=@"refreshTable";
 
 @interface SimilarProductVC ()
 {
-    singleton *obj;
     Categories *cobj;
     NSString *imgUrl;
     SimilarPCVCell *cell;
@@ -29,8 +27,6 @@ static NSString *similarPCell=@"SimilarPCVCell", *similarProduct=@"SimilarProduc
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    obj=[singleton sharedManager];
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated{

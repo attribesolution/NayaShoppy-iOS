@@ -149,8 +149,8 @@
     else
     {
         UIStoryboard * pStoryboard = [UIStoryboard storyboardWithName:@"ProductDetail" bundle:[NSBundle mainBundle]];
-         ProductViewController *pVC =[pStoryboard instantiateViewControllerWithIdentifier:@"ProductVC"];
-         pVC.title=self.contents[indexPath.section][indexPath.row][indexPath.subRow];
+        ProductViewController *pVC =[pStoryboard instantiateViewControllerWithIdentifier:@"ProductVC"];
+        pVC.title=self.contents[indexPath.section][indexPath.row][indexPath.subRow];
         pVC.branchId=cobj.BranchID;
         pVC.catId=cobj.CatID;
         [self.navigationController pushViewController:pVC animated:YES];

@@ -18,6 +18,5 @@
 @property (strong, nonatomic) IBOutlet UIView *FilterView;
 @property (strong, nonatomic) IBOutlet UICollectionView *GLCollectionView;
 @property(copy,nonatomic) NSNumber *tabindex;
-//@property(copy,nonatomic) NSString *branchId,*catId;
 @property(strong,nonatomic) NSNumber *page;
 @end

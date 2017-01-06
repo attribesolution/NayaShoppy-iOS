@@ -18,6 +18,6 @@
 
 @property (strong, nonatomic) IBOutlet SKSTableView *myTable;
 @property (strong, nonatomic) NSMutableArray *ProductDetail;
-
+@property (nonatomic, strong) NSArray *contents;
 
 @end

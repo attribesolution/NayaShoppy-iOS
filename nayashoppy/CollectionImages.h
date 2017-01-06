@@ -13,5 +13,5 @@
 @interface CollectionImages : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UICollectionView *ImgCView;
-@property (strong, nonatomic) NSMutableArray *ProImg;
+
 @end

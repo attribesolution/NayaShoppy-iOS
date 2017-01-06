@@ -9,7 +9,6 @@
 
 #import "SpecificationsViewController.h"
 #import "FiltersVC.h"
-#import "singleton.h"
 #import "UIView+UIView_Customize.h"
 #import "UIColor+UIColor_Customize.h"
 
@@ -21,8 +20,6 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
     PriceViewController *cvc;
     SpecificationListViewController *svc;
     ReviewViewController *rvc;
-    singleton *obj;
-    
 }
 @property (nonatomic,assign)NSInteger lastSelectedTab;
 
@@ -35,7 +32,6 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
     
     [super viewDidLoad];
     [self selectTabAtIndex:0];
-    obj=[singleton sharedManager];
     [self ParseData];
     [self setTab];
     [self nav];
@@ -52,8 +48,6 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index {
     if(index==0)
     {
-        cvc.ProCat=self.myobj;
-        cvc.ProCatImg=[[NSMutableArray alloc ]initWithArray:self.myobjImg];
         [self myvc:cvc];
         cvc.ShowListDelegate=self;
         return cvc;
@@ -168,10 +162,9 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
 #pragma mark - ReloadSpecificationView Delegate methods
 
 -(void)ReloadView:(NSMutableArray *) catarray{
-    
-    cvc.ProCat= [catarray objectAtIndex:0];
-    cvc.ProCatImg= [catarray objectAtIndex:1];
+
     self.myobj=[catarray objectAtIndex:0];
+    self.myobjImg=[catarray objectAtIndex:1];
     [cvc Parsedetails];
     [cvc arrayObject];
     [self ParseData];
@@ -181,7 +174,7 @@ static NSString *reviewcell=@"Review" , *pricecell=@"Price" , *spListCell=@"Spec
 -(void) ParseData
 {
     ApiParsing * mainVC = [[ApiParsing alloc] init];
-   
+    svc.contents=nil;
     [mainVC getDetails:^(NSArray *respone,NSArray *generalFeatures,NSArray *suplier)  {
       
         cvc.supliers=[[NSMutableArray alloc]initWithArray:suplier];
