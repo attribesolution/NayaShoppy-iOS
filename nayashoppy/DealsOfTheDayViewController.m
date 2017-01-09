@@ -66,9 +66,9 @@ static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" 
     
     cell = [collectionView dequeueReusableCellWithReuseIdentifier:dealsCell forIndexPath:indexPath];
     
-   Categories *obj=[dealsOfTheDay objectAtIndex:indexPath.row];
-        cell.TitleLabel.text=obj.TMtitle;
-        cell.PriceLabel.text=[@"Rs " stringByAppendingString:obj.OfferPrice];
+    Categories *obj=[dealsOfTheDay objectAtIndex:indexPath.row];
+    cell.TitleLabel.text=obj.TMtitle;
+    cell.PriceLabel.text=[@"Rs " stringByAppendingString:obj.OfferPrice];
     
     Pimg=[[dealsOfTheDayImg objectAtIndex:indexPath.row]objectAtIndex:0];
     NSURL *Url = [NSURL URLWithString:Pimg];
@@ -89,7 +89,7 @@ static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" 
     UIImage *image = [[UIImage imageNamed:@"WishIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [cell.WishButton setImage:image forState:UIControlStateNormal];
     
-    find=[[GlobalVariables class]IsFound:obj.TMtitle];
+    find=[[UserDefaults class]IsFound:obj.TMtitle];
     if(!find)
         cell.WishButton.tintColor = [UIColor darkGrayColor];
     else
@@ -99,9 +99,7 @@ static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" 
     cell.ShareButton.tag=indexPath.row;
     [cell.WishButton addTarget:self action:@selector(AddToWishList:) forControlEvents:UIControlEventTouchUpInside];
     [cell.ShareButton addTarget:self action:@selector(SendUrl:) forControlEvents:UIControlEventTouchUpInside];
-    
-
-        return cell;
+    return cell;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
@@ -126,7 +124,7 @@ static NSString *dealsCell = @"DealCell", *keyboardNotification=@"HideKeyboard" 
 {
     cobj=[dealsOfTheDay objectAtIndex:sender.tag];
     Pimg=[[dealsOfTheDayImg objectAtIndex:sender.tag]objectAtIndex:0];
-    [[GlobalVariables class]AddWhishList:cobj.PName :cobj.Pprice :Pimg: self.view];
+    [[UserDefaults class]AddWhishList:cobj.PName :cobj.Pprice :Pimg: self.view];
     cell.WishButton.tintColor = [UIColor redColor];
     [self.DealsOfTheDayCV reloadData];
 }

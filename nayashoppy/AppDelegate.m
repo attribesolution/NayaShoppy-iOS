@@ -11,6 +11,7 @@
 #import <Crashlytics/Crashlytics.h>
 #import "UserReviews.h"
 #import "singleton.h"
+#import "ApiParsing.h"
 
 @interface AppDelegate ()
 

@@ -22,16 +22,10 @@
             <constraints>
                 <constraint firstItem="W8S-WA-WWh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="2Ue-Ci-zGt"/>
                 <constraint firstItem="W8S-WA-WWh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="107" id="54F-gt-jMF"/>
-                <constraint firstItem="W8S-WA-WWh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="AWU-OO-ak9"/>
                 <constraint firstAttribute="bottom" secondItem="W8S-WA-WWh" secondAttribute="bottom" id="dDW-fw-mPq"/>
                 <constraint firstAttribute="trailing" secondItem="W8S-WA-WWh" secondAttribute="trailing" id="j4g-B4-WqA"/>
             </constraints>
             <size key="customSize" width="200" height="83"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="AWU-OO-ak9"/>
-                </mask>
-            </variation>
             <connections>
                 <outlet property="image" destination="W8S-WA-WWh" id="5tP-06-NaR"/>
             </connections>

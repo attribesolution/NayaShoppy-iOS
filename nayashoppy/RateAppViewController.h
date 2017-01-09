@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GlobalVariables.h"
 
 @interface RateAppViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIButton *SubmitButton;

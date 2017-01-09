@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ImageCell.h"
 #import "DetailCell.h"
-#import "GlobalVariables.h"
 #import "StoreCell.h"
 #import "ReviewCell.h"
 #import "SimilarProductVC.h"
@@ -18,6 +17,7 @@
 #import "CollectionImages.h"
 #import "SpecificationButtonCell.h"
 #import "SpecificationsViewController.h"
+#import "UserDefaults.h"
 
 @protocol GoToSpecificationList <NSObject>
 

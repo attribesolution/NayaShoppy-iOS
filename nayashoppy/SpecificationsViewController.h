@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "ViewPagerController.h"
-#import "GlobalVariables.h"
 #import "PriceViewController.h"
 #import "SpecificationListViewController.h"
 #import "ReviewViewController.h"
 #import "SimilarProductVC.h"
+#import "UIImageView+AFNetworking.h"
+#import "SWRevealViewController.h"
 
 @interface SpecificationsViewController : ViewPagerController <ViewPagerDataSource,ViewPagerDelegate>
 

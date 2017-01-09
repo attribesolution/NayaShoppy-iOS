@@ -9,7 +9,6 @@
 #import "ProductViewController.h"
 #import "HomeViewController.h"
 #import "DetailedViewController.h"
-#import "GlobalVariables.h"
 #import "singleton.h"
 #import "UIView+UIView_Customize.h"
 #import "UIColor+UIColor_Customize.h"

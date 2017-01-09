@@ -63,7 +63,7 @@
                                                                               style:UIBarButtonItemStylePlain target:revealController action:@selector(rightRevealToggle:)];
 
 
-    UIBarButtonItem *share =  [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share 17*17"]
+    UIBarButtonItem *share =  [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Nav_Share"]
                                                                style:UIBarButtonItemStylePlain target:self action:@selector(share)];
     NSArray *actionButtonItems = @[rightRevealButtonItem, share];
     

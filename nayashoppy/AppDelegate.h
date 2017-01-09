@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GlobalVariables.h"
 #import <Google/SignIn.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 @interface AppDelegate : UIResponder <UIApplicationDelegate, GIDSignInDelegate>

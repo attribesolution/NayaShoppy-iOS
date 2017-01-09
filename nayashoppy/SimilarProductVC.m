@@ -79,7 +79,7 @@ static NSString *similarPCell=@"SimilarPCVCell", *similarProduct=@"SimilarProduc
     UIImage *image = [[UIImage imageNamed:wishIcon] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [cell.WishIcon setImage:image forState:UIControlStateNormal];
 
-    find=[[GlobalVariables class]IsFound:cobj.PName];
+    find=[[UserDefaults class]IsFound:cobj.PName];
     if(!find)
         cell.WishIcon.tintColor = [UIColor darkGrayColor];
     else
@@ -118,7 +118,7 @@ static NSString *similarPCell=@"SimilarPCVCell", *similarProduct=@"SimilarProduc
 {
     cobj=[Similarproducts objectAtIndex:sender.tag];
     imgUrl=[[Similarproductimg objectAtIndex:sender.tag]objectAtIndex:0];
-    [[GlobalVariables class]AddWhishList:cobj.PName :cobj.POfferPrice :imgUrl: self.view];
+    [[UserDefaults class]AddWhishList:cobj.PName :cobj.POfferPrice :imgUrl: self.view];
     cell.WishIcon.tintColor = [UIColor redColor];
      [self.SimilarPcollView reloadData];
 }

@@ -131,7 +131,7 @@ Boolean showInGridView = false;
         UIImage *image = [[UIImage imageNamed:@"WishIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [Tcell.WishButton setImage:image forState:UIControlStateNormal];
 
-        find=[[GlobalVariables class]IsFound:cobj.PName];
+        find=[[UserDefaults class]IsFound:cobj.PName];
         if(!find)
             Tcell.WishButton.tintColor = [UIColor darkGrayColor];
         else
@@ -173,7 +173,7 @@ Boolean showInGridView = false;
         UIImage *image = [[UIImage imageNamed:@"WishIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [cell.WishButton setImage:image forState:UIControlStateNormal];
 
-        find=[[GlobalVariables class]IsFound:cobj.PName];
+        find=[[UserDefaults class]IsFound:cobj.PName];
         if(!find)
             cell.WishButton.tintColor = [UIColor darkGrayColor];
         else
@@ -236,7 +236,7 @@ Boolean showInGridView = false;
 
 -(void)AddToWishList:(UIButton *) sender
 {   cobj=[[self loadArray] objectAtIndex:sender.tag];
-    [[GlobalVariables class]AddWhishList:cobj.PName :cobj.POfferPrice :[self ImgUrl:sender.tag]: self.view];
+    [[UserDefaults class]AddWhishList:cobj.PName :cobj.POfferPrice :[self ImgUrl:sender.tag]: self.view];
     cell.WishButton.tintColor = [UIColor redColor];
     Tcell.WishButton.tintColor = [UIColor redColor];
     [self.GLCollectionView reloadData];
@@ -257,9 +257,8 @@ Boolean showInGridView = false;
 
 -(void) ApiParsing
 {
-    [self activityInd];
-    
-    ProductViewController *pvc=(ProductViewController *)[self.navigationController topViewController];
+   [self activityInd];
+   ProductViewController *pvc=(ProductViewController *)[self.navigationController topViewController];
     
    ApiParsing * mainVC = [[ApiParsing alloc] init];
    if([tabindex integerValue]==0)
@@ -268,8 +267,7 @@ Boolean showInGridView = false;
             
             i=1;
             [self ReLoadArray:response andvalue:img];
-
-            self.FilterView.hidden=NO;
+             self.FilterView.hidden=NO;
             
         } failure:^(NSError *error, NSString *message) {
             NSLog(@"%@",error);
@@ -281,10 +279,10 @@ Boolean showInGridView = false;
     else
     {
         [mainVC getPopularProducts:^(NSMutableArray *response,NSMutableArray *img) {
+            
             i=2;
             [self ReLoadArray:response andvalue:img];
-            
-            self.FilterView.hidden=YES;
+             self.FilterView.hidden=YES;
             
             
         } failure:^(NSError *error, NSString *message) {

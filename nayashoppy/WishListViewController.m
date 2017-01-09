@@ -101,6 +101,7 @@
    NSIndexPath *ind= [self.WishListTable indexPathForCell:mycell];
    [myProducts removeObjectAtIndex:ind.section];
    [myProductsImg removeObjectAtIndex:ind.section];
+   [self reverseArray];
    [defaults setObject:myProducts forKey:@"Product"];
    [defaults setObject:myProductsImg forKey:@"ProductImg"];
    [self.view makeToast:@"Item Deleted"];
@@ -118,15 +119,17 @@
 -(void) data
 {
     defaults = [NSUserDefaults standardUserDefaults];
+    myProducts = [defaults objectForKey:@"Product"];
+    myProductsImg=[defaults objectForKey:@"ProductImg"];
     [self reverseArray];
     [self.WishListTable reloadData];
 }
 
 -(void) reverseArray
 {
-    myProducts = [defaults objectForKey:@"Product"];
+    
     myProducts=[[[myProducts reverseObjectEnumerator] allObjects] mutableCopy];
-    myProductsImg=[defaults objectForKey:@"ProductImg"];
     myProductsImg=[[[myProductsImg reverseObjectEnumerator] allObjects] mutableCopy];
 }
+
 @end

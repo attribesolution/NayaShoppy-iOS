@@ -12,6 +12,7 @@
 #import "Categories.h"
 #import "SpecificationsViewController.h"
 #import "AppDelegate.h"
+#import "UserDefaults.h"
 
 @protocol ReloadSpecificationView <NSObject>
 

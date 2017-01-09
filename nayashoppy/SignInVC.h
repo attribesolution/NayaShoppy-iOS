@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Google/SignIn.h>
-#import "GlobalVariables.h"
+#import "singleton.h"
 
 @interface SignInVC : UIViewController<GIDSignInUIDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *FbSignIn;

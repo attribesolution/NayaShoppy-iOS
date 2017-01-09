@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ViewPagerController.h"
-#import "GlobalVariables.h"
 #import "DealsOfTheDayViewController.h"
 #import "HomeViewController.h"
+#import "SWRevealViewController.h"
 
 @interface PagerViewController : ViewPagerController <ViewPagerDataSource,ViewPagerDelegate>
 

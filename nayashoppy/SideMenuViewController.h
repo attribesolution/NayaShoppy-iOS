@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "SideMenu.h"
 #import "Categories.h"
-#import "GlobalVariables.h"
 #import "DealsOfTheDayViewController.h"
 #import "DetailedViewController.h"
 #import "AppDelegate.h"
+#import "SWRevealViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface SideMenuViewController : UIViewController<UITableViewDataSource,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *sidetable;

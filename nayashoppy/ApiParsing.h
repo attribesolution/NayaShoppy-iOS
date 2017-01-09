@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "AFHTTPSessionManager.h"
 #import "Categories.h"
-#import "GlobalVariables.h"
 #import "Mapping.h"
 #import "NewArrivals.h"
 #import "SlidingImages.h"

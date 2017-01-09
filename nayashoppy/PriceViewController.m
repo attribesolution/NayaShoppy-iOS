@@ -114,7 +114,7 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
         UIImage *image = [[UIImage imageNamed:@"WishIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [imgcell.WishIcon setImage:image forState:UIControlStateNormal];
 
-        find=[[GlobalVariables class]IsFound:cobj.PName];
+        find=[[UserDefaults class]IsFound:cobj.PName];
         if(!find)
             imgcell.WishIcon.tintColor = [UIColor darkGrayColor];
         else
@@ -139,10 +139,9 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
         [[NSAttributedString alloc] initWithString:[@"Rs " stringByAppendingString:cobj.POfferPrice]
                                         attributes:@{NSStrikethroughStyleAttributeName:@(NSUnderlineStyleSingle)}];
         [cell.OriginalPriceLabel setAttributedText:title];
-        
+        [cell.DiscountLabel.textColor greenColor];
         [cell.priceLabel setTextColor:[UIColor themeColor]];
         cell.priceLabel.text=[@"Rs " stringByAppendingString:cobj.Pprice];
-        [cell.DiscountLabel.textColor greenColor];
         if([cobj.Discount isEqualToString:@""] || cobj.Discount==0)
         {
             cell.OriginalPriceLabel.hidden=YES;
@@ -153,6 +152,7 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
         return cell;
         
     }
+    
     
     
    if (indexPath.section==3) {
@@ -315,7 +315,7 @@ static NSString *SimilarProduct=@"SimilarProduct",*ImgNib=@"CollectionImages" ,*
 
 -(void)AddToWishList
 {
-    [[GlobalVariables class]AddWhishList:cobj.PName :cobj.Pprice :Pimg: self.ToastView];
+    [[UserDefaults class]AddWhishList:cobj.PName :cobj.Pprice :Pimg: self.ToastView];
     imgcell.WishIcon.tintColor = [UIColor redColor];
 
 }

@@ -8,7 +8,6 @@
 
 #import "FiltersVC.h"
 #import "checkCell.h"
-#import "GlobalVariables.h"
 #import "Categories.h"
 #import <DGActivityIndicatorView/DGActivityIndicatorView.h>
 #import "singleton.h"

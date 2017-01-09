@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GlobalVariables.h"
 
 @interface AboutUsViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *Description;

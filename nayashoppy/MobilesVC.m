@@ -20,8 +20,11 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
     DGActivityIndicatorView *activityInd1,*activityInd2;
     NSMutableArray *allproducts,*allproductimg,*popularproductimg,*popularproducts;
     Categories *cobj;
+    DealsCell *cell;
     UIImage *wishimg;
     NSString *imgUrl;
+    BOOL find;
+    int i,tag,pg;
 
 }
 @property(copy,nonatomic) NSNumber *tabindex;
@@ -33,9 +36,11 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     _page=[NSNumber numberWithInt:1];
+     pg=1;
     [self navbar];
     [self ApiData];
     [self registerCell];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -53,19 +58,21 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    DealsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:dealsCell forIndexPath:indexPath];
+    cell = [collectionView dequeueReusableCellWithReuseIdentifier:dealsCell forIndexPath:indexPath];
 
     if(collectionView.tag==100)
     {   cobj=[allproducts objectAtIndex:indexPath.row];
         imgUrl=[[allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
+        pg=1;
     }
     else
     {   cobj=[popularproducts objectAtIndex:indexPath.row];
         imgUrl=[[popularproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
+        pg=2;
     }
 
     cell.TitleLabel.text=cobj.PName;
-    cell.PriceLabel.text=cobj.Pprice;
+    cell.PriceLabel.text=[@"Rs " stringByAppendingString:cobj.Pprice];
     
     NSURL *Url = [NSURL URLWithString:imgUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:Url];
@@ -82,12 +89,55 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
                                                 
                                             } failure:nil];
 
-    [cell.WishButton addTarget:self action:@selector(AddToWishList) forControlEvents:UIControlEventTouchUpInside];
+    UIImage *image = [[UIImage imageNamed:@"WishIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [cell.WishButton setImage:image forState:UIControlStateNormal];
+    
+    find=[[UserDefaults class]IsFound:cobj.PName];
+    if(!find)
+        cell.WishButton.tintColor = [UIColor darkGrayColor];
+    else
+        cell.WishButton.tintColor = [UIColor redColor];
+    
+    cell.WishButton.tag=indexPath.row;
+    cell.ShareButton.tag=indexPath.row;
+    [cell.WishButton addTarget:self action:@selector(AddToWishList:) forControlEvents:UIControlEventTouchUpInside];
     [cell.ShareButton addTarget:self action:@selector(SendUrl:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 
-
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(8_0){
+    
+    NSInteger lastSectionIndex,lastRowIndex;
+    if(collectionView.tag==100)
+    {
+    lastSectionIndex = [self.allProduct numberOfSections] - 1;
+    lastRowIndex = [self.allProduct numberOfItemsInSection:lastSectionIndex] - 1;
+        }
+    else{
+         lastSectionIndex = [self.PopularProduct numberOfSections] - 1;
+         lastRowIndex = [self.PopularProduct numberOfItemsInSection:lastSectionIndex] - 1;
+    }
+    if ((indexPath.section == lastSectionIndex) && (indexPath.row == lastRowIndex)) {
+        int page=[_page intValue];
+        _page=[NSNumber numberWithInt:page+1];
+       if(collectionView.tag==100)
+       {
+           self.AllPLoader.frame=CGRectMake(self.allProduct.frame.size.width-50, self.AllPLoader.frame.origin.y, self.AllPLoader.frame.size.width, self.AllPLoader.frame.size.height);
+           [activityInd1 startAnimating];
+           self.AllPLoader.hidden=NO;
+           tag=100;
+       }
+        else
+        {
+            self.PPLoader.frame=CGRectMake(self.PPLoader.frame.origin.x, self.view.frame.size.height-100, self.PPLoader.frame.size.width, self.PPLoader.frame.size.height);
+            tag=200;
+            [activityInd2 startAnimating];
+            self.PPLoader.hidden=NO;
+        }
+        pg++;
+        [self ApiData];
+    }
+}
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -99,12 +149,14 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
         cobj=[allproducts objectAtIndex:indexPath.row];
         dvc.myobj=[allproducts objectAtIndex:indexPath.row];
         dvc.myobjImg=[[NSMutableArray alloc]initWithArray:[allproductimg objectAtIndex:indexPath.row]];
+        
     }
     else
     {
         cobj=[popularproducts objectAtIndex:indexPath.row];
         dvc.myobj =[popularproducts objectAtIndex:indexPath.row];
         dvc.myobjImg =[[NSMutableArray alloc]initWithArray:[popularproductimg objectAtIndex:indexPath.row]];
+        
     }
   
     dvc.title=cobj.PName;
@@ -131,9 +183,30 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
     self.PopularProduct.alwaysBounceVertical=NO;
 }
 
--(void)AddToWishList
+-(void)AddToWishList:(UIButton *)sender
 {
-    [[GlobalVariables class]AddWhishList:cobj.PName :cobj.POfferPrice :imgUrl: self.view];
+    cobj=[[self loadArray] objectAtIndex:sender.tag];
+    [[UserDefaults class]AddWhishList:cobj.PName :cobj.POfferPrice :[self ImgUrl:sender.tag]: self.view];
+    cell.WishButton.tintColor = [UIColor redColor];
+    [[UserDefaults class]AddWhishList:cobj.PName :cobj.POfferPrice :imgUrl: self.view];
+    [self.allProduct reloadData];
+    [self.PopularProduct reloadData];
+}
+
+-(NSString *) ImgUrl:(NSInteger) ind
+{
+    if(pg==1)
+        return [[allproductimg objectAtIndex:ind]objectAtIndex:0];
+    else
+        return [[popularproductimg objectAtIndex:ind]objectAtIndex:0];
+}
+
+-(NSMutableArray *) loadArray
+{
+    if(pg==1)
+        return allproducts;
+    else
+        return popularproducts;
 }
 
 -(void)SendUrl:(UIButton *) sender
@@ -168,15 +241,17 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 
 -(void) ApiData
 {
-    obj=[singleton sharedManager];
+    if([self.page integerValue]==1)
     [self activityIndicator];
     ApiParsing * mainVC = [[ApiParsing alloc] init];
+    if(tag==100 || allproducts.count==0)
+    {
     [mainVC getAllProducts:^(NSArray *respone,NSArray *img) {
         
-        [activityInd1 stopAnimating];
-        allproductimg=[img copy];
-        allproducts=[respone copy];
+         i=1;
+       [self ReLoadArray:respone andvalue:img];
         self.AllPLoader.hidden=YES;
+        [activityInd1 stopAnimating];
         [self.allProduct reloadData];
         
         
@@ -185,13 +260,15 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
     }
      catId:_catId branchId:_branchId page:_page
      ];
-    
+    }
+    if(tag==200 || popularproducts.count==0)
+    {
     [mainVC getPopularProducts:^(NSArray *respone,NSArray *img) {
         
-        [activityInd2 stopAnimating];
-        popularproductimg=[img copy];
-        popularproducts=[respone copy];
+        i=2;
+        [self ReLoadArray:respone andvalue:img];
         self.PPLoader.hidden=YES;
+        [activityInd2 stopAnimating];
         [self.PopularProduct reloadData];
         
         
@@ -200,7 +277,41 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
     }
      catId:_catId branchId:_branchId page:_page
      ];
-
+    }
+}
+-(void) ReLoadArray:(NSArray *)response andvalue:(NSArray *)img
+{
+    if(allproducts.count==0 && i==1)
+    {
+        allproductimg=[img copy];
+        allproducts=[response copy];
+    }
+    else if(popularproducts.count==0 && i==2)
+    {
+        popularproductimg=[img copy];
+        popularproducts=[response copy];
+    }
+    else{
+        
+        NSArray *newArray,*newArrayimg;
+        newArrayimg=[[NSArray alloc]init];
+        newArray=[[NSArray alloc]init];
+        if(i==1)
+        {
+            newArray=[allproductimg arrayByAddingObjectsFromArray:img];
+            allproductimg=[newArray copy];
+            newArrayimg=[allproducts arrayByAddingObjectsFromArray:response];
+            allproducts=[newArrayimg copy];
+        }
+        else
+        {
+            newArray=[popularproductimg arrayByAddingObjectsFromArray:img];
+            popularproductimg=[newArray copy];
+            newArrayimg=[popularproducts arrayByAddingObjectsFromArray:response];
+            popularproducts=[newArrayimg copy];
+        }
+    }
+    
 }
 
 -(void) viewWillDisappear:(BOOL)animated

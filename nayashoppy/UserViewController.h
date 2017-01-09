@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UserCell.h"
-#import "GlobalVariables.h"
+#import "SideTableData.h"
 #import "SignInVC.h"
 #import "AppDelegate.h"
 #import "WalletViewController.h"
@@ -16,6 +16,7 @@
 #import "OrderViewController.h"
 #import "AboutUsViewController.h"
 #import "RateAppViewController.h"
+#import "SWRevealViewController.h"
 
 @interface UserViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *UserInfoTable;

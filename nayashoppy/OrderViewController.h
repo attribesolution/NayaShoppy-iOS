@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "OrderCell.h"
-#import "GlobalVariables.h"
 
 @interface OrderViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 

@@ -10,6 +10,8 @@
 #import "ApiParsing.h"
 #import "SpecificationsViewController.h"
 #import "FiltersVC.h"
+#import "UserDefaults.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface GridListViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITabBarDelegate>
 - (IBAction)FilterButton:(id)sender;

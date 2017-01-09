@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GlobalVariables.h"
 
 @interface WalletViewController : UIViewController
 

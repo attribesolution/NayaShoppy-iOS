@@ -121,17 +121,17 @@ static NSString *userCell =@"UserCell";
      {   if([status isEqualToString:@"Sign Out"])
          cell.Ulabel.text=@"Sign Out";
      else
-         cell.Ulabel.text=[[[GlobalVariables class] UserInfo] objectAtIndex:0][1];
-         cell.Uimage.image=[[[GlobalVariables class] UserInfo] objectAtIndex:0][0];
+         cell.Ulabel.text=[[[SideTableData class] UserInfo] objectAtIndex:0][1];
+         cell.Uimage.image=[[[SideTableData class] UserInfo] objectAtIndex:0][0];
      }
      else
      {
-         cell.Ulabel.text=[[[GlobalVariables class] UserInfo] objectAtIndex:indexPath.row][1];
-         cell.Uimage.image=[[[GlobalVariables class] UserInfo] objectAtIndex:indexPath.row][0];
+         cell.Ulabel.text=[[[SideTableData class] UserInfo] objectAtIndex:indexPath.row][1];
+         cell.Uimage.image=[[[SideTableData class] UserInfo] objectAtIndex:indexPath.row][0];
      }
     }
     else
-     cell.Ulabel.text=[[[GlobalVariables class] UserInfo] objectAtIndex:indexPath.row][0];
+     cell.Ulabel.text=[[[SideTableData class] UserInfo] objectAtIndex:indexPath.row][0];
     
     return cell;
 }

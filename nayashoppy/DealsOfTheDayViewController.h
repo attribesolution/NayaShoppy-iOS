@@ -11,7 +11,7 @@
 #import "Categories.h"
 #import "SpecificationListViewController.h"
 #import "ReviewViewController.h"
-
+#import "UserDefaults.h"
 @interface DealsOfTheDayViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UICollectionView *DealsOfTheDayCV;

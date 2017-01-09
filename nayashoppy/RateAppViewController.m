@@ -21,7 +21,7 @@
     [super viewDidLoad];
     [self ButtonsStyling];
     [self nav];
-    }
+}
 
 -(void) ButtonsStyling
 {
@@ -31,10 +31,9 @@
     SubmitButton.clipsToBounds = YES;
     [self.SubmitButton.backgroundColor greenColor];
     [Rating setFont:[UIFont fontWithName:@"fontello" size:30]];
-    [Rating setText:[NSString stringWithUTF8String:"ue801"]];
+    [Rating setText:[NSString stringWithUTF8String:"\ue801"]];
  
 }
-
 
 -(void) nav
 {

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GlobalVariables.h"
+#import "CashAndCouponsData.h"
 #import "CouponsCollectionViewCell.h"
 
 @interface CouponsVC : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>

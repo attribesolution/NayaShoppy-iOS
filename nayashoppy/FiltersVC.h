@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ApiParsing.h"
 
 @interface FiltersVC : UIViewController <UITableViewDataSource,UITableViewDelegate>
 

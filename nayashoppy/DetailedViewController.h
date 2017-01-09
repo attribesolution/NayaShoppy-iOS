@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ViewPagerController.h"
 #import "DealsOfTheDayViewController.h"
-#import "GlobalVariables.h"
 #import "AppDelegate.h"
 #import "CategoriesViewController.h"
 

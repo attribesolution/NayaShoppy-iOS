@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "CouponsCollectionViewCell.h"
-#import "GlobalVariables.h"
 #import "CouponsVC.h"
 #import "TableViewCell.h"
 #import "TopMenuVc.h"
