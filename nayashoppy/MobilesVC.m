@@ -10,6 +10,7 @@
 #import "ShareUtility.h"
 #import "singleton.h"
 #import "UIView+UIView_Customize.h"
+#import "AllProductModelview.h"
 
 static NSString *dealsCell = @"DealCell";
 static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
@@ -38,11 +39,37 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
     _page=[NSNumber numberWithInt:1];
      pg=1;
     [self navbar];
-    [self ApiData];
     [self registerCell];
+    [self activityIndicator];
     
+    [[AllProductModelview class]ApiData:_catId andBranch:_branchId andPage:_page andtag:0 Aproduct:allproducts Pproduct:popularproducts Aproductimg:allproductimg Pproductimg:popularproductimg ViewCon:@"MobileVc"];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self selector:@selector(triggerAction:) name:@"ReloadCollectionView" object:nil];
 }
 
+#pragma mark - Notification
+-(void) triggerAction:(NSNotification *) notification
+{
+    NSDictionary *dict = notification.userInfo;
+    if([[dict valueForKey:@"tag"]integerValue]==0)
+    {
+        allproducts= [dict valueForKey:@"allproducts"];
+        allproductimg= [dict valueForKey:@"allproductimg"];
+        [self.allProduct reloadData];
+        [activityInd1 stopAnimating];
+        self.AllPLoader.hidden=YES;
+    }
+    else{
+        
+        popularproducts= [dict valueForKey:@"popularproducts"];
+        popularproductimg= [dict valueForKey:@"popularproductimg"];
+        [self.PopularProduct reloadData];
+        [activityInd2 stopAnimating];
+        self.PPLoader.hidden=YES;
+    }
+   
+}
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
@@ -50,7 +77,7 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    if(collectionView.tag==100)
+    if(collectionView.tag==0)
     return allproducts.count;
     else
         return popularproducts.count;
@@ -60,7 +87,7 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
     
     cell = [collectionView dequeueReusableCellWithReuseIdentifier:dealsCell forIndexPath:indexPath];
 
-    if(collectionView.tag==100)
+    if(collectionView.tag==0)
     {   cobj=[allproducts objectAtIndex:indexPath.row];
         imgUrl=[[allproductimg objectAtIndex:indexPath.row]objectAtIndex:0];
         pg=1;
@@ -108,7 +135,7 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(8_0){
     
     NSInteger lastSectionIndex,lastRowIndex;
-    if(collectionView.tag==100)
+    if(collectionView.tag==0)
     {
     lastSectionIndex = [self.allProduct numberOfSections] - 1;
     lastRowIndex = [self.allProduct numberOfItemsInSection:lastSectionIndex] - 1;
@@ -120,7 +147,7 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
     if ((indexPath.section == lastSectionIndex) && (indexPath.row == lastRowIndex)) {
         int page=[_page intValue];
         _page=[NSNumber numberWithInt:page+1];
-       if(collectionView.tag==100)
+       if(collectionView.tag==0)
        {
            self.AllPLoader.frame=CGRectMake(self.allProduct.frame.size.width-50, self.AllPLoader.frame.origin.y, self.AllPLoader.frame.size.width, self.AllPLoader.frame.size.height);
            [activityInd1 startAnimating];
@@ -135,7 +162,7 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
             self.PPLoader.hidden=NO;
         }
         pg++;
-        [self ApiData];
+        [[AllProductModelview class]ApiData:_catId andBranch:_branchId andPage:_page andtag:(int)collectionView.tag Aproduct:allproducts Pproduct:popularproducts Aproductimg:allproductimg Pproductimg:popularproductimg ViewCon:@"MobileVc"];
     }
 }
 
@@ -236,81 +263,6 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
      [self.navigationItem setTitleView:[UIView titleView:self.title andImg:@"Logo" andy:logoY]];
      self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
      self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
-    
-}
-
--(void) ApiData
-{
-    if([self.page integerValue]==1)
-    [self activityIndicator];
-    ApiParsing * mainVC = [[ApiParsing alloc] init];
-    if(tag==100 || allproducts.count==0)
-    {
-    [mainVC getAllProducts:^(NSArray *respone,NSArray *img) {
-        
-         i=1;
-       [self ReLoadArray:respone andvalue:img];
-        self.AllPLoader.hidden=YES;
-        [activityInd1 stopAnimating];
-        [self.allProduct reloadData];
-        
-        
-    } failure:^(NSError *error, NSString *message) {
-        NSLog(@"%@",error);
-    }
-     catId:_catId branchId:_branchId page:_page
-     ];
-    }
-    if(tag==200 || popularproducts.count==0)
-    {
-    [mainVC getPopularProducts:^(NSArray *respone,NSArray *img) {
-        
-        i=2;
-        [self ReLoadArray:respone andvalue:img];
-        self.PPLoader.hidden=YES;
-        [activityInd2 stopAnimating];
-        [self.PopularProduct reloadData];
-        
-        
-    } failure:^(NSError *error, NSString *message) {
-        NSLog(@"%@",error);
-    }
-     catId:_catId branchId:_branchId page:_page
-     ];
-    }
-}
--(void) ReLoadArray:(NSArray *)response andvalue:(NSArray *)img
-{
-    if(allproducts.count==0 && i==1)
-    {
-        allproductimg=[img copy];
-        allproducts=[response copy];
-    }
-    else if(popularproducts.count==0 && i==2)
-    {
-        popularproductimg=[img copy];
-        popularproducts=[response copy];
-    }
-    else{
-        
-        NSArray *newArray,*newArrayimg;
-        newArrayimg=[[NSArray alloc]init];
-        newArray=[[NSArray alloc]init];
-        if(i==1)
-        {
-            newArray=[allproductimg arrayByAddingObjectsFromArray:img];
-            allproductimg=[newArray copy];
-            newArrayimg=[allproducts arrayByAddingObjectsFromArray:response];
-            allproducts=[newArrayimg copy];
-        }
-        else
-        {
-            newArray=[popularproductimg arrayByAddingObjectsFromArray:img];
-            popularproductimg=[newArray copy];
-            newArrayimg=[popularproducts arrayByAddingObjectsFromArray:response];
-            popularproducts=[newArrayimg copy];
-        }
-    }
     
 }
 

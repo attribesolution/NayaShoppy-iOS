@@ -135,7 +135,6 @@
     [self LoadData];
     Categories *cobj=[[catid objectAtIndex:indexPath.row] objectAtIndex:indexPath.subRow-1];
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ParseApi" object:nil];
     if([self.mobileind integerValue]==1 && indexPath.row==0)
     {
         UIStoryboard * pStoryboard = [UIStoryboard storyboardWithName:@"Mobiles" bundle:[NSBundle mainBundle]];

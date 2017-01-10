@@ -72,7 +72,7 @@ didSignInForUser:(GIDGoogleUser *)user
     
     singleton *obj=[singleton sharedManager];
     
-    NSString *idToken = user.authentication.idToken;
+  //  NSString *idToken = user.authentication.idToken;
     NSString *fullName = user.profile.name;
 
     if ([GIDSignIn sharedInstance].currentUser.profile.hasImage)

@@ -15,6 +15,7 @@
 #import "ShareUtility.h"
 #import "singleton.h"
 #import "ProductViewController.h"
+#import "AllProductModelview.h"
 
 static NSString *AKCollectionCell = @"CollectionCell";
 static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
@@ -26,6 +27,7 @@ static NSString *AKTabelledCollectionCell = @"TabelledCollectionCell";
     Categories *cobj;
     CollectionCell *cell;
     TabelledCollectionCell *Tcell;
+    ProductViewController *pvc;
     NSMutableArray *allproducts,*allproductimg,*popularproductimg,*popularproducts;
     NSString *imgUrl;
     UIImage *wishimg;
@@ -52,14 +54,36 @@ Boolean showInGridView = false;
     popularproducts=[[NSMutableArray alloc]init];
     obj=[singleton sharedManager];
     self.FilterView.hidden=YES;
-    [self ApiParsing];
+   // [self ApiParsing];
     [self registerCell];
     [self setLayout];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(incomingNotification:) name:@"ParseApi" object:nil];
+    [self activityInd];
+    pvc=(ProductViewController *)[self.navigationController topViewController];
+    [[AllProductModelview class]ApiData:pvc.catId andBranch:pvc.branchId andPage:_page andtag:(int)[tabindex integerValue] Aproduct:allproducts Pproduct:popularproducts Aproductimg:allproductimg Pproductimg:popularproductimg ViewCon:@"ProductVc"];
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self selector:@selector(triggerAction:) name:@"ReloadCollectionView" object:nil];
 }
 
-- (void) incomingNotification:(NSNotification *)notification{
-    [self ApiParsing];
+#pragma mark - Notification
+-(void) triggerAction:(NSNotification *) notification
+{
+    NSDictionary *dict = notification.userInfo;
+    if([[dict valueForKey:@"tag"]integerValue]==0)
+    {
+        allproducts= [dict valueForKey:@"allproducts"];
+        allproductimg= [dict valueForKey:@"allproductimg"];
+      
+    }
+    else{
+        
+        popularproducts= [dict valueForKey:@"popularproducts"];
+        popularproductimg= [dict valueForKey:@"popularproductimg"];
+    }
+    
+    self.Loader.hidden=YES;
+    [activityIndicatorView stopAnimating];
+    [self.collectionView reloadData];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -197,7 +221,9 @@ Boolean showInGridView = false;
         _page=[NSNumber numberWithInt:pg+1];
         self.Loader.frame=CGRectMake(self.Loader.frame.origin.x, self.FilterView.frame.origin.y-50, self.Loader.frame.size.width, self.Loader.frame.size.height);
         self.Loader.hidden=NO;
-        [self ApiParsing];
+        [activityIndicatorView startAnimating];
+        pvc=(ProductViewController *)[self.navigationController topViewController];
+        [[AllProductModelview class]ApiData:pvc.catId andBranch:pvc.branchId andPage:_page andtag:(int)[tabindex integerValue] Aproduct:allproducts Pproduct:popularproducts Aproductimg:allproductimg Pproductimg:popularproductimg ViewCon:@"ProductVc"];
     }
 }
 
@@ -255,82 +281,6 @@ Boolean showInGridView = false;
     [self.navigationController pushViewController:dvc animated:YES];
 }
 
--(void) ApiParsing
-{
-   [self activityInd];
-   ProductViewController *pvc=(ProductViewController *)[self.navigationController topViewController];
-    
-   ApiParsing * mainVC = [[ApiParsing alloc] init];
-   if([tabindex integerValue]==0)
-    {
-        [mainVC getAllProducts:^(NSMutableArray *response,NSMutableArray *img) {
-            
-            i=1;
-            [self ReLoadArray:response andvalue:img];
-             self.FilterView.hidden=NO;
-            
-        } failure:^(NSError *error, NSString *message) {
-            NSLog(@"%@",error);
-        }
-          catId:pvc.catId branchId:pvc.branchId page:_page
-         ];
-        
-    }
-    else
-    {
-        [mainVC getPopularProducts:^(NSMutableArray *response,NSMutableArray *img) {
-            
-            i=2;
-            [self ReLoadArray:response andvalue:img];
-             self.FilterView.hidden=YES;
-            
-            
-        } failure:^(NSError *error, NSString *message) {
-            NSLog(@"%@",error);
-        }
-          catId:pvc.catId branchId:pvc.branchId page:_page
-         ];
-    }
-}
-
--(void) ReLoadArray:(NSMutableArray *)response andvalue:(NSMutableArray *)img
-{
-    if(allproducts.count==0 && i==1)
-    {
-        allproductimg=[img copy];
-        allproducts=[response copy];
-    }
-    else if(popularproducts.count==0 && i==2)
-    {
-        popularproductimg=[img copy];
-        popularproducts=[response copy];
-    }
-    else{
-        
-        NSArray *newArray,*newArrayimg;
-        newArrayimg=[[NSArray alloc]init];
-        newArray=[[NSArray alloc]init];
-        if(i==1)
-        {
-            newArray=[allproductimg arrayByAddingObjectsFromArray:img];
-            allproductimg=[newArray copy];
-            newArrayimg=[allproducts arrayByAddingObjectsFromArray:response];
-            allproducts=[newArrayimg copy];
-        }
-        else
-        {
-            newArray=[popularproductimg arrayByAddingObjectsFromArray:img];
-            popularproductimg=[newArray copy];
-            newArrayimg=[popularproducts arrayByAddingObjectsFromArray:response];
-            popularproducts=[newArrayimg copy];
-        }
-    }
-
-    self.Loader.hidden=YES;
-    [activityIndicatorView stopAnimating];
-    [self.collectionView reloadData];
-
-}
 
 -(void) activityInd
 {

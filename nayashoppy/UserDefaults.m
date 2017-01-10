@@ -9,7 +9,6 @@
 
 #import "UserDefaults.h"
 
-//UIImage *productImg=nil;
 NSMutableArray *categories=nil,*myProducts=nil,*myProductsImg=nil;
 NSUserDefaults *defaults;
 

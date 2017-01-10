@@ -138,6 +138,7 @@
 		CF90F72A1DC348E400C8AB2B /* NewArrivalsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF90F7291DC348E400C8AB2B /* NewArrivalsStoryboard.storyboard */; };
 		CF90F72E1DC3498200C8AB2B /* NewArrivalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF90F72D1DC3498200C8AB2B /* NewArrivalCell.m */; };
 		CF90F7311DC349DE00C8AB2B /* NewArrivalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CF90F7301DC349DE00C8AB2B /* NewArrivalVC.m */; };
+		CF93B54F1E24ABF200B0400B /* AllProductModelview.m in Sources */ = {isa = PBXBuildFile; fileRef = CF93B54E1E24ABF200B0400B /* AllProductModelview.m */; };
 		CF9607CC1DDB255900899424 /* Features.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9607CB1DDB255900899424 /* Features.m */; };
 		CF9607CF1DDB261F00899424 /* FeaturesDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9607CE1DDB261F00899424 /* FeaturesDetail.m */; };
 		CF9EACAE1DE800FD003066FA /* ItemValue.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EACAD1DE800FD003066FA /* ItemValue.m */; };
@@ -392,6 +393,8 @@
 		CF90F72D1DC3498200C8AB2B /* NewArrivalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewArrivalCell.m; sourceTree = "<group>"; };
 		CF90F72F1DC349DE00C8AB2B /* NewArrivalVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewArrivalVC.h; sourceTree = "<group>"; };
 		CF90F7301DC349DE00C8AB2B /* NewArrivalVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewArrivalVC.m; sourceTree = "<group>"; };
+		CF93B54D1E24ABF200B0400B /* AllProductModelview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllProductModelview.h; sourceTree = "<group>"; };
+		CF93B54E1E24ABF200B0400B /* AllProductModelview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllProductModelview.m; sourceTree = "<group>"; };
 		CF9607CA1DDB255900899424 /* Features.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Features.h; sourceTree = "<group>"; };
 		CF9607CB1DDB255900899424 /* Features.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Features.m; sourceTree = "<group>"; };
 		CF9607CD1DDB261F00899424 /* FeaturesDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturesDetail.h; sourceTree = "<group>"; };
@@ -664,6 +667,7 @@
 		CF1E46801DC9D73B001B9D62 /* Model Class */ = {
 			isa = PBXGroup;
 			children = (
+				CF93B5501E24FFF500B0400B /* ProductData */,
 				CF754B0B1E23A0600094F560 /* UserDefaults */,
 				CF754B0A1E23A05E0094F560 /* SideTableData */,
 				CF754B091E23A05B0094F560 /* CashAndCoupons */,
@@ -753,8 +757,8 @@
 			children = (
 				CF7ACB611DA4EE1400DF3BD7 /* MainView */,
 				CF60D2931DD46F2200D6EFBE /* SpecificationViewController */,
-				CF5C75041DB62CA5008475D1 /* SideMenu */,
 				CF6927091DBE281800B85F64 /* UserSideMenu */,
+				CF5C75041DB62CA5008475D1 /* SideMenu */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -1168,6 +1172,15 @@
 				CF90F7271DC32DF000C8AB2B /* TopmenuCell.m */,
 			);
 			name = CategorieCollCell;
+			sourceTree = "<group>";
+		};
+		CF93B5501E24FFF500B0400B /* ProductData */ = {
+			isa = PBXGroup;
+			children = (
+				CF93B54D1E24ABF200B0400B /* AllProductModelview.h */,
+				CF93B54E1E24ABF200B0400B /* AllProductModelview.m */,
+			);
+			name = ProductData;
 			sourceTree = "<group>";
 		};
 		CFA1B28B1DFFE5F1009D40D0 /* EmptyView */ = {
@@ -1684,6 +1697,7 @@
 				CF5C75021DB62A84008475D1 /* SideMenu.m in Sources */,
 				CFC20F0B1DD9BD630050E5B0 /* SproductDetail.m in Sources */,
 				CF86A45C1DD5B14900F2F57A /* SpecificationCell.m in Sources */,
+				CF93B54F1E24ABF200B0400B /* AllProductModelview.m in Sources */,
 				CF86A4511DD5A2B600F2F57A /* StoreCell.m in Sources */,
 				CFF8A7701DC1E47B00FB633B /* SlidingImages.m in Sources */,
 				CF81BA891DBA07F800ADE575 /* Products.m in Sources */,
